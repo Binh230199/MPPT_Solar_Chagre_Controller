@@ -1,0 +1,13 @@
+/*
+ * StateBase.h
+ *
+ *  Created on: May 13, 2024
+ *      Author: This PC
+ */
+
+#ifndef STATEMACHINE_STATEBASE_H_
+#define STATEMACHINE_STATEBASE_H_
+
+
+
+#endif /* STATEMACHINE_STATEBASE_H_ */

@@ -1,0 +1,27 @@
+/*
+ * Monitor.cpp
+ *
+ *  Created on: May 13, 2024
+ *      Author: This PC
+ */
+
+#include "Monitor.h"
+
+namespace blib
+{
+    Monitor::Monitor()
+    {
+        showVersion();
+    }
+    Monitor::~Monitor()
+    {
+
+    }
+
+    void showVersion()
+    {
+        LOGI("MPPT INITIALIZED");
+        LOGI("FIRMWARE V1.00");
+    }
+}
+

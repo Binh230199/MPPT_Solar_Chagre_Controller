@@ -1,0 +1,33 @@
+/*
+ * Monitor.h
+ *
+ *  Created on: May 13, 2024
+ *      Author: This PC
+ */
+
+#ifndef MONITOR_H_
+#define MONITOR_H_
+
+#include <string>
+
+#include "Singleton.h"
+#include "StateMachineBase.h"
+#include "Log.h"
+
+namespace blib
+{
+    // Monitor is a derived state machine
+    class Monitor : public blib::dp::StateMachineBase<Monitor>
+    {
+        public:
+            Monitor();
+            virtual ~Monitor();
+            void showMenu();
+
+            void showVersion();
+        private:
+
+    };
+}
+
+#endif /* MONITOR_H_ */

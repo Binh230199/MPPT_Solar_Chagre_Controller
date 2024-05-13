@@ -1,0 +1,16 @@
+/*
+ * StateMachineBase.h
+ *
+ *  Created on: May 13, 2024
+ *      Author: This PC
+ */
+
+#ifndef STATEMACHINE_STATEMACHINEBASE_H_
+#define STATEMACHINE_STATEMACHINEBASE_H_
+
+namespace blib
+{
+
+}    // namespace blib
+
+#endif /* STATEMACHINE_STATEMACHINEBASE_H_ */

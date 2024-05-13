@@ -1,17 +1,19 @@
-21:01:41 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Controller ****
+22:37:26 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Controller ****
 make -j8 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-g++ -o "MPPT_Solar_Charge_Controller.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\PROJECT_MPPT\MPPT_Solar_Chagre_Controller\MPPT_Solar_Charge_Controller\STM32F407VGTX_FLASH.ld" -Wl,-Map="MPPT_Solar_Charge_Controller.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: MPPT_Solar_Charge_Controller.elf
  
 arm-none-eabi-size   MPPT_Solar_Charge_Controller.elf 
 arm-none-eabi-objdump -h -S  MPPT_Solar_Charge_Controller.elf  > "MPPT_Solar_Charge_Controller.list"
+arm-none-eabi-objcopy  -O binary  MPPT_Solar_Charge_Controller.elf  "MPPT_Solar_Charge_Controller.bin"
    text	   data	    bss	    dec	    hex	filename
-  10756	    104	   3184	  14044	   36dc	MPPT_Solar_Charge_Controller.elf
+  11084	    104	   3184	  14372	   3824	MPPT_Solar_Charge_Controller.elf
 Finished building: default.size.stdout
  
 Finished building: MPPT_Solar_Charge_Controller.list
  
+Finished building: MPPT_Solar_Charge_Controller.bin
+ 
 
-21:01:43 Build Finished. 0 errors, 0 warnings. (took 2s.103ms)
+22:37:30 Build Finished. 0 errors, 0 warnings. (took 4s.6ms)
 

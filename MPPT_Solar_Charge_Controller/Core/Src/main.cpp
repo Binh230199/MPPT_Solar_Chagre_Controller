@@ -22,7 +22,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Log.h"
-
+#include "Button.h"
+#include "Monitor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,26 +64,52 @@ static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
 {
+    uint32_t timedelay = 160000;
+    for (volatile uint32_t i = 0; i < timedelay; i++);
+
+    volatile uint32_t i = 0;
+
     if (GPIO_pin == BUT_LEFT_Pin)
     {
         LOGI("Button Left pin");
+        while ((HAL_GPIO_ReadPin(BUT_LEFT_GPIO_Port, GPIO_pin) == GPIO_PIN_RESET) & (i < (timedelay)))
+        {
+            i++;
+        }
     }
     else if (GPIO_pin == BUT_RIGHT_Pin)
     {
         LOGI("Button Right pin");
+
+        while ((HAL_GPIO_ReadPin(BUT_RIGHT_GPIO_Port, GPIO_pin) == GPIO_PIN_RESET) & (i < (timedelay)))
+        {
+            i++;
+        }
     }
     else if (GPIO_pin == BUT_BACK_Pin)
     {
         LOGI("Button Back pin");
+
+        while ((HAL_GPIO_ReadPin(BUT_BACK_GPIO_Port, GPIO_pin) == GPIO_PIN_RESET) & (i < (timedelay)))
+        {
+            i++;
+        }
     }
     else if (GPIO_pin == BUT_SELECT_Pin)
     {
         LOGI("Button Select pin");
+
+        while ((HAL_GPIO_ReadPin(BUT_SELECT_GPIO_Port, GPIO_pin) == GPIO_PIN_RESET) & (i < (timedelay)))
+        {
+            i++;
+        }
     }
     else
     {
         LOGI("Undefined Exti Signal");
     }
+
+    for (volatile uint32_t i = 0; i < timedelay; i++);
 }
 /* USER CODE END PFP */
 
@@ -127,6 +154,8 @@ int main(void)
     LOGI("MPPT SOLAR CHARGE CONTROLLER");
     LOGI("DESIGNED BY ");
     LOGI("STARTING DEVICE...");
+
+    blib::Monitor monitor;
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -136,6 +165,7 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
+//        monitor.showMenu();
     }
     /* USER CODE END 3 */
 }

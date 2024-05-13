@@ -1,0 +1,21 @@
+/*
+ * Button.h
+ *
+ *  Created on: May 13, 2024
+ *      Author: This PC
+ */
+
+#ifndef BUTTON_H_
+#define BUTTON_H_
+
+#include "Singleton.h"
+
+namespace blib
+{
+    class Button : public Singleton<Button>
+    {
+
+    };
+}
+
+#endif /* BUTTON_H_ */

@@ -1,0 +1,21 @@
+/*
+ * Monitor.cpp
+ *
+ *  Created on: May 13, 2024
+ *      Author: This PC
+ */
+
+#include "Monitor.h"
+
+namespace blib
+{
+    Monitor::Monitor()
+    {
+
+    }
+    Monitor::~Monitor()
+    {
+
+    }
+}
+

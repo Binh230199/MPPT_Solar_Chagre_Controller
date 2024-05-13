@@ -1,0 +1,23 @@
+/*
+ * Monitor.h
+ *
+ *  Created on: May 13, 2024
+ *      Author: This PC
+ */
+
+#ifndef MONITOR_H_
+#define MONITOR_H_
+
+namespace blib
+{
+    class Monitor : public Singleton<Monitor>
+    {
+        public:
+            Monitor();
+            virtual ~Monitor();
+
+        private:
+    };
+}
+
+#endif /* MONITOR_H_ */
