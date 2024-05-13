@@ -1,0 +1,5 @@
+../Core/Src/Log.h:48:25:static void blib::Logger::print(const char*)	16	static
+../Core/Src/main.cpp:125:6:void SystemClock_Config()	88	static,ignoring_inline_asm
+../Core/Src/main.cpp:409:6:void Error_Handler()	0	static,ignoring_inline_asm
+../Core/Src/Log.h:35:25:) [with Args = {const char*, int, const char*}]	32	static
+../Core/Src/main.cpp:76:5:int main()	96	static,ignoring_inline_asm

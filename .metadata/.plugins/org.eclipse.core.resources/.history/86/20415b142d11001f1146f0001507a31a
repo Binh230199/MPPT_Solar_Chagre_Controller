@@ -1,0 +1,29 @@
+/*
+ * Log.h
+ *
+ *  Created on: May 13, 2024
+ *      Author: This PC
+ */
+
+#ifndef LOG_LOG_H_
+#define LOG_LOG_H_
+
+#define LOG_ENABLE
+
+#ifdef LOG_ENABLE
+#define LOG(msg, ...) Logger::Log(msg, ##__VA_ARGS__)
+#else
+#define LOG(msg, ...)
+#endif
+
+#define LOG_HDR "[%s:%d][%s]: "
+#define LOG_ARGS __FILE_NAME__, __LINE__, __FUNCTION__
+
+#define LOGI(msg, args...) LOG(LOG_HDR msg, LOG_ARGS, ##args)
+
+class BLogger
+{
+    private:
+
+};
+#endif /* LOG_LOG_H_ */
