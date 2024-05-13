@@ -79,10 +79,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
     {
         LOGI("Button Select pin");
     }
-    else
-    {
-        LOGI("Undefined Exti Signal");
-    }
+
 }
 /* USER CODE END PFP */
 

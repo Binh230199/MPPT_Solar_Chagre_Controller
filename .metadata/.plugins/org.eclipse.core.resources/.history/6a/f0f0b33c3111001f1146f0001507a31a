@@ -65,24 +65,21 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
 {
     if (GPIO_pin == BUT_LEFT_Pin)
     {
-        LOGI("Button Left pin");
+        LOGI("Left pin");
     }
     else if (GPIO_pin == BUT_RIGHT_Pin)
     {
-        LOGI("Button Right pin");
+        LOGI("Right pin");
     }
     else if (GPIO_pin == BUT_BACK_Pin)
     {
-        LOGI("Button Back pin");
+        LOGI("Back pin");
     }
     else if (GPIO_pin == BUT_SELECT_Pin)
     {
-        LOGI("Button Select pin");
+        LOGI("Select pin");
     }
-    else
-    {
-        LOGI("Undefined Exti Signal");
-    }
+
 }
 /* USER CODE END PFP */
 

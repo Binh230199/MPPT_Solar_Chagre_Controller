@@ -61,29 +61,7 @@ static void MX_I2C1_Init(void);
 static void MX_RTC_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
-{
-    if (GPIO_pin == BUT_LEFT_Pin)
-    {
-        LOGI("Button Left pin");
-    }
-    else if (GPIO_pin == BUT_RIGHT_Pin)
-    {
-        LOGI("Button Right pin");
-    }
-    else if (GPIO_pin == BUT_BACK_Pin)
-    {
-        LOGI("Button Back pin");
-    }
-    else if (GPIO_pin == BUT_SELECT_Pin)
-    {
-        LOGI("Button Select pin");
-    }
-    else
-    {
-        LOGI("Undefined Exti Signal");
-    }
-}
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
