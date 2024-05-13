@@ -1,0 +1,30 @@
+/*
+ * Button.cpp
+ *
+ *  Created on: May 13, 2024
+ *      Author: This PC
+ */
+
+#include "Button.h"
+
+namespace blib
+{
+    Button::Button()
+    {
+
+    }
+    Button::~Button()
+    {
+
+    }
+    void Button::setLatestPressedButton(const uint8_t button)
+    {
+        mLatestPressedButton = button;
+    }
+    uint8_t Button::getLatestPressedButton() const
+    {
+
+    }
+
+}    // namespace blib
+

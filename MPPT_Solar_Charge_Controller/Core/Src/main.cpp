@@ -64,7 +64,10 @@ static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
 {
-    uint32_t timedelay = 160000;
+    GPIO_TypeDef *pGPIOx = nullptr;
+    static blib::Button::ButtonName lastedPressButton = blib::Button::ButtonName::UNDEFINED;
+    uint32_t timedelay = 160000U;
+
     for (volatile uint32_t i = 0; i < timedelay; i++);
 
     volatile uint32_t i = 0;
@@ -72,41 +75,40 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
     if (GPIO_pin == BUT_LEFT_Pin)
     {
         LOGI("Button Left pin");
-        while ((HAL_GPIO_ReadPin(BUT_LEFT_GPIO_Port, GPIO_pin) == GPIO_PIN_RESET) & (i < (timedelay)))
-        {
-            i++;
-        }
+        lastedPressButton = blib::Button::ButtonName::LEFT;
+        pGPIOx = BUT_LEFT_GPIO_Port;
     }
     else if (GPIO_pin == BUT_RIGHT_Pin)
     {
         LOGI("Button Right pin");
-
-        while ((HAL_GPIO_ReadPin(BUT_RIGHT_GPIO_Port, GPIO_pin) == GPIO_PIN_RESET) & (i < (timedelay)))
-        {
-            i++;
-        }
+        lastedPressButton = blib::Button::ButtonName::RIGHT;
+        pGPIOx = BUT_RIGHT_GPIO_Port;
     }
     else if (GPIO_pin == BUT_BACK_Pin)
     {
         LOGI("Button Back pin");
-
-        while ((HAL_GPIO_ReadPin(BUT_BACK_GPIO_Port, GPIO_pin) == GPIO_PIN_RESET) & (i < (timedelay)))
-        {
-            i++;
-        }
+        lastedPressButton = blib::Button::ButtonName::BACK;
+        pGPIOx = BUT_BACK_GPIO_Port;
     }
     else if (GPIO_pin == BUT_SELECT_Pin)
     {
         LOGI("Button Select pin");
-
-        while ((HAL_GPIO_ReadPin(BUT_SELECT_GPIO_Port, GPIO_pin) == GPIO_PIN_RESET) & (i < (timedelay)))
-        {
-            i++;
-        }
+        lastedPressButton = blib::Button::ButtonName::SELECT;
+        pGPIOx = BUT_SELECT_GPIO_Port;
     }
     else
     {
         LOGI("Undefined Exti Signal");
+    }
+
+    blib::Button::getInstance().setLatestPressedButton(lastedPressButton);
+    blib::Button::getInstance().handleSignal();
+    if (pGPIOx != nullptr)
+    {
+        while ((HAL_GPIO_ReadPin(pGPIOx, GPIO_pin) == GPIO_PIN_RESET) & (i < (timedelay)))
+        {
+            i++;
+        }
     }
 
     for (volatile uint32_t i = 0; i < timedelay; i++);
@@ -165,7 +167,7 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-//        monitor.showMenu();
+        monitor.showMenu();
     }
     /* USER CODE END 3 */
 }
@@ -199,7 +201,8 @@ void SystemClock_Config(void)
 
     /** Initializes the CPU, AHB and APB buses clocks
      */
-    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1
+            | RCC_CLOCKTYPE_PCLK2;
     RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
     RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
     RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
@@ -431,7 +434,8 @@ static void MX_GPIO_Init(void)
     __HAL_RCC_GPIOB_CLK_ENABLE();
 
     /*Configure GPIO pin Output Level */
-    HAL_GPIO_WritePin(GPIOD, LED_INDICATE_Pin | FAN_Pin | BUCK_ENABLE_Pin | ANTI_BACKFLOW_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOD, LED_INDICATE_Pin | FAN_Pin | BUCK_ENABLE_Pin | ANTI_BACKFLOW_Pin,
+            GPIO_PIN_RESET);
 
     /*Configure GPIO pins : BUT_LEFT_Pin BUT_RIGHT_Pin BUT_BACK_Pin BUT_SELECT_Pin */
     GPIO_InitStruct.Pin = BUT_LEFT_Pin | BUT_RIGHT_Pin | BUT_BACK_Pin | BUT_SELECT_Pin;

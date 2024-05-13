@@ -1,8 +1,25 @@
 ../Application/Monitor.cpp:17:5:blib::Monitor::~Monitor()	0	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine/StateMachineBase.h:28:25:blib::dp::StateMachineBase<T>::~StateMachineBase() [with T = blib::Monitor]	0	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine/StateMachineBase.h:28:25:blib::dp::StateMachineBase<T>::~StateMachineBase() [with T = blib::Monitor]	8	static
 ../Application/Monitor.cpp:17:5:virtual blib::Monitor::~Monitor()	8	static
 ../MyDriver/Log.h:48:25:static void blib::Logger::print(const char*)	16	static
+../Application/Monitor.cpp:46:10:void blib::Monitor::showSetting()	0	static
+../Application/Monitor.cpp:105:10:void blib::Monitor::setSettingMode(bool)	0	static
+../Application/Monitor.cpp:109:10:bool blib::Monitor::getSetttingMode() const	0	static
+../Application/Monitor.cpp:114:10:void blib::Monitor::setFactoryReset(bool)	0	static
+../Application/Monitor.cpp:118:10:bool blib::Monitor::getFactoryReset() const	0	static
+../Application/Monitor.cpp:122:10:void blib::Monitor::setConfirmFactoryReset(bool)	0	static
+../Application/Monitor.cpp:126:10:bool blib::Monitor::getConfirmFactoryReset() const	0	static
+../Application/Monitor.cpp:131:10:void blib::Monitor::setSettingLevel(blib::Monitor::SettingLevel)	0	static
+../Application/Monitor.cpp:135:27:blib::Monitor::SettingLevel blib::Monitor::getSettingLevel() const	0	static
+../Application/Monitor.cpp:140:10:void blib::Monitor::setDisplayLevel(blib::Monitor::DisplayLevel)	0	static
+../Application/Monitor.cpp:144:27:blib::Monitor::DisplayLevel blib::Monitor::getDisplayLevel() const	0	static
+../Application/Monitor.cpp:149:10:void blib::Monitor::showDisplayLevel1()	0	static
+../Application/Monitor.cpp:153:10:void blib::Monitor::showDisplayLevel2()	0	static
+../Application/Monitor.cpp:157:10:void blib::Monitor::showDisplayLevel3()	0	static
+../Application/Monitor.cpp:161:10:void blib::Monitor::showDisplayLevel4()	0	static
 ../MyDriver/Log.h:35:25:) [with Args = {const char*, int, const char*}]	32	static
-../Application/Monitor.cpp:22:10:void blib::Monitor::showVersion()	8	static
+../Application/Monitor.cpp:23:10:void blib::Monitor::showInit()	8	static
 ../Application/Monitor.cpp:13:5:blib::Monitor::Monitor()	8	static
+../Application/Monitor.cpp:165:10:void blib::Monitor::showScreenChooseSettingMode()	8	static
+../Application/Monitor.cpp:170:10:void blib::Monitor::showScreenFactoryReset()	8	static
+../Application/Monitor.cpp:75:10:void blib::Monitor::showDisplay()	0	static
+../Application/Monitor.cpp:31:10:void blib::Monitor::showMenu()	0	static

@@ -8,18 +8,29 @@
 #ifndef BUTTON_H_
 #define BUTTON_H_
 
+#include <cstdint>
+
 #include "Singleton.h"
+#include "Monitor.h"
 
 namespace blib
 {
-    class ButtonHandler : public blib::dp::Singleton<ButtonHandler>
+    class Button : public blib::dp::Singleton<Button>
     {
         public:
-            ButtonHandler();
-            virtual ~ButtonHandler();
+            enum class ButtonName
+            {
+                UNDEFINED = 0, LEFT, RIGHT, BACK, SELECT
+            };
 
+            Button();
+            virtual ~Button();
+
+            void setLatestPressedButton(const ButtonName button);
+            ButtonName getLatestPressedButton() const;
+            void handleSignal();
         private:
-            uint8_t m;
+            ButtonName mLatestPressedButton;
     };
 }
 

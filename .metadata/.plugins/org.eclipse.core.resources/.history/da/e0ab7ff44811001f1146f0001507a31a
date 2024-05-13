@@ -1,0 +1,64 @@
+/*
+ * Monitor.cpp
+ *
+ *  Created on: May 13, 2024
+ *      Author: This PC
+ */
+
+#include "Monitor.h"
+#include "Button.h"
+
+namespace blib
+{
+    Monitor::Monitor() : StateMachineBase()
+    {
+        showInit();
+    }
+    Monitor::~Monitor()
+    {
+
+    }
+
+    // Show when begin
+    void Monitor::showInit()
+    {
+        LOGI("MPPT INITIALIZED");
+        LOGI("FIRMWARE V1.00");
+        HAL_Delay(1500);
+    }
+
+    // Show when button pressed
+    void Monitor::showMenu()
+    {
+        //TODO: need to add check is permission shown
+
+        // Check whether in setting mode or not
+        if (getSetttingMode())
+        {
+
+        }
+        else    // Not in setting mode - Display mode
+        {
+
+        }
+    }
+
+    void Monitor::setSettingMode(const bool val)
+    {
+        mSettingMode = val;
+    }
+    bool Monitor::getSetttingMode() const
+    {
+        return mSettingMode;
+    }
+
+    void Monitor::setSettingLevel(const uint8_t val)
+    {
+        mSettingLevel = val;
+    }
+    uint8_t Monitor::getSettingLevel() const
+    {
+        return mSettingLevel;
+    }
+}
+

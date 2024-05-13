@@ -1,0 +1,48 @@
+/*
+ * Monitor.cpp
+ *
+ *  Created on: May 13, 2024
+ *      Author: This PC
+ */
+
+#include "Monitor.h"
+#include "Button.h"
+
+namespace blib
+{
+    Monitor::Monitor() : StateMachineBase()
+    {
+        showVersion();
+    }
+    Monitor::~Monitor()
+    {
+
+    }
+
+    void Monitor::showVersion()
+    {
+        LOGI("MPPT INITIALIZED");
+        LOGI("FIRMWARE V1.00");
+    }
+
+//    void show
+
+    void Monitor::setSettingMode(const bool val)
+    {
+        mSettingMode = val;
+    }
+    bool Monitor::getSetttingMode() const
+    {
+        return mSettingMode;
+    }
+
+    void Monitor::setSettingLevel(const uint8_t val)
+    {
+        mSettingLevel = val;
+    }
+    uint8_t Monitor::getSettingLevel() const
+    {
+    return mSettingLevel
+}
+}
+
