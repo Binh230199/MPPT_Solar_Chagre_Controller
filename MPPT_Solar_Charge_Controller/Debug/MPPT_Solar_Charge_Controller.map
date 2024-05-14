@@ -4683,12 +4683,12 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x0000000008000630       0x20 ./Application/Monitor.o
                 0x0000000008000630                blib::Monitor::Monitor()
                 0x0000000008000630                blib::Monitor::Monitor()
- .text._ZN4blib7Monitor27showScreenChooseSettingModeEv
+ .text._ZN4blib7Monitor27showDisplayChooseSettingModeEv
                 0x0000000008000650       0x2c ./Application/Monitor.o
-                0x0000000008000650                blib::Monitor::showScreenChooseSettingMode()
- .text._ZN4blib7Monitor22showScreenFactoryResetEv
+                0x0000000008000650                blib::Monitor::showDisplayChooseSettingMode()
+ .text._ZN4blib7Monitor22showDisplayFactoryResetEv
                 0x000000000800067c       0x84 ./Application/Monitor.o
-                0x000000000800067c                blib::Monitor::showScreenFactoryReset()
+                0x000000000800067c                blib::Monitor::showDisplayFactoryReset()
  .text._ZN4blib7Monitor11showDisplayEv
                 0x0000000008000700       0x14 ./Application/Monitor.o
                 0x0000000008000700                blib::Monitor::showDisplay()
@@ -5046,9 +5046,9 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x0000000008002a10        0x8 ./Application/Monitor.o
  .rodata._ZN4blib7Monitor8showInitEv.str1.1
                 0x0000000008002a18       0x4f ./Application/Monitor.o
- .rodata._ZN4blib7Monitor27showScreenChooseSettingModeEv.str1.1
+ .rodata._ZN4blib7Monitor27showDisplayChooseSettingModeEv.str1.1
                 0x0000000008002a67       0x55 ./Application/Monitor.o
- .rodata._ZN4blib7Monitor22showScreenFactoryResetEv.str1.1
+ .rodata._ZN4blib7Monitor22showDisplayFactoryResetEv.str1.1
                 0x0000000008002abc       0x80 ./Application/Monitor.o
  .rodata._ZTVN4blib7MonitorE
                 0x0000000008002b3c       0x10 ./Application/Monitor.o

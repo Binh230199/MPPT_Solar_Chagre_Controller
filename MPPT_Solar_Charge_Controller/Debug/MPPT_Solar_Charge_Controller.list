@@ -552,24 +552,24 @@ Disassembly of section .text:
  800064a:	bf00      	nop
  800064c:	08002b44 	.word	0x08002b44
 
-08000650 <_ZN4blib7Monitor27showScreenChooseSettingModeEv>:
+08000650 <_ZN4blib7Monitor27showDisplayChooseSettingModeEv>:
     void Monitor::showDisplayLevel4()
     {
 
     }
-    void Monitor::showScreenChooseSettingMode()
+    void Monitor::showDisplayChooseSettingMode()
     {
  8000650:	b508      	push	{r3, lr}
         LOGI("SETTINGS MENU");
- 8000652:	4906      	ldr	r1, [pc, #24]	; (800066c <_ZN4blib7Monitor27showScreenChooseSettingModeEv+0x1c>)
- 8000654:	4b06      	ldr	r3, [pc, #24]	; (8000670 <_ZN4blib7Monitor27showScreenChooseSettingModeEv+0x20>)
- 8000656:	4807      	ldr	r0, [pc, #28]	; (8000674 <_ZN4blib7Monitor27showScreenChooseSettingModeEv+0x24>)
+ 8000652:	4906      	ldr	r1, [pc, #24]	; (800066c <_ZN4blib7Monitor27showDisplayChooseSettingModeEv+0x1c>)
+ 8000654:	4b06      	ldr	r3, [pc, #24]	; (8000670 <_ZN4blib7Monitor27showDisplayChooseSettingModeEv+0x20>)
+ 8000656:	4807      	ldr	r0, [pc, #28]	; (8000674 <_ZN4blib7Monitor27showDisplayChooseSettingModeEv+0x24>)
  8000658:	22a7      	movs	r2, #167	; 0xa7
  800065a:	f7ff ffa9 	bl	80005b0 <_ZN4blib6Logger3LogIJPKciS3_EEEvS3_DpT_>
         LOGI("--PRESS SELECT--");
- 800065e:	4b04      	ldr	r3, [pc, #16]	; (8000670 <_ZN4blib7Monitor27showScreenChooseSettingModeEv+0x20>)
- 8000660:	4902      	ldr	r1, [pc, #8]	; (800066c <_ZN4blib7Monitor27showScreenChooseSettingModeEv+0x1c>)
- 8000662:	4805      	ldr	r0, [pc, #20]	; (8000678 <_ZN4blib7Monitor27showScreenChooseSettingModeEv+0x28>)
+ 800065e:	4b04      	ldr	r3, [pc, #16]	; (8000670 <_ZN4blib7Monitor27showDisplayChooseSettingModeEv+0x20>)
+ 8000660:	4902      	ldr	r1, [pc, #8]	; (800066c <_ZN4blib7Monitor27showDisplayChooseSettingModeEv+0x1c>)
+ 8000662:	4805      	ldr	r0, [pc, #20]	; (8000678 <_ZN4blib7Monitor27showDisplayChooseSettingModeEv+0x28>)
  8000664:	22a8      	movs	r2, #168	; 0xa8
  8000666:	f7ff ffa3 	bl	80005b0 <_ZN4blib6Logger3LogIJPKciS3_EEEvS3_DpT_>
     }
@@ -579,8 +579,8 @@ Disassembly of section .text:
  8000674:	08002a83 	.word	0x08002a83
  8000678:	08002a9e 	.word	0x08002a9e
 
-0800067c <_ZN4blib7Monitor22showScreenFactoryResetEv>:
-    void Monitor::showScreenFactoryReset()
+0800067c <_ZN4blib7Monitor22showDisplayFactoryResetEv>:
+    void Monitor::showDisplayFactoryReset()
     {
         if (getFactoryReset() == false)
  800067c:	7c03      	ldrb	r3, [r0, #16]
@@ -588,18 +588,18 @@ Disassembly of section .text:
  800067e:	b510      	push	{r4, lr}
  8000680:	4604      	mov	r4, r0
         if (getFactoryReset() == false)
- 8000682:	b963      	cbnz	r3, 800069e <_ZN4blib7Monitor22showScreenFactoryResetEv+0x22>
+ 8000682:	b963      	cbnz	r3, 800069e <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x22>
         {
             LOGI("FACTORY RESET");
- 8000684:	4b17      	ldr	r3, [pc, #92]	; (80006e4 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x68>)
- 8000686:	4918      	ldr	r1, [pc, #96]	; (80006e8 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x6c>)
- 8000688:	4818      	ldr	r0, [pc, #96]	; (80006ec <_ZN4blib7Monitor22showScreenFactoryResetEv+0x70>)
+ 8000684:	4b17      	ldr	r3, [pc, #92]	; (80006e4 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x68>)
+ 8000686:	4918      	ldr	r1, [pc, #96]	; (80006e8 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x6c>)
+ 8000688:	4818      	ldr	r0, [pc, #96]	; (80006ec <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x70>)
  800068a:	22ae      	movs	r2, #174	; 0xae
  800068c:	f7ff ff90 	bl	80005b0 <_ZN4blib6Logger3LogIJPKciS3_EEEvS3_DpT_>
             LOGI("--PRESS SELECT--");
- 8000690:	4b14      	ldr	r3, [pc, #80]	; (80006e4 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x68>)
- 8000692:	4915      	ldr	r1, [pc, #84]	; (80006e8 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x6c>)
- 8000694:	4816      	ldr	r0, [pc, #88]	; (80006f0 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x74>)
+ 8000690:	4b14      	ldr	r3, [pc, #80]	; (80006e4 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x68>)
+ 8000692:	4915      	ldr	r1, [pc, #84]	; (80006e8 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x6c>)
+ 8000694:	4816      	ldr	r0, [pc, #88]	; (80006f0 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x74>)
  8000696:	22af      	movs	r2, #175	; 0xaf
         else
         {
@@ -617,29 +617,29 @@ Disassembly of section .text:
  800069c:	bd10      	pop	{r4, pc}
             if (getConfirmFactoryReset() == false)
  800069e:	7c43      	ldrb	r3, [r0, #17]
- 80006a0:	b953      	cbnz	r3, 80006b8 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x3c>
+ 80006a0:	b953      	cbnz	r3, 80006b8 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x3c>
                 LOGI("ARE YOU SURE?");
- 80006a2:	4b10      	ldr	r3, [pc, #64]	; (80006e4 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x68>)
- 80006a4:	4910      	ldr	r1, [pc, #64]	; (80006e8 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x6c>)
- 80006a6:	4813      	ldr	r0, [pc, #76]	; (80006f4 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x78>)
+ 80006a2:	4b10      	ldr	r3, [pc, #64]	; (80006e4 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x68>)
+ 80006a4:	4910      	ldr	r1, [pc, #64]	; (80006e8 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x6c>)
+ 80006a6:	4813      	ldr	r0, [pc, #76]	; (80006f4 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x78>)
  80006a8:	22b5      	movs	r2, #181	; 0xb5
  80006aa:	f7ff ff81 	bl	80005b0 <_ZN4blib6Logger3LogIJPKciS3_EEEvS3_DpT_>
                 LOGI(" >NO   >YES");
- 80006ae:	4b0d      	ldr	r3, [pc, #52]	; (80006e4 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x68>)
- 80006b0:	490d      	ldr	r1, [pc, #52]	; (80006e8 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x6c>)
- 80006b2:	4811      	ldr	r0, [pc, #68]	; (80006f8 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x7c>)
+ 80006ae:	4b0d      	ldr	r3, [pc, #52]	; (80006e4 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x68>)
+ 80006b0:	490d      	ldr	r1, [pc, #52]	; (80006e8 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x6c>)
+ 80006b2:	4811      	ldr	r0, [pc, #68]	; (80006f8 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x7c>)
  80006b4:	22b6      	movs	r2, #182	; 0xb6
- 80006b6:	e7ef      	b.n	8000698 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x1c>
+ 80006b6:	e7ef      	b.n	8000698 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x1c>
                 LOGI("FACTORY RESET");
- 80006b8:	4b0a      	ldr	r3, [pc, #40]	; (80006e4 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x68>)
- 80006ba:	490b      	ldr	r1, [pc, #44]	; (80006e8 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x6c>)
- 80006bc:	480b      	ldr	r0, [pc, #44]	; (80006ec <_ZN4blib7Monitor22showScreenFactoryResetEv+0x70>)
+ 80006b8:	4b0a      	ldr	r3, [pc, #40]	; (80006e4 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x68>)
+ 80006ba:	490b      	ldr	r1, [pc, #44]	; (80006e8 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x6c>)
+ 80006bc:	480b      	ldr	r0, [pc, #44]	; (80006ec <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x70>)
  80006be:	22ba      	movs	r2, #186	; 0xba
  80006c0:	f7ff ff76 	bl	80005b0 <_ZN4blib6Logger3LogIJPKciS3_EEEvS3_DpT_>
                 LOGI("SUCCESSFULLY");
- 80006c4:	4b07      	ldr	r3, [pc, #28]	; (80006e4 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x68>)
- 80006c6:	4908      	ldr	r1, [pc, #32]	; (80006e8 <_ZN4blib7Monitor22showScreenFactoryResetEv+0x6c>)
- 80006c8:	480c      	ldr	r0, [pc, #48]	; (80006fc <_ZN4blib7Monitor22showScreenFactoryResetEv+0x80>)
+ 80006c4:	4b07      	ldr	r3, [pc, #28]	; (80006e4 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x68>)
+ 80006c6:	4908      	ldr	r1, [pc, #32]	; (80006e8 <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x6c>)
+ 80006c8:	480c      	ldr	r0, [pc, #48]	; (80006fc <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x80>)
  80006ca:	22bb      	movs	r2, #187	; 0xbb
  80006cc:	f7ff ff70 	bl	80005b0 <_ZN4blib6Logger3LogIJPKciS3_EEEvS3_DpT_>
                 HAL_Delay(1500);
@@ -654,7 +654,7 @@ Disassembly of section .text:
         mSettingLevel = val;
  80006e0:	60a3      	str	r3, [r4, #8]
     }
- 80006e2:	e7db      	b.n	800069c <_ZN4blib7Monitor22showScreenFactoryResetEv+0x20>
+ 80006e2:	e7db      	b.n	800069c <_ZN4blib7Monitor22showDisplayFactoryResetEv+0x20>
  80006e4:	08002abc 	.word	0x08002abc
  80006e8:	08002a21 	.word	0x08002a21
  80006ec:	08002ad3 	.word	0x08002ad3
@@ -672,10 +672,10 @@ Disassembly of section .text:
  8000706:	2b06      	cmp	r3, #6
  8000708:	d002      	beq.n	8000710 <_ZN4blib7Monitor11showDisplayEv+0x10>
  800070a:	4770      	bx	lr
-                showScreenChooseSettingMode();
- 800070c:	f7ff bfa0 	b.w	8000650 <_ZN4blib7Monitor27showScreenChooseSettingModeEv>
-                showScreenFactoryReset();
- 8000710:	f7ff bfb4 	b.w	800067c <_ZN4blib7Monitor22showScreenFactoryResetEv>
+                showDisplayChooseSettingMode();
+ 800070c:	f7ff bfa0 	b.w	8000650 <_ZN4blib7Monitor27showDisplayChooseSettingModeEv>
+                showDisplayFactoryReset();
+ 8000710:	f7ff bfb4 	b.w	800067c <_ZN4blib7Monitor22showDisplayFactoryResetEv>
 
 08000714 <_ZN4blib7Monitor8showMenuEv>:
         if (getSetttingMode() == true)

@@ -32,6 +32,7 @@ namespace blib
                 DISPLAY_LEVEL_CONFIG_4 = 4,    // Show temperature status
                 DISPLAY_LEVEL_CONFIG_5 = 5,    // Show setting menu
                 DISPLAY_LEVEL_CONFIG_6 = 6,    // Show factory reset
+                DISPLAY_LEVEL_MAX
             };
 
             enum class SettingLevel
@@ -43,6 +44,11 @@ namespace blib
                 SETTING_LEVEL_CONFIG_4 = 4,    // Show temperature status
                 SETTING_LEVEL_CONFIG_5 = 5,    // Show setting menu
                 SETTING_LEVEL_CONFIG_6 = 6,    // Show factory reset
+                SETTING_LEVEL_CONFIG_7 = 7,
+                SETTING_LEVEL_CONFIG_8 = 8,
+                SETTING_LEVEL_CONFIG_9 = 9,
+                SETTING_LEVEL_CONFIG_10 = 10,
+                SETTING_LEVEL_MAX
             };
 
             Monitor();
@@ -71,19 +77,29 @@ namespace blib
             void showDisplayLevel2();
             void showDisplayLevel3();
             void showDisplayLevel4();
-            void showScreenChooseSettingMode();
-            void showScreenFactoryReset();
+            void showDisplayChooseSettingMode();
+            void showDisplayFactoryReset();
 
-            void showSettingL();
+            void showSettingSupplyAlgorithm();
+            void showSettingChargerPsuMode();
+            void showSettingMaxBatteryVoltage();
+            void showSettingMinBatteryVoltage();
+            void showSettingChargingCurrent();
+            void showSettingCoolingFan();
+            void showSettingFanTriggerTemp();
+            void showSettingShutdownTemp();
+            void showSettingAutoLoadFeature();
+            void showSettingBackligthSleep();
+            void showSettingFactoryReset();
 
         private:
-            bool mSettingMode = false;    // false - display mode, true - setting mode
-            SettingLevel mSettingLevel = SettingLevel::SETTING_LEVEL_CONFIG_0;    //
-            DisplayLevel mDisplayLevel = DisplayLevel::DISPLAY_LEVEL_CONFIG_0;
+            volatile bool mSettingMode = false;    // false - display mode, true - setting mode
+            volatile SettingLevel mSettingLevel = SettingLevel::SETTING_LEVEL_CONFIG_0;    //
+            volatile DisplayLevel mDisplayLevel = DisplayLevel::DISPLAY_LEVEL_CONFIG_0;
 
             // Factory reset
-            bool mFactoryResetEnable = false;    // false = disable, true = enable
-            bool mConfirmFactoryReset = false;    // false = no, true = yes
+            volatile bool mFactoryResetEnable = false;    // false = disable, true = enable
+            volatile bool mConfirmFactoryReset = false;    // false = no, true = yes
     };
 
 }

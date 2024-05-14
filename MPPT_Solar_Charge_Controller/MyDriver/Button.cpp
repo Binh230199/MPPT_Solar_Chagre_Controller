@@ -30,38 +30,42 @@ namespace blib
     {
         auto &monitor = Monitor::getInstance();
 
-        // In display mode and in display_level_5 and button Select is press => Change to setting mode
-        if (monitor.getDisplayLevel() == Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_5
-                && monitor.getSetttingMode() == false
-                && getLatestPressedButton() == ButtonName::SELECT)
+        // In display mode
+        if (monitor.getSetttingMode() == false)
         {
-            monitor.setSettingMode(true);
-        }
-        // In display mode and in display_level_6 and button Select is press => Factory reset enable
-        else if (monitor.getDisplayLevel() == Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_6
-                && monitor.getSetttingMode() == false)
-        {
-            // Unenable display factory reset
-            if (monitor.getFactoryReset() == false
-                    && getLatestPressedButton() == ButtonName::SELECT)
+            switch (monitor.getDisplayLevel())
             {
-                monitor.setFactoryReset(true);
+                case blib::Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_0:
+                case blib::Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_1:
+                case blib::Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_2:
+                case blib::Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_3:
+                case blib::Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_4:
+                    break;
+
+                case blib::Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_5:
+                    if (getLatestPressedButton() == ButtonName::SELECT)
+                    {
+                        monitor.setSettingMode(true);
+                    }
+                    break;
+                case blib::Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_6:
+                    if (monitor.getFactoryReset() == false)
+                    {
+                        if (getLatestPressedButton() == ButtonName::SELECT)
+                        {
+                            monitor.setFactoryReset(true);
+                        }
+                    }
+                    else
+                    {
+
+                    }
+
+                default:
+
+                    break;
             }
-            // Enabled - Press LEFT
-            else if (getLatestPressedButton() == ButtonName::LEFT)
-            {
-                // User select factory reset
-                monitor.setConfirmFactoryReset(false);
-            }
-            // Enabled - Press RIGHT
-            else if (getLatestPressedButton() == ButtonName::RIGHT)
-            {
-                monitor.setConfirmFactoryReset(true);
-            }
-        }
-// In display mode - press any button between 1 and 2
-        else if (monitor.getSetttingMode() == false)
-        {
+
             uint8_t u8DisplayLevel = 0;
 
             // Press left button - go to previous screen
@@ -77,9 +81,24 @@ namespace blib
 
             monitor.setDisplayLevel((Monitor::DisplayLevel) u8DisplayLevel);
         }
-// In setting mode - press any button between 1 and 2
-        else if (monitor.getSetttingMode() == true)
+        // In setting mode
+        else
         {
+            switch (monitor.getSettingLevel())
+            {
+                case blib::Monitor::SettingLevel::SETTING_LEVEL_CONFIG_0:
+                case blib::Monitor::SettingLevel::SETTING_LEVEL_CONFIG_1:
+                case blib::Monitor::SettingLevel::SETTING_LEVEL_CONFIG_2:
+                case blib::Monitor::SettingLevel::SETTING_LEVEL_CONFIG_3:
+                case blib::Monitor::SettingLevel::SETTING_LEVEL_CONFIG_4:
+                case blib::Monitor::SettingLevel::SETTING_LEVEL_CONFIG_5:
+                case blib::Monitor::SettingLevel::SETTING_LEVEL_CONFIG_6:
+                case blib::Monitor::SettingLevel::SETTING_LEVEL_CONFIG_7:
+                    break;
+                default:
+                    break;
+            }
+
             uint8_t u8SettingLevel = 0;
 
             // Press left button - go to previous screen
