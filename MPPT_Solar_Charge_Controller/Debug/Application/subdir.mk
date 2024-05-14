@@ -5,12 +5,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../Application/Analog.cpp \
 ../Application/Monitor.cpp 
 
 OBJS += \
+./Application/Analog.o \
 ./Application/Monitor.o 
 
 CPP_DEPS += \
+./Application/Analog.d \
 ./Application/Monitor.d 
 
 
@@ -21,7 +24,7 @@ Application/%.o Application/%.su Application/%.cyclo: ../Application/%.cpp Appli
 clean: clean-Application
 
 clean-Application:
-	-$(RM) ./Application/Monitor.cyclo ./Application/Monitor.d ./Application/Monitor.o ./Application/Monitor.su
+	-$(RM) ./Application/Analog.cyclo ./Application/Analog.d ./Application/Analog.o ./Application/Analog.su ./Application/Monitor.cyclo ./Application/Monitor.d ./Application/Monitor.o ./Application/Monitor.su
 
 .PHONY: clean-Application
 

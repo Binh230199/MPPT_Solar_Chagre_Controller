@@ -1,0 +1,21 @@
+C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626\tools\arm-none-eabi\include\c++\11.3.1\arm-none-eabi\thumb\v7e-m+fp\hard\bits\gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Log.h:48:25:static void blib::Logger::print(const char*)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:12:5:blib::Analog::Analog()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:17:5:blib::Analog::~Analog()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:17:5:virtual blib::Analog::~Analog()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:23:10:void blib::Analog::sampling()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:28:12:double blib::Analog::getVin() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:32:12:double blib::Analog::getIin() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:36:12:double blib::Analog::getVout() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:40:12:double blib::Analog::getIout() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:44:12:double blib::Analog::getTemp() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:49:10:void blib::Analog::readAnalog()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:64:12:double blib::Analog::convertAdcChannel1(uint32_t)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:69:12:double blib::Analog::convertAdcChannel2(uint32_t)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:73:12:double blib::Analog::convertAdcChannel3(uint32_t)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:77:12:double blib::Analog::convertAdcChannel4(uint32_t)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:81:12:double blib::Analog::convertAdcChannel5(uint32_t)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:38:17:blib::dp::Singleton<T>::Singleton() [with T = blib::Analog]	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::Analog]	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::Analog]	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Log.h:35:25:) [with Args = {const char*, int, const char*, double}]	1

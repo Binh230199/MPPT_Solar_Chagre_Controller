@@ -1,7 +1,9 @@
 ../MyDriver/Log.h:48:25:static void blib::Logger::print(const char*)	16	static
-../Core/Src/main.cpp:179:6:void SystemClock_Config()	88	static,ignoring_inline_asm
-../Core/Src/main.cpp:465:6:void Error_Handler()	0	static,ignoring_inline_asm
+../Core/Src/main.cpp:204:6:void SystemClock_Config()	88	static,ignoring_inline_asm
+../Core/Src/main.cpp:730:6:void Error_Handler()	0	static,ignoring_inline_asm
 ../MyDriver/Log.h:35:25:) [with Args = {const char*, int, const char*}]	32	static
-../Core/Src/main.cpp:127:5:int main()	96	static,ignoring_inline_asm
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Button]	16	static
-../Core/Src/main.cpp:65:6:void HAL_GPIO_EXTI_Callback(uint16_t)	32	static
+../Core/Src/main.cpp:77:6:void HAL_GPIO_EXTI_Callback(uint16_t)	32	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Analog]	16	static
+../Core/Src/main.cpp:129:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	8	static
+../Core/Src/main.cpp:144:5:int main()	120	static,ignoring_inline_asm

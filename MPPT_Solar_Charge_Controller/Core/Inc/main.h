@@ -49,6 +49,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -65,6 +67,22 @@ void Error_Handler(void);
 #define BUT_BACK_GPIO_Port GPIOC
 #define BUT_SELECT_Pin GPIO_PIN_3
 #define BUT_SELECT_GPIO_Port GPIOC
+#define VIN_Pin GPIO_PIN_0
+#define VIN_GPIO_Port GPIOA
+#define IIN_Pin GPIO_PIN_1
+#define IIN_GPIO_Port GPIOA
+#define VOUT_Pin GPIO_PIN_2
+#define VOUT_GPIO_Port GPIOA
+#define IOUT_Pin GPIO_PIN_3
+#define IOUT_GPIO_Port GPIOA
+#define TEMP_Pin GPIO_PIN_4
+#define TEMP_GPIO_Port GPIOA
+#define PWM_OUT_Pin GPIO_PIN_5
+#define PWM_OUT_GPIO_Port GPIOA
+#define LOAD_Pin GPIO_PIN_6
+#define LOAD_GPIO_Port GPIOA
+#define ENA_INVERTER_Pin GPIO_PIN_7
+#define ENA_INVERTER_GPIO_Port GPIOA
 #define LED_INDICATE_Pin GPIO_PIN_12
 #define LED_INDICATE_GPIO_Port GPIOD
 #define FAN_Pin GPIO_PIN_13
@@ -73,6 +91,12 @@ void Error_Handler(void);
 #define BUCK_ENABLE_GPIO_Port GPIOD
 #define ANTI_BACKFLOW_Pin GPIO_PIN_15
 #define ANTI_BACKFLOW_GPIO_Port GPIOD
+#define GPIO2_Pin GPIO_PIN_6
+#define GPIO2_GPIO_Port GPIOC
+#define GPIO15_Pin GPIO_PIN_7
+#define GPIO15_GPIO_Port GPIOC
+#define BCCU_Pin GPIO_PIN_8
+#define BCCU_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
