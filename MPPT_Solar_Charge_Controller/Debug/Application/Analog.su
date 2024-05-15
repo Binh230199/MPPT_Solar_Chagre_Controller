@@ -1,6 +1,5 @@
 ../Application/Analog.cpp:17:5:blib::Analog::~Analog()	8	static
 ../Application/Analog.cpp:17:5:virtual blib::Analog::~Analog()	8	static
-../MyDriver/Log.h:48:25:static void blib::Logger::print(const char*)	16	static
 ../Application/Analog.cpp:23:10:void blib::Analog::sampling()	0	static
 ../Application/Analog.cpp:12:5:blib::Analog::Analog()	8	static
 ../Application/Analog.cpp:28:12:double blib::Analog::getVin() const	0	static
@@ -8,10 +7,9 @@
 ../Application/Analog.cpp:36:12:double blib::Analog::getVout() const	0	static
 ../Application/Analog.cpp:40:12:double blib::Analog::getIout() const	0	static
 ../Application/Analog.cpp:44:12:double blib::Analog::getTemp() const	0	static
+../Application/Analog.cpp:49:10:void blib::Analog::readAnalog()	8	static
 ../Application/Analog.cpp:64:12:double blib::Analog::convertAdcChannel1(uint32_t)	8	static
-../Application/Analog.cpp:69:12:double blib::Analog::convertAdcChannel2(uint32_t)	8	static
-../Application/Analog.cpp:73:12:double blib::Analog::convertAdcChannel3(uint32_t)	8	static
-../Application/Analog.cpp:77:12:double blib::Analog::convertAdcChannel4(uint32_t)	8	static
-../Application/Analog.cpp:81:12:double blib::Analog::convertAdcChannel5(uint32_t)	8	static
-../MyDriver/Log.h:35:25:) [with Args = {const char*, int, const char*, double}]	48	static
-../Application/Analog.cpp:49:10:void blib::Analog::readAnalog()	16	static
+../Application/Analog.cpp:69:12:double blib::Analog::convertAdcChannel2(uint32_t)	0	static
+../Application/Analog.cpp:75:12:double blib::Analog::convertAdcChannel3(uint32_t)	8	static
+../Application/Analog.cpp:79:12:double blib::Analog::convertAdcChannel4(uint32_t)	8	static
+../Application/Analog.cpp:83:12:double blib::Analog::convertAdcChannel5(uint32_t)	8	static

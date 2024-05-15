@@ -65,7 +65,6 @@ void Error_Handler(void);
 #define BUT_RIGHT_EXTI_IRQn EXTI1_IRQn
 #define BUT_BACK_Pin GPIO_PIN_2
 #define BUT_BACK_GPIO_Port GPIOC
-#define BUT_BACK_EXTI_IRQn EXTI2_TSC_IRQn
 #define BUT_SELECT_Pin GPIO_PIN_3
 #define BUT_SELECT_GPIO_Port GPIOC
 #define BUT_SELECT_EXTI_IRQn EXTI3_IRQn

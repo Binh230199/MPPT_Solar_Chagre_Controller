@@ -1,7 +1,14 @@
-22:36:10 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Controller ****
+22:55:06 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Controller ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-g++ "../Application/Analog.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/Analog.d" -MT"Application/Analog.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Analog.o"
+../Application/Analog.cpp: In member function 'double blib::Analog::convertAdcChannel2(uint32_t)':
+../Application/Analog.cpp:71:16: warning: unused variable 'voltage' [-Wunused-variable]
+   71 |         double voltage = CHANNEL_2_RATIO * ((double) adcValue / 4095) * 3.3;
+      |                ^~~~~~~
+../Application/Analog.cpp:74:5: warning: no return statement in function returning non-void [-Wreturn-type]
+   74 |     }
+      |     ^
 arm-none-eabi-g++ -o "MPPT_Solar_Charge_Controller.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\PROJECT_MPPT\MPPT_Solar_Chagre_Controller\MPPT_Solar_Charge_Controller\STM32F407VGTX_FLASH.ld" -Wl,-Map="MPPT_Solar_Charge_Controller.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: MPPT_Solar_Charge_Controller.elf
  
@@ -9,13 +16,13 @@ arm-none-eabi-size   MPPT_Solar_Charge_Controller.elf
 arm-none-eabi-objdump -h -S  MPPT_Solar_Charge_Controller.elf  > "MPPT_Solar_Charge_Controller.list"
 arm-none-eabi-objcopy  -O binary  MPPT_Solar_Charge_Controller.elf  "MPPT_Solar_Charge_Controller.bin"
    text	   data	    bss	    dec	    hex	filename
-  19616	    104	   3568	  23288	   5af8	MPPT_Solar_Charge_Controller.elf
+  19072	    104	   3568	  22744	   58d8	MPPT_Solar_Charge_Controller.elf
 Finished building: default.size.stdout
  
 Finished building: MPPT_Solar_Charge_Controller.bin
- 
 Finished building: MPPT_Solar_Charge_Controller.list
  
+ 
 
-22:36:12 Build Finished. 0 errors, 0 warnings. (took 2s.67ms)
+22:55:10 Build Finished. 0 errors, 2 warnings. (took 4s.12ms)
 

@@ -54,11 +54,11 @@ namespace blib
         mIout = convertAdcChannel4(mAdcValues[3]);
         mTemp = convertAdcChannel5(mAdcValues[4]);
 
-        LOGI("mVin : [%.2f] V", mVin);
-        LOGI("mIin : [%.2f] A", mIin);
-        LOGI("mVout : [%.2f] V", mVout);
-        LOGI("mIout : [%.2f] A", mIout);
-        LOGI("mTemp : [%.2f] C", mTemp);
+//        LOGI("mVin : [%.2f] V", mVin);
+//        LOGI("mIin : [%.2f] A", mIin);
+//        LOGI("mVout : [%.2f] V", mVout);
+//        LOGI("mIout : [%.2f] A", mIout);
+//        LOGI("mTemp : [%.2f] C", mTemp);
     }
 
     double Analog::convertAdcChannel1(uint32_t adcValue)    // Convert adcValue -> Vin
@@ -68,7 +68,10 @@ namespace blib
 
     double Analog::convertAdcChannel2(uint32_t adcValue)    // Convert adcValue -> Iin
     {
-        return CHANNEL_2_RATIO * ((double) adcValue / 4095) * 3.3;
+        double voltage = CHANNEL_2_RATIO * ((double) adcValue / 4095) * 3.3;
+        double current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
+
+        return current;
     }
     double Analog::convertAdcChannel3(uint32_t adcValue)    // Convert adcValue -> Vout
     {
@@ -76,7 +79,10 @@ namespace blib
     }
     double Analog::convertAdcChannel4(uint32_t adcValue)    // Convert adcValue -> Iout
     {
-        return CHANNEL_4_RATIO * ((double) adcValue / 4095) * 3.3;
+        double voltage = CHANNEL_4_RATIO * ((double) adcValue / 4095) * 3.3;
+        double current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
+
+        return current;
     }
     double Analog::convertAdcChannel5(uint32_t adcValue)    // Convert adcValue -> Temperature
     {

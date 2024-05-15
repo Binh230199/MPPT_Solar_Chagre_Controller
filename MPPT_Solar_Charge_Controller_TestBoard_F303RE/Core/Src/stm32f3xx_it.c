@@ -228,20 +228,6 @@ void EXTI1_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles EXTI line2 and Touch Sense controller interrupts.
-  */
-void EXTI2_TSC_IRQHandler(void)
-{
-  /* USER CODE BEGIN EXTI2_TSC_IRQn 0 */
-
-  /* USER CODE END EXTI2_TSC_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(BUT_BACK_Pin);
-  /* USER CODE BEGIN EXTI2_TSC_IRQn 1 */
-
-  /* USER CODE END EXTI2_TSC_IRQn 1 */
-}
-
-/**
   * @brief This function handles EXTI line3 interrupt.
   */
 void EXTI3_IRQHandler(void)

@@ -53,6 +53,8 @@ namespace blib
             static constexpr double CHANNEL_4_RATIO = 10.0;
             static constexpr double CHANNEL_5_RATIO = 10.0;
 
+            static constexpr double ACS_SENSITIVITY = 0.1;
+
             uint32_t mAdcValues[NUMBER_OF_CHANNELS] = { 0 };
             ADC_HandleTypeDef *mHadc;
             DMA_HandleTypeDef *mHdmaAdc;
