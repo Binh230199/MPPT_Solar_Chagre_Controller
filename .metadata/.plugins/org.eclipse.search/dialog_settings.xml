@@ -9,8 +9,12 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
+			<item value="Author: binhhv.23.1.99@gmail.com"/>
 			<item value="showDisplayChooseSettingMode"/>
 			<item value="showDisplayFactoryReset"/>
 		</list>
+	</section>
+	<section name="">
+		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
 	</section>
 </section>

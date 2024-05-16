@@ -7,11 +7,11 @@
 
 #include "Log.h"
 
-extern UART_HandleTypeDef huart2;
+extern UART_HandleTypeDef huart3;
 
 namespace blib
 {
     char Logger::mBuffer[LOG_BUFFER_SIZE] = { 0 };
-    UART_HandleTypeDef *Logger::mHuart = &huart2;
+    UART_HandleTypeDef *Logger::mHuart = &huart3;
 }
 

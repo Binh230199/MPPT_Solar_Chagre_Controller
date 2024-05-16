@@ -1,36 +1,42 @@
-../Application/Monitor.cpp:18:5:blib::Monitor::~Monitor()	1
-../Application/Monitor.cpp:18:5:virtual blib::Monitor::~Monitor()	1
 ../MyDriver/Log.h:48:25:static void blib::Logger::print(const char*)	1
-../Application/Monitor.cpp:119:10:void blib::Monitor::setSettingMode(bool)	1
-../Application/Monitor.cpp:123:10:bool blib::Monitor::getSetttingMode() const	1
-../Application/Monitor.cpp:128:10:void blib::Monitor::setFactoryReset(bool)	1
-../Application/Monitor.cpp:132:10:bool blib::Monitor::getFactoryReset() const	1
-../Application/Monitor.cpp:136:10:void blib::Monitor::setConfirmFactoryReset(bool)	1
-../Application/Monitor.cpp:140:10:bool blib::Monitor::getConfirmFactoryReset() const	1
-../Application/Monitor.cpp:145:10:void blib::Monitor::setSettingLevel(blib::Monitor::SettingLevel)	1
-../Application/Monitor.cpp:160:27:blib::Monitor::SettingLevel blib::Monitor::getSettingLevel() const	1
-../Application/Monitor.cpp:165:10:void blib::Monitor::setDisplayLevel(blib::Monitor::DisplayLevel)	1
-../Application/Monitor.cpp:180:27:blib::Monitor::DisplayLevel blib::Monitor::getDisplayLevel() const	1
+../Application/Monitor.cpp:162:10:void blib::Monitor::setSettingMode(bool)	1
+../Application/Monitor.cpp:166:10:bool blib::Monitor::getSetttingMode() const	1
+../Application/Monitor.cpp:171:10:void blib::Monitor::jumpIn()	4
+../Application/Monitor.cpp:191:10:void blib::Monitor::jumpOut()	5
+../Application/Monitor.cpp:215:26:blib::Monitor::ScreenLevel blib::Monitor::getScreenLevel() const	1
+../Application/Monitor.cpp:219:10:void blib::Monitor::incrementArrowLine()	2
+../Application/Monitor.cpp:230:10:void blib::Monitor::decrementArrowLine()	2
+../Application/Monitor.cpp:241:13:uint8_t blib::Monitor::getArrowLine() const	1
+../Application/Monitor.cpp:246:10:void blib::Monitor::setSettingLevel(blib::Monitor::SettingLevel)	1
+../Application/Monitor.cpp:261:27:blib::Monitor::SettingLevel blib::Monitor::getSettingLevel() const	1
+../Application/Monitor.cpp:266:10:void blib::Monitor::setDisplayLevel(blib::Monitor::DisplayLevel)	1
+../Application/Monitor.cpp:281:27:blib::Monitor::DisplayLevel blib::Monitor::getDisplayLevel() const	1
+../Application/Monitor.cpp:285:10:bool blib::Monitor::isNeedRefreshLcd()	2
+../Application/Monitor.cpp:297:10:void blib::Monitor::showArrow()	1
+../Application/Monitor.cpp:61:10:void blib::Monitor::menuScreen()	2
+../Application/Monitor.cpp:322:10:void blib::Monitor::showDisplayFactoryReset()	1
 ../MyDriver/Log.h:35:25:) [with Args = {const char*, int, const char*}]	1
-../Application/Monitor.cpp:24:10:void blib::Monitor::showInit()	1
+../Application/Monitor.cpp:25:10:void blib::Monitor::showInit()	1
 ../Application/Monitor.cpp:13:5:blib::Monitor::Monitor()	1
-../Application/Monitor.cpp:185:10:void blib::Monitor::showDisplayLevel1()	1
-../Application/Monitor.cpp:189:10:void blib::Monitor::showDisplayLevel2()	1
-../Application/Monitor.cpp:193:10:void blib::Monitor::showDisplayLevel3()	1
-../Application/Monitor.cpp:197:10:void blib::Monitor::showDisplayLevel4()	1
-../Application/Monitor.cpp:201:10:void blib::Monitor::showDisplayChooseSettingMode()	1
-../Application/Monitor.cpp:206:10:void blib::Monitor::showDisplayFactoryReset()	3
-../Application/Monitor.cpp:88:10:void blib::Monitor::showDisplay()	7
-../Application/Monitor.cpp:236:10:void blib::Monitor::showSettingSupplyAlgorithm()	1
-../Application/Monitor.cpp:240:10:void blib::Monitor::showSettingChargerPsuMode()	1
-../Application/Monitor.cpp:244:10:void blib::Monitor::showSettingMaxBatteryVoltage()	1
-../Application/Monitor.cpp:248:10:void blib::Monitor::showSettingMinBatteryVoltage()	1
-../Application/Monitor.cpp:252:10:void blib::Monitor::showSettingChargingCurrent()	1
-../Application/Monitor.cpp:256:10:void blib::Monitor::showSettingCoolingFan()	1
-../Application/Monitor.cpp:260:10:void blib::Monitor::showSettingFanTriggerTemp()	1
-../Application/Monitor.cpp:264:10:void blib::Monitor::showSettingShutdownTemp()	1
-../Application/Monitor.cpp:268:10:void blib::Monitor::showSettingAutoLoadFeature()	1
-../Application/Monitor.cpp:272:10:void blib::Monitor::showSettingBackligthSleep()	1
-../Application/Monitor.cpp:276:10:void blib::Monitor::showSettingFactoryReset()	1
-../Application/Monitor.cpp:47:10:void blib::Monitor::showSetting()	12
-../Application/Monitor.cpp:32:10:void blib::Monitor::showMenu()	2
+../Application/Monitor.cpp:301:10:void blib::Monitor::showDisplayLevel1()	1
+../Application/Monitor.cpp:305:10:void blib::Monitor::showDisplayLevel2()	1
+../Application/Monitor.cpp:309:10:void blib::Monitor::showDisplayLevel3()	1
+../Application/Monitor.cpp:313:10:void blib::Monitor::showDisplayLevel4()	1
+../Application/Monitor.cpp:317:10:void blib::Monitor::showDisplayChooseSettingMode()	1
+../Application/Monitor.cpp:131:10:void blib::Monitor::showDisplay()	6
+../Application/Monitor.cpp:326:10:void blib::Monitor::showSettingSupplyAlgorithm()	1
+../Application/Monitor.cpp:330:10:void blib::Monitor::showSettingChargerPsuMode()	1
+../Application/Monitor.cpp:334:10:void blib::Monitor::showSettingMaxBatteryVoltage()	1
+../Application/Monitor.cpp:338:10:void blib::Monitor::showSettingMinBatteryVoltage()	1
+../Application/Monitor.cpp:342:10:void blib::Monitor::showSettingChargingCurrent()	1
+../Application/Monitor.cpp:346:10:void blib::Monitor::showSettingCoolingFan()	1
+../Application/Monitor.cpp:350:10:void blib::Monitor::showSettingFanTriggerTemp()	1
+../Application/Monitor.cpp:354:10:void blib::Monitor::showSettingShutdownTemp()	1
+../Application/Monitor.cpp:358:10:void blib::Monitor::showSettingAutoLoadFeature()	1
+../Application/Monitor.cpp:362:10:void blib::Monitor::showSettingBackligthSleep()	1
+../Application/Monitor.cpp:366:10:void blib::Monitor::showSettingFactoryReset()	1
+../Application/Monitor.cpp:90:10:void blib::Monitor::showSetting()	12
+../Application/Monitor.cpp:35:10:void blib::Monitor::homeScreen()	3
+../Application/Monitor.cpp:74:10:void blib::Monitor::showMenu()	3
+../Application/Monitor.cpp:19:5:blib::Monitor::~Monitor()	1
+../Application/Monitor.cpp:19:5:virtual blib::Monitor::~Monitor()	1

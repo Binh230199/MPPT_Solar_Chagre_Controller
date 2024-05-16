@@ -27,6 +27,11 @@ namespace blib
     class Monitor : public blib::dp::Singleton<Monitor>
     {
         public:
+            enum class ScreenLevel
+            {
+                HOME_SCREEN = 0, NEXT_1 = 1, NEXT_2 = 2, NEXT_3 = 3
+            };
+
             enum class DisplayLevel
             {
                 DISPLAY_LEVEL_CONFIG_0 = 0,    // Do not show anything
@@ -59,6 +64,8 @@ namespace blib
             virtual ~Monitor();
 
             void showInit();
+            void homeScreen();
+            void menuScreen();
             void showMenu();
             void showSetting();
             void showDisplay();
@@ -72,11 +79,17 @@ namespace blib
             void setDisplayLevel(const DisplayLevel val);
             DisplayLevel getDisplayLevel() const;
 
-            void setFactoryReset(const bool val);
-            bool getFactoryReset() const;
-            void setConfirmFactoryReset(const bool val);
-            bool getConfirmFactoryReset() const;
+            void jumpIn();
+            void jumpOut();
+            ScreenLevel getScreenLevel() const;
+
+            void incrementArrowLine();
+            void decrementArrowLine();
+            uint8_t getArrowLine() const;
+
         private:
+            bool isNeedRefreshLcd();
+            void showArrow();
             void showDisplayLevel1();
             void showDisplayLevel2();
             void showDisplayLevel3();
@@ -97,13 +110,11 @@ namespace blib
             void showSettingFactoryReset();
 
         private:
+            volatile ScreenLevel mScreenLevel = ScreenLevel::HOME_SCREEN;
             volatile bool mSettingMode = false;    // false - display mode, true - setting mode
+            volatile uint8_t mArrowLine = 0;    // Mui ten chi dong nao, thi dang o dong do
             volatile SettingLevel mSettingLevel = SettingLevel::SETTING_LEVEL_CONFIG_0;    //
             volatile DisplayLevel mDisplayLevel = DisplayLevel::DISPLAY_LEVEL_CONFIG_0;
-
-            // Factory reset
-            volatile bool mFactoryResetEnable = false;    // false = disable, true = enable
-            volatile bool mConfirmFactoryReset = false;    // false = no, true = yes
 
             Lcd mLcdDisplay;    // lcd display monitor
     };

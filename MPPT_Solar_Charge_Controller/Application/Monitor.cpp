@@ -7,12 +7,14 @@
 
 #include "Monitor.h"
 #include "Button.h"
-
+#include "Analog.h"
 namespace blib
 {
-    Monitor::Monitor() : mLcdDisplay(Lcd::LcdType::LCD_TYPE_2004, &hi2c1, 0x7F)
+    Monitor::Monitor() : mLcdDisplay(Lcd::LcdType::LCD_TYPE_2004, &hi2c1, 0x27 << 1)
     {
         showInit();
+        HAL_Delay(1500);
+
     }
     Monitor::~Monitor()
     {
@@ -27,23 +29,61 @@ namespace blib
         mLcdDisplay.displayLine(0, 2, "DO AN TOT NGHIEP");
         mLcdDisplay.displayLine(1, 2, "NAM HOC: 2023-2024");
         mLcdDisplay.displayLine(2, 2, "LOP: DTD61DH");
-        mLcdDisplay.displayLine(0, 1, "DAI HOC HANG HAI VN");
-        HAL_Delay(1500);
+        mLcdDisplay.displayLine(3, 1, "DAI HOC HANG HAI VN");
     }
 
+    void Monitor::homeScreen()
+    {
+        LOGI();
+
+        const uint8_t COL = 21;
+
+        char line0[COL] = { 0 };
+        char line1[COL] = { 0 };
+        char line2[COL] = { 0 };
+        char line3[COL] = "Press any button";
+
+        auto &analog = Analog::getInstance();
+
+        snprintf(line0, COL, "%02.1fV %02.1fA %02.1fW", analog.getVin(), analog.getIin(),
+                analog.getVin() * analog.getIin());
+        snprintf(line1, COL, "%02.1fV %02.1fA %02.1fW", analog.getVout(), analog.getIout(),
+                analog.getVout() * analog.getIout());
+        snprintf(line2, COL, "%d", 1);
+
+        mLcdDisplay.clearDisplay();
+        mLcdDisplay.displayLine(0, 2, line0);
+        mLcdDisplay.displayLine(1, 2, line1);
+        mLcdDisplay.displayLine(2, 2, line2);
+        mLcdDisplay.displayLine(3, 1, line3);
+    }
+
+    void Monitor::menuScreen()
+    {
+        if (isNeedRefreshLcd())
+        {
+            mLcdDisplay.clearDisplay();
+            mLcdDisplay.displayLine(0, 1, "DISPLAY MODE");
+            mLcdDisplay.displayLine(1, 1, "SETTING MODE");
+            mLcdDisplay.displayLine(2, 1, "ABOUT");
+            mLcdDisplay.displayLine(3, 1, "1UP 2DOWN 3SEL 4BACK");
+            showArrow();
+        }
+    }
     // Show when button pressed
     void Monitor::showMenu()
     {
-        //TODO: need to add check is permission shown
-
-        // Check whether in setting mode or not
-        if (getSetttingMode() == true)
+        if (mScreenLevel == Monitor::ScreenLevel::HOME_SCREEN)
         {
-            showSetting();
+            homeScreen();
         }
-        else    // Not in setting mode - Display mode
+        else if (mScreenLevel == Monitor::ScreenLevel::NEXT_1)
         {
-            showDisplay();
+            menuScreen();
+        }
+        else
+        {
+
         }
     }
 
@@ -128,21 +168,79 @@ namespace blib
         return mSettingMode;
     }
 
-    void Monitor::setFactoryReset(const bool val)
+    void Monitor::jumpIn()
     {
-        mFactoryResetEnable = val;
+        if (mScreenLevel == ScreenLevel::HOME_SCREEN)
+        {
+            mScreenLevel = ScreenLevel::NEXT_1;
+        }
+        else if (mScreenLevel == ScreenLevel::NEXT_1)
+        {
+            mScreenLevel = ScreenLevel::NEXT_2;
+        }
+        else if (mScreenLevel == ScreenLevel::NEXT_2)
+        {
+            mScreenLevel = ScreenLevel::NEXT_3;
+        }
+        else
+        {
+            // Do nothing
+        }
     }
-    bool Monitor::getFactoryReset() const
+
+    void Monitor::jumpOut()
     {
-        return mFactoryResetEnable;
+        if (mScreenLevel == ScreenLevel::HOME_SCREEN)
+        {
+            // Do nothing
+        }
+        else if (mScreenLevel == ScreenLevel::NEXT_1)
+        {
+            mScreenLevel = ScreenLevel::HOME_SCREEN;
+        }
+        else if (mScreenLevel == ScreenLevel::NEXT_2)
+        {
+            mScreenLevel = ScreenLevel::NEXT_1;
+        }
+        else if (mScreenLevel == ScreenLevel::NEXT_3)
+        {
+            mScreenLevel = ScreenLevel::NEXT_2;
+        }
+        else
+        {
+            // Do nothing
+        }
     }
-    void Monitor::setConfirmFactoryReset(const bool val)
+
+    Monitor::ScreenLevel Monitor::getScreenLevel() const
     {
-        mConfirmFactoryReset = val;
+        return mScreenLevel;
     }
-    bool Monitor::getConfirmFactoryReset() const
+    void Monitor::incrementArrowLine()
     {
-        return mConfirmFactoryReset;
+        if (mArrowLine == 2)
+        {
+            mArrowLine = 0;
+        }
+        else
+        {
+            mArrowLine++;
+        }
+    }
+    void Monitor::decrementArrowLine()
+    {
+        if (mArrowLine == 0)
+        {
+            mArrowLine = 2;
+        }
+        else
+        {
+            mArrowLine--;
+        }
+    }
+    uint8_t Monitor::getArrowLine() const
+    {
+        return mArrowLine;
     }
 
     void Monitor::setSettingLevel(const SettingLevel val)
@@ -184,7 +282,22 @@ namespace blib
     {
         return mDisplayLevel;
     }
+    bool Monitor::isNeedRefreshLcd()
+    {
+        static ScreenLevel lastScreenLevel = ScreenLevel::HOME_SCREEN;
+        static uint8_t lastArrLine = 0;
 
+        if (lastScreenLevel != getScreenLevel() || lastArrLine != getArrowLine())
+        {
+            return true;
+        }
+
+        return false;
+    }
+    void Monitor::showArrow()
+    {
+        mLcdDisplay.displayLine(mArrowLine, 0, ">");
+    }
     void Monitor::showDisplayLevel1()
     {
         LOGI();
@@ -208,33 +321,7 @@ namespace blib
     }
     void Monitor::showDisplayFactoryReset()
     {
-        if (getFactoryReset() == false)
-        {
-            LOGI("FACTORY RESET");
-            LOGI("--PRESS SELECT--");
-        }
-        else
-        {
-            if (getConfirmFactoryReset() == false)
-            {
-                LOGI("ARE YOU SURE?");
-                LOGI(" >NO   >YES");
-            }
-            else
-            {
-                LOGI("FACTORY RESET");
-                LOGI("SUCCESSFULLY");
 
-                HAL_Delay(1500);
-
-                setConfirmFactoryReset(false);
-                setFactoryReset(false);
-
-                // Go to setting mode - show supply algorithm screen
-                setSettingMode(true);
-                setSettingLevel(SettingLevel::SETTING_LEVEL_CONFIG_1);    // TODO: Check correct screen
-            }
-        }
     }
     void Monitor::showSettingSupplyAlgorithm()
     {

@@ -77,13 +77,13 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
     if (GPIO_pin == BUT_LEFT_Pin)
     {
         LOGI("Button Left pin");
-        lastedPressButton = blib::Button::ButtonName::LEFT;
+        lastedPressButton = blib::Button::ButtonName::UP;
         pGPIOx = BUT_LEFT_GPIO_Port;
     }
     else if (GPIO_pin == BUT_RIGHT_Pin)
     {
         LOGI("Button Right pin");
-        lastedPressButton = blib::Button::ButtonName::RIGHT;
+        lastedPressButton = blib::Button::ButtonName::DOWN;
         pGPIOx = BUT_RIGHT_GPIO_Port;
     }
     else if (GPIO_pin == BUT_BACK_Pin)
@@ -95,7 +95,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
     else if (GPIO_pin == BUT_SELECT_Pin)
     {
         LOGI("Button Select pin");
-        lastedPressButton = blib::Button::ButtonName::SELECT;
+        lastedPressButton = blib::Button::ButtonName::SEL;
         pGPIOx = BUT_SELECT_GPIO_Port;
     }
     else
@@ -183,7 +183,7 @@ int main(void)
         chargeCtrl.run();
         serialMnt.show();
         monitor.showMenu();
-        HAL_Delay(1000);
+//        HAL_Delay(1000);
     }
     /* USER CODE END 3 */
 }

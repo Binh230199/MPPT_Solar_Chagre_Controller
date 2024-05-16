@@ -20,7 +20,7 @@ namespace blib
         public:
             enum class ButtonName
             {
-                UNDEFINED = 0, LEFT, RIGHT, BACK, SELECT
+                UNDEFINED = 0, UP, DOWN, SEL, BACK
             };
 
             Button();
