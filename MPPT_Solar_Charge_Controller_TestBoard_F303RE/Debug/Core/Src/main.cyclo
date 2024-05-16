@@ -1,16 +1,18 @@
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Log.h:48:25:static void blib::Logger::print(const char*)	1
 C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626\tools\arm-none-eabi\include\c++\11.3.1\arm-none-eabi\thumb\v7e-m+fp\hard\bits\gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	1
-../Core/Src/main.cpp:65:6:void HAL_GPIO_EXTI_Callback(uint16_t)	9
-../Core/Src/main.cpp:119:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	1
-../Core/Src/main.cpp:134:5:int main()	1
-../Core/Src/main.cpp:189:6:void SystemClock_Config()	4
-../Core/Src/main.cpp:237:13:void MX_ADC1_Init()	5
-../Core/Src/main.cpp:312:13:void MX_I2C1_Init()	4
-../Core/Src/main.cpp:360:13:void MX_USART2_UART_Init()	2
-../Core/Src/main.cpp:393:13:void MX_DMA_Init()	1
-../Core/Src/main.cpp:411:13:void MX_GPIO_Init()	1
-../Core/Src/main.cpp:460:6:void Error_Handler()	1
+../Core/Src/main.cpp:67:6:void HAL_GPIO_EXTI_Callback(uint16_t)	9
+../Core/Src/main.cpp:121:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	1
+../Core/Src/main.cpp:136:5:int main()	1
+../Core/Src/main.cpp:195:6:void SystemClock_Config()	4
+../Core/Src/main.cpp:243:13:void MX_ADC1_Init()	5
+../Core/Src/main.cpp:318:13:void MX_I2C1_Init()	4
+../Core/Src/main.cpp:366:13:void MX_USART2_UART_Init()	2
+../Core/Src/main.cpp:399:13:void MX_DMA_Init()	1
+../Core/Src/main.cpp:417:13:void MX_GPIO_Init()	1
+../Core/Src/main.cpp:466:6:void Error_Handler()	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Log.h:35:25:) [with Args = {const char*, int, const char*}]	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Button]	2
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Analog]	2
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Monitor]	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::ChargeControl]	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::SerialMonitor]	2

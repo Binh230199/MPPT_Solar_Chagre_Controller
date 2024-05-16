@@ -1,0 +1,33 @@
+/*
+ * SystemManager.h
+ *
+ *  Created on: May 15, 2024
+ *      Author: This PC
+ */
+
+#ifndef SYSTEMMANAGER_H_
+#define SYSTEMMANAGER_H_
+
+#include <string>
+
+// Add design patterns template library
+#include "Singleton.h"
+#include "StateMachineBase.h"
+
+// Add log library
+#include "Log.h"
+
+// Add main header
+#include "main.h"
+
+namespace blib
+{
+    class SystemManager : public dp::Singleton<SystemManager>
+    {
+        public:
+            SystemManager();
+            virtual ~SystemManager();
+    };
+}    // namespace blib
+
+#endif /* SYSTEMMANAGER_H_ */

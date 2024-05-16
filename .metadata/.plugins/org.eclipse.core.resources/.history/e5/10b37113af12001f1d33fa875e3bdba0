@@ -1,0 +1,51 @@
+/*
+ * SerialMonitor.cpp
+ *
+ *  Created on: May 15, 2024
+ *      Author: This PC
+ */
+
+#ifndef SERIALMONITOR_CPP_
+#define SERIALMONITOR_CPP_
+
+#include "SerialMonitor.h"
+
+namespace blib
+{
+
+    SerialMonitor::SerialMonitor()
+    {
+
+    }
+    SerialMonitor::~SerialMonitor()
+    {
+
+    }
+    void SerialMonitor::show()
+    {
+
+    }
+
+    void SerialMonitor::setSerialLevel(const SerialLevel val)
+    {
+        uint8_t u8SerialLevel = (uint8_t) val;
+
+        if (u8SerialLevel < 0)
+        {
+            u8SerialLevel = 0;
+        }
+        else if (u8SerialLevel >= (uint8_t) SerialLevel::SETTING_LEVEL_MAX)
+        {
+            u8SerialLevel = 0;
+        }
+
+        mSerialLevel = (SerialLevel) u8SerialLevel;
+    }
+    SerialMonitor::SerialLevel SerialMonitor::getSerialLevel() const
+    {
+        return mSerialLevel;
+    }
+
+}    // namespace blib
+
+#endif /* SERIALMONITOR_CPP_ */

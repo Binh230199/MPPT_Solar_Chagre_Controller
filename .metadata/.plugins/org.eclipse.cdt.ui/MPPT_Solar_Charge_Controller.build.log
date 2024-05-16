@@ -1,28 +1,39 @@
-22:55:06 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Controller ****
+06:57:27 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Controller ****
 make -j8 all 
+arm-none-eabi-g++ "../MyDriver/Button.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"MyDriver/Button.d" -MT"MyDriver/Button.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "MyDriver/Button.o"
+arm-none-eabi-g++ "../MyDriver/Lcd.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"MyDriver/Lcd.d" -MT"MyDriver/Lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "MyDriver/Lcd.o"
+arm-none-eabi-g++ "../MyDriver/Log.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"MyDriver/Log.d" -MT"MyDriver/Log.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "MyDriver/Log.o"
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-g++ "../Application/Analog.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/Analog.d" -MT"Application/Analog.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Analog.o"
-../Application/Analog.cpp: In member function 'double blib::Analog::convertAdcChannel2(uint32_t)':
-../Application/Analog.cpp:71:16: warning: unused variable 'voltage' [-Wunused-variable]
-   71 |         double voltage = CHANNEL_2_RATIO * ((double) adcValue / 4095) * 3.3;
-      |                ^~~~~~~
-../Application/Analog.cpp:74:5: warning: no return statement in function returning non-void [-Wreturn-type]
-   74 |     }
-      |     ^
-arm-none-eabi-g++ -o "MPPT_Solar_Charge_Controller.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\PROJECT_MPPT\MPPT_Solar_Chagre_Controller\MPPT_Solar_Charge_Controller\STM32F407VGTX_FLASH.ld" -Wl,-Map="MPPT_Solar_Charge_Controller.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: MPPT_Solar_Charge_Controller.elf
- 
-arm-none-eabi-size   MPPT_Solar_Charge_Controller.elf 
-arm-none-eabi-objdump -h -S  MPPT_Solar_Charge_Controller.elf  > "MPPT_Solar_Charge_Controller.list"
-arm-none-eabi-objcopy  -O binary  MPPT_Solar_Charge_Controller.elf  "MPPT_Solar_Charge_Controller.bin"
-   text	   data	    bss	    dec	    hex	filename
-  19072	    104	   3568	  22744	   58d8	MPPT_Solar_Charge_Controller.elf
-Finished building: default.size.stdout
- 
-Finished building: MPPT_Solar_Charge_Controller.bin
-Finished building: MPPT_Solar_Charge_Controller.list
- 
- 
+arm-none-eabi-g++ "../Application/ChargeControl.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/ChargeControl.d" -MT"Application/ChargeControl.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/ChargeControl.o"
+arm-none-eabi-g++ "../Application/Monitor.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/Monitor.d" -MT"Application/Monitor.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Monitor.o"
+arm-none-eabi-g++ "../Application/SerialMonitor.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/SerialMonitor.d" -MT"Application/SerialMonitor.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/SerialMonitor.o"
+../MyDriver/Lcd.cpp: In member function 'void blib::Lcd::sendCmd(uint8_t)':
+../MyDriver/Lcd.cpp:26:21: error: 'cmd' was not declared in this scope
+   26 |         dataHigh = (cmd & 0xF0);
+      |                     ^~~
+../MyDriver/Lcd.cpp: In member function 'void blib::Lcd::sendData(uint8_t)':
+../MyDriver/Lcd.cpp:40:13: error: invalid types 'uint8_t {aka unsigned char}[int]' for array subscript
+   40 |         data[0] = dataHigh | 0x0D;    //en = 1, rw = 0, rs = 1;
+      |             ^
+../MyDriver/Lcd.cpp:41:13: error: invalid types 'uint8_t {aka unsigned char}[int]' for array subscript
+   41 |         data[1] = dataHigh | 0x09;    //en = 0, rw = 0, rs = 1;
+      |             ^
+../MyDriver/Lcd.cpp:42:13: error: invalid types 'uint8_t {aka unsigned char}[int]' for array subscript
+   42 |         data[2] = dataLow | 0x0D;
+      |             ^
+../MyDriver/Lcd.cpp:43:13: error: invalid types 'uint8_t {aka unsigned char}[int]' for array subscript
+   43 |         data[3] = dataLow | 0x09;
+      |             ^
+../MyDriver/Lcd.cpp:44:53: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   44 |         HAL_I2C_Master_Transmit(mHi2c, mLcdAddress, (uint8_t*) data, sizeof(data), 100);
+      |                                                     ^~~~~~~~~~~~~~~
+../MyDriver/Lcd.cpp:37:17: warning: unused variable 'dataBuf' [-Wunused-variable]
+   37 |         uint8_t dataBuf[4];
+      |                 ^~~~~~~
+make: *** [MyDriver/subdir.mk:25: MyDriver/Lcd.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
 
-22:55:10 Build Finished. 0 errors, 2 warnings. (took 4s.12ms)
+06:57:28 Build Failed. 7 errors, 2 warnings. (took 1s.960ms)
 

@@ -2,7 +2,7 @@
  * Log.h
  *
  *  Created on: May 13, 2024
- *      Author: This PC
+ *      Author: binhhv.23.1.99@gmail.com
  */
 
 #ifndef LOG_LOG_H_

@@ -6,15 +6,24 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../Application/Analog.cpp \
-../Application/Monitor.cpp 
+../Application/ChargeControl.cpp \
+../Application/Monitor.cpp \
+../Application/SerialMonitor.cpp \
+../Application/SystemManager.cpp 
 
 OBJS += \
 ./Application/Analog.o \
-./Application/Monitor.o 
+./Application/ChargeControl.o \
+./Application/Monitor.o \
+./Application/SerialMonitor.o \
+./Application/SystemManager.o 
 
 CPP_DEPS += \
 ./Application/Analog.d \
-./Application/Monitor.d 
+./Application/ChargeControl.d \
+./Application/Monitor.d \
+./Application/SerialMonitor.d \
+./Application/SystemManager.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -24,7 +33,7 @@ Application/%.o Application/%.su Application/%.cyclo: ../Application/%.cpp Appli
 clean: clean-Application
 
 clean-Application:
-	-$(RM) ./Application/Analog.cyclo ./Application/Analog.d ./Application/Analog.o ./Application/Analog.su ./Application/Monitor.cyclo ./Application/Monitor.d ./Application/Monitor.o ./Application/Monitor.su
+	-$(RM) ./Application/Analog.cyclo ./Application/Analog.d ./Application/Analog.o ./Application/Analog.su ./Application/ChargeControl.cyclo ./Application/ChargeControl.d ./Application/ChargeControl.o ./Application/ChargeControl.su ./Application/Monitor.cyclo ./Application/Monitor.d ./Application/Monitor.o ./Application/Monitor.su ./Application/SerialMonitor.cyclo ./Application/SerialMonitor.d ./Application/SerialMonitor.o ./Application/SerialMonitor.su ./Application/SystemManager.cyclo ./Application/SystemManager.d ./Application/SystemManager.o ./Application/SystemManager.su
 
 .PHONY: clean-Application
 

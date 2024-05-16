@@ -6,14 +6,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../MyDriver/Button.cpp \
+../MyDriver/Lcd.cpp \
 ../MyDriver/Log.cpp 
 
 OBJS += \
 ./MyDriver/Button.o \
+./MyDriver/Lcd.o \
 ./MyDriver/Log.o 
 
 CPP_DEPS += \
 ./MyDriver/Button.d \
+./MyDriver/Lcd.d \
 ./MyDriver/Log.d 
 
 
@@ -24,7 +27,7 @@ MyDriver/%.o MyDriver/%.su MyDriver/%.cyclo: ../MyDriver/%.cpp MyDriver/subdir.m
 clean: clean-MyDriver
 
 clean-MyDriver:
-	-$(RM) ./MyDriver/Button.cyclo ./MyDriver/Button.d ./MyDriver/Button.o ./MyDriver/Button.su ./MyDriver/Log.cyclo ./MyDriver/Log.d ./MyDriver/Log.o ./MyDriver/Log.su
+	-$(RM) ./MyDriver/Button.cyclo ./MyDriver/Button.d ./MyDriver/Button.o ./MyDriver/Button.su ./MyDriver/Lcd.cyclo ./MyDriver/Lcd.d ./MyDriver/Lcd.o ./MyDriver/Lcd.su ./MyDriver/Log.cyclo ./MyDriver/Log.d ./MyDriver/Log.o ./MyDriver/Log.su
 
 .PHONY: clean-MyDriver
 

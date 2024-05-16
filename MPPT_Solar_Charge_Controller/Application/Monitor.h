@@ -2,7 +2,7 @@
  * Monitor.h
  *
  *  Created on: May 13, 2024
- *      Author: This PC
+ *      Author: binhhv.23.1.99@gmail.com
  */
 
 #ifndef MONITOR_H_
@@ -16,6 +16,10 @@
 
 // Add log library
 #include "Log.h"
+
+#include "Lcd.h"
+
+extern I2C_HandleTypeDef hi2c1;
 
 namespace blib
 {
@@ -100,6 +104,8 @@ namespace blib
             // Factory reset
             volatile bool mFactoryResetEnable = false;    // false = disable, true = enable
             volatile bool mConfirmFactoryReset = false;    // false = no, true = yes
+
+            Lcd mLcdDisplay;    // lcd display monitor
     };
 
 }

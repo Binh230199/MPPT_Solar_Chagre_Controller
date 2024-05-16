@@ -1,0 +1,28 @@
+/*
+ * SerialMonitor.h
+ *
+ *  Created on: May 15, 2024
+ *      Author: This PC
+ */
+
+#ifndef SERIALMONITOR_H_
+#define SERIALMONITOR_H_
+
+#include <string>
+
+// Add design patterns template library
+#include "Singleton.h"
+#include "StateMachineBase.h"
+
+// Add log library
+#include "Log.h"
+
+namespace blib
+{
+    class SerialMonitor
+    {
+
+    };
+}
+
+#endif /* SERIALMONITOR_H_ */

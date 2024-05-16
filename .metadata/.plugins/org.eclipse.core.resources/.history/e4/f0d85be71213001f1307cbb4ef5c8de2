@@ -1,0 +1,28 @@
+/*
+ * Lcd.h
+ *
+ *  Created on: May 16, 2024
+ *      Author: This PC
+ */
+
+#ifndef LCD_H_
+#define LCD_H_
+
+#include <cstdint>
+
+namespace blib
+{
+    class Lcd
+    {
+        public:
+            enum class LcdType
+            {
+                LCD_TYPE_1602, LCD_TYPE_2004, LCD_TYPE_UNDEFINED,
+            };
+            Lcd();
+            virtual ~Lcd();
+    };
+
+}    // namespace blib
+
+#endif /* LCD_H_ */

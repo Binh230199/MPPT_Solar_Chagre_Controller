@@ -1,0 +1,43 @@
+/*
+ * SystemManager.h
+ *
+ *  Created on: May 15, 2024
+ *      Author: This PC
+ */
+
+#ifndef SYSTEMMANAGER_H_
+#define SYSTEMMANAGER_H_
+
+#include <string>
+
+// Add design patterns template library
+#include "Singleton.h"
+#include "StateMachineBase.h"
+
+// Add log library
+#include "Log.h"
+
+// Add main header
+#include "main.h"
+
+namespace blib
+{
+    class SystemManager : public dp::Singleton<SystemManager>
+    {
+        public:
+            SystemManager();
+            virtual ~SystemManager();
+
+        private:
+            bool mMpptMode = true;    //
+            bool mOutputMode = true;    // false: PSU mode, true: Charger mode
+            bool mDisableFlashAutoLoad = false;    // false: PSU mode, true: Charger mode
+            bool mEnablePPWM = true;    // true: enables predictive PWM, this accelerates regulation speed (only applicable for battery charging application)
+            bool mEnableFan = true;    // true: Enable Cooling Fan
+            bool mEnableLcd = true;    // true: Enable LCD display
+            bool mEnableLcdBackLight = true;    // true: Enable LCD display's backlight
+
+    };
+}    // namespace blib
+
+#endif /* SYSTEMMANAGER_H_ */

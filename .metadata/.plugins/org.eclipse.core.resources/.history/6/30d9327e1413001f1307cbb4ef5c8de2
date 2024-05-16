@@ -1,0 +1,26 @@
+/*
+ * Lcd.cpp
+ *
+ *  Created on: May 16, 2024
+ *      Author: This PC
+ */
+
+#include "Lcd.h"
+
+namespace blib
+{
+
+    Lcd::Lcd(LcdType type, I2C_HandleTypeDef mHi2c, uint8_t address);
+    Lcd::~Lcd();
+    void Lcd::sendCmd(uint8_t command);
+    void Lcd::sendData(uint8_t data);
+    void Lcd::setCursor(uint8_t row, uint8_t col);
+    void Lcd::rollData();
+    void Lcd::pushData();
+    void Lcd::displayLine(uint8_t row, uint8_t col, const char *string);
+    void Lcd::clearDisplay();
+    void Lcd::init();
+    void Lcd::makeCustomCharacter(uint8_t location, uint8_t *byte);
+
+}    // namespace blib
+

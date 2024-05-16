@@ -1,0 +1,41 @@
+/*
+ * ChargeControl.h
+ *
+ *  Created on: May 15, 2024
+ *      Author: This PC
+ */
+
+#ifndef CHARGECONTROL_H_
+#define CHARGECONTROL_H_
+
+#include <string>
+
+// Add design patterns template library
+#include "Singleton.h"
+#include "StateMachineBase.h"
+
+// Add log library
+#include "Log.h"
+
+namespace blib
+{
+    class ChargeControl : public dp::Singleton<ChargeControl>
+    {
+        public:
+            ChargeControl();
+            virtual ~ChargeControl();
+            void run();
+
+        private:
+            void buckEnable();
+            void buckDisable();
+            void predictPwm();
+            void generatePwm();
+
+        private:
+            bool mBuckEnable = false;
+    };
+
+}    // namespace blib
+
+#endif /* CHARGECONTROL_H_ */

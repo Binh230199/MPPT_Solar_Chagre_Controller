@@ -1,0 +1,51 @@
+/*
+ * Lcd.h
+ *
+ *  Created on: May 16, 2024
+ *      Author: This PC
+ */
+
+#ifndef LCD_H_
+#define LCD_H_
+
+#include <cstdint>
+#include "Log.h"
+#include "main.h"
+
+extern I2C_HandleTypeDef hi2c1;
+
+namespace blib
+{
+    class Lcd
+    {
+        public:
+            enum class LcdType
+            {
+                LCD_TYPE_1602, LCD_TYPE_2004, LCD_TYPE_UNDEFINED,
+            };
+            Lcd(LcdType type, uint8_t address);
+            virtual ~Lcd();
+            void sendCmd(uint8_t command);
+            void sendData(uint8_t data);
+            void setCursor(uint8_t row, uint8_t col);
+            void rollData();
+            void pushData();
+            void displayLine(uint8_t row, uint8_t col, const char *string);
+            void clearDisplay();
+            void init();
+            void makeCustomCharacter(uint8_t location, uint8_t *byte);
+//            void
+        private:
+            LcdType mLcdType;
+            uint8_t mLcdAddress;
+            uint8_t mEntryMode;
+            uint8_t mDisplayControl;
+            uint8_t mFunctionSet;
+            uint8_t blackLight;
+            uint8_t mRow;
+            uint8_t mCol;
+    };
+
+}    // namespace blib
+
+#endif /* LCD_H_ */

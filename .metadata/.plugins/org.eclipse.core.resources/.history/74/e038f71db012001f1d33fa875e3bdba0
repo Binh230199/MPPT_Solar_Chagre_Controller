@@ -1,0 +1,145 @@
+/*
+ * SerialMonitor.cpp
+ *
+ *  Created on: May 15, 2024
+ *      Author: This PC
+ */
+
+#ifndef SERIALMONITOR_CPP_
+#define SERIALMONITOR_CPP_
+
+#include "SerialMonitor.h"
+
+namespace blib
+{
+
+    SerialMonitor::SerialMonitor()
+    {
+
+    }
+    SerialMonitor::~SerialMonitor()
+    {
+
+    }
+    void SerialMonitor::show()
+    {
+        switch (getSerialLevel())
+        {
+            case SerialLevel::SERIAL_LEVEL_1:
+                serialLevel1();
+                break;
+            case SerialLevel::SERIAL_LEVEL_2:
+                serialLevel2();
+                break;
+            case SerialLevel::SERIAL_LEVEL_3:
+                serialLevel3();
+                break;
+            case SerialLevel::SERIAL_LEVEL_0:
+            case SerialLevel::SERIAL_LEVEL_MAX:
+            default:
+                break;
+        }
+    }
+
+    void SerialMonitor::setSerialLevel(const SerialLevel val)
+    {
+        uint8_t u8SerialLevel = (uint8_t) val;
+
+        if (u8SerialLevel < 0)
+        {
+            u8SerialLevel = (uint8_t) SerialLevel::SERIAL_LEVEL_MAX - 1;    // Rotate
+        }
+        else if (u8SerialLevel >= (uint8_t) SerialLevel::SERIAL_LEVEL_MAX)
+        {
+            u8SerialLevel = 0;
+        }
+
+        mSerialLevel = (SerialLevel) u8SerialLevel;
+    }
+    SerialMonitor::SerialLevel SerialMonitor::getSerialLevel() const
+    {
+        return mSerialLevel;
+    }
+
+    void SerialMonitor::serialLevel1()
+    {
+        Serial.print(" ERR:");
+        Serial.print(ERR);
+        Serial.print(" FLV:");
+        Serial.print(FLV);
+        Serial.print(" BNC:");
+        Serial.print(BNC);
+        Serial.print(" IUV:");
+        Serial.print(IUV);
+        Serial.print(" IOC:");
+        Serial.print(IOC);
+        Serial.print(" OOV:");
+        Serial.print(OOV);
+        Serial.print(" OOC:");
+        Serial.print(OOC);
+        Serial.print(" OTE:");
+        Serial.print(OTE);
+        Serial.print(" REC:");
+        Serial.print(REC);
+        Serial.print(" MPPTA:");
+        Serial.print(MPPT_Mode);
+        Serial.print(" CM:");
+        Serial.print(output_Mode);    //Charging Mode
+
+        Serial.print(" ");
+        Serial.print(" BYP:");
+        Serial.print(bypassEnable);
+        Serial.print(" EN:");
+        Serial.print(buckEnable);
+        Serial.print(" FAN:");
+        Serial.print(fanStatus);
+        Serial.print(" WiFi:");
+        Serial.print(WIFI);
+        Serial.print(" ");
+        Serial.print(" PI:");
+        Serial.print(powerInput, 0);
+        Serial.print(" PWM:");
+        Serial.print(PWM);
+        Serial.print(" PPWM:");
+        Serial.print(PPWM);
+        Serial.print(" VI:");
+        Serial.print(voltageInput, 1);
+        Serial.print(" VO:");
+        Serial.print(voltageOutput, 1);
+        Serial.print(" CI:");
+        Serial.print(currentInput, 2);
+        Serial.print(" CO:");
+        Serial.print(currentOutput, 2);
+        Serial.print(" Wh:");
+        Serial.print(Wh, 2);
+        Serial.print(" Temp:");
+        Serial.print(temperature, 1);
+        Serial.print(" ");
+        Serial.print(" CSMPV:");
+        Serial.print(currentMidPoint, 3);
+        Serial.print(" CSV:");
+        Serial.print(CSI_converted, 3);
+        Serial.print(" VO%Dev:");
+        Serial.print(outputDeviation, 1);
+        Serial.print(" SOC:");
+        Serial.print(batteryPercent);
+        Serial.print("%");
+        Serial.print(" T:");
+        Serial.print(secondsElapsed);
+        Serial.print(" LoopT:");
+        Serial.print(loopTime, 3);
+        Serial.print("ms");
+        Serial.println("");
+    }
+    void SerialMonitor::serialLevel2()
+    {
+
+    }
+    void SerialMonitor::serialLevel3()
+    {
+
+    }
+
+}    // namespace blib
+
+#endif /* SERIALMONITOR_CPP_ */

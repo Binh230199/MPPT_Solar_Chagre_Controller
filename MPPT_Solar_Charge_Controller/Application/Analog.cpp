@@ -2,7 +2,7 @@
  * Analog.cpp
  *
  *  Created on: May 14, 2024
- *      Author: This PC
+ *      Author: binhhv.23.1.99@gmail.com
  */
 
 #include "Analog.h"
@@ -25,23 +25,23 @@ namespace blib
         HAL_ADC_Start_DMA(mHadc, mAdcValues, NUMBER_OF_CHANNELS);
     }
 
-    double Analog::getVin() const
+    float Analog::getVin() const
     {
         return mVin;
     }
-    double Analog::getIin() const
+    float Analog::getIin() const
     {
         return mIin;
     }
-    double Analog::getVout() const
+    float Analog::getVout() const
     {
         return mVout;
     }
-    double Analog::getIout() const
+    float Analog::getIout() const
     {
         return mIout;
     }
-    double Analog::getTemp() const
+    float Analog::getTemp() const
     {
         return mTemp;
     }
@@ -61,32 +61,32 @@ namespace blib
 //        LOGI("mTemp : [%.2f] C", mTemp);
     }
 
-    double Analog::convertAdcChannel1(uint32_t adcValue)    // Convert adcValue -> Vin
+    float Analog::convertAdcChannel1(uint32_t adcValue)    // Convert adcValue -> Vin
     {
-        return CHANNEL_1_RATIO * ((double) adcValue / 4095) * 3.3;
+        return CHANNEL_1_RATIO * ((float) adcValue / 4095) * 3.3;
     }
 
-    double Analog::convertAdcChannel2(uint32_t adcValue)    // Convert adcValue -> Iin
+    float Analog::convertAdcChannel2(uint32_t adcValue)    // Convert adcValue -> Iin
     {
-        double voltage = CHANNEL_2_RATIO * ((double) adcValue / 4095) * 3.3;
-        double current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
-
-        return current;
-    }
-    double Analog::convertAdcChannel3(uint32_t adcValue)    // Convert adcValue -> Vout
-    {
-        return CHANNEL_3_RATIO * ((double) adcValue / 4095) * 3.3;
-    }
-    double Analog::convertAdcChannel4(uint32_t adcValue)    // Convert adcValue -> Iout
-    {
-        double voltage = CHANNEL_4_RATIO * ((double) adcValue / 4095) * 3.3;
-        double current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
+        float voltage = CHANNEL_2_RATIO * ((float) adcValue / 4095) * 3.3;
+        float current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
 
         return current;
     }
-    double Analog::convertAdcChannel5(uint32_t adcValue)    // Convert adcValue -> Temperature
+    float Analog::convertAdcChannel3(uint32_t adcValue)    // Convert adcValue -> Vout
     {
-        return CHANNEL_5_RATIO * ((double) adcValue / 4095) * 3.3;
+        return CHANNEL_3_RATIO * ((float) adcValue / 4095) * 3.3;
+    }
+    float Analog::convertAdcChannel4(uint32_t adcValue)    // Convert adcValue -> Iout
+    {
+        float voltage = CHANNEL_4_RATIO * ((float) adcValue / 4095) * 3.3;
+        float current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
+
+        return current;
+    }
+    float Analog::convertAdcChannel5(uint32_t adcValue)    // Convert adcValue -> Temperature NTC 10k
+    {
+        return CHANNEL_5_RATIO * ((float) adcValue / 4095) * 3.3;
     }
 }
 // namespace blib

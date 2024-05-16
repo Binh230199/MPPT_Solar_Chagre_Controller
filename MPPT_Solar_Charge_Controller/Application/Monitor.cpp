@@ -2,7 +2,7 @@
  * Monitor.cpp
  *
  *  Created on: May 13, 2024
- *      Author: This PC
+ *      Author: binhhv.23.1.99@gmail.com
  */
 
 #include "Monitor.h"
@@ -10,9 +10,8 @@
 
 namespace blib
 {
-    Monitor::Monitor()
+    Monitor::Monitor() : mLcdDisplay(Lcd::LcdType::LCD_TYPE_2004, &hi2c1, 0x7F)
     {
-//        mSettingMode = true;    // TODO: test
         showInit();
     }
     Monitor::~Monitor()
@@ -23,9 +22,13 @@ namespace blib
     // Show when begin
     void Monitor::showInit()
     {
-        LOGI("MPPT INITIALIZED");
-        LOGI("FIRMWARE V1.00");
-//        HAL_Delay(1500);
+        LOGI();
+        mLcdDisplay.clearDisplay();
+        mLcdDisplay.displayLine(0, 2, "DO AN TOT NGHIEP");
+        mLcdDisplay.displayLine(1, 2, "NAM HOC: 2023-2024");
+        mLcdDisplay.displayLine(2, 2, "LOP: DTD61DH");
+        mLcdDisplay.displayLine(0, 1, "DAI HOC HANG HAI VN");
+        HAL_Delay(1500);
     }
 
     // Show when button pressed

@@ -1,0 +1,25 @@
+/*
+ * SerialMonitor.cpp
+ *
+ *  Created on: May 15, 2024
+ *      Author: This PC
+ */
+
+#ifndef SERIALMONITOR_CPP_
+#define SERIALMONITOR_CPP_
+
+#include "SerialMonitor.h"
+
+namespace blib
+{
+
+    SerialMonitor::SerialMonitor();
+    SerialMonitor::~SerialMonitor();
+    void SerialMonitor::show();
+
+    void SerialMonitor::setSerialLevel(const SerialLevel level);
+    SerialLevel SerialMonitor::getSerialLevel() const;
+
+}    // namespace blib
+
+#endif /* SERIALMONITOR_CPP_ */
