@@ -25,6 +25,11 @@ namespace blib
     class ChargeControl : public dp::Singleton<ChargeControl>
     {
         public:
+            enum class OutputMode
+            {
+                PSU, CHARGER, INVERTER
+            };
+
             ChargeControl();
             virtual ~ChargeControl();
             void run();
@@ -36,13 +41,21 @@ namespace blib
         private:
             void buckEnable();
             void buckDisable();
-            void predictPwm();
+            float predictPwm();
             void generatePwm();
 
         private:
+            OutputMode mOutputMode = OutputMode::PSU;
+
             bool mBuckEnable = false;
             bool mMpptMode = false;    // false: CC-CV Buck PSU, true: MPPT & CC-CV charging
             uint32_t mPwm;
+            uint32_t mPredictPwm;
+            uint32_t mPwmMax;
+            uint32_t mPwmMaxLimit;
+
+            static constexpr float mPredictPwmMargin = 99.5f;    //  Minimum Operating Duty Cycle for Predictive PWM (%)
+            static constexpr float mPwmMaxDc = 97.0f;    // Maximum Operating Duty Cycle (%) 90%-97% is good
     };
 
 }    // namespace blib

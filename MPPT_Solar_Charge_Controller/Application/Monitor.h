@@ -29,7 +29,7 @@ namespace blib
         public:
             enum class ScreenLevel
             {
-                HOME_SCREEN = 0, NEXT_1 = 1, NEXT_2 = 2, NEXT_3 = 3
+                HOME_SCREEN = 0, MENUS = 1, OPTIONS = 2, VALUES = 3
             };
 
             enum class DisplayLevel
@@ -64,9 +64,13 @@ namespace blib
             virtual ~Monitor();
 
             void showInit();
+            void showMenu();
+
             void homeScreen();
             void menuScreen();
-            void showMenu();
+            void optionScreen();
+            void valueScreen();
+
             void showSetting();
             void showDisplay();
 
@@ -86,6 +90,19 @@ namespace blib
             void incrementArrowLine();
             void decrementArrowLine();
             uint8_t getArrowLine() const;
+
+            void setDefaultIndexLine();
+            void setBackIndexLine();
+            void incrementIndexLine();
+            void decrementIndexLine();
+            uint8_t getIndexLine() const;
+            uint8_t getLastIndexLine() const;
+            void updateLastIndexLine();
+
+            // implement functions
+            void impl_DisplayOff();
+            void impl_TurnOffBacklight();
+            void impl_DisplayDetectPowerSource();
 
         private:
             bool isNeedRefreshLcd();
@@ -111,8 +128,10 @@ namespace blib
 
         private:
             volatile ScreenLevel mScreenLevel = ScreenLevel::HOME_SCREEN;
-            volatile bool mSettingMode = false;    // false - display mode, true - setting mode
+            volatile bool mSettingMode = true;    // false - display mode, true - setting mode
             volatile uint8_t mArrowLine = 0;    // Mui ten chi dong nao, thi dang o dong do
+            volatile uint8_t mIndexLine = 1;    // 1 -> x: Khi nhan sel thi mIndexLine = 1;
+            volatile uint8_t mLastIndexLine = 1;    // De khi nhan back thi quay ve dung line
             volatile SettingLevel mSettingLevel = SettingLevel::SETTING_LEVEL_CONFIG_0;    //
             volatile DisplayLevel mDisplayLevel = DisplayLevel::DISPLAY_LEVEL_CONFIG_0;
 

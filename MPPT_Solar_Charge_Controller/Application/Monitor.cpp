@@ -5,6 +5,7 @@
  *      Author: binhhv.23.1.99@gmail.com
  */
 
+#include <cmath>
 #include "Monitor.h"
 #include "Button.h"
 #include "Analog.h"
@@ -45,10 +46,10 @@ namespace blib
 
         auto &analog = Analog::getInstance();
 
-        snprintf(line0, COL, "%02.1fV %02.1fA %02.1fW", analog.getVin(), analog.getIin(),
-                analog.getVin() * analog.getIin());
-        snprintf(line1, COL, "%02.1fV %02.1fA %02.1fW", analog.getVout(), analog.getIout(),
-                analog.getVout() * analog.getIout());
+        snprintf(line0, COL, "%02.1fV %02.1fA %02.1fW", analog.getVin(), fabs(analog.getIin()),
+                fabs(analog.getVin() * analog.getIin()));
+        snprintf(line1, COL, "%02.1fV %02.1fA %02.1fW", analog.getVout(), fabs(analog.getIout()),
+                fabs(analog.getVout() * analog.getIout()));
         snprintf(line2, COL, "%d", 1);
 
         mLcdDisplay.clearDisplay();
@@ -63,9 +64,36 @@ namespace blib
         if (isNeedRefreshLcd())
         {
             mLcdDisplay.clearDisplay();
-            mLcdDisplay.displayLine(0, 1, "DISPLAY MODE");
-            mLcdDisplay.displayLine(1, 1, "SETTING MODE");
-            mLcdDisplay.displayLine(2, 1, "ABOUT");
+            mLcdDisplay.displayLine(0, 1, "1 DISPLAY MODE");
+            mLcdDisplay.displayLine(1, 1, "2 SETTING MODE");
+            mLcdDisplay.displayLine(2, 1, "3 ABOUT");
+            mLcdDisplay.displayLine(3, 1, "1UP 2DOWN 3SEL 4BACK");
+            showArrow();
+        }
+    }
+    void Monitor::optionScreen()
+    {
+        if (isNeedRefreshLcd())
+        {
+            if (getSetttingMode())
+            {
+                showSetting();
+            }
+            else
+            {
+                showDisplay();
+            }
+        }
+    }
+
+    void Monitor::valueScreen()
+    {
+        if (isNeedRefreshLcd())
+        {
+            mLcdDisplay.clearDisplay();
+            mLcdDisplay.displayLine(0, 1, "1 DISPLAY MODE");
+            mLcdDisplay.displayLine(1, 1, "2 SETTING MODE");
+            mLcdDisplay.displayLine(2, 1, "3 ABOUT");
             mLcdDisplay.displayLine(3, 1, "1UP 2DOWN 3SEL 4BACK");
             showArrow();
         }
@@ -77,86 +105,47 @@ namespace blib
         {
             homeScreen();
         }
-        else if (mScreenLevel == Monitor::ScreenLevel::NEXT_1)
+        else if (mScreenLevel == Monitor::ScreenLevel::MENUS)
         {
             menuScreen();
         }
+        else if (mScreenLevel == Monitor::ScreenLevel::OPTIONS)
+        {
+            optionScreen();
+        }
         else
         {
-
+//            valuesScreen();
         }
     }
 
     void Monitor::showSetting()
     {
-        switch (getSettingLevel())
-        {
-            case Monitor::SettingLevel::SETTING_LEVEL_CONFIG_0:
-                showSettingSupplyAlgorithm();
-                break;
-            case Monitor::SettingLevel::SETTING_LEVEL_CONFIG_1:
-                showSettingChargerPsuMode();
-                break;
-            case Monitor::SettingLevel::SETTING_LEVEL_CONFIG_2:
-                showSettingMaxBatteryVoltage();
-                break;
-            case Monitor::SettingLevel::SETTING_LEVEL_CONFIG_3:
-                showSettingMinBatteryVoltage();
-                break;
-            case Monitor::SettingLevel::SETTING_LEVEL_CONFIG_4:
-                showSettingChargingCurrent();
-                break;
-            case Monitor::SettingLevel::SETTING_LEVEL_CONFIG_5:
-                showSettingCoolingFan();
-                break;
-            case Monitor::SettingLevel::SETTING_LEVEL_CONFIG_6:
-                showSettingFanTriggerTemp();
-                break;
-            case Monitor::SettingLevel::SETTING_LEVEL_CONFIG_7:
-                showSettingShutdownTemp();
-                break;
-            case Monitor::SettingLevel::SETTING_LEVEL_CONFIG_8:
-                showSettingAutoLoadFeature();
-                break;
-            case Monitor::SettingLevel::SETTING_LEVEL_CONFIG_9:
-                showSettingBackligthSleep();
-                break;
-            case Monitor::SettingLevel::SETTING_LEVEL_CONFIG_10:
-                showSettingFactoryReset();
-                break;
-            default:
-                break;
-        }
+        const int COL = 21;
+        const int ROW = 13;
+
+        char list[ROW][COL] = { "", "1 SUPPLY ALGORITHM", "2 MODE", "3 MAX BATTERY VOLT",
+                "4 MIN BATTERY VOLT", "5 CHARGING CURRENT", "6 COOLING FAN", "7 FAN TRIGGER TEMP",
+                "8 SHUTDOWN TEMP", "9 AUTOLOAD", "10BACKLIGHT SLEEP", "11FACTORY RESET" };
+        mLcdDisplay.displayLine(0, 1, list[mIndexLine]);
+        mLcdDisplay.displayLine(1, 1, list[mIndexLine + 1]);
+        mLcdDisplay.displayLine(2, 1, list[mIndexLine + 2]);
+        mLcdDisplay.displayLine(3, 1, "1UP 2DOWN 3SEL 4BACK");
+        showArrow();
     }
     void Monitor::showDisplay()
     {
-        const Monitor::DisplayLevel displayLevel = getDisplayLevel();
-        switch (displayLevel)
-        {
-            case Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_0:
-                // Do not show anything - Maybe show display off
-                break;
-            case Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_1:
-                showDisplayLevel1();
-                break;
-            case Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_2:
-                showDisplayLevel2();
-                break;
-            case Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_3:
-                showDisplayLevel3();
-                break;
-            case Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_4:
-                showDisplayLevel4();
-                break;
-            case Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_5:
-                showDisplayChooseSettingMode();
-                break;
-            case Monitor::DisplayLevel::DISPLAY_LEVEL_CONFIG_6:
-                showDisplayFactoryReset();
-                break;
-            default:
-                break;
-        }
+        const int COL = 21;
+        const int ROW = 13;
+
+        char list[ROW][COL] = { "", "1 DISPLAY1", "2 DISPLAY2", "3 DISPLAY3", "4 MIN BATTERY VOLT",
+                "5 CHARGING CURRENT", "6 COOLING FAN", "7 FAN TRIGGER TEMP", "8 SHUTDOWN TEMP",
+                "9 AUTOLOAD", "10BACKLIGHT SLEEP", "11FACTORY RESET" };
+        mLcdDisplay.displayLine(0, 1, list[mIndexLine]);
+        mLcdDisplay.displayLine(1, 1, list[mIndexLine + 1]);
+        mLcdDisplay.displayLine(2, 1, list[mIndexLine + 2]);
+        mLcdDisplay.displayLine(3, 1, "1UP 2DOWN 3SEL 4BACK");
+        showArrow();
     }
 
     void Monitor::setSettingMode(const bool val)
@@ -172,15 +161,18 @@ namespace blib
     {
         if (mScreenLevel == ScreenLevel::HOME_SCREEN)
         {
-            mScreenLevel = ScreenLevel::NEXT_1;
+            mScreenLevel = ScreenLevel::MENUS;
+            LOGI("Go to Menus");
         }
-        else if (mScreenLevel == ScreenLevel::NEXT_1)
+        else if (mScreenLevel == ScreenLevel::MENUS)
         {
-            mScreenLevel = ScreenLevel::NEXT_2;
+            mScreenLevel = ScreenLevel::OPTIONS;
+            LOGI("Go to Options");
         }
-        else if (mScreenLevel == ScreenLevel::NEXT_2)
+        else if (mScreenLevel == ScreenLevel::OPTIONS)
         {
-            mScreenLevel = ScreenLevel::NEXT_3;
+            mScreenLevel = ScreenLevel::VALUES;
+            LOGI("Go to Values");
         }
         else
         {
@@ -194,17 +186,20 @@ namespace blib
         {
             // Do nothing
         }
-        else if (mScreenLevel == ScreenLevel::NEXT_1)
+        else if (mScreenLevel == ScreenLevel::MENUS)
         {
             mScreenLevel = ScreenLevel::HOME_SCREEN;
+            LOGI("Go back Homescreen");
         }
-        else if (mScreenLevel == ScreenLevel::NEXT_2)
+        else if (mScreenLevel == ScreenLevel::OPTIONS)
         {
-            mScreenLevel = ScreenLevel::NEXT_1;
+            mScreenLevel = ScreenLevel::MENUS;
+            LOGI("Go back Menus");
         }
-        else if (mScreenLevel == ScreenLevel::NEXT_3)
+        else if (mScreenLevel == ScreenLevel::VALUES)
         {
-            mScreenLevel = ScreenLevel::NEXT_2;
+            mScreenLevel = ScreenLevel::OPTIONS;
+            LOGI("Go back Options");
         }
         else
         {
@@ -241,6 +236,95 @@ namespace blib
     uint8_t Monitor::getArrowLine() const
     {
         return mArrowLine;
+    }
+
+    void Monitor::setDefaultIndexLine()
+    {
+        mIndexLine = 1;
+    }
+    void Monitor::setBackIndexLine()
+    {
+        mIndexLine = mLastIndexLine;
+    }
+    // Chi khi co su thay doi ScreenLevel moi cap nhat
+    void Monitor::updateLastIndexLine()
+    {
+        mLastIndexLine = mIndexLine;
+    }
+    void Monitor::incrementIndexLine()
+    {
+        uint8_t max = 0;
+
+        if (getScreenLevel() == ScreenLevel::HOME_SCREEN)
+        {
+            max = 0;
+        }
+        else if (getScreenLevel() == ScreenLevel::MENUS)
+        {
+            max = 3;
+        }
+        else if (getScreenLevel() == ScreenLevel::OPTIONS)
+        {
+            if (getSetttingMode() == false)    // Display mode
+            {
+                max = 4;
+            }
+            else
+            {
+                max = 12;
+            }
+        }
+
+        if (mIndexLine == max)
+        {
+            mIndexLine = 1;
+        }
+        else
+        {
+            mIndexLine++;
+        }
+    }
+    void Monitor::decrementIndexLine()
+    {
+        int max = 0;
+
+        if (getScreenLevel() == ScreenLevel::HOME_SCREEN)
+        {
+            max = 0;
+        }
+        else if (getScreenLevel() == ScreenLevel::MENUS)
+        {
+            max = 3;
+        }
+        else if (getScreenLevel() == ScreenLevel::OPTIONS)
+        {
+            if (getSetttingMode() == false)    // Display mode
+            {
+                max = 4;
+            }
+            else
+            {
+                max = 12;
+            }
+        }
+
+        if (mIndexLine == 1)
+        {
+            mIndexLine = max;
+        }
+        else
+        {
+            mIndexLine--;
+        }
+    }
+    uint8_t Monitor::getIndexLine() const
+    {
+        return mIndexLine;
+    }
+
+    uint8_t Monitor::getLastIndexLine() const
+    {
+        return mLastIndexLine;
     }
 
     void Monitor::setSettingLevel(const SettingLevel val)
@@ -296,8 +380,28 @@ namespace blib
     }
     void Monitor::showArrow()
     {
+        mLcdDisplay.displayLine(0, 0, " ");
+        mLcdDisplay.displayLine(1, 0, " ");
+        mLcdDisplay.displayLine(2, 0, " ");
         mLcdDisplay.displayLine(mArrowLine, 0, ">");
     }
+
+    void Monitor::impl_DisplayOff()
+    {
+        mLcdDisplay.clearDisplay();
+    }
+
+    void Monitor::impl_TurnOffBacklight()
+    {
+//        mLcdDisplay.sendData(data)
+    }
+    void Monitor::impl_DisplayDetectPowerSource()
+    {
+        mLcdDisplay.clearDisplay();
+        mLcdDisplay.displayLine(0, 0, "POWER SOURCE:");
+        mLcdDisplay.displayLine(1, 0, "SOLAR PANEL DETECTED");
+    }
+
     void Monitor::showDisplayLevel1()
     {
         LOGI();

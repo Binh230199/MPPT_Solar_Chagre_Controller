@@ -1,12 +1,14 @@
 ../MyDriver/Lcd.cpp:18:5:blib::Lcd::~Lcd()	0	static
 ../MyDriver/Lcd.cpp:18:5:virtual blib::Lcd::~Lcd()	8	static
+../MyDriver/Log.h:48:25:static void blib::Logger::print(const char*)	16	static
 ../MyDriver/Lcd.cpp:22:10:void blib::Lcd::sendCmd(uint8_t)	24	static
 ../MyDriver/Lcd.cpp:34:10:void blib::Lcd::sendData(uint8_t)	24	static
 ../MyDriver/Lcd.cpp:46:10:void blib::Lcd::setCursor(uint8_t, uint8_t)	0	static
 ../MyDriver/Lcd.cpp:78:10:void blib::Lcd::rollData()	0	static
 ../MyDriver/Lcd.cpp:82:10:void blib::Lcd::pushData()	0	static
-../MyDriver/Lcd.cpp:86:10:void blib::Lcd::displayLine(uint8_t, uint8_t, const char*)	16	static
-../MyDriver/Lcd.cpp:125:10:void blib::Lcd::clearDisplay()	16	static
-../MyDriver/Lcd.cpp:133:10:void blib::Lcd::init()	8	static
+../MyDriver/Lcd.cpp:87:10:char blib::ischar(const char*)	0	static
+../MyDriver/Lcd.cpp:91:10:void blib::Lcd::displayLine(uint8_t, uint8_t, const char*)	192	static
+../MyDriver/Lcd.cpp:137:10:void blib::Lcd::clearDisplay()	16	static
+../MyDriver/Lcd.cpp:145:10:void blib::Lcd::init()	8	static
 ../MyDriver/Lcd.cpp:13:5:blib::Lcd::Lcd(blib::Lcd::LcdType, I2C_HandleTypeDef*, uint8_t)	16	static
-../MyDriver/Lcd.cpp:162:10:void blib::Lcd::makeCustomCharacter(uint8_t, uint8_t*)	0	static
+../MyDriver/Lcd.cpp:174:10:void blib::Lcd::makeCustomCharacter(uint8_t, uint8_t*)	0	static

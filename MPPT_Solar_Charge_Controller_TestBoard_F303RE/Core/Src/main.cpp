@@ -27,6 +27,7 @@
 #include "Monitor.h"
 #include "ChargeControl.h"
 #include "SerialMonitor.h"
+#include "TestLcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -50,6 +51,8 @@ DMA_HandleTypeDef hdma_adc1;
 
 I2C_HandleTypeDef hi2c1;
 
+TIM_HandleTypeDef htim2;
+
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
@@ -63,28 +66,29 @@ static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
 {
     GPIO_TypeDef *pGPIOx = nullptr;
     static blib::Button::ButtonName lastedPressButton = blib::Button::ButtonName::UNDEFINED;
-    uint32_t timedelay = 160000U;
+    uint32_t timedelay = 2600000U;
 
     for (volatile uint32_t i = 0; i < timedelay; i++);
 
     volatile uint32_t i = 0;
 
-    if (GPIO_pin == BUT_LEFT_Pin)
+    if (GPIO_pin == BUT_UP_Pin)
     {
-        LOGI("Button Left pin");
+        LOGI("Button Up pin");
         lastedPressButton = blib::Button::ButtonName::UP;
-        pGPIOx = BUT_LEFT_GPIO_Port;
+        pGPIOx = BUT_UP_GPIO_Port;
     }
-    else if (GPIO_pin == BUT_RIGHT_Pin)
+    else if (GPIO_pin == BUT_DOWN_Pin)
     {
-        LOGI("Button Right pin");
+        LOGI("Button Down pin");
         lastedPressButton = blib::Button::ButtonName::DOWN;
-        pGPIOx = BUT_RIGHT_GPIO_Port;
+        pGPIOx = BUT_DOWN_GPIO_Port;
     }
     else if (GPIO_pin == BUT_BACK_Pin)
     {
@@ -92,11 +96,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
         lastedPressButton = blib::Button::ButtonName::BACK;
         pGPIOx = BUT_BACK_GPIO_Port;
     }
-    else if (GPIO_pin == BUT_SELECT_Pin)
+    else if (GPIO_pin == BUT_SEL_Pin)
     {
         LOGI("Button Select pin");
         lastedPressButton = blib::Button::ButtonName::SEL;
-        pGPIOx = BUT_SELECT_GPIO_Port;
+        pGPIOx = BUT_SEL_GPIO_Port;
     }
     else
     {
@@ -161,6 +165,7 @@ int main(void)
     MX_ADC1_Init();
     MX_I2C1_Init();
     MX_USART2_UART_Init();
+    MX_TIM2_Init();
     /* USER CODE BEGIN 2 */
     LOGI("MPPT SOLAR CHARGE CONTROLLER");
     LOGI("DESIGNED BY ");
@@ -169,7 +174,8 @@ int main(void)
     auto &analog = blib::Analog::getInstance();
     auto &monitor = blib::Monitor::getInstance();
     auto &chargeCtrl = blib::ChargeControl::getInstance();
-    auto &serialMnt = blib::SerialMonitor::getInstance();
+    auto &lcdSimulate = blib::LcdSimulate::getInstance();
+//    auto &serialMnt = blib::SerialMonitor::getInstance();
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -179,11 +185,12 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        analog.readAnalog();
-        chargeCtrl.run();
-        serialMnt.show();
-        monitor.showMenu();
-//        HAL_Delay(1000);
+//        analog.readAnalog();
+//        chargeCtrl.run();
+////        serialMnt.show();
+//        monitor.showMenu();
+        lcdSimulate.run();
+        HAL_Delay(1000);
     }
     /* USER CODE END 3 */
 }
@@ -206,7 +213,7 @@ void SystemClock_Config(void)
     RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
     RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
     RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-    RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL2;
+    RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
     RCC_OscInitStruct.PLL.PREDIV = RCC_PREDIV_DIV1;
     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
     {
@@ -219,16 +226,18 @@ void SystemClock_Config(void)
             | RCC_CLOCKTYPE_PCLK2;
     RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
     RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
     RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
     {
         Error_Handler();
     }
-    PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2 | RCC_PERIPHCLK_I2C1;
+    PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2 | RCC_PERIPHCLK_I2C1
+            | RCC_PERIPHCLK_TIM2;
     PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
     PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_HSI;
+    PeriphClkInit.Tim2ClockSelection = RCC_TIM2CLK_HCLK;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
     {
         Error_Handler();
@@ -267,7 +276,7 @@ static void MX_ADC1_Init(void)
     hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
     hadc1.Init.NbrOfConversion = 2;
     hadc1.Init.DMAContinuousRequests = DISABLE;
-    hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+    hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
     hadc1.Init.LowPowerAutoWait = DISABLE;
     hadc1.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
     if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -287,7 +296,7 @@ static void MX_ADC1_Init(void)
      */
     sConfig.Channel = ADC_CHANNEL_1;
     sConfig.Rank = ADC_REGULAR_RANK_1;
-    sConfig.SingleDiff = ADC_SINGLE_ENDED;
+    sConfig.SingleDiff = ADC_DIFFERENTIAL_ENDED;
     sConfig.SamplingTime = ADC_SAMPLETIME_601CYCLES_5;
     sConfig.OffsetNumber = ADC_OFFSET_NONE;
     sConfig.Offset = 0;
@@ -298,7 +307,6 @@ static void MX_ADC1_Init(void)
 
     /** Configure Regular Channel
      */
-    sConfig.Channel = ADC_CHANNEL_2;
     sConfig.Rank = ADC_REGULAR_RANK_2;
     if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
     {
@@ -355,6 +363,55 @@ static void MX_I2C1_Init(void)
     /* USER CODE BEGIN I2C1_Init 2 */
 
     /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+ * @brief TIM2 Initialization Function
+ * @param None
+ * @retval None
+ */
+static void MX_TIM2_Init(void)
+{
+
+    /* USER CODE BEGIN TIM2_Init 0 */
+
+    /* USER CODE END TIM2_Init 0 */
+
+    TIM_MasterConfigTypeDef sMasterConfig = { 0 };
+    TIM_OC_InitTypeDef sConfigOC = { 0 };
+
+    /* USER CODE BEGIN TIM2_Init 1 */
+
+    /* USER CODE END TIM2_Init 1 */
+    htim2.Instance = TIM2;
+    htim2.Init.Prescaler = 71;
+    htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+    htim2.Init.Period = 500 - 1;
+    htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+    htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+    if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+    sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+    if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    sConfigOC.OCMode = TIM_OCMODE_PWM1;
+    sConfigOC.Pulse = 250;
+    sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+    sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+    if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    /* USER CODE BEGIN TIM2_Init 2 */
+
+    /* USER CODE END TIM2_Init 2 */
+    HAL_TIM_MspPostInit(&htim2);
 
 }
 
@@ -426,20 +483,40 @@ static void MX_GPIO_Init(void)
     __HAL_RCC_GPIOB_CLK_ENABLE();
 
     /*Configure GPIO pin Output Level */
-    HAL_GPIO_WritePin(LED_INDICATOR_GPIO_Port, LED_INDICATOR_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOB, LED_RED_Pin | LED_YEL_Pin | LED_GRE_Pin, GPIO_PIN_SET);
 
-    /*Configure GPIO pins : BUT_LEFT_Pin BUT_RIGHT_Pin BUT_BACK_Pin BUT_SELECT_Pin */
-    GPIO_InitStruct.Pin = BUT_LEFT_Pin | BUT_RIGHT_Pin | BUT_BACK_Pin | BUT_SELECT_Pin;
+    /*Configure GPIO pin Output Level */
+    HAL_GPIO_WritePin(GPIOC, INVERTER_CTRL_Pin | BUCK_EN_Pin, GPIO_PIN_SET);
+
+    /*Configure GPIO pin Output Level */
+    HAL_GPIO_WritePin(GPIOA, BFC_Pin | FAN_Pin, GPIO_PIN_SET);
+
+    /*Configure GPIO pins : BUT_UP_Pin BUT_DOWN_Pin BUT_BACK_Pin BUT_SEL_Pin */
+    GPIO_InitStruct.Pin = BUT_UP_Pin | BUT_DOWN_Pin | BUT_BACK_Pin | BUT_SEL_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-    /*Configure GPIO pin : LED_INDICATOR_Pin */
-    GPIO_InitStruct.Pin = LED_INDICATOR_Pin;
+    /*Configure GPIO pins : LED_RED_Pin LED_YEL_Pin LED_GRE_Pin */
+    GPIO_InitStruct.Pin = LED_RED_Pin | LED_YEL_Pin | LED_GRE_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(LED_INDICATOR_GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /*Configure GPIO pins : INVERTER_CTRL_Pin BUCK_EN_Pin */
+    GPIO_InitStruct.Pin = INVERTER_CTRL_Pin | BUCK_EN_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+    /*Configure GPIO pins : BFC_Pin FAN_Pin */
+    GPIO_InitStruct.Pin = BFC_Pin | FAN_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     /* EXTI interrupt init*/
     HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
@@ -447,6 +524,9 @@ static void MX_GPIO_Init(void)
 
     HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+
+    HAL_NVIC_SetPriority(EXTI2_TSC_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(EXTI2_TSC_IRQn);
 
     HAL_NVIC_SetPriority(EXTI3_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(EXTI3_IRQn);

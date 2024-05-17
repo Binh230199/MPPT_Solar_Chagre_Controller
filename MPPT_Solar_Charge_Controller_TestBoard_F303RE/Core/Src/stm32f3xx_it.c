@@ -56,7 +56,6 @@
 
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_adc1;
-extern ADC_HandleTypeDef hadc1;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -207,7 +206,7 @@ void EXTI0_IRQHandler(void)
   /* USER CODE BEGIN EXTI0_IRQn 0 */
 
   /* USER CODE END EXTI0_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(BUT_LEFT_Pin);
+  HAL_GPIO_EXTI_IRQHandler(BUT_UP_Pin);
   /* USER CODE BEGIN EXTI0_IRQn 1 */
 
   /* USER CODE END EXTI0_IRQn 1 */
@@ -221,10 +220,24 @@ void EXTI1_IRQHandler(void)
   /* USER CODE BEGIN EXTI1_IRQn 0 */
 
   /* USER CODE END EXTI1_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(BUT_RIGHT_Pin);
+  HAL_GPIO_EXTI_IRQHandler(BUT_DOWN_Pin);
   /* USER CODE BEGIN EXTI1_IRQn 1 */
 
   /* USER CODE END EXTI1_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line2 and Touch Sense controller interrupts.
+  */
+void EXTI2_TSC_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI2_TSC_IRQn 0 */
+
+  /* USER CODE END EXTI2_TSC_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(BUT_BACK_Pin);
+  /* USER CODE BEGIN EXTI2_TSC_IRQn 1 */
+
+  /* USER CODE END EXTI2_TSC_IRQn 1 */
 }
 
 /**
@@ -235,7 +248,7 @@ void EXTI3_IRQHandler(void)
   /* USER CODE BEGIN EXTI3_IRQn 0 */
 
   /* USER CODE END EXTI3_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(BUT_SELECT_Pin);
+  HAL_GPIO_EXTI_IRQHandler(BUT_SEL_Pin);
   /* USER CODE BEGIN EXTI3_IRQn 1 */
 
   /* USER CODE END EXTI3_IRQn 1 */
@@ -253,20 +266,6 @@ void DMA1_Channel1_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
 
   /* USER CODE END DMA1_Channel1_IRQn 1 */
-}
-
-/**
-  * @brief This function handles ADC1 and ADC2 interrupts.
-  */
-void ADC1_2_IRQHandler(void)
-{
-  /* USER CODE BEGIN ADC1_2_IRQn 0 */
-
-  /* USER CODE END ADC1_2_IRQn 0 */
-  HAL_ADC_IRQHandler(&hadc1);
-  /* USER CODE BEGIN ADC1_2_IRQn 1 */
-
-  /* USER CODE END ADC1_2_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

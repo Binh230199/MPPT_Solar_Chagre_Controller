@@ -1,0 +1,48 @@
+/*
+ * DeviceProtection.cpp
+ *
+ *  Created on: May 17, 2024
+ *      Author: This PC
+ */
+
+#include "DeviceProtection.h"
+#include "Analog.h"
+
+namespace blib
+{
+
+    void DeviceProtection::backFlowControl()
+    {
+        auto &analog = Analog::getInstance();
+
+        // PSU Mode
+        if (mOutputMode == false)    // PSU mode: force backflow MOSFET on
+        {
+            mBypassEnable = true;
+        }
+        //Charger Mode
+        else
+        {
+            // Normal Condition - Turn on Backflow MOSFET (on by default when not in MPPT charger mode)
+            if (analog.getVin() > analog.getVout() + mVoltageDropout)
+            {
+                mBypassEnable = true;
+            }
+            // Input Undervoltage - Turn off bypass MOSFET and prevent PV Backflow (SS)
+            else
+            {
+                mBypassEnable = false;
+            }
+        }
+
+        HAL_GPIO_WritePin(ANTI_BACKFLOW_GPIO_Port, ANTI_BACKFLOW_Pin,
+                (GPIO_PinState) mBypassEnable);
+    }
+
+    void DeviceProtection::protectDevice()
+    {
+
+    }
+
+}    // namespace blib
+

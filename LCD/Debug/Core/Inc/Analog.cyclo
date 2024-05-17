@@ -1,0 +1,18 @@
+../Core/Inc/Analog.cpp:12:5:blib::Analog::Analog()	1
+../Core/Inc/Analog.cpp:17:5:blib::Analog::~Analog()	1
+../Core/Inc/Analog.cpp:17:5:virtual blib::Analog::~Analog()	1
+../Core/Inc/Analog.cpp:23:10:void blib::Analog::sampling()	1
+../Core/Inc/Analog.cpp:28:11:float blib::Analog::getVin() const	1
+../Core/Inc/Analog.cpp:32:11:float blib::Analog::getIin() const	1
+../Core/Inc/Analog.cpp:36:11:float blib::Analog::getVout() const	1
+../Core/Inc/Analog.cpp:40:11:float blib::Analog::getIout() const	1
+../Core/Inc/Analog.cpp:44:11:float blib::Analog::getTemp() const	1
+../Core/Inc/Analog.cpp:49:10:void blib::Analog::readAnalog()	1
+../Core/Inc/Analog.cpp:64:11:float blib::Analog::convertAdcChannel1(uint32_t)	1
+../Core/Inc/Analog.cpp:69:11:float blib::Analog::convertAdcChannel2(uint32_t)	1
+../Core/Inc/Analog.cpp:76:11:float blib::Analog::convertAdcChannel3(uint32_t)	1
+../Core/Inc/Analog.cpp:80:11:float blib::Analog::convertAdcChannel4(uint32_t)	1
+../Core/Inc/Analog.cpp:87:11:float blib::Analog::convertAdcChannel5(uint32_t)	1
+../Core/Inc/Singleton.h:38:17:blib::dp::Singleton<T>::Singleton() [with T = blib::Analog]	1
+../Core/Inc/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::Analog]	1
+../Core/Inc/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::Analog]	1

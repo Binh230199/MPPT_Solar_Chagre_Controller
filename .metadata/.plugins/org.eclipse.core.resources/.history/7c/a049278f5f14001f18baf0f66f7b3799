@@ -1,0 +1,30 @@
+/*
+ * TestLcd.h
+ *
+ *  Created on: May 17, 2024
+ *      Author: This PC
+ */
+
+#ifndef TESTLCD_H_
+#define TESTLCD_H_
+
+// Add design patterns template library
+#include "Singleton.h"
+#include "StateMachineBase.h"
+
+// Add log library
+#include "Log.h"
+
+#include "Lcd.h"
+
+namespace blib
+{
+
+    class LcdSimulate
+    {
+        public:void
+    };
+
+}    // namespace blib
+
+#endif /* TESTLCD_H_ */

@@ -49,6 +49,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -57,19 +59,32 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define BUT_LEFT_Pin GPIO_PIN_0
-#define BUT_LEFT_GPIO_Port GPIOC
-#define BUT_LEFT_EXTI_IRQn EXTI0_IRQn
-#define BUT_RIGHT_Pin GPIO_PIN_1
-#define BUT_RIGHT_GPIO_Port GPIOC
-#define BUT_RIGHT_EXTI_IRQn EXTI1_IRQn
+#define BUT_UP_Pin GPIO_PIN_0
+#define BUT_UP_GPIO_Port GPIOC
+#define BUT_UP_EXTI_IRQn EXTI0_IRQn
+#define BUT_DOWN_Pin GPIO_PIN_1
+#define BUT_DOWN_GPIO_Port GPIOC
+#define BUT_DOWN_EXTI_IRQn EXTI1_IRQn
 #define BUT_BACK_Pin GPIO_PIN_2
 #define BUT_BACK_GPIO_Port GPIOC
-#define BUT_SELECT_Pin GPIO_PIN_3
-#define BUT_SELECT_GPIO_Port GPIOC
-#define BUT_SELECT_EXTI_IRQn EXTI3_IRQn
-#define LED_INDICATOR_Pin GPIO_PIN_5
-#define LED_INDICATOR_GPIO_Port GPIOA
+#define BUT_BACK_EXTI_IRQn EXTI2_TSC_IRQn
+#define BUT_SEL_Pin GPIO_PIN_3
+#define BUT_SEL_GPIO_Port GPIOC
+#define BUT_SEL_EXTI_IRQn EXTI3_IRQn
+#define LED_RED_Pin GPIO_PIN_0
+#define LED_RED_GPIO_Port GPIOB
+#define LED_YEL_Pin GPIO_PIN_1
+#define LED_YEL_GPIO_Port GPIOB
+#define LED_GRE_Pin GPIO_PIN_2
+#define LED_GRE_GPIO_Port GPIOB
+#define INVERTER_CTRL_Pin GPIO_PIN_6
+#define INVERTER_CTRL_GPIO_Port GPIOC
+#define BFC_Pin GPIO_PIN_8
+#define BFC_GPIO_Port GPIOA
+#define FAN_Pin GPIO_PIN_15
+#define FAN_GPIO_Port GPIOA
+#define BUCK_EN_Pin GPIO_PIN_10
+#define BUCK_EN_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 

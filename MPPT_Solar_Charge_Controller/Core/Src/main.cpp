@@ -117,6 +117,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
 
     blib::Button::getInstance().setLatestPressedButton(lastedPressButton);
     blib::Button::getInstance().handleSignal();
+
     if (pGPIOx != nullptr)
     {
         while ((HAL_GPIO_ReadPin(pGPIOx, GPIO_pin) == GPIO_PIN_RESET) & (i < (timedelay)))
@@ -187,6 +188,7 @@ int main(void)
     auto &monitor = blib::Monitor::getInstance();
     auto &chargeCtrl = blib::ChargeControl::getInstance();
     auto &serialMnt = blib::SerialMonitor::getInstance();
+
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -216,9 +218,7 @@ void SystemClock_Config(void)
     /** Configure the main internal regulator output voltage
      */
     __HAL_RCC_PWR_CLK_ENABLE();
-    __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
-
-    /** Initializes the RCC Oscillators according to the specified parameters
+    __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);/** Initializes the RCC Oscillators according to the specified parameters
      * in the RCC_OscInitTypeDef structure.
      */
     RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_LSE;

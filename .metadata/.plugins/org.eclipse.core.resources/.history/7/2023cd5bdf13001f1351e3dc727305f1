@@ -1,0 +1,122 @@
+/*
+ * ChargeControl.cpp
+ *
+ *  Created on: May 15, 2024
+ *      Author: binhhv.23.1.99@gmail.com
+ */
+
+#include "ChargeControl.h"
+#include "Monitor.h"
+#include "Analog.h"
+
+namespace blib
+{
+    template<typename T>
+    T constrainValue(T value, T minVal, T maxVal)
+    {
+        if (value < minVal)
+        {
+            return minVal;    // Nếu giá trị nhỏ hơn minVal, trả về minVal
+        }
+        else if (value > maxVal)
+        {
+            return maxVal;    // Nếu giá trị lớn hơn maxVal, trả về maxVal
+        }
+        else
+        {
+            return value;    // Nếu giá trị nằm trong khoảng, trả về giá trị ban đầu
+        }
+    }
+
+    ChargeControl::ChargeControl()
+    {
+
+    }
+    ChargeControl::~ChargeControl()
+    {
+
+    }
+    void ChargeControl::run()
+    {
+        if (/* ErrorCode != NO_ERROR || chargingPause = true */true)
+        {
+            buckDisable();
+        }
+        else
+        {
+            if (/* Recovery == true */true)
+            {
+//                recovery = false;
+                buckDisable();
+
+                Monitor::getInstance().impl_DisplayDetectPowerSource();
+                Analog::getInstance().readAnalog();
+                float pwm = predictPwm();
+                Monitor::getInstance().impl_DisplayOff();
+            }
+            else
+            {
+
+            }
+        }
+    }
+
+    void ChargeControl::setBuckEnable(const bool val)
+    {
+        mBuckEnable = val;
+    }
+    bool ChargeControl::getBuckEnable() const
+    {
+        return mBuckEnable;
+    }
+    void ChargeControl::setMpptMode(const bool val)
+    {
+        mMpptMode = val;
+    }
+    bool ChargeControl::getMpptMode() const
+    {
+        return mMpptMode;
+    }
+// Enable Mppt Buck converter
+    void ChargeControl::buckEnable()
+    {
+        LOGI();
+        setBuckEnable(true);
+//        HAL_GPIO_WritePin(BUCK_ENABLE_GPIO_Port, BUCK_ENABLE_Pin, GPIO_PIN_SET);
+//        HAL_GPIO_WritePin(LED_INDICATE_GPIO_Port, LED_INDICATE_Pin, GPIO_PIN_SET);
+    }
+// Disable Mppt Buck converter
+    void ChargeControl::buckDisable()
+    {
+        LOGI();
+        setBuckEnable(false);
+//        HAL_GPIO_WritePin(BUCK_ENABLE_GPIO_Port, BUCK_ENABLE_Pin, GPIO_PIN_RESET);
+//        HAL_GPIO_WritePin(LED_INDICATE_GPIO_Port, LED_INDICATE_Pin, GPIO_PIN_RESET);
+        mPwm = 0;
+    }
+    float ChargeControl::predictPwm()
+    {
+        auto &analog = Analog::getInstance();
+
+        float predictPwm = 0.0f, ppwmMargin = 0, pwmMax = 0, pwmMaxLimited = 1000;
+
+        if (analog.getVin() < 0.0f)
+        {
+            predictPwm = 0;
+        }
+        else
+        {
+            predictPwm = (ppwmMargin * pwmMax * analog.getVout()) / (100.0f * analog.getVin());
+        }
+
+        predictPwm = constrainValue(predictPwm, 0.0f, pwmMaxLimited);
+
+        return predictPwm;
+    }
+    void ChargeControl::generatePwm()
+    {
+
+    }
+
+}    // namespace blib
+

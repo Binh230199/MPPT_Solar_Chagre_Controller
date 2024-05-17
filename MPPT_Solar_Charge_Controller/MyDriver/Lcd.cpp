@@ -83,8 +83,20 @@ namespace blib
     {
 
     }
+
+    char ischar(const char *string)
+    {
+        return (string != nullptr) ? *(string) : ' ';
+    }
     void Lcd::displayLine(uint8_t row, uint8_t col, const char *string)
     {
+        LOGI("|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|", ischar(string),
+                ischar(string + 1), ischar(string + 2), ischar(string + 3), ischar(string + 4),
+                ischar(string + 5), ischar(string + 6), ischar(string + 7), ischar(string + 8),
+                ischar(string + 9), ischar(string + 10), ischar(string + 11), ischar(string + 12),
+                ischar(string + 13), ischar(string + 14), ischar(string + 15), ischar(string + 16),
+                ischar(string + 17), ischar(string + 18), ischar(string + 19));
+
         uint8_t command = 0;
 
         switch (mLcdType)

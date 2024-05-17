@@ -1,0 +1,59 @@
+C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.1.202309131626\tools\arm-none-eabi\include\c++\11.3.1\arm-none-eabi\thumb\v7e-m+fp\hard\bits\gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Log.h:48:25:static void blib::Logger::print(const char*)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:14:5:blib::Monitor::Monitor()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:20:5:blib::Monitor::~Monitor()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:20:5:virtual blib::Monitor::~Monitor()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:26:10:void blib::Monitor::showInit()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:36:10:void blib::Monitor::homeScreen()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:62:10:void blib::Monitor::menuScreen()	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:74:10:void blib::Monitor::optionScreen()	3
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:89:10:void blib::Monitor::valueScreen()	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:102:10:void blib::Monitor::showMenu()	4
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:122:10:void blib::Monitor::showSetting()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:136:10:void blib::Monitor::showDisplay()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:151:10:void blib::Monitor::setSettingMode(bool)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:155:10:bool blib::Monitor::getSetttingMode() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:160:10:void blib::Monitor::jumpIn()	4
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:183:10:void blib::Monitor::jumpOut()	5
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:210:26:blib::Monitor::ScreenLevel blib::Monitor::getScreenLevel() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:214:10:void blib::Monitor::incrementArrowLine()	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:225:10:void blib::Monitor::decrementArrowLine()	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:236:13:uint8_t blib::Monitor::getArrowLine() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:241:10:void blib::Monitor::setDefaultIndexLine()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:245:10:void blib::Monitor::setBackIndexLine()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:250:10:void blib::Monitor::updateLastIndexLine()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:254:10:void blib::Monitor::incrementIndexLine()	6
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:287:10:void blib::Monitor::decrementIndexLine()	6
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:320:13:uint8_t blib::Monitor::getIndexLine() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:325:13:uint8_t blib::Monitor::getLastIndexLine() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:330:10:void blib::Monitor::setSettingLevel(blib::Monitor::SettingLevel)	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:345:27:blib::Monitor::SettingLevel blib::Monitor::getSettingLevel() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:350:10:void blib::Monitor::setDisplayLevel(blib::Monitor::DisplayLevel)	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:365:27:blib::Monitor::DisplayLevel blib::Monitor::getDisplayLevel() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:369:10:bool blib::Monitor::isNeedRefreshLcd()	4
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:381:10:void blib::Monitor::showArrow()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:389:10:void blib::Monitor::impl_DisplayOff()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:394:10:void blib::Monitor::impl_TurnOffBacklight()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:398:10:void blib::Monitor::impl_DisplayDetectPowerSource()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:405:10:void blib::Monitor::showDisplayLevel1()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:409:10:void blib::Monitor::showDisplayLevel2()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:413:10:void blib::Monitor::showDisplayLevel3()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:417:10:void blib::Monitor::showDisplayLevel4()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:421:10:void blib::Monitor::showDisplayChooseSettingMode()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:426:10:void blib::Monitor::showDisplayFactoryReset()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:430:10:void blib::Monitor::showSettingSupplyAlgorithm()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:434:10:void blib::Monitor::showSettingChargerPsuMode()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:438:10:void blib::Monitor::showSettingMaxBatteryVoltage()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:442:10:void blib::Monitor::showSettingMinBatteryVoltage()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:446:10:void blib::Monitor::showSettingChargingCurrent()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:450:10:void blib::Monitor::showSettingCoolingFan()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:454:10:void blib::Monitor::showSettingFanTriggerTemp()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:458:10:void blib::Monitor::showSettingShutdownTemp()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:462:10:void blib::Monitor::showSettingAutoLoadFeature()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:466:10:void blib::Monitor::showSettingBackligthSleep()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Monitor.cpp:470:10:void blib::Monitor::showSettingFactoryReset()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:38:17:blib::dp::Singleton<T>::Singleton() [with T = blib::Monitor]	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::Monitor]	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::Monitor]	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Log.h:35:25:) [with Args = {const char*, int, const char*}]	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Analog]	2

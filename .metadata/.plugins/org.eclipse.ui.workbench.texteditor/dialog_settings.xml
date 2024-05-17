@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="sendCmd("/>
+		<item key="selection" value="arrowLine"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="arrowLine"/>
+			<item value="mLcdDisplay"/>
+			<item value="supplyAlgorithm"/>
+			<item value="mIndex"/>
+			<item value="voltageDrop"/>
+			<item value="updateLastIndexLine"/>
 			<item value="LCD_SendCommand(lcd, "/>
 			<item value="LCD_SendCommand"/>
 			<item value="dataHigh"/>
 			<item value="ButtonHandler"/>
 		</list>
 		<list key="replacehistory">
+			<item value="mIndexLine"/>
+			<item value="mLcd"/>
+			<item value="chargeMode"/>
 			<item value="sendCmd("/>
 			<item value="Button"/>
 		</list>

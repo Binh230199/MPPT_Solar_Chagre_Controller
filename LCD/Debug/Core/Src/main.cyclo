@@ -1,0 +1,17 @@
+../Core/Inc/Log.h:48:25:static void blib::Logger::print(const char*)	1
+../Core/Src/main.cpp:67:6:void HAL_GPIO_EXTI_Callback(uint16_t)	9
+../Core/Src/main.cpp:121:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	1
+../Core/Src/main.cpp:136:5:int main()	1
+../Core/Src/main.cpp:203:6:void SystemClock_Config()	3
+../Core/Src/main.cpp:250:13:void MX_ADC1_Init()	7
+../Core/Src/main.cpp:334:13:void MX_I2C1_Init()	2
+../Core/Src/main.cpp:368:13:void MX_USART3_UART_Init()	2
+../Core/Src/main.cpp:399:13:void MX_DMA_Init()	1
+../Core/Src/main.cpp:417:13:void MX_GPIO_Init()	1
+../Core/Src/main.cpp:459:6:void Error_Handler()	1
+../Core/Inc/Log.h:35:25:) [with Args = {const char*, int, const char*}]	1
+../Core/Inc/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Button]	2
+../Core/Inc/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Analog]	2
+../Core/Inc/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Monitor]	2
+../Core/Inc/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::ChargeControl]	2
+../Core/Inc/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::SerialMonitor]	2

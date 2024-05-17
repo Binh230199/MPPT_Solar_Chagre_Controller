@@ -1987,7 +1987,7 @@ Disassembly of section .text:
  800149e:	b90a      	cbnz	r2, 80014a4 <_ZN4blib7Monitor8showMenuEv+0x8>
             homeScreen();
  80014a0:	f7ff bf38 	b.w	8001314 <_ZN4blib7Monitor10homeScreenEv>
-        else if (mScreenLevel == Monitor::ScreenLevel::NEXT_1)
+        else if (mScreenLevel == Monitor::ScreenLevel::MENUS)
  80014a4:	6843      	ldr	r3, [r0, #4]
  80014a6:	2b01      	cmp	r3, #1
  80014a8:	d101      	bne.n	80014ae <_ZN4blib7Monitor8showMenuEv+0x12>

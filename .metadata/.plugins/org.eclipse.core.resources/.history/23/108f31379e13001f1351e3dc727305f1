@@ -1,0 +1,95 @@
+/*
+ * Button.cpp
+ *
+ *  Created on: May 13, 2024
+ *      Author: binhhv.23.1.99@gmail.com
+ */
+
+#include "Button.h"
+#include "Monitor.h"
+
+namespace blib
+{
+    Button::Button()
+    {
+
+    }
+    Button::~Button()
+    {
+
+    }
+    void Button::setLatestPressedButton(const Button::ButtonName button)
+    {
+        mLatestPressedButton = button;
+    }
+    Button::ButtonName Button::getLatestPressedButton() const
+    {
+        return mLatestPressedButton;
+    }
+    void Button::handleSignal()
+    {
+        auto &monitor = Monitor::getInstance();
+
+        // Dang o man hinh homescreen ma nhan nut bat ky, thi nhay vao trong man hinh menu
+        if (monitor.getScreenLevel() == Monitor::ScreenLevel::HOME_SCREEN)
+        {
+            monitor.jumpIn();
+            monitor.setDefaultIndexLine();    // Line dang duoc chon la line 1 - DISPLAY MODE
+        }
+        // Neu dang o man hinh menu
+        else if (monitor.getScreenLevel() == Monitor::ScreenLevel::NEXT_1)
+        {
+            if (getLatestPressedButton() == ButtonName::UP)
+            {
+                monitor.decrementArrowLine();
+                monitor.decrementIndexLine();    // Giam index line
+            }
+            else if (getLatestPressedButton() == ButtonName::DOWN)
+            {
+                monitor.incrementArrowLine();
+                monitor.incrementIndexLine();
+            }
+            else if (getLatestPressedButton() == ButtonName::SEL)
+            {
+                monitor.jumpIn();
+                monitor.updateLastIndexLine();
+                monitor.setDefaultIndexLine();    // Khi nhan Select thi indexLine set lai ve 1
+            }
+            else if (getLatestPressedButton() == ButtonName::BACK)
+            {
+                monitor.jumpOut();
+                monitor.setBackIndexLine();    // Khi nhan back thi quay lai indexLine truoc do
+            }
+            else
+            {
+
+            }
+        }
+        else if (monitor.getScreenLevel() == Monitor::ScreenLevel::NEXT_2)
+        {
+            if (getLatestPressedButton() == ButtonName::UP)
+            {
+                monitor.decrementArrowLine();
+            }
+            else if (getLatestPressedButton() == ButtonName::DOWN)
+            {
+                monitor.incrementArrowLine();
+            }
+            else if (getLatestPressedButton() == ButtonName::SEL)
+            {
+                monitor.jumpIn();
+            }
+            else if (getLatestPressedButton() == ButtonName::BACK)
+            {
+                monitor.jumpOut();
+            }
+            else
+            {
+
+            }
+        }
+
+    }
+
+}    // namespace blib
+

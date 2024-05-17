@@ -1,0 +1,17 @@
+../Core/Inc/Log.h:48:25:static void blib::Logger::print(const char*)	1
+../Core/Inc/ChargeControl.cpp:13:5:blib::ChargeControl::ChargeControl()	1
+../Core/Inc/ChargeControl.cpp:17:5:blib::ChargeControl::~ChargeControl()	1
+../Core/Inc/ChargeControl.cpp:17:5:virtual blib::ChargeControl::~ChargeControl()	1
+../Core/Inc/ChargeControl.cpp:21:10:void blib::ChargeControl::run()	1
+../Core/Inc/ChargeControl.cpp:26:10:void blib::ChargeControl::setBuckEnable(bool)	1
+../Core/Inc/ChargeControl.cpp:30:10:bool blib::ChargeControl::getBuckEnable() const	1
+../Core/Inc/ChargeControl.cpp:34:10:void blib::ChargeControl::setMpptMode(bool)	1
+../Core/Inc/ChargeControl.cpp:38:10:bool blib::ChargeControl::getMpptMode() const	1
+../Core/Inc/ChargeControl.cpp:43:10:void blib::ChargeControl::buckEnable()	1
+../Core/Inc/ChargeControl.cpp:51:10:void blib::ChargeControl::buckDisable()	1
+../Core/Inc/ChargeControl.cpp:59:10:void blib::ChargeControl::predictPwm()	1
+../Core/Inc/ChargeControl.cpp:63:10:void blib::ChargeControl::generatePwm()	1
+../Core/Inc/Singleton.h:38:17:blib::dp::Singleton<T>::Singleton() [with T = blib::ChargeControl]	1
+../Core/Inc/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::ChargeControl]	1
+../Core/Inc/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::ChargeControl]	1
+../Core/Inc/Log.h:35:25:) [with Args = {const char*, int, const char*}]	1

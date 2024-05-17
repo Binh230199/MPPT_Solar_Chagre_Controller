@@ -7,6 +7,7 @@
 CPP_SRCS += \
 ../Application/Analog.cpp \
 ../Application/ChargeControl.cpp \
+../Application/DeviceProtection.cpp \
 ../Application/Monitor.cpp \
 ../Application/SerialMonitor.cpp \
 ../Application/SystemManager.cpp 
@@ -14,6 +15,7 @@ CPP_SRCS += \
 OBJS += \
 ./Application/Analog.o \
 ./Application/ChargeControl.o \
+./Application/DeviceProtection.o \
 ./Application/Monitor.o \
 ./Application/SerialMonitor.o \
 ./Application/SystemManager.o 
@@ -21,6 +23,7 @@ OBJS += \
 CPP_DEPS += \
 ./Application/Analog.d \
 ./Application/ChargeControl.d \
+./Application/DeviceProtection.d \
 ./Application/Monitor.d \
 ./Application/SerialMonitor.d \
 ./Application/SystemManager.d 
@@ -33,7 +36,7 @@ Application/%.o Application/%.su Application/%.cyclo: ../Application/%.cpp Appli
 clean: clean-Application
 
 clean-Application:
-	-$(RM) ./Application/Analog.cyclo ./Application/Analog.d ./Application/Analog.o ./Application/Analog.su ./Application/ChargeControl.cyclo ./Application/ChargeControl.d ./Application/ChargeControl.o ./Application/ChargeControl.su ./Application/Monitor.cyclo ./Application/Monitor.d ./Application/Monitor.o ./Application/Monitor.su ./Application/SerialMonitor.cyclo ./Application/SerialMonitor.d ./Application/SerialMonitor.o ./Application/SerialMonitor.su ./Application/SystemManager.cyclo ./Application/SystemManager.d ./Application/SystemManager.o ./Application/SystemManager.su
+	-$(RM) ./Application/Analog.cyclo ./Application/Analog.d ./Application/Analog.o ./Application/Analog.su ./Application/ChargeControl.cyclo ./Application/ChargeControl.d ./Application/ChargeControl.o ./Application/ChargeControl.su ./Application/DeviceProtection.cyclo ./Application/DeviceProtection.d ./Application/DeviceProtection.o ./Application/DeviceProtection.su ./Application/Monitor.cyclo ./Application/Monitor.d ./Application/Monitor.o ./Application/Monitor.su ./Application/SerialMonitor.cyclo ./Application/SerialMonitor.d ./Application/SerialMonitor.o ./Application/SerialMonitor.su ./Application/SystemManager.cyclo ./Application/SystemManager.d ./Application/SystemManager.o ./Application/SystemManager.su
 
 .PHONY: clean-Application
 

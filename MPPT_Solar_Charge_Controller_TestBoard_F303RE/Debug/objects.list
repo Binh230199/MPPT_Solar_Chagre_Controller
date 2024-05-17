@@ -1,5 +1,6 @@
 "./Application/Analog.o"
 "./Application/ChargeControl.o"
+"./Application/DeviceProtection.o"
 "./Application/Monitor.o"
 "./Application/SerialMonitor.o"
 "./Application/SystemManager.o"

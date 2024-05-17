@@ -1,0 +1,28 @@
+/*
+ * DeviceProtection.cpp
+ *
+ *  Created on: May 17, 2024
+ *      Author: This PC
+ */
+
+#include "DeviceProtection.h"
+#include "Analog.h"
+
+namespace blib
+{
+
+    void DeviceProtection::backFlowControl()
+    {
+        auto &analog = Analog::getInstance();
+        if (mOutputMode == false)
+        {
+            mBypassEnable = true;
+        }
+        else
+        {
+            a
+        }
+    }
+
+}    // namespace blib
+

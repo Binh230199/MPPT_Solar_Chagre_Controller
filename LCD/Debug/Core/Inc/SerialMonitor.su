@@ -1,0 +1,14 @@
+../Core/Inc/Log.h:48:25:static void blib::Logger::print(const char*)	24	static
+../Core/Inc/SerialMonitor.cpp:16:5:blib::SerialMonitor::SerialMonitor()	16	static
+../Core/Inc/SerialMonitor.cpp:20:5:blib::SerialMonitor::~SerialMonitor()	16	static
+../Core/Inc/SerialMonitor.cpp:20:5:virtual blib::SerialMonitor::~SerialMonitor()	16	static
+../Core/Inc/SerialMonitor.cpp:24:10:void blib::SerialMonitor::show()	16	static
+../Core/Inc/SerialMonitor.cpp:44:10:void blib::SerialMonitor::setSerialLevel(SerialLevel)	24	static
+../Core/Inc/SerialMonitor.cpp:59:32:blib::SerialMonitor::SerialLevel blib::SerialMonitor::getSerialLevel() const	16	static
+../Core/Inc/SerialMonitor.cpp:64:10:void blib::SerialMonitor::serialLevel1()	16	static
+../Core/Inc/SerialMonitor.cpp:71:10:void blib::SerialMonitor::serialLevel2()	16	static
+../Core/Inc/SerialMonitor.cpp:76:10:void blib::SerialMonitor::serialLevel3()	16	static
+../Core/Inc/Singleton.h:38:17:blib::dp::Singleton<T>::Singleton() [with T = blib::SerialMonitor]	16	static
+../Core/Inc/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::SerialMonitor]	16	static
+../Core/Inc/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::SerialMonitor]	16	static
+../Core/Inc/Log.h:35:25:) [with Args = {const char*, int, const char*}]	32	static

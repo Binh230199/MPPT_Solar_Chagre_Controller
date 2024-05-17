@@ -4,8 +4,7 @@ D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriv
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Button.cpp:17:5:virtual blib::Button::~Button()	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Button.cpp:21:10:void blib::Button::setLatestPressedButton(blib::Button::ButtonName)	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Button.cpp:25:24:blib::Button::ButtonName blib::Button::getLatestPressedButton() const	16	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Button.cpp:29:10:void blib::Button::handleSignal()	24	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Button.cpp:29:10:void blib::Button::handleSignal()	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:38:17:blib::dp::Singleton<T>::Singleton() [with T = blib::Button]	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::Button]	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::Button]	16	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Monitor]	16	static
