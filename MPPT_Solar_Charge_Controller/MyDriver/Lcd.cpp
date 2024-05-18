@@ -136,11 +136,11 @@ namespace blib
     }
     void Lcd::clearDisplay()
     {
-        sendCmd(0x00);
-        for (uint8_t i = 0; i < 100; i++)
-        {
-            sendData(' ');
-        }
+        const char *emptyLine = "                    ";
+        displayLine(0, 0, emptyLine);
+        displayLine(1, 0, emptyLine);
+        displayLine(2, 0, emptyLine);
+        displayLine(3, 0, emptyLine);
     }
     void Lcd::init()
     {

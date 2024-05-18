@@ -172,7 +172,7 @@ int main(void)
     LOGI("STARTING DEVICE...");
 
     auto &analog = blib::Analog::getInstance();
-    auto &monitor = blib::Monitor::getInstance();
+//    auto &monitor = blib::Monitor::getInstance();
     auto &chargeCtrl = blib::ChargeControl::getInstance();
     auto &lcdSimulate = blib::LcdSimulate::getInstance();
 //    auto &serialMnt = blib::SerialMonitor::getInstance();
@@ -190,7 +190,7 @@ int main(void)
 ////        serialMnt.show();
 //        monitor.showMenu();
         lcdSimulate.run();
-        HAL_Delay(1000);
+        HAL_Delay(500);
     }
     /* USER CODE END 3 */
 }

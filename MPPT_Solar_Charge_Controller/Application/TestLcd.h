@@ -32,6 +32,12 @@ namespace blib
         public:
             LcdSimulate() : mLcd(Lcd::LcdType::LCD_TYPE_2004, &hi2c1, 0x27 << 1)
             {
+                mLcd.clearDisplay();
+                mLcd.displayLine(0, 1, "DO AN TOT NGHIEP");
+                mLcd.displayLine(1, 1, "NAM HOC: 2023-2024");
+                mLcd.displayLine(2, 1, "LOP: DTD61DH");
+                mLcd.displayLine(3, 1, "DAI HOC HANG HAI VN");
+                HAL_Delay(2000);
                 mCallback = &LcdSimulate::impl_1_HomeScreen;
             }
             virtual ~LcdSimulate()
@@ -68,18 +74,7 @@ namespace blib
             {
                 auto &button = Button::getInstance();
 
-//                if (button.getLatestPressedButton() == Button::ButtonName::UNDEFINED)
-//                {
-//                    return;
-//                }
-
                 static int arrowLine = 0;
-
-                mLcd.clearDisplay();
-                mLcd.displayLine(0, 1, "1 DISPLAY MODE");
-                mLcd.displayLine(1, 1, "2 SETTING MODE");
-                mLcd.displayLine(2, 1, "3 ABOUT");
-                mLcd.displayLine(3, 1, "1UP 2DOWN 3SEL 4BACK");
 
                 // Nhan nut UP -> mui ten di len
                 if (button.getLatestPressedButton() == Button::ButtonName::UP)
@@ -110,6 +105,7 @@ namespace blib
                 {
                     LOGI("Go back to homescreen");
                     mCallback = &LcdSimulate::impl_1_HomeScreen;
+                    arrowLine = 0;
                 }
                 // Nhan nut SEL ->  ve trang truoc (homescreen)
                 else if (button.getLatestPressedButton() == Button::ButtonName::SEL)
@@ -143,6 +139,13 @@ namespace blib
 
                 }
 
+                mLcd.clearDisplay();
+                mLcd.displayLine(0, 1, "1 DISPLAY MODE");
+                mLcd.displayLine(1, 1, "2 SETTING MODE");
+                mLcd.displayLine(2, 1, "3 ABOUT");
+                mLcd.displayLine(3, 0, "1UP 2DOWN 3SEL 4BACK");
+                mLcd.displayLine(arrowLine, 0, ">");
+
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
@@ -157,8 +160,9 @@ namespace blib
                 auto &button = Button::getInstance();
                 if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
-                    mCallback = &LcdSimulate::impl_1_HomeScreen;
+                    mCallback = &LcdSimulate::impl_2_MenuScreen;
                 }
+                button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
             void impl_3_DisplayScroll()
@@ -169,28 +173,9 @@ namespace blib
                 char list[ROW][COL] = { "", "1 DISPLAY VIEW 1", "2 DISPLAY VIEW 2",
                         "3 DISPLAY VIEW 3", "4 DISPLAY VIEW 4" };
 
+                static int arrowLine = 0;
                 static int mIndexLine = 1;
 
-                if (mIndexLine == 1)
-                {
-                    mLcd.displayLine(0, 1, list[mIndexLine]);
-                    mLcd.displayLine(1, 1, list[mIndexLine + 1]);
-                    mLcd.displayLine(2, 1, list[mIndexLine + 2]);
-                }
-                else if (mIndexLine == ROW - 1)
-                {
-                    mLcd.displayLine(0, 1, list[mIndexLine - 2]);
-                    mLcd.displayLine(1, 1, list[mIndexLine - 1]);
-                    mLcd.displayLine(2, 1, list[mIndexLine]);
-                }
-                else
-                {
-                    mLcd.displayLine(0, 1, list[mIndexLine - 1]);
-                    mLcd.displayLine(1, 1, list[mIndexLine]);
-                    mLcd.displayLine(2, 1, list[mIndexLine + 1]);
-                }
-
-                mLcd.displayLine(3, 1, "1UP 2DOWN 3SEL 4BACK");
                 auto &button = Button::getInstance();
                 // Nhan nut UP -> mui ten di len
                 if (button.getLatestPressedButton() == Button::ButtonName::UP)
@@ -198,18 +183,45 @@ namespace blib
                     if (mIndexLine == 1)
                     {
                         mIndexLine = ROW - 1;
+                        arrowLine = 2;
                     }
                     else
                     {
                         mIndexLine--;
                     }
+
+                    if (mIndexLine == 1 || mIndexLine == ROW - 2)
+                    {
+                        if (arrowLine == 0)
+                        {
+                            arrowLine = 2;
+                        }
+                        else
+                        {
+                            arrowLine--;
+                        }
+                    }
                 }
                 // Nhan nut DOWN ->  mui ten di xuong
                 else if (button.getLatestPressedButton() == Button::ButtonName::DOWN)
                 {
+                    // Dong bo > voi index
+                    if (mIndexLine == 1 || mIndexLine == ROW - 2)
+                    {
+                        if (arrowLine == 2)
+                        {
+                            arrowLine = 0;
+                        }
+                        else
+                        {
+                            arrowLine++;
+                        }
+                    }
+
                     if (mIndexLine == ROW - 1)
                     {
                         mIndexLine = 1;
+                        arrowLine = 0;
                     }
                     else
                     {
@@ -221,6 +233,8 @@ namespace blib
                 {
                     LOGI("Go back to Menu screen");
                     mCallback = &LcdSimulate::impl_2_MenuScreen;    //
+                    arrowLine = 0;
+                    mIndexLine = 1;
                 }
                 // Nhan nut SEL
                 else if (button.getLatestPressedButton() == Button::ButtonName::SEL)
@@ -259,20 +273,7 @@ namespace blib
 
                 }
 
-                button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
-            }
-
-            void impl_3_SettingScroll()
-            {
-                const int COL = 21;
-                const int ROW = 13;
-
-                char list[ROW][COL] = { "", "1 SUPPLY ALGORITHM", "2 MODE", "3 MAX BATTERY VOLT",
-                        "4 MIN BATTERY VOLT", "5 CHARGING CURRENT", "6 COOLING FAN",
-                        "7 FAN TRIGGER TEMP", "8 SHUTDOWN TEMP", "9 AUTOLOAD", "10BACKLIGHT SLEEP",
-                        "11FACTORY RESET" };
-
-                static int mIndexLine = 1;
+                mLcd.clearDisplay();
 
                 if (mIndexLine == 1)
                 {
@@ -293,26 +294,73 @@ namespace blib
                     mLcd.displayLine(2, 1, list[mIndexLine + 1]);
                 }
 
-                mLcd.displayLine(3, 1, "1UP 2DOWN 3SEL 4BACK");
+                mLcd.displayLine(3, 0, "1UP 2DOWN 3SEL 4BACK");
+                mLcd.displayLine(arrowLine, 0, ">");
+                button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
+            }
+
+            void impl_3_SettingScroll()
+            {
+                const int COL = 21;
+                const int ROW = 12;
+
+                char list[ROW][COL] = { "", "1 SUPPLY ALGORITHM", "2 MODE", "3 MAX BATTERY VOLT",
+                        "4 MIN BATTERY VOLT", "5 CHARGING CURRENT", "6 COOLING FAN",
+                        "7 FAN TRIGGER TEMP", "8 SHUTDOWN TEMP", "9 AUTOLOAD", "10BACKLIGHT SLEEP",
+                        "11FACTORY RESET" };
+                static int arrowLine = 0;
+                static int mIndexLine = 1;
+
                 auto &button = Button::getInstance();
                 // Nhan nut UP -> mui ten di len
                 if (button.getLatestPressedButton() == Button::ButtonName::UP)
                 {
+                    /*
+                     Feature: Dong bo giua index va mui ten '>'
+                     - Mui ten phu thuoc vao index.
+                     - Moi lan, chi hien thi 3 tuy chon, nen index va mui ten phai dong bo voi nhau
+                     */
                     if (mIndexLine == 1)
                     {
                         mIndexLine = ROW - 1;
+                        arrowLine = 2;
                     }
                     else
                     {
                         mIndexLine--;
                     }
+
+                    if (mIndexLine == 1 || mIndexLine == ROW - 2)
+                    {
+                        if (arrowLine == 0)
+                        {
+                            arrowLine = 2;
+                        }
+                        else
+                        {
+                            arrowLine--;
+                        }
+                    }
                 }
                 // Nhan nut DOWN ->  mui ten di xuong
                 else if (button.getLatestPressedButton() == Button::ButtonName::DOWN)
                 {
+                    if (mIndexLine == 1 || mIndexLine == ROW - 2)
+                    {
+                        if (arrowLine == 2)
+                        {
+                            arrowLine = 0;
+                        }
+                        else
+                        {
+                            arrowLine++;
+                        }
+                    }
+
                     if (mIndexLine == ROW - 1)
                     {
                         mIndexLine = 1;
+                        arrowLine = 0;
                     }
                     else
                     {
@@ -324,6 +372,8 @@ namespace blib
                 {
                     LOGI("Go back to Menu screen");
                     mCallback = &LcdSimulate::impl_2_MenuScreen;    //
+                    arrowLine = 0;
+                    mIndexLine = 1;
                 }
                 // Nhan nut SEL
                 else if (button.getLatestPressedButton() == Button::ButtonName::SEL)
@@ -396,6 +446,29 @@ namespace blib
                 {
 
                 }
+
+                mLcd.clearDisplay();
+                if (mIndexLine == 1)
+                {
+                    mLcd.displayLine(0, 1, list[mIndexLine]);
+                    mLcd.displayLine(1, 1, list[mIndexLine + 1]);
+                    mLcd.displayLine(2, 1, list[mIndexLine + 2]);
+                }
+                else if (mIndexLine == ROW - 1)
+                {
+                    mLcd.displayLine(0, 1, list[mIndexLine - 2]);
+                    mLcd.displayLine(1, 1, list[mIndexLine - 1]);
+                    mLcd.displayLine(2, 1, list[mIndexLine]);
+                }
+                else
+                {
+                    mLcd.displayLine(0, 1, list[mIndexLine - 1]);
+                    mLcd.displayLine(1, 1, list[mIndexLine]);
+                    mLcd.displayLine(2, 1, list[mIndexLine + 1]);
+                }
+
+                mLcd.displayLine(3, 0, "1UP 2DOWN 3SEL 4BACK");
+                mLcd.displayLine(arrowLine, 0, ">");
 
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
