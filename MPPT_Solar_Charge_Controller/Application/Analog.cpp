@@ -6,7 +6,7 @@
  */
 
 #include "Analog.h"
-
+#include <cmath>
 namespace blib
 {
     Analog::Analog() : mHadc(&hadc1), mHdmaAdc(&hdma_adc1)
@@ -25,11 +25,11 @@ namespace blib
         HAL_ADC_Start_DMA(mHadc, mAdcValues, NUMBER_OF_CHANNELS);
     }
 
-    float Analog::getVin() const
+    float Analog::getSolarVoltage() const
     {
         return mVin;
     }
-    float Analog::getIin() const
+    float Analog::getSolarCurrent() const
     {
         return mIin;
     }
@@ -48,45 +48,76 @@ namespace blib
 
     void Analog::readAnalog()
     {
-        mVin = convertAdcChannel1(mAdcValues[0]);
-        mIin = convertAdcChannel2(mAdcValues[1]);
-        mVout = convertAdcChannel3(mAdcValues[2]);
-        mIout = convertAdcChannel4(mAdcValues[3]);
-        mTemp = convertAdcChannel5(mAdcValues[4]);
+        mVin = calSolarVoltage(mAdcValues[2]);
+        mIin = calSolarCurrent(mAdcValues[2]);
+        mVout = calBatteryVoltage(mAdcValues[4]);
+        mIout = calBatteryCurrent(mAdcValues[0]);
+        mTemp = calTemperature(mAdcValues[1]);
 
-//        LOGI("mVin : [%.2f] V", mVin);
-//        LOGI("mIin : [%.2f] A", mIin);
-//        LOGI("mVout : [%.2f] V", mVout);
-//        LOGI("mIout : [%.2f] A", mIout);
-//        LOGI("mTemp : [%.2f] C", mTemp);
+        // Power Source Detection
+        if (mVin <= 3 && mVout < 3)
+        {
+            mInputSource = PowerSrc::USB_PORT;
+        }
+        else if (mVin > mVout)
+        {
+            mInputSource = PowerSrc::SOLAR;
+        }
+        else if (mVin < mVout)
+        {
+            mInputSource = PowerSrc::BATTERY;
+        }
+        else
+        {
+
+        }
+
+        mPin = mVin * mIin;
+        mPout = mPin * k_efficiency_rate;
+        mOutputDeviation = (mVout / k_voltage_battery_max) * 100.0f;
+
+        mBatteryPercent = ((mVout - k_voltage_battery_min)
+                / (k_voltage_battery_max - k_voltage_battery_min)) * 100;
     }
 
-    float Analog::convertAdcChannel1(uint32_t adcValue)    // Convert adcValue -> Vin
+    float Analog::calSolarVoltage(uint32_t adcValue)    // Convert adcValue -> Vin
     {
-        return CHANNEL_1_RATIO * ((float) adcValue / 4095) * 3.3;
+        return k_voltage_divider_input * ((float) adcValue / 4095) * 3.3;
     }
 
-    float Analog::convertAdcChannel2(uint32_t adcValue)    // Convert adcValue -> Iin
+    float Analog::calSolarCurrent(uint32_t adcValue)    // Convert adcValue -> Iin
     {
-        float voltage = CHANNEL_2_RATIO * ((float) adcValue / 4095) * 3.3;
+        float voltage = k_current_divider_input * ((float) adcValue / 4095) * 3.3;
         float current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
 
         return current;
     }
-    float Analog::convertAdcChannel3(uint32_t adcValue)    // Convert adcValue -> Vout
+    float Analog::calBatteryVoltage(uint32_t adcValue)    // Convert adcValue -> Vout
     {
-        return CHANNEL_3_RATIO * ((float) adcValue / 4095) * 3.3;
+        return k_voltage_divider_output * ((float) adcValue / 4095) * 3.3;
     }
-    float Analog::convertAdcChannel4(uint32_t adcValue)    // Convert adcValue -> Iout
+    float Analog::calBatteryCurrent(uint32_t adcValue)    // Convert adcValue -> Iout
     {
-        float voltage = CHANNEL_4_RATIO * ((float) adcValue / 4095) * 3.3;
+        float voltage = k_current_divider_output * ((float) adcValue / 4095) * 3.3;
         float current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
 
         return current;
     }
-    float Analog::convertAdcChannel5(uint32_t adcValue)    // Convert adcValue -> Temperature NTC 10k
+    float Analog::calTemperature(uint32_t adcValue)    // Convert adcValue -> Temperature NTC 10k
     {
-        return CHANNEL_5_RATIO * ((float) adcValue / 4095) * 3.3;
+        const double A = 0.003354016f;
+        const double B = 0.0002569850f;
+        const double C = 0.000002620131f;
+
+        float voltage = ((float) adcValue / 4095) * 3.3;
+        float resistance = (3.3f * 10000.0f / voltage) - 10000.0f;
+
+        float logResistance = log(resistance);
+        float reciprocalTemperature = A + (B * logResistance)
+                + (C * logResistance * logResistance * logResistance);
+
+        float temperature = 1.0f / reciprocalTemperature;
+        return temperature;
     }
 }
 // namespace blib

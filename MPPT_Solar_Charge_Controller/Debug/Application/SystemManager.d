@@ -40,7 +40,8 @@ Application/SystemManager.o: ../Application/SystemManager.cpp \
  ../Application/SerialMonitor.h \
  D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine/StateMachineBase.h \
  ../Application/ChargeControl.h ../Application/Analog.h \
- ../Application/Monitor.h ../MyDriver/Lcd.h ../MyDriver/Log.h
+ ../Application/Constant.h ../Application/Monitor.h ../MyDriver/Lcd.h \
+ ../MyDriver/Log.h
 ../Application/SystemManager.h:
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:
 ../MyDriver/Log.h:
@@ -84,6 +85,7 @@ D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Design
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine/StateMachineBase.h:
 ../Application/ChargeControl.h:
 ../Application/Analog.h:
+../Application/Constant.h:
 ../Application/Monitor.h:
 ../MyDriver/Lcd.h:
 ../MyDriver/Log.h:

@@ -1,0 +1,174 @@
+/*
+ * SystemManager.h
+ *
+ *  Created on: May 15, 2024
+ *      Author: binhhv.23.1.99@gmail.com
+ */
+
+#ifndef SYSTEMMANAGER_H_
+#define SYSTEMMANAGER_H_
+
+#include <string>
+
+// Add design patterns template library
+#include "Singleton.h"
+
+// Add libraries
+#include "Log.h"
+#include "SerialMonitor.h"
+#include "ChargeControl.h"
+#include "Analog.h"
+#include "Monitor.h"
+
+// Add main header
+#include "main.h"
+
+namespace blib
+{
+    class SystemManager : public dp::Singleton<SystemManager>
+    {
+        public:
+            SystemManager();
+            virtual ~SystemManager();
+
+        private:
+            bool mMpptMode = true;    //
+            bool mOutputMode = true;    // false: PSU mode, true: Charger mode
+            bool mDisableFlashAutoLoad = false;    // false: PSU mode, true: Charger mode
+            bool mEnablePPWM = true;    // true: enables predictive PWM, this accelerates regulation speed (only applicable for battery charging application)
+            bool mEnableFan = true;    // true: Enable Cooling Fan
+            bool mEnableLcd = true;    // true: Enable LCD display
+            bool mEnableLcdBacklight = true;    // true: Enable LCD display's backlight
+            bool mOverrideFan = false;    // true: fan always on, false: fan always off
+            bool mEnableDynamicCooling = false;    // true: pwm cooling control, false: no use pwm control
+
+            SerialMonitor::SerialLevel mSerialLevel = SerialMonitor::SerialLevel::SERIAL_LEVEL_1;
+
+            int mPwmResolution = 11;          //  USER PARAMETER - PWM Bit Resolution
+            int mPwmFrequency = 39000;    //  USER PARAMETER - PWM Switching Frequency - Hz (For Buck)
+            int mTemperatureFan = 60;    //  USER PARAMETER - Temperature threshold for fan to turn on
+            int k_temperature_max = 90;    //  USER PARAMETER - Overtemperature; System Shudown When Exceeded (deg C)
+            int mTelemCounterReset = 0;    //  USER PARAMETER - Reset Telem Data Every (0 = Never; 1 = Day; 2 = Week; 3 = Month; 4 = Year)
+            int mErrorTimeLimit = 1000;    //  USER PARAMETER - Time interval for reseting error counter (milliseconds)
+            int mErrorCountLimit = 5;           //  USER PARAMETER - Maximum number of errors
+            int mMillisRoutineInterval = 250;    //  USER PARAMETER - Time Interval Refresh Rate For Routine Functions (ms)
+            int mMillisSerialInterval = 1;    //  USER PARAMETER - Time Interval Refresh Rate For USB Serial Datafeed (ms)
+            int mMillisLCDInterval = 1000;    //  USER PARAMETER - Time Interval Refresh Rate For LCD Display (ms)
+            int mMillisWiFiInterval = 2000;    //  USER PARAMETER - Time Interval Refresh Rate For WiFi Telemetry (ms)
+            int mMillisLCDBackLInterval = 2000;    //  USER PARAMETER - Time Interval Refresh Rate For WiFi Telemetry (ms)
+            int mBacklightSleepMode = 0;    //  USER PARAMETER - 0 = Never; 1 = 10secs; 2 = 5mins; 3 = 1hr; 4 = 6 hrs; 5 = 12hrs; 6 = 1 day; 7 = 3 days; 8 = 1wk; 9 = 1month
+            int mBaudRate = 500000;      //  USER PARAMETER - USB Serial Baud Rate (bps)
+
+            float mVoltageBatteryMax = 27.3f;    //   USER PARAMETER - Maximum Battery Charging Voltage (Output V)
+            float mVoltageBatteryMin = 22.4f;    //   USER PARAMETER - Minimum Battery Charging Voltage (Output V)
+            float mCurrentCharging = 30.0f;    //   USER PARAMETER - Maximum Charging Current (A - Output)
+            float mElectricalPrice = 9.5f;    //   USER PARAMETER - Input electrical price per kWh (Dollar/kWh,Euro/kWh,Peso/kWh)
+
+            int mAdcGainSelect = 2;    //  CALIB PARAMETER - ADC Gain Selection (0→±6.144V 3mV/bit, 1→±4.096V 2mV/bit, 2→±2.048V 1mV/bit)
+            int mAvgCountVS = 3;    //  CALIB PARAMETER - Voltage Sensor Average Sampling Count (Recommended: 3)
+            int mAvgCountCS = 4;    //  CALIB PARAMETER - Current Sensor Average Sampling Count (Recommended: 4)
+            int mAvgCountTS = 500;    //  CALIB PARAMETER - Temperature Sensor Average Sampling Count
+            float mInVoltageDivRatio = 40.2156f;    //  CALIB PARAMETER - Input voltage divider sensor ratio (change this value to calibrate voltage sensor)
+            float mOutVoltageDivRatio = 24.5000f;    //  CALIB PARAMETER - Output voltage divider sensor ratio (change this value to calibrate voltage sensor)
+            float mVOutSystemMax = 50.0000f;    //  CALIB PARAMETER -
+            float mCOutSystemMax = 50.0000f;    //  CALIB PARAMETER -
+            float mNtcResistance = 10000.00f;    //  CALIB PARAMETER - NTC temp sensor's resistance. Change to 10000.00 if you are using a 10k NTC
+            float mVoltageDropout = 1.0000f;    //  CALIB PARAMETER - Buck regulator's dropout voltage (DOV is present due to Max Duty Cycle Limit)
+            float mVoltageBatteryThresh = 1.5000f;    //  CALIB PARAMETER - Power cuts-off when this voltage is reached (Output V)
+            float mCurrentInAbsolute = 31.0000f;    //  CALIB PARAMETER - Maximum Input Current The System Can Handle (A - Input)
+            float mCurrentOutAbsolute = 50.0000f;    //  CALIB PARAMETER - Maximum Output Current The System Can Handle (A - Input)
+            float mPPWM_margin = 99.5000f;    //  CALIB PARAMETER - Minimum Operating Duty Cycle for Predictive PWM (%)
+            float mPWM_MaxDC = 97.0000f;    //  CALIB PARAMETER - Maximum Operating Duty Cycle (%) 90%-97% is good
+            float mEfficiencyRate = 1.0000f;    //  CALIB PARAMETER - Theroretical Buck Efficiency (% decimal)
+            float mCurrentMidPoint = 2.5250f;    //  CALIB PARAMETER - Current Sensor Midpoint (V)
+            float mCurrentSens = 0.0000f;    //  CALIB PARAMETER - Current Sensor Sensitivity (V/A)
+            float mCurrentSensV = 0.0660f;    //  CALIB PARAMETER - Current Sensor Sensitivity (mV/A)
+            float mVInSystemMin = 10.000f;    //  CALIB PARAMETER -
+
+            bool mBuckEnable = false;    // SYSTEM PARAMETER - Buck Enable Status
+            bool mFanStatus = false;    // SYSTEM PARAMETER - Fan activity status (1 = On, 0 = Off)
+            bool mBypassEnable = false;    // SYSTEM PARAMETER -
+            bool mChargingPause = false;    // SYSTEM PARAMETER -
+            bool mLowPowerMode = false;    // SYSTEM PARAMETER -
+            bool mButtonRightStatus = false;    // SYSTEM PARAMETER -
+            bool mButtonLeftStatus = false;    // SYSTEM PARAMETER -
+            bool mButtonBackStatus = false;    // SYSTEM PARAMETER -
+            bool mButtonSelectStatus = false;    // SYSTEM PARAMETER -
+            bool mButtonRightCommand = false;    // SYSTEM PARAMETER -
+            bool mButtonLeftCommand = false;    // SYSTEM PARAMETER -
+            bool mButtonBackCommand = false;    // SYSTEM PARAMETER -
+            bool mButtonSelectCommand = false;    // SYSTEM PARAMETER -
+            bool mSettingMode = false;    // SYSTEM PARAMETER -
+            bool mSetMenuPage = false;    // SYSTEM PARAMETER -
+            bool mBoolTemp = false;    // SYSTEM PARAMETER -
+            bool mFlashMemLoad = false;    // SYSTEM PARAMETER -
+            bool mConfirmationMenu = false;    // SYSTEM PARAMETER -
+            bool mWIFI = false;    // SYSTEM PARAMETER -
+
+            int minputSource = 0;    // SYSTEM PARAMETER - 0 = MPPT has no power source, 1 = MPPT is using solar as source, 2 = MPPTis using battery as power source
+            int mavgStoreTS = 0;    // SYSTEM PARAMETER - Temperature Sensor uses non invasive averaging, this is used an accumulator for mean averaging
+            int mtemperature = 0;    // SYSTEM PARAMETER -
+            int msampleStoreTS = 0;    // SYSTEM PARAMETER - TS AVG nth Sample
+            int mpwmMax = 0;    // SYSTEM PARAMETER -
+            int mpwmMaxLimited = 0;    // SYSTEM PARAMETER -
+            int mPWM = 0;    // SYSTEM PARAMETER -
+            int mPPWM = 0;    // SYSTEM PARAMETER -
+            int mpwmChannel = 0;    // SYSTEM PARAMETER -
+            int mbatteryPercent = 0;    // SYSTEM PARAMETER -
+            int merrorCount = 0;    // SYSTEM PARAMETER -
+            int mmenuPage = 0;    // SYSTEM PARAMETER -
+            int msubMenuPage = 0;    // SYSTEM PARAMETER -
+            int mERR = 0;    // SYSTEM PARAMETER -
+            int mconv1 = 0;    // SYSTEM PARAMETER -
+            int mconv2 = 0;    // SYSTEM PARAMETER -
+            int mintTemp = 0;    // SYSTEM PARAMETER -
+            float mVSI = 0.0000;    // SYSTEM PARAMETER - Raw input voltage sensor ADC voltage
+            float mVSO = 0.0000;    // SYSTEM PARAMETER - Raw output voltage sensor ADC voltage
+            float mCSI = 0.0000;    // SYSTEM PARAMETER - Raw current sensor ADC voltage
+            float mCSI_converted = 0.0000;    // SYSTEM PARAMETER - Actual current sensor ADC voltage
+            float mTS = 0.0000;    // SYSTEM PARAMETER - Raw temperature sensor ADC value
+            float mpowerInput = 0.0000;    // SYSTEM PARAMETER - Input power (solar power) in Watts
+            float mpowerInputPrev = 0.0000;    // SYSTEM PARAMETER - Previously stored input power variable for MPPT algorithm (Watts)
+            float mpowerOutput = 0.0000;    // SYSTEM PARAMETER - Output power (battery or charing power in Watts)
+            float menergySavings = 0.0000;    // SYSTEM PARAMETER - Energy savings in fiat currency (Peso, USD, Euros or etc...)
+            float mvoltageInput = 0.0000;    // SYSTEM PARAMETER - Input voltage (solar voltage)
+            float mvoltageInputPrev = 0.0000;    // SYSTEM PARAMETER - Previously stored input voltage variable for MPPT algorithm
+            float mvoltageOutput = 0.0000;    // SYSTEM PARAMETER - Input voltage (battery voltage)
+            float mcurrentInput = 0.0000;    // SYSTEM PARAMETER - Output power (battery or charing voltage)
+            float mcurrentOutput = 0.0000;    // SYSTEM PARAMETER - Output current (battery or charing current in Amperes)
+            float mTSlog = 0.0000;    // SYSTEM PARAMETER - Part of NTC thermistor thermal sensing code
+            float mADC_BitReso = 0.0000;    // SYSTEM PARAMETER - System detects the approriate bit resolution factor for ADS1015/ADS1115 ADC
+            float mdaysRunning = 0.0000;    // SYSTEM PARAMETER - Stores the total number of days the MPPT device has been running since last powered
+            float mWh = 0.0000;    // SYSTEM PARAMETER - Stores the accumulated energy harvested (Watt-Hours)
+            float mkWh = 0.0000;    // SYSTEM PARAMETER - Stores the accumulated energy harvested (Kiliowatt-Hours)
+            float mMWh = 0.0000;    // SYSTEM PARAMETER - Stores the accumulated energy harvested (Megawatt-Hours)
+            float mloopTime = 0.0000;    // SYSTEM PARAMETER -
+            float moutputDeviation = 0.0000;    // SYSTEM PARAMETER - Output Voltage Deviation (%)
+            float mbuckEfficiency = 0.0000;    // SYSTEM PARAMETER - Measure buck converter power conversion efficiency (only applicable to my dual current sensor version)
+            float mfloatTemp = 0.0000;    //
+            float mvOutSystemMin = 0.0000;    //  CALIB PARAMETER -
+
+            uint32_t mcurrentErrorMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mcurrentButtonMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mcurrentSerialMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mcurrentRoutineMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mcurrentLCDMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mcurrentLCDBackLMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mcurrentWiFiMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mcurrentMenuSetMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mprevButtonMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mprevSerialMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mprevRoutineMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mprevErrorMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mprevWiFiMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mprevLCDMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mprevLCDBackLMillis = 0;    //SYSTEM PARAMETER -
+            uint32_t mtimeOn = 0;    //SYSTEM PARAMETER -
+            uint32_t mloopTimeStart = 0;    //SYSTEM PARAMETER - Used for the loop cycle stop watch, records the loop start time
+            uint32_t mloopTimeEnd = 0;    //SYSTEM PARAMETER - Used for the loop cycle stop watch, records the loop end time
+            uint32_t msecondsElapsed = 0;    //SYSTEM PARAMETER -
+
+    };
+}    // namespace blib
+
+#endif /* SYSTEMMANAGER_H_ */

@@ -38,13 +38,18 @@ namespace blib
             bool getBuckEnable() const;
             void setMpptMode(const bool val);
             bool getMpptMode() const;
-        private:
+
             void buckEnable();
             void buckDisable();
-            float predictPwm();
-            void generatePwm();
+            uint32_t predictPwm();
+            void generatePwm(uint32_t val);
+            void pwmInit(uint32_t frequency, uint32_t dutyCycle);
+            void pwmWrite();
 
-        private:
+            TIM_HandleTypeDef *mHtim;
+            bool mChargePause = false;
+            bool mChargeState = false;
+
             OutputMode mOutputMode = OutputMode::PSU;
 
             bool mBuckEnable = false;

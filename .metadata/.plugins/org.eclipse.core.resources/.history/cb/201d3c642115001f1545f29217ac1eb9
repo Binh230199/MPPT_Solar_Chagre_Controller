@@ -1,0 +1,192 @@
+/*
+ * Lcd.cpp
+ *
+ *  Created on: May 16, 2024
+ *      Author: binhhv.23.1.99@gmail.com
+ */
+
+#include "Lcd.h"
+
+namespace blib
+{
+
+    Lcd::Lcd(LcdType type, I2C_HandleTypeDef *hi2c, uint8_t address) : mLcdType(type), mHi2c(hi2c), mLcdAddress(
+            address)
+    {
+        init();
+    }
+    Lcd::~Lcd()
+    {
+
+    }
+    void Lcd::sendCmd(uint8_t command)
+    {
+        uint8_t dataHigh = 0, dataLow = 0;
+        uint8_t data[4];
+        dataHigh = (command & 0xF0);
+        dataLow = ((command << 4) & 0xF0);
+        data[0] = dataHigh | 0x0C;    //en = 1, rw = 0, rs = 0;
+        data[1] = dataHigh | 0x08;    //en = 0, rw = 0, rs = 0;
+        data[2] = dataLow | 0x0C;
+        data[3] = dataLow | 0x08;
+        HAL_I2C_Master_Transmit(mHi2c, mLcdAddress, (uint8_t*) data, sizeof(data), 100);
+    }
+    void Lcd::sendData(uint8_t data)
+    {
+        uint8_t dataHigh = 0, dataLow = 0;
+        uint8_t dataBuf[4];
+        dataHigh = (data & 0xF0);
+        dataLow = ((data << 4) & 0xF0);
+        dataBuf[0] = dataHigh | 0x0D;    //en = 1, rw = 0, rs = 1;
+        dataBuf[1] = dataHigh | 0x09;    //en = 0, rw = 0, rs = 1;
+        dataBuf[2] = dataLow | 0x0D;
+        dataBuf[3] = dataLow | 0x09;
+        HAL_I2C_Master_Transmit(mHi2c, mLcdAddress, (uint8_t*) dataBuf, sizeof(dataBuf), 100);
+    }
+    void Lcd::setCursor(uint8_t row, uint8_t col)
+    {
+        uint8_t command = 0;
+
+        switch (mLcdType)
+        {
+            case LcdType::LCD_TYPE_1602:
+                // Implement later
+                break;
+            case LcdType::LCD_TYPE_2004:
+                switch (row)
+                {
+                    case 0:
+                        command = 0x80 | (col + 0x00);
+                        break;
+                    case 1:
+                        command = 0x80 | (col + 0x14);
+                        break;
+                    case 2:
+                        command = 0x80 | (col + 0x40);
+                        break;
+                    case 3:
+                        command = 0x80 | (col + 0x54);
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+
+        sendCmd(command);
+    }
+    void Lcd::rollData()
+    {
+
+    }
+    void Lcd::pushData()
+    {
+
+    }
+
+    char ischar(const char *string)
+    {
+        return (string != nullptr) ? *(string) : ' ';
+    }
+    void Lcd::displayLine(uint8_t row, uint8_t col, const char *string)
+    {
+        LOGI("|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|%c|", ischar(string),
+                ischar(string + 1), ischar(string + 2), ischar(string + 3), ischar(string + 4),
+                ischar(string + 5), ischar(string + 6), ischar(string + 7), ischar(string + 8),
+                ischar(string + 9), ischar(string + 10), ischar(string + 11), ischar(string + 12),
+                ischar(string + 13), ischar(string + 14), ischar(string + 15), ischar(string + 16),
+                ischar(string + 17), ischar(string + 18), ischar(string + 19));
+
+        uint8_t command = 0;
+
+        switch (mLcdType)
+        {
+            case LcdType::LCD_TYPE_1602:
+                break;
+            case LcdType::LCD_TYPE_2004:
+                switch (row)
+                {
+                    case 0:
+                        command = 0x80 | (col + 0x00);
+                        break;
+                    case 1:
+                        command = 0x80 | (col + 0x40);
+                        break;
+                    case 2:
+                        command = 0x80 | (col + 0x14);
+                        break;
+                    case 3:
+                        command = 0x80 | (col + 0x54);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+
+        sendCmd(command);
+
+        while (*string)
+        {
+            sendData(*string);
+            string++;
+        }
+    }
+    void Lcd::clearDisplay()
+    {
+        sendCmd(0x01);
+        HAL_Delay(5);
+    }
+    void Lcd::init()
+    {
+        mEntryMode = LCD_ENTRY_MODE_SET | LCD_CURSOR_ID_RIGHT | LCD_SHIFT_S_UNABLE;
+        mFunctionSet = LCD_FUNCTION_SET | LCD_DATA_DL_4BITS | LCD_LINE_N_2 | LCD_FONT_F_58;
+        mDisplayControl = LCD_DISPLAY_ON_OFF | LCD_DISPLAY_D_OFF | LCD_CURSOR_C_OFF
+                | LCD_BLINK_B_OFF;
+        mBlackLight = LCD_NOBLACKLIGHT;
+
+        HAL_Delay(50);
+        sendCmd(0x30);
+        HAL_Delay(5);
+        sendCmd(0x30);
+        HAL_Delay(1);
+        sendCmd(0x30);
+        HAL_Delay(10);
+        sendCmd(0x20);
+        HAL_Delay(10);
+
+        sendCmd(mFunctionSet);
+        HAL_Delay(1);
+        sendCmd(mDisplayControl);
+        HAL_Delay(1);
+        sendCmd(0x01);    //clear display
+        HAL_Delay(2);
+        sendCmd(mEntryMode);
+        HAL_Delay(1);
+        sendCmd(mDisplayControl | LCD_DISPLAY_D_ON);
+        HAL_Delay(1);
+        sendCmd(mBlackLight);
+        HAL_Delay(1);
+    }
+
+    void Lcd::noBackligth()
+    {
+        mBlackLight = LCD_NOBLACKLIGHT;
+        sendData(mBlackLight);
+    }
+
+    void Lcd::backlight()
+    {
+        mBlackLight = LCD_BLACKLIGHT;
+        sendData(mBlackLight);
+    }
+
+    void Lcd::makeCustomCharacter(uint8_t location, uint8_t *byte)
+    {
+
+    }
+
+}    // namespace blib
+

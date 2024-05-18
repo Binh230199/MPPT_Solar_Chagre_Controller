@@ -37,6 +37,7 @@ namespace blib
                 mLcd.displayLine(1, 1, "NAM HOC: 2023-2024");
                 mLcd.displayLine(2, 1, "LOP: DTD61DH");
                 mLcd.displayLine(3, 1, "DAI HOC HANG HAI VN");
+                mLcd.clearDisplay();
                 HAL_Delay(2000);
                 mCallback = &LcdSimulate::impl_1_HomeScreen;
             }
@@ -51,11 +52,34 @@ namespace blib
             void impl_1_HomeScreen()
             {
                 auto &button = Button::getInstance();
+                auto &analog = Analog::getInstance();
 
-                mLcd.clearDisplay();
-                mLcd.displayLine(0, 2, "HOME SCREEN");
-                mLcd.displayLine(1, 2, "HOME SCREEN");
-                mLcd.displayLine(2, 2, "HOME SCREEN");
+                char line0[21] = { 0 }, line1[21] = { 0 }, line2[21] = { 0 }, line3[21] = { 0 };
+
+                snprintf(line0, 21, "I:%2.1fV %2.1fA %2.1fW", analog.mVin, analog.mIin,
+                        analog.mPin);
+                snprintf(line1, 21, "O:%2.1fV %2.1fA %2.1fW", analog.mVout, analog.mIout,
+                        analog.mPout);
+                if (analog.mInputSource == PowerSrc::USB_PORT)
+                {
+                    snprintf(line2, 21, "Src: USB");
+                }
+                else if (analog.mInputSource == PowerSrc::SOLAR)
+                {
+                    snprintf(line2, 21, "Src: SOLAR");
+                }
+                else if (analog.mInputSource == PowerSrc::BATTERY)
+                {
+                    snprintf(line2, 21, "Src: BAT [%.1f%%]", analog.mBatteryPercent);
+                }
+
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
+                mLcd.displayLine(0, 0, line0);
+                mLcd.displayLine(1, 0, line1);
+                mLcd.displayLine(2, 0, line2);
                 mLcd.displayLine(3, 2, "Press any button");
 
                 // Nhan nut bat ky thi se chuyen sang man hinh menu
@@ -139,7 +163,10 @@ namespace blib
 
                 }
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
                 mLcd.displayLine(0, 1, "1 DISPLAY MODE");
                 mLcd.displayLine(1, 1, "2 SETTING MODE");
                 mLcd.displayLine(2, 1, "3 ABOUT");
@@ -151,13 +178,17 @@ namespace blib
 
             void impl_3_AboutScreen()
             {
-                mLcd.clearDisplay();
+                auto &button = Button::getInstance();
+
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
                 mLcd.displayLine(0, 0, "MPPT SOLAR CHARGER");
                 mLcd.displayLine(1, 0, "FIRMWARE VER: 1.0.0");
                 mLcd.displayLine(2, 0, "CONTACT:09123123123");
                 mLcd.displayLine(3, 15, "4BACK");
 
-                auto &button = Button::getInstance();
                 if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
                     mCallback = &LcdSimulate::impl_2_MenuScreen;
@@ -273,7 +304,10 @@ namespace blib
 
                 }
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
 
                 if (mIndexLine == 1)
                 {
@@ -301,6 +335,9 @@ namespace blib
 
             void impl_3_SettingScroll()
             {
+                // Trong che do setting thi dung sac
+                ChargeControl::getInstance().mChargePause = true;
+
                 const int COL = 21;
                 const int ROW = 12;
 
@@ -374,6 +411,9 @@ namespace blib
                     mCallback = &LcdSimulate::impl_2_MenuScreen;    //
                     arrowLine = 0;
                     mIndexLine = 1;
+
+                    // Thoat che do setting thi tiep tuc sac
+                    ChargeControl::getInstance().mChargePause = false;
                 }
                 // Nhan nut SEL
                 else if (button.getLatestPressedButton() == Button::ButtonName::SEL)
@@ -447,7 +487,10 @@ namespace blib
 
                 }
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
                 if (mIndexLine == 1)
                 {
                     mLcd.displayLine(0, 1, list[mIndexLine]);
@@ -490,7 +533,7 @@ namespace blib
 //
 //                snprintf(line2, 21, "Iout: %03.1fA", 5.1f);    // Iout: 005.1A
 //
-//                mLcd.clearDisplay();
+//                //mLcd.clearDisplay();
 //                mLcd.displayLine(0, 0, line0);
 //                mLcd.displayLine(1, 0, line1);
 //                mLcd.displayLine(2, 0, line2);
@@ -511,7 +554,7 @@ namespace blib
 //                snprintf(line0, 21, "%03.1W %04.2fWh ", 25.1);    //P:025.1W A:0003.4Wh
 //                snprintf(line2, 21, "Iout: %03.1fA", 5.1f);    // Iout: 005.1A
 //
-//                mLcd.clearDisplay();
+//                //mLcd.clearDisplay();
 //                mLcd.displayLine(0, 0, line0);
 //                mLcd.displayLine(1, 0, line1);
 //                mLcd.displayLine(2, 0, line2);
@@ -544,7 +587,7 @@ namespace blib
 //                snprintf(line1, 21, "%s", "Fan: %s", (isFanStatus == RUN) ? "RUN" : "OFF");    //Fan: RUN
 //                snprintf(line2, 21, "Thres:[%.2f-%.2f]", 60, 90);
 //
-//                mLcd.clearDisplay();
+//                //mLcd.clearDisplay();
 //                mLcd.displayLine(0, 0, line0);
 //                mLcd.displayLine(1, 0, line1);
 //                mLcd.displayLine(2, 0, line2);
@@ -563,7 +606,10 @@ namespace blib
                 auto &button = Button::getInstance();
                 static int supplyAlgorithm = 0;    // MPPT+CC-CV va CC-CV Only
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
                 mLcd.displayLine(0, 0, "SUPPLY ALGORITHM");
 
                 if (button.getLatestPressedButton() == Button::ButtonName::UP
@@ -618,7 +664,10 @@ namespace blib
                 auto &button = Button::getInstance();
                 static int chargeMode = 0;    // PSU
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
                 mLcd.displayLine(0, 0, "SUPPLY ALGORITHM");
 
                 if (button.getLatestPressedButton() == Button::ButtonName::UP)
@@ -636,7 +685,7 @@ namespace blib
                 {
                     if (chargeMode == 2)
                     {
-                        chargeMode == 0;
+                        chargeMode = 0;
                     }
                     else
                     {
@@ -769,11 +818,53 @@ namespace blib
             void impl_3_2_Backlight()
             {
                 auto &button = Button::getInstance();
-                if (button.getLatestPressedButton() == Button::ButtonName::BACK)
+
+                static bool isBacklight = true;
+
+                if (button.getLatestPressedButton() == Button::ButtonName::UP
+                        || button.getLatestPressedButton() == Button::ButtonName::DOWN)
+                {
+                    isBacklight = !isBacklight;
+                }
+
+                else if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
                     LOGI("Go back to Setting screen");
                     mCallback = &LcdSimulate::impl_3_SettingScroll;    //
                 }
+
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
+
+                mLcd.displayLine(0, 0, "LCD BACKLIGHT");
+
+                if (isBacklight)
+                {
+                    mLcd.displayLine(1, 0, "YES");
+                }
+                else
+                {
+                    mLcd.displayLine(1, 0, "NO ");
+                }
+
+                if (button.getLatestPressedButton() == Button::ButtonName::SEL)
+                {
+                    if (isBacklight == true)
+                    {
+                        impl_backLight();
+                        mLcd.displayLine(2, 0, "> Backlight on");
+                    }
+                    else
+                    {
+                        impl_Nobacklight();
+                        mLcd.displayLine(2, 0, "> Backlight off");
+                    }
+                }
+
+                mLcd.displayLine(3, 15, "4BACK");
+
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
@@ -788,8 +879,26 @@ namespace blib
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
-        private:
+            void impl_Nobacklight()
+            {
+                mLcd.noBackligth();
+            }
 
+            void impl_backLight()
+            {
+                mLcd.backlight();
+            }
+
+            void impl_ClearScreen()
+            {
+                mLcd.clearDisplay();
+            }
+        private:
+            bool isNeedRefreshScreen()
+            {
+                return Button::getInstance().getLatestPressedButton()
+                        != Button::ButtonName::UNDEFINED;
+            }
             Callback mCallback;
 
             Lcd mLcd;    // lcd display monitor

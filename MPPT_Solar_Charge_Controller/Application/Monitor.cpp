@@ -46,8 +46,8 @@ namespace blib
 
         auto &analog = Analog::getInstance();
 
-        snprintf(line0, COL, "%02.1fV %02.1fA %02.1fW", analog.getVin(), fabs(analog.getIin()),
-                fabs(analog.getVin() * analog.getIin()));
+        snprintf(line0, COL, "%02.1fV %02.1fA %02.1fW", analog.getSolarVoltage(), fabs(analog.getSolarCurrent()),
+                fabs(analog.getSolarVoltage() * analog.getSolarCurrent()));
         snprintf(line1, COL, "%02.1fV %02.1fA %02.1fW", analog.getVout(), fabs(analog.getIout()),
                 fabs(analog.getVout() * analog.getIout()));
         snprintf(line2, COL, "%d", 1);

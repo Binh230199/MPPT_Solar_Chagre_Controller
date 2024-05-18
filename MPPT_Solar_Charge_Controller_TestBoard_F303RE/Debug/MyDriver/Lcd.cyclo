@@ -10,6 +10,8 @@ D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriv
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Lcd.cpp:87:10:char blib::ischar(const char*)	2
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Lcd.cpp:91:10:void blib::Lcd::displayLine(uint8_t, uint8_t, const char*)	8
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Lcd.cpp:137:10:void blib::Lcd::clearDisplay()	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Lcd.cpp:145:10:void blib::Lcd::init()	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Lcd.cpp:174:10:void blib::Lcd::makeCustomCharacter(uint8_t, uint8_t*)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Lcd.cpp:141:10:void blib::Lcd::init()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Lcd.cpp:173:10:void blib::Lcd::noBackligth()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Lcd.cpp:179:10:void blib::Lcd::backlight()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Lcd.cpp:185:10:void blib::Lcd::makeCustomCharacter(uint8_t, uint8_t*)	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Log.h:35:25:) [with Args = {const char*, int, const char*, char, char, char, char, char, char, char, char, char, char, char, char, char, char, char, char, char, char, char, char}]	1

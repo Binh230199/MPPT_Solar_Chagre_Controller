@@ -1328,18 +1328,18 @@ Disassembly of section .text:
  8000fa4:	20000204 	.word	0x20000204
  8000fa8:	2000024c 	.word	0x2000024c
 
-08000fac <_ZNK4blib6Analog6getVinEv>:
+08000fac <_ZNK4blib6Analog6getSolarVoltageEv>:
     }
 
-    float Analog::getVin() const
+    float Analog::getSolarVoltage() const
     {
         return mVin;
     }
  8000fac:	ed90 0a08 	vldr	s0, [r0, #32]
  8000fb0:	4770      	bx	lr
 
-08000fb2 <_ZNK4blib6Analog6getIinEv>:
-    float Analog::getIin() const
+08000fb2 <_ZNK4blib6Analog6getSolarCurrentEv>:
+    float Analog::getSolarCurrent() const
     {
         return mIin;
     }
@@ -1364,15 +1364,15 @@ Disassembly of section .text:
  8000fc4:	0000      	movs	r0, r0
 	...
 
-08000fc8 <_ZN4blib6Analog18convertAdcChannel2Em>:
-        return CHANNEL_1_RATIO * ((float) adcValue / 4095) * 3.3;
+08000fc8 <_ZN4blib6Analog18calSolarCurrentEm>:
+        return k_voltage_divider_input * ((float) adcValue / 4095) * 3.3;
     }
 
-    float Analog::convertAdcChannel2(uint32_t adcValue)    // Convert adcValue -> Iin
+    float Analog::calSolarCurrent(uint32_t adcValue)    // Convert adcValue -> Iin
     {
         float voltage = CHANNEL_2_RATIO * ((float) adcValue / 4095) * 3.3;
  8000fc8:	ee07 1a90 	vmov	s15, r1
- 8000fcc:	eddf 6a16 	vldr	s13, [pc, #88]	; 8001028 <_ZN4blib6Analog18convertAdcChannel2Em+0x60>
+ 8000fcc:	eddf 6a16 	vldr	s13, [pc, #88]	; 8001028 <_ZN4blib6Analog18calSolarCurrentEm+0x60>
  8000fd0:	eef8 7a67 	vcvt.f32.u32	s15, s15
     {
  8000fd4:	b508      	push	{r3, lr}
@@ -1382,16 +1382,16 @@ Disassembly of section .text:
  8000fde:	ee67 7a27 	vmul.f32	s15, s14, s15
  8000fe2:	ee17 0a90 	vmov	r0, s15
  8000fe6:	f7ff faaf 	bl	8000548 <__aeabi_f2d>
- 8000fea:	a30b      	add	r3, pc, #44	; (adr r3, 8001018 <_ZN4blib6Analog18convertAdcChannel2Em+0x50>)
+ 8000fea:	a30b      	add	r3, pc, #44	; (adr r3, 8001018 <_ZN4blib6Analog18calSolarCurrentEm+0x50>)
  8000fec:	e9d3 2300 	ldrd	r2, r3, [r3]
  8000ff0:	f7ff fb02 	bl	80005f8 <__aeabi_dmul>
  8000ff4:	f7ff fdd8 	bl	8000ba8 <__aeabi_d2f>
         float current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
  8000ff8:	f7ff faa6 	bl	8000548 <__aeabi_f2d>
- 8000ffc:	4b0b      	ldr	r3, [pc, #44]	; (800102c <_ZN4blib6Analog18convertAdcChannel2Em+0x64>)
+ 8000ffc:	4b0b      	ldr	r3, [pc, #44]	; (800102c <_ZN4blib6Analog18calSolarCurrentEm+0x64>)
  8000ffe:	2200      	movs	r2, #0
  8001000:	f7ff f942 	bl	8000288 <__aeabi_dsub>
- 8001004:	a306      	add	r3, pc, #24	; (adr r3, 8001020 <_ZN4blib6Analog18convertAdcChannel2Em+0x58>)
+ 8001004:	a306      	add	r3, pc, #24	; (adr r3, 8001020 <_ZN4blib6Analog18calSolarCurrentEm+0x58>)
  8001006:	e9d3 2300 	ldrd	r2, r3, [r3]
  800100a:	f7ff fc1f 	bl	800084c <__aeabi_ddiv>
  800100e:	f7ff fdcb 	bl	8000ba8 <__aeabi_d2f>
@@ -1407,15 +1407,15 @@ Disassembly of section .text:
  8001028:	457ff000 	.word	0x457ff000
  800102c:	40040000 	.word	0x40040000
 
-08001030 <_ZN4blib6Analog18convertAdcChannel4Em>:
+08001030 <_ZN4blib6Analog18calBatteryCurrentEm>:
     {
-        return CHANNEL_3_RATIO * ((float) adcValue / 4095) * 3.3;
+        return k_voltage_divider_output * ((float) adcValue / 4095) * 3.3;
     }
-    float Analog::convertAdcChannel4(uint32_t adcValue)    // Convert adcValue -> Iout
+    float Analog::calBatteryCurrent(uint32_t adcValue)    // Convert adcValue -> Iout
     {
         float voltage = CHANNEL_4_RATIO * ((float) adcValue / 4095) * 3.3;
  8001030:	ee07 1a90 	vmov	s15, r1
- 8001034:	eddf 6a16 	vldr	s13, [pc, #88]	; 8001090 <_ZN4blib6Analog18convertAdcChannel4Em+0x60>
+ 8001034:	eddf 6a16 	vldr	s13, [pc, #88]	; 8001090 <_ZN4blib6Analog18calBatteryCurrentEm+0x60>
  8001038:	eef8 7a67 	vcvt.f32.u32	s15, s15
     {
  800103c:	b508      	push	{r3, lr}
@@ -1425,16 +1425,16 @@ Disassembly of section .text:
  8001046:	ee67 7a27 	vmul.f32	s15, s14, s15
  800104a:	ee17 0a90 	vmov	r0, s15
  800104e:	f7ff fa7b 	bl	8000548 <__aeabi_f2d>
- 8001052:	a30b      	add	r3, pc, #44	; (adr r3, 8001080 <_ZN4blib6Analog18convertAdcChannel4Em+0x50>)
+ 8001052:	a30b      	add	r3, pc, #44	; (adr r3, 8001080 <_ZN4blib6Analog18calBatteryCurrentEm+0x50>)
  8001054:	e9d3 2300 	ldrd	r2, r3, [r3]
  8001058:	f7ff face 	bl	80005f8 <__aeabi_dmul>
  800105c:	f7ff fda4 	bl	8000ba8 <__aeabi_d2f>
         float current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
  8001060:	f7ff fa72 	bl	8000548 <__aeabi_f2d>
- 8001064:	4b0b      	ldr	r3, [pc, #44]	; (8001094 <_ZN4blib6Analog18convertAdcChannel4Em+0x64>)
+ 8001064:	4b0b      	ldr	r3, [pc, #44]	; (8001094 <_ZN4blib6Analog18calBatteryCurrentEm+0x64>)
  8001066:	2200      	movs	r2, #0
  8001068:	f7ff f90e 	bl	8000288 <__aeabi_dsub>
- 800106c:	a306      	add	r3, pc, #24	; (adr r3, 8001088 <_ZN4blib6Analog18convertAdcChannel4Em+0x58>)
+ 800106c:	a306      	add	r3, pc, #24	; (adr r3, 8001088 <_ZN4blib6Analog18calBatteryCurrentEm+0x58>)
  800106e:	e9d3 2300 	ldrd	r2, r3, [r3]
  8001072:	f7ff fbeb 	bl	800084c <__aeabi_ddiv>
  8001076:	f7ff fd97 	bl	8000ba8 <__aeabi_d2f>
@@ -1453,17 +1453,17 @@ Disassembly of section .text:
 08001098 <_ZN4blib6Analog10readAnalogEv>:
     {
  8001098:	b510      	push	{r4, lr}
-        return CHANNEL_1_RATIO * ((float) adcValue / 4095) * 3.3;
+        return k_voltage_divider_input * ((float) adcValue / 4095) * 3.3;
  800109a:	edd0 7a01 	vldr	s15, [r0, #4]
     {
  800109e:	ed2d 8b02 	vpush	{d8}
-        return CHANNEL_1_RATIO * ((float) adcValue / 4095) * 3.3;
+        return k_voltage_divider_input * ((float) adcValue / 4095) * 3.3;
  80010a2:	eef8 7a67 	vcvt.f32.u32	s15, s15
  80010a6:	ed9f 8a2a 	vldr	s16, [pc, #168]	; 8001150 <_ZN4blib6Analog10readAnalogEv+0xb8>
  80010aa:	ee87 7a88 	vdiv.f32	s14, s15, s16
     {
  80010ae:	4604      	mov	r4, r0
-        return CHANNEL_1_RATIO * ((float) adcValue / 4095) * 3.3;
+        return k_voltage_divider_input * ((float) adcValue / 4095) * 3.3;
  80010b0:	eef2 8a04 	vmov.f32	s17, #36	; 0x41200000  10.0
  80010b4:	ee67 7a28 	vmul.f32	s15, s14, s17
  80010b8:	ee17 0a90 	vmov	r0, s15
@@ -1472,18 +1472,18 @@ Disassembly of section .text:
  80010c2:	e9d3 2300 	ldrd	r2, r3, [r3]
  80010c6:	f7ff fa97 	bl	80005f8 <__aeabi_dmul>
  80010ca:	f7ff fd6d 	bl	8000ba8 <__aeabi_d2f>
-        mIin = convertAdcChannel2(mAdcValues[1]);
+        mIin = calSolarCurrent(mAdcValues[1]);
  80010ce:	68a1      	ldr	r1, [r4, #8]
-        return CHANNEL_1_RATIO * ((float) adcValue / 4095) * 3.3;
+        return k_voltage_divider_input * ((float) adcValue / 4095) * 3.3;
  80010d0:	6220      	str	r0, [r4, #32]
-        mIin = convertAdcChannel2(mAdcValues[1]);
+        mIin = calSolarCurrent(mAdcValues[1]);
  80010d2:	4620      	mov	r0, r4
- 80010d4:	f7ff ff78 	bl	8000fc8 <_ZN4blib6Analog18convertAdcChannel2Em>
-        return CHANNEL_3_RATIO * ((float) adcValue / 4095) * 3.3;
+ 80010d4:	f7ff ff78 	bl	8000fc8 <_ZN4blib6Analog18calSolarCurrentEm>
+        return k_voltage_divider_output * ((float) adcValue / 4095) * 3.3;
  80010d8:	edd4 7a03 	vldr	s15, [r4, #12]
-        mIin = convertAdcChannel2(mAdcValues[1]);
+        mIin = calSolarCurrent(mAdcValues[1]);
  80010dc:	ed84 0a09 	vstr	s0, [r4, #36]	; 0x24
-        return CHANNEL_3_RATIO * ((float) adcValue / 4095) * 3.3;
+        return k_voltage_divider_output * ((float) adcValue / 4095) * 3.3;
  80010e0:	eef8 7a67 	vcvt.f32.u32	s15, s15
  80010e4:	ee87 7a88 	vdiv.f32	s14, s15, s16
  80010e8:	eef1 7a04 	vmov.f32	s15, #20	; 0x40a00000  5.0
@@ -1494,18 +1494,18 @@ Disassembly of section .text:
  80010fa:	e9d3 2300 	ldrd	r2, r3, [r3]
  80010fe:	f7ff fa7b 	bl	80005f8 <__aeabi_dmul>
  8001102:	f7ff fd51 	bl	8000ba8 <__aeabi_d2f>
-        mIout = convertAdcChannel4(mAdcValues[3]);
+        mIout = calBatteryCurrent(mAdcValues[3]);
  8001106:	6921      	ldr	r1, [r4, #16]
-        return CHANNEL_3_RATIO * ((float) adcValue / 4095) * 3.3;
+        return k_voltage_divider_output * ((float) adcValue / 4095) * 3.3;
  8001108:	62a0      	str	r0, [r4, #40]	; 0x28
-        mIout = convertAdcChannel4(mAdcValues[3]);
+        mIout = calBatteryCurrent(mAdcValues[3]);
  800110a:	4620      	mov	r0, r4
- 800110c:	f7ff ff90 	bl	8001030 <_ZN4blib6Analog18convertAdcChannel4Em>
-    float Analog::convertAdcChannel5(uint32_t adcValue)    // Convert adcValue -> Temperature NTC 10k
+ 800110c:	f7ff ff90 	bl	8001030 <_ZN4blib6Analog18calBatteryCurrentEm>
+    float Analog::calTemperature(uint32_t adcValue)    // Convert adcValue -> Temperature NTC 10k
     {
         return CHANNEL_5_RATIO * ((float) adcValue / 4095) * 3.3;
  8001110:	edd4 7a05 	vldr	s15, [r4, #20]
-        mIout = convertAdcChannel4(mAdcValues[3]);
+        mIout = calBatteryCurrent(mAdcValues[3]);
  8001114:	ed84 0a0b 	vstr	s0, [r4, #44]	; 0x2c
         return CHANNEL_5_RATIO * ((float) adcValue / 4095) * 3.3;
  8001118:	eef8 7a67 	vcvt.f32.u32	s15, s15
@@ -1875,22 +1875,22 @@ Disassembly of section .text:
 
                     return *mInstance;
  800138a:	6824      	ldr	r4, [r4, #0]
-        snprintf(line0, COL, "%02.1fV %02.1fA %02.1fW", analog.getVin(), analog.getIin(),
+        snprintf(line0, COL, "%02.1fV %02.1fA %02.1fW", analog.getSolarVoltage(), analog.getSolarCurrent(),
  800138c:	4620      	mov	r0, r4
- 800138e:	f7ff fe0d 	bl	8000fac <_ZNK4blib6Analog6getVinEv>
+ 800138e:	f7ff fe0d 	bl	8000fac <_ZNK4blib6Analog6getSolarVoltageEv>
  8001392:	4620      	mov	r0, r4
  8001394:	ee10 6a10 	vmov	r6, s0
- 8001398:	f7ff fe0b 	bl	8000fb2 <_ZNK4blib6Analog6getIinEv>
-                analog.getVin() * analog.getIin());
+ 8001398:	f7ff fe0b 	bl	8000fb2 <_ZNK4blib6Analog6getSolarCurrentEv>
+                analog.getSolarVoltage() * analog.getSolarCurrent());
  800139c:	4620      	mov	r0, r4
-        snprintf(line0, COL, "%02.1fV %02.1fA %02.1fW", analog.getVin(), analog.getIin(),
+        snprintf(line0, COL, "%02.1fV %02.1fA %02.1fW", analog.getSolarVoltage(), analog.getSolarCurrent(),
  800139e:	ee10 8a10 	vmov	r8, s0
-                analog.getVin() * analog.getIin());
- 80013a2:	f7ff fe03 	bl	8000fac <_ZNK4blib6Analog6getVinEv>
+                analog.getSolarVoltage() * analog.getSolarCurrent());
+ 80013a2:	f7ff fe03 	bl	8000fac <_ZNK4blib6Analog6getSolarVoltageEv>
  80013a6:	4620      	mov	r0, r4
  80013a8:	eeb0 8a40 	vmov.f32	s16, s0
- 80013ac:	f7ff fe01 	bl	8000fb2 <_ZNK4blib6Analog6getIinEv>
-        snprintf(line0, COL, "%02.1fV %02.1fA %02.1fW", analog.getVin(), analog.getIin(),
+ 80013ac:	f7ff fe01 	bl	8000fb2 <_ZNK4blib6Analog6getSolarCurrentEv>
+        snprintf(line0, COL, "%02.1fV %02.1fA %02.1fW", analog.getSolarVoltage(), analog.getSolarCurrent(),
  80013b0:	ee68 7a00 	vmul.f32	s15, s16, s0
  80013b4:	ee17 0a90 	vmov	r0, s15
  80013b8:	f7ff f8c6 	bl	8000548 <__aeabi_f2d>

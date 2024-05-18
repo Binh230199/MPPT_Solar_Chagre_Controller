@@ -1,61 +1,62 @@
-22:56:43 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Controller ****
+19:23:41 **** Build of configuration Debug for project MPPT_Solar_Charge_Controller ****
 make -j8 all 
+arm-none-eabi-g++ "../MyDriver/Button.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"MyDriver/Button.d" -MT"MyDriver/Button.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "MyDriver/Button.o"
+arm-none-eabi-g++ "../MyDriver/Lcd.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"MyDriver/Lcd.d" -MT"MyDriver/Lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "MyDriver/Lcd.o"
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ "../Application/Analog.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/Analog.d" -MT"Application/Analog.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Analog.o"
 arm-none-eabi-g++ "../Application/ChargeControl.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/ChargeControl.d" -MT"Application/ChargeControl.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/ChargeControl.o"
 arm-none-eabi-g++ "../Application/DeviceProtection.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/DeviceProtection.d" -MT"Application/DeviceProtection.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/DeviceProtection.o"
-../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::run()':
-../Application/ChargeControl.cpp:56:23: warning: unused variable 'pwm' [-Wunused-variable]
-   56 |                 float pwm = predictPwm();
-      |                       ^~~
-../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::buckEnable()':
-../Application/ChargeControl.cpp:121:27: error: 'BUCK_EN_GPIO_Port' was not declared in this scope; did you mean 'BUCK_ENABLE_GPIO_Port'?
-  121 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_SET);
-      |                           ^~~~~~~~~~~~~~~~~
-      |                           BUCK_ENABLE_GPIO_Port
+arm-none-eabi-g++ "../Application/Monitor.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/Monitor.d" -MT"Application/Monitor.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Monitor.o"
+arm-none-eabi-g++ "../Application/SystemManager.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/SystemManager.d" -MT"Application/SystemManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/SystemManager.o"
 ../Application/DeviceProtection.cpp: In member function 'void blib::DeviceProtection::backFlowControl()':
 ../Application/DeviceProtection.cpp:45:27: error: 'BFC_GPIO_Port' was not declared in this scope; did you mean 'BCCU_GPIO_Port'?
-   45 |         HAL_GPIO_WritePin(BFC_GPIO_Port, BFC_Pin, (GPIO_PinState) mBypassEnable);
+   45 |         HAL_GPIO_WritePin(BFC_GPIO_Port, BFC_Pin, ((GPIO_PinState) !mBypassEnable));
       |                           ^~~~~~~~~~~~~
       |                           BCCU_GPIO_Port
-../Application/ChargeControl.cpp:121:46: error: 'BUCK_EN_Pin' was not declared in this scope; did you mean 'BUCK_ENABLE_Pin'?
-  121 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_SET);
-      |                                              ^~~~~~~~~~~
-      |                                              BUCK_ENABLE_Pin
 ../Application/DeviceProtection.cpp:45:42: error: 'BFC_Pin' was not declared in this scope; did you mean 'BCCU_Pin'?
-   45 |         HAL_GPIO_WritePin(BFC_GPIO_Port, BFC_Pin, (GPIO_PinState) mBypassEnable);
+   45 |         HAL_GPIO_WritePin(BFC_GPIO_Port, BFC_Pin, ((GPIO_PinState) !mBypassEnable));
       |                                          ^~~~~~~
       |                                          BCCU_Pin
-../Application/ChargeControl.cpp:122:27: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
-  122 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
-      |                           ^~~~~~~~~~~~~~~~~
-      |                           LOAD_GPIO_Port
-../Application/ChargeControl.cpp:122:46: error: 'LED_RED_Pin' was not declared in this scope
-  122 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
-      |                                              ^~~~~~~~~~~
-../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::buckDisable()':
-../Application/ChargeControl.cpp:130:27: error: 'BUCK_EN_GPIO_Port' was not declared in this scope; did you mean 'BUCK_ENABLE_GPIO_Port'?
-  130 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
+../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::buckEnable()':
+../Application/ChargeControl.cpp:158:27: error: 'BUCK_EN_GPIO_Port' was not declared in this scope; did you mean 'BUCK_ENABLE_GPIO_Port'?
+  158 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
       |                           ^~~~~~~~~~~~~~~~~
       |                           BUCK_ENABLE_GPIO_Port
-../Application/ChargeControl.cpp:130:46: error: 'BUCK_EN_Pin' was not declared in this scope; did you mean 'BUCK_ENABLE_Pin'?
-  130 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
+../Application/ChargeControl.cpp:158:46: error: 'BUCK_EN_Pin' was not declared in this scope; did you mean 'BUCK_ENABLE_Pin'?
+  158 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
       |                                              ^~~~~~~~~~~
       |                                              BUCK_ENABLE_Pin
-../Application/ChargeControl.cpp:131:27: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
-  131 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+../Application/ChargeControl.cpp:159:27: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
+  159 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
       |                           ^~~~~~~~~~~~~~~~~
       |                           LOAD_GPIO_Port
-../Application/ChargeControl.cpp:131:46: error: 'LED_RED_Pin' was not declared in this scope
-  131 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+../Application/ChargeControl.cpp:159:46: error: 'LED_RED_Pin' was not declared in this scope
+  159 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
       |                                              ^~~~~~~~~~~
-../Application/ChargeControl.cpp: In member function 'float blib::ChargeControl::predictPwm()':
-../Application/ChargeControl.cpp:137:15: warning: unused variable 'devProtection' [-Wunused-variable]
-  137 |         auto &devProtection = DeviceProtection::getInstance();
-      |               ^~~~~~~~~~~~~
+../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::buckDisable()':
+../Application/ChargeControl.cpp:167:27: error: 'BUCK_EN_GPIO_Port' was not declared in this scope; did you mean 'BUCK_ENABLE_GPIO_Port'?
+  167 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_SET);
+      |                           ^~~~~~~~~~~~~~~~~
+      |                           BUCK_ENABLE_GPIO_Port
 make: *** [Application/subdir.mk:34: Application/DeviceProtection.o] Error 1
 make: *** Waiting for unfinished jobs....
+../Application/ChargeControl.cpp:167:46: error: 'BUCK_EN_Pin' was not declared in this scope; did you mean 'BUCK_ENABLE_Pin'?
+  167 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_SET);
+      |                                              ^~~~~~~~~~~
+      |                                              BUCK_ENABLE_Pin
+../Application/ChargeControl.cpp:168:27: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
+  168 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+      |                           ^~~~~~~~~~~~~~~~~
+      |                           LOAD_GPIO_Port
+../Application/ChargeControl.cpp:168:46: error: 'LED_RED_Pin' was not declared in this scope
+  168 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+      |                                              ^~~~~~~~~~~
+../Application/ChargeControl.cpp: In member function 'float blib::ChargeControl::predictPwm()':
+../Application/ChargeControl.cpp:174:15: warning: unused variable 'devProtection' [-Wunused-variable]
+  174 |         auto &devProtection = DeviceProtection::getInstance();
+      |               ^~~~~~~~~~~~~
 make: *** [Application/subdir.mk:34: Application/ChargeControl.o] Error 1
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
 
-22:56:45 Build Failed. 13 errors, 2 warnings. (took 2s.50ms)
+19:23:44 Build Failed. 13 errors, 1 warnings. (took 3s.49ms)
 

@@ -88,6 +88,8 @@ namespace blib
             void pushData();
             void displayLine(uint8_t row, uint8_t col, const char *string);
             void clearDisplay();
+            void backlight();
+            void noBackligth();
             void init();
             void makeCustomCharacter(uint8_t location, uint8_t *byte);
 //            void

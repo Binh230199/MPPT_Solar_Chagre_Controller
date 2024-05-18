@@ -1,0 +1,34 @@
+/*
+ * Constant.h
+ *
+ *  Created on: May 18, 2024
+ *      Author: This PC
+ */
+
+#ifndef CONSTANT_H_
+#define CONSTANT_H_
+
+enum class PowerSrc
+{
+    USB_PORT, SOLAR, BATTERY
+};
+
+static const float k_voltage_battery_max = 30.0f;
+static const float k_voltage_battery_min = 10.0f;
+static const float k_current_charging_max = 30.0f;    // Ampere
+static const float k_efficiency_rate = 0.9f;
+
+static const uint32_t k_max_dutycycle = 1438;
+static const uint32_t k_pwm_frequency = 50000;
+
+static const float k_temperature_max = 60.0f;    // Celcius
+static const float k_current_in_absolute = 31.0f;    // Ampere
+static const float k_current_out_absolute = 50.0f;    // Ampere
+static const float k_voltage_battery_max = 27.3f;    // Maximum Battery Charging Voltage (Output V)
+static const float k_voltage_battery_min = 22.4f;    //   USER PARAMETER - Minimum Battery Charging Voltage (Output V)
+static const float k_current_charging = 30.0f;    //   USER PARAMETER - Maximum Charging Current (A - Output)
+static const float k_electrical_price = 9.5f;    //   USER PARAMETER - Input electrical price per kWh (Dollar/kWh,Euro/kWh,Peso/kWh)
+static const float k_voltage_battery_thresh = 1.5f;    //  CALIB PARAMETER - Power cuts-off when this voltage is reached (Output V)
+static const float k_v_in_system_min = 10.0f;
+
+#endif /* CONSTANT_H_ */

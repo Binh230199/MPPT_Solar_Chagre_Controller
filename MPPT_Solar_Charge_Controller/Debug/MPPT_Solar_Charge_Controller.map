@@ -271,11 +271,11 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 ./Application/Analog.o
  .text._ZNK4blib6Analog7getTempEv
                 0x0000000000000000        0x6 ./Application/Analog.o
- .text._ZN4blib6Analog18convertAdcChannel1Em
+ .text._ZN4blib6Analog18calSolarVoltageEm
                 0x0000000000000000       0x44 ./Application/Analog.o
- .text._ZN4blib6Analog18convertAdcChannel3Em
+ .text._ZN4blib6Analog18calBatteryVoltageEm
                 0x0000000000000000       0x44 ./Application/Analog.o
- .text._ZN4blib6Analog18convertAdcChannel5Em
+ .text._ZN4blib6Analog18calTemperatureEm
                 0x0000000000000000       0x44 ./Application/Analog.o
  .group         0x0000000000000000        0xc ./Application/ChargeControl.o
  .group         0x0000000000000000        0xc ./Application/ChargeControl.o
@@ -6283,12 +6283,12 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x0000000008000f7c       0x30 ./Application/Analog.o
                 0x0000000008000f7c                blib::Analog::Analog()
                 0x0000000008000f7c                blib::Analog::Analog()
- .text._ZNK4blib6Analog6getVinEv
+ .text._ZNK4blib6Analog6getSolarVoltageEv
                 0x0000000008000fac        0x6 ./Application/Analog.o
-                0x0000000008000fac                blib::Analog::getVin() const
- .text._ZNK4blib6Analog6getIinEv
+                0x0000000008000fac                blib::Analog::getSolarVoltage() const
+ .text._ZNK4blib6Analog6getSolarCurrentEv
                 0x0000000008000fb2        0x6 ./Application/Analog.o
-                0x0000000008000fb2                blib::Analog::getIin() const
+                0x0000000008000fb2                blib::Analog::getSolarCurrent() const
  .text._ZNK4blib6Analog7getVoutEv
                 0x0000000008000fb8        0x6 ./Application/Analog.o
                 0x0000000008000fb8                blib::Analog::getVout() const
@@ -6296,12 +6296,12 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x0000000008000fbe        0x6 ./Application/Analog.o
                 0x0000000008000fbe                blib::Analog::getIout() const
  *fill*         0x0000000008000fc4        0x4 
- .text._ZN4blib6Analog18convertAdcChannel2Em
+ .text._ZN4blib6Analog18calSolarCurrentEm
                 0x0000000008000fc8       0x68 ./Application/Analog.o
-                0x0000000008000fc8                blib::Analog::convertAdcChannel2(unsigned long)
- .text._ZN4blib6Analog18convertAdcChannel4Em
+                0x0000000008000fc8                blib::Analog::calSolarCurrent(unsigned long)
+ .text._ZN4blib6Analog18calBatteryCurrentEm
                 0x0000000008001030       0x68 ./Application/Analog.o
-                0x0000000008001030                blib::Analog::convertAdcChannel4(unsigned long)
+                0x0000000008001030                blib::Analog::calBatteryCurrent(unsigned long)
  .text._ZN4blib6Analog10readAnalogEv
                 0x0000000008001098       0xbc ./Application/Analog.o
                 0x0000000008001098                blib::Analog::readAnalog()

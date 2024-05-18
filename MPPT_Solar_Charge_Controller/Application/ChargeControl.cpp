@@ -10,6 +10,8 @@
 #include "Analog.h"
 #include "DeviceProtection.h"
 
+extern TIM_HandleTypeDef htim2;
+
 namespace blib
 {
     template<typename T>
@@ -31,7 +33,10 @@ namespace blib
 
     ChargeControl::ChargeControl()
     {
-
+        mHtim = &htim2;
+        buckDisable();
+        mChargeState = false;
+        HAL_TIM_PWM_Start(mHtim, TIM_CHANNEL_1);
     }
     ChargeControl::~ChargeControl()
     {
@@ -40,57 +45,88 @@ namespace blib
     void ChargeControl::run()
     {
         auto &analog = Analog::getInstance();
-        if (/* ErrorCode != NO_ERROR || chargingPause = true */true)
+        auto &devProtection = DeviceProtection::getInstance();
+
+        if (devProtection.mERR > 0 || mChargePause == true)
         {
             buckDisable();
         }
         else
         {
-            if (/* Recovery == true */true)
+            if (/* Recovery == true */false)
             {
 //                recovery = false;
                 buckDisable();
 
                 Monitor::getInstance().impl_DisplayDetectPowerSource();
                 analog.readAnalog();
-                float pwm = predictPwm();
-                Monitor::getInstance().impl_DisplayOff();
+                mPwm = (uint32_t) predictPwm();
+//                Monitor::getInstance().impl_DisplayOff();
             }
             else
             {
-                if (/*mpptMode == */false)
+                if (mMpptMode == false)
                 {
-                    static float currentCharging = analog.getIout();
-                    float pwm = 0.0f;
-                    float voltageBatteryMax = 30.0f;
-                    float voltageBatteryMin = 11.0f;
-
-                    if (analog.getIout() > currentCharging)
+                    if (analog.mIout > k_current_charging_max)
                     {
-                        pwm--;
+                        mPwm--;
                     }
-                    else if (analog.getVout() > voltageBatteryMax)
+                    else if (analog.mVout > k_voltage_battery_max)
                     {
-                        pwm--;
+                        mPwm--;
                     }
-                    else if (analog.getVout() < voltageBatteryMin)
+                    else if (analog.mVout < k_voltage_battery_max)
                     {
-                        pwm++;
+                        mPwm++;
                     }
                     else
                     {
 
                     }
 
-//                    pwmModulation(pwm);
+                    pwmWrite();
                 }
                 else
                 {
-//                    static float currentCharging = analog.getIout();
-//                    if (analog.getIout() > currentCharging)
-//                    {
-//
-//                    }
+                    static float powerInputPrev = 0;
+                    static float voltageInputPrev = 0;
+
+                    if (analog.mIout > k_current_charging_max)
+                    {
+                        mPwm--;
+                    }
+                    else if (analog.mVout > k_voltage_battery_max)
+                    {
+                        mPwm--;
+                    }
+                    else
+                    {
+                        if (analog.mPout > powerInputPrev && analog.mVin > voltageInputPrev)
+                        {
+                            mPwm--;
+                        }
+                        else if (analog.mPin > powerInputPrev && analog.mVin < voltageInputPrev)
+                        {
+                            mPwm++;
+                        }    //  ↑P ↓V ; MPP←  //D++
+                        else if (analog.mPin < powerInputPrev && analog.mVin > voltageInputPrev)
+                        {
+                            mPwm++;
+                        }    //  ↓P ↑V ; MPP→  //D++
+                        else if (analog.mPin < powerInputPrev && analog.mVin < voltageInputPrev)
+                        {
+                            mPwm--;
+                        }    //  ↓P ↓V ; ←MPP  //D--
+                        else if (analog.mVout < k_voltage_battery_max)
+                        {
+                            mPwm++;
+                        }
+
+                        powerInputPrev = analog.mPin;
+                        voltageInputPrev = analog.mVin;
+                    }
+
+                    pwmWrite();
                 }
             }
         }
@@ -118,8 +154,8 @@ namespace blib
     {
         LOGI();
         setBuckEnable(true);
-        HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_SET);
-        HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
     }
 
     // Disable Mppt Buck converter
@@ -127,34 +163,88 @@ namespace blib
     {
         LOGI();
         setBuckEnable(false);
-        HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
-        HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
         mPwm = 0;
     }
-    float ChargeControl::predictPwm()
+    uint32_t ChargeControl::predictPwm()
     {
         auto &analog = Analog::getInstance();
-        auto &devProtection = DeviceProtection::getInstance();
 
-        float predictPwm = 0.0f, ppwmMargin = 0, pwmMax = 0, pwmMaxLimited = 1000;
+        uint32_t predictPwm = 0;
 
-        if (analog.getVin() < 0.0f)
+        if (analog.mVin <= 0.0001f)
         {
             predictPwm = 0;
         }
         else
         {
-            predictPwm = (ppwmMargin * pwmMax * analog.getVout()) / (100.0f * analog.getVin());
+            // 99.5% * k_pwm_max * (Vout/Vin)
+            predictPwm = (k_predict_pwm_margin * k_pwm_max * analog.mVout) / (100.0f * analog.mVin);
         }
 
-        predictPwm = constrainValue(predictPwm, 0.0f, pwmMaxLimited);
+        predictPwm = constrainValue(predictPwm, (uint32_t) 0, k_pwm_max_limited);
 
         return predictPwm;
     }
-    void ChargeControl::generatePwm()
+    void ChargeControl::generatePwm(uint32_t val)
     {
-
+        __HAL_TIM_SET_COMPARE(mHtim, TIM_CHANNEL_1, val);
     }
 
+    void ChargeControl::pwmInit(uint32_t frequency, uint32_t dutyCycle)
+    {
+        TIM_OC_InitTypeDef sConfigOC;
+
+        mHtim->Instance->PSC = (HAL_RCC_GetPCLK1Freq() / frequency) - 1;    // Tính toán giá trị prescaler dựa trên tần số mong muốn
+        mHtim->Instance->ARR = dutyCycle;    // Giá trị duty cycle (0-ARR)
+        mHtim->Instance->CCR1 = dutyCycle;    // Giá trị sử dụng cho kênh PWM
+
+        sConfigOC.OCMode = TIM_OCMODE_PWM1;
+        sConfigOC.Pulse = 8;
+        sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+        sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+        if (HAL_TIM_PWM_ConfigChannel(mHtim, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+        {
+            Error_Handler();
+        }
+
+        HAL_TIM_PWM_Start(mHtim, TIM_CHANNEL_1);
+    }
+
+    void ChargeControl::pwmWrite()
+    {
+        if (mOutputMode == OutputMode::PSU)
+        {
+            mPwm = constrainValue(mPwm, (uint32_t) 0, k_pwm_max_limited);
+        }
+        else
+        {
+            // Xung pwm khong duoc nho hon gia tri floor pwm
+            uint32_t pPwm = predictPwm();
+            mPwm = constrainValue(mPwm, pPwm, k_pwm_max_limited);
+        }
+
+        buckEnable();
+
+        uint32_t channel = TIM_CHANNEL_1;    // xxx: Set as Default
+
+        if (channel == TIM_CHANNEL_1)
+        {
+            mHtim->Instance->CCR1 = mPwm;
+        }
+        else if (channel == TIM_CHANNEL_2)
+        {
+            mHtim->Instance->CCR2 = mPwm;
+        }
+        else if (channel == TIM_CHANNEL_3)
+        {
+            mHtim->Instance->CCR3 = mPwm;
+        }
+        else if (channel == TIM_CHANNEL_4)
+        {
+            mHtim->Instance->CCR4 = mPwm;
+        }
+    }
 }    // namespace blib
 

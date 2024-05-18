@@ -7,7 +7,7 @@
 
 #include "Button.h"
 #include "Monitor.h"
-
+#include "TestLcd.h"
 namespace blib
 {
     Button::Button()
@@ -28,6 +28,7 @@ namespace blib
     }
     void Button::handleSignal()
     {
+//        LcdSimulate::getInstance().impl_ClearScreen();
     }
 
 }    // namespace blib

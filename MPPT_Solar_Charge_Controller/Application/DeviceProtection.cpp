@@ -23,22 +23,22 @@ namespace blib
         auto &analog = Analog::getInstance();
 
         // PSU Mode
-        if (mOutputMode == false)    // PSU mode: force backflow MOSFET on
+        if (mOutputMode == OutputMode::PSU)    // PSU mode: force backflow MOSFET on
         {
             mBypassEnable = true;
         }
         //Charger Mode
-        else
+        else if (mOutputMode == OutputMode::CHARGER)
         {
             // Normal Condition - Turn on Backflow MOSFET (on by default when not in MPPT charger mode)
-            if (analog.getVin() > analog.getVout() + mVoltageDropout)
+            if (analog.mVin > analog.mVout + k_voltage_dropout)
             {
                 mBypassEnable = true;
             }
             // Input Undervoltage - Turn off bypass MOSFET and prevent PV Backflow (SS)
             else
             {
-                mBypassEnable = false;
+                mBypassEnable = false;    // Vsolar < Vbattery -> Dien chay tu battery -> solar => khong cho xay ra van de nay
             }
         }
 
@@ -53,7 +53,7 @@ namespace blib
         backFlowControl();
 
         // Nhiet do hien tai lon hon nhiet do max
-        if (analog.getTemp() > mTemperatureMax)
+        if (analog.getTemp() > k_temperature_max)
         {
             mOTE = true;    // Set co qua nhiet
             mERR++;
@@ -64,7 +64,7 @@ namespace blib
         }
 
         // Qua dong input
-        if (analog.getIin() > mCurrentInAbsolute)
+        if (analog.getSolarCurrent() > k_current_in_absolute)
         {
             mIOC = true;
             mERR++;
@@ -75,7 +75,7 @@ namespace blib
         }
 
         // Qua dong output
-        if (analog.getIout() > mCurrentOutAbsolute)
+        if (analog.getIout() > k_current_out_absolute)
         {
             mOOC = true;
             mERR++;
@@ -86,7 +86,7 @@ namespace blib
         }
 
         // Qua ap output
-        if (analog.getVout() > mVoltageBatteryMax + mVoltageBatteryThresh)
+        if (analog.getVout() > k_voltage_battery_max + k_voltage_battery_thresh)
         {
             mOOV = true;
             mERR++;
@@ -97,7 +97,7 @@ namespace blib
         }
 
         // Qua dong input
-        if (analog.getVin() < mVInSystemMin && analog.getVout() < mVInSystemMin)
+        if (analog.getSolarVoltage() < k_v_in_system_min && analog.getVout() < k_v_in_system_min)
         {
             mFLV = true;
             mERR++;
@@ -108,14 +108,14 @@ namespace blib
         }
 
         //PSU MODE specific protection protocol
-        if (mOutputMode == false)
+        if (mOutputMode == OutputMode::PSU)
         {
             //Clear recovery and battery not connected boolean identifiers
             mREC = false;
             mBNC = false;
 
             //IUV - INPUT UNDERVOLTAGE: Input voltage is below battery voltage (for psu mode only)
-            if (analog.getVin() < mVoltageBatteryMax + mVoltageDropout)
+            if (analog.getSolarVoltage() < k_voltage_battery_max + k_voltage_dropout)
             {
                 mIUV = true;
                 mERR++;
@@ -126,13 +126,13 @@ namespace blib
             }
         }
         // Charger MODE specific protection protocol
-        else
+        else if (mOutputMode == OutputMode::CHARGER)
         {
             // Enable backflow current detection & control
             backFlowControl();
 
             // BNC - BATTERY NOT CONNECTED (for charger mode only, does not treat BNC as error when not under MPPT mode)
-            if (analog.getVout() < mVInSystemMin)
+            if (analog.getVout() < k_v_in_system_min)
             {
                 mBNC = true;
                 mERR++;
@@ -143,7 +143,7 @@ namespace blib
             }
 
             //IUV - INPUT UNDERVOLTAGE: Input voltage is below max battery charging voltage (for charger mode only)
-            if (analog.getVin() < mVoltageBatteryMax + mVoltageDropout)
+            if (analog.getSolarVoltage() < k_voltage_battery_max + k_voltage_dropout)
             {
                 mIUV = true;
                 mERR++;

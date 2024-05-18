@@ -8,7 +8,7 @@
 ../MyDriver/Lcd.cpp:82:10:void blib::Lcd::pushData()	1
 ../MyDriver/Lcd.cpp:87:10:char blib::ischar(const char*)	2
 ../MyDriver/Lcd.cpp:91:10:void blib::Lcd::displayLine(uint8_t, uint8_t, const char*)	8
-../MyDriver/Lcd.cpp:137:10:void blib::Lcd::clearDisplay()	2
+../MyDriver/Lcd.cpp:137:10:void blib::Lcd::clearDisplay()	1
 ../MyDriver/Lcd.cpp:145:10:void blib::Lcd::init()	1
 ../MyDriver/Lcd.cpp:13:5:blib::Lcd::Lcd(blib::Lcd::LcdType, I2C_HandleTypeDef*, uint8_t)	1
 ../MyDriver/Lcd.cpp:174:10:void blib::Lcd::makeCustomCharacter(uint8_t, uint8_t*)	1

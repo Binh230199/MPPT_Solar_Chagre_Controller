@@ -109,9 +109,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
 
     blib::Button::getInstance().setLatestPressedButton(lastedPressButton);
     blib::Button::getInstance().handleSignal();
+
     if (pGPIOx != nullptr)
     {
-        while ((HAL_GPIO_ReadPin(pGPIOx, GPIO_pin) == GPIO_PIN_RESET) & (i < (timedelay)))
+        while ((HAL_GPIO_ReadPin(pGPIOx, GPIO_pin) == GPIO_PIN_RESET) && (i < (timedelay)))
         {
             i++;
         }
@@ -126,6 +127,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
     blib::Analog::getInstance().sampling();
 }
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -172,10 +174,10 @@ int main(void)
     LOGI("STARTING DEVICE...");
 
     auto &analog = blib::Analog::getInstance();
-//    auto &monitor = blib::Monitor::getInstance();
     auto &chargeCtrl = blib::ChargeControl::getInstance();
     auto &lcdSimulate = blib::LcdSimulate::getInstance();
 //    auto &serialMnt = blib::SerialMonitor::getInstance();
+
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -185,9 +187,9 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-//        analog.readAnalog();
-//        chargeCtrl.run();
-////        serialMnt.show();
+        analog.readAnalog();
+        chargeCtrl.run();
+//        serialMnt.show();
 //        monitor.showMenu();
         lcdSimulate.run();
         HAL_Delay(500);
@@ -378,6 +380,7 @@ static void MX_TIM2_Init(void)
 
     /* USER CODE END TIM2_Init 0 */
 
+    TIM_ClockConfigTypeDef sClockSourceConfig = { 0 };
     TIM_MasterConfigTypeDef sMasterConfig = { 0 };
     TIM_OC_InitTypeDef sConfigOC = { 0 };
 
@@ -385,11 +388,20 @@ static void MX_TIM2_Init(void)
 
     /* USER CODE END TIM2_Init 1 */
     htim2.Instance = TIM2;
-    htim2.Init.Prescaler = 71;
+    htim2.Init.Prescaler = 0;
     htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-    htim2.Init.Period = 500 - 1;
+    htim2.Init.Period = 1440;
     htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
     htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+    if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+    if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+    {
+        Error_Handler();
+    }
     if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
     {
         Error_Handler();
@@ -401,7 +413,7 @@ static void MX_TIM2_Init(void)
         Error_Handler();
     }
     sConfigOC.OCMode = TIM_OCMODE_PWM1;
-    sConfigOC.Pulse = 250;
+    sConfigOC.Pulse = 8;
     sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
     sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
     if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)

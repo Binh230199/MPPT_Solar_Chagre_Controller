@@ -1,4 +1,5 @@
 Application/Analog.o: ../Application/Analog.cpp ../Application/Analog.h \
+ ../Application/Constant.h \
  D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h \
  D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine/StateMachineBase.h \
  ../MyDriver/Log.h ../Core/Inc/main.h \
@@ -38,6 +39,7 @@ Application/Analog.o: ../Application/Analog.cpp ../Application/Analog.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 ../Application/Analog.h:
+../Application/Constant.h:
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine/StateMachineBase.h:
 ../MyDriver/Log.h:
