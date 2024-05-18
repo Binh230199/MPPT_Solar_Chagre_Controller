@@ -5864,8 +5864,9 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x0000000008000cfc       0x20 ./Application/Analog.o
                 0x0000000008000cfc                blib::Analog::sampling()
  .text._ZN4blib6Analog10readAnalogEv
-                0x0000000008000d1c      0x15c ./Application/Analog.o
+                0x0000000008000d1c      0x158 ./Application/Analog.o
                 0x0000000008000d1c                blib::Analog::readAnalog()
+ *fill*         0x0000000008000e74        0x4 
  .text._ZN4blib6Analog15calSolarVoltageEm
                 0x0000000008000e78       0x64 ./Application/Analog.o
                 0x0000000008000e78                blib::Analog::calSolarVoltage(unsigned long)
@@ -7693,33 +7694,33 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x0000000000028854      0x369 ./MyDriver/Lcd.o
  .debug_macro   0x0000000000028bbd      0x35a ./MyDriver/Log.o
 
-.debug_line     0x0000000000000000    0x21cee
- .debug_line    0x0000000000000000     0x18c7 ./Application/Analog.o
- .debug_line    0x00000000000018c7     0x1a54 ./Application/ChargeControl.o
- .debug_line    0x000000000000331b     0x17f8 ./Application/DeviceProtection.o
- .debug_line    0x0000000000004b13     0x2484 ./Core/Src/main.o
- .debug_line    0x0000000000006f97      0x912 ./Core/Src/stm32f3xx_hal_msp.o
- .debug_line    0x00000000000078a9      0x8f5 ./Core/Src/stm32f3xx_it.o
- .debug_line    0x000000000000819e      0x8a8 ./Core/Src/syscalls.o
- .debug_line    0x0000000000008a46      0x579 ./Core/Src/sysmem.o
- .debug_line    0x0000000000008fbf      0x81e ./Core/Src/system_stm32f3xx.o
- .debug_line    0x00000000000097dd       0x7a ./Core/Startup/startup_stm32f303retx.o
- .debug_line    0x0000000000009857      0xa4e ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
- .debug_line    0x000000000000a2a5      0x992 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
- .debug_line    0x000000000000ac37     0x2819 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
- .debug_line    0x000000000000d450      0xd13 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
- .debug_line    0x000000000000e163      0xd60 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
- .debug_line    0x000000000000eec3      0xbd5 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o
- .debug_line    0x000000000000fa98     0x3827 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.o
- .debug_line    0x00000000000132bf      0x9c0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.o
- .debug_line    0x0000000000013c7f     0x1440 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
- .debug_line    0x00000000000150bf      0xf66 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
- .debug_line    0x0000000000016025     0x3ee5 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.o
- .debug_line    0x0000000000019f0a     0x1b82 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.o
- .debug_line    0x000000000001ba8c     0x3190 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
- .debug_line    0x000000000001ec1c     0x16f5 ./MyDriver/Button.o
- .debug_line    0x0000000000020311      0xe7d ./MyDriver/Lcd.o
- .debug_line    0x000000000002118e      0xb60 ./MyDriver/Log.o
+.debug_line     0x0000000000000000    0x21cf1
+ .debug_line    0x0000000000000000     0x18ca ./Application/Analog.o
+ .debug_line    0x00000000000018ca     0x1a54 ./Application/ChargeControl.o
+ .debug_line    0x000000000000331e     0x17f8 ./Application/DeviceProtection.o
+ .debug_line    0x0000000000004b16     0x2484 ./Core/Src/main.o
+ .debug_line    0x0000000000006f9a      0x912 ./Core/Src/stm32f3xx_hal_msp.o
+ .debug_line    0x00000000000078ac      0x8f5 ./Core/Src/stm32f3xx_it.o
+ .debug_line    0x00000000000081a1      0x8a8 ./Core/Src/syscalls.o
+ .debug_line    0x0000000000008a49      0x579 ./Core/Src/sysmem.o
+ .debug_line    0x0000000000008fc2      0x81e ./Core/Src/system_stm32f3xx.o
+ .debug_line    0x00000000000097e0       0x7a ./Core/Startup/startup_stm32f303retx.o
+ .debug_line    0x000000000000985a      0xa4e ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
+ .debug_line    0x000000000000a2a8      0x992 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
+ .debug_line    0x000000000000ac3a     0x2819 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+ .debug_line    0x000000000000d453      0xd13 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
+ .debug_line    0x000000000000e166      0xd60 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
+ .debug_line    0x000000000000eec6      0xbd5 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o
+ .debug_line    0x000000000000fa9b     0x3827 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.o
+ .debug_line    0x00000000000132c2      0x9c0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.o
+ .debug_line    0x0000000000013c82     0x1440 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
+ .debug_line    0x00000000000150c2      0xf66 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
+ .debug_line    0x0000000000016028     0x3ee5 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.o
+ .debug_line    0x0000000000019f0d     0x1b82 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.o
+ .debug_line    0x000000000001ba8f     0x3190 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
+ .debug_line    0x000000000001ec1f     0x16f5 ./MyDriver/Button.o
+ .debug_line    0x0000000000020314      0xe7d ./MyDriver/Lcd.o
+ .debug_line    0x0000000000021191      0xb60 ./MyDriver/Log.o
 
 .debug_str      0x0000000000000000    0xe2a10
  .debug_str     0x0000000000000000    0xd9235 ./Application/Analog.o

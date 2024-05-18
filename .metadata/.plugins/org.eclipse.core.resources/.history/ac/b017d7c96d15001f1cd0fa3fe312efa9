@@ -73,7 +73,7 @@ namespace blib
         }
 
         mPin = mVin * mIin;
-        mPout = mVin * mIout;    // Cong suat ra tinh bang gia tri do duoc cua cam bien
+        mPout = mPin * mIout;
         mOutputDeviation = (mVout / k_voltage_battery_max) * 100.0f;
 
         mBatteryPercent = ((mVout - k_voltage_battery_min)
