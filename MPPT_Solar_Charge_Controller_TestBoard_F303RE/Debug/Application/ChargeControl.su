@@ -4,16 +4,16 @@ D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Applic
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:41:5:blib::ChargeControl::~ChargeControl()	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:41:5:virtual blib::ChargeControl::~ChargeControl()	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:45:10:void blib::ChargeControl::run()	24	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:135:10:void blib::ChargeControl::setBuckEnable(bool)	16	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:139:10:bool blib::ChargeControl::getBuckEnable() const	16	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:143:10:void blib::ChargeControl::setMpptMode(bool)	16	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:147:10:bool blib::ChargeControl::getMpptMode() const	16	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:153:10:void blib::ChargeControl::buckEnable()	16	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:162:10:void blib::ChargeControl::buckDisable()	16	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:170:14:uint32_t blib::ChargeControl::predictPwm()	24	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:190:10:void blib::ChargeControl::generatePwm(uint32_t)	16	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:195:10:void blib::ChargeControl::pwmInit(uint32_t, uint32_t)	56	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:215:10:void blib::ChargeControl::pwmWrite()	24	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:134:10:void blib::ChargeControl::setBuckEnable(bool)	16	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:138:10:bool blib::ChargeControl::getBuckEnable() const	16	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:142:10:void blib::ChargeControl::setMpptMode(bool)	16	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:146:10:bool blib::ChargeControl::getMpptMode() const	16	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:152:10:void blib::ChargeControl::buckEnable()	16	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:161:10:void blib::ChargeControl::buckDisable()	16	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:169:14:uint32_t blib::ChargeControl::predictPwm()	24	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:189:10:void blib::ChargeControl::generatePwm(uint32_t)	16	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:194:10:void blib::ChargeControl::pwmInit(uint32_t, uint32_t)	56	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:214:10:void blib::ChargeControl::pwmWrite()	24	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:38:17:blib::dp::Singleton<T>::Singleton() [with T = blib::ChargeControl]	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::ChargeControl]	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::ChargeControl]	16	static

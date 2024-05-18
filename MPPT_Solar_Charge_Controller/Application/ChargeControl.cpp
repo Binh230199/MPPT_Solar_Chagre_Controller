@@ -6,7 +6,7 @@
  */
 
 #include "ChargeControl.h"
-#include "Monitor.h"
+
 #include "Analog.h"
 #include "DeviceProtection.h"
 
@@ -58,7 +58,6 @@ namespace blib
 //                recovery = false;
                 buckDisable();
 
-                Monitor::getInstance().impl_DisplayDetectPowerSource();
                 analog.readAnalog();
                 mPwm = (uint32_t) predictPwm();
 //                Monitor::getInstance().impl_DisplayOff();
