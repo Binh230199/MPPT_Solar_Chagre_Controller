@@ -679,9 +679,7 @@ namespace blib
                     }
                     else
                     {
-                        uint8_t u8 = (uint8_t) chargeCtrl.mOutputMode;
-                        u8--;
-                        chargeCtrl.mOutputMode = (OutputMode) u8;
+                        chargeCtrl.mOutputMode--;
                     }
                 }
                 else if (button.getLatestPressedButton() == Button::ButtonName::DOWN)
@@ -715,19 +713,19 @@ namespace blib
                 {
                     if (chargeCtrl.mOutputMode == OutputMode::PSU)
                     {
-                        mLcd.displayLine(2, 0, ">PSU");
+                        mLcd.displayLine(2, 0, "PSU");
                     }
                     else if (chargeCtrl.mOutputMode == OutputMode::CHARGER)
                     {
-                        mLcd.displayLine(2, 0, ">Charger");
+                        mLcd.displayLine(2, 0, "Charger");
                     }
                     else if (chargeCtrl.mOutputMode == OutputMode::INVERTER)
                     {
-                        mLcd.displayLine(2, 0, ">Inverter");
+                        mLcd.displayLine(2, 0, "Inverter");
                     }
                     else
                     {
-                        mLcd.displayLine(2, 0, ">Error mode");
+                        mLcd.displayLine(2, 0, "Error mode");
                     }
 
                     // TODO: phai set va luu lai vao flash

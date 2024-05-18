@@ -15,7 +15,6 @@
 #include "DeviceProtection.h"
 #include "ChargeControl.h"
 #include "Button.h"
-#include "Constant.h"
 // Add log library
 #include "Log.h"
 
@@ -663,71 +662,67 @@ namespace blib
             void impl_3_2_ChargeMode()
             {
                 auto &button = Button::getInstance();
-                auto &chargeCtrl = ChargeControl::getInstance();
+                static int chargeMode = 0;    // PSU
 
                 if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
                 {
                     mLcd.clearDisplay();
                 }
-                mLcd.displayLine(0, 0, "MODE");
+                mLcd.displayLine(0, 0, "SUPPLY ALGORITHM");
 
                 if (button.getLatestPressedButton() == Button::ButtonName::UP)
                 {
-                    if (chargeCtrl.mOutputMode == OutputMode::PSU)
+                    if (chargeMode == 0)
                     {
-                        chargeCtrl.mOutputMode = OutputMode::INVERTER;
+                        chargeMode = 3;
                     }
                     else
                     {
-                        uint8_t u8 = (uint8_t) chargeCtrl.mOutputMode;
-                        u8--;
-                        chargeCtrl.mOutputMode = (OutputMode) u8;
+                        chargeMode--;
                     }
                 }
                 else if (button.getLatestPressedButton() == Button::ButtonName::DOWN)
                 {
-                    if (chargeCtrl.mOutputMode == OutputMode::INVERTER)
+                    if (chargeMode == 2)
                     {
-                        chargeCtrl.mOutputMode = OutputMode::PSU;
+                        chargeMode = 0;
                     }
                     else
                     {
-                        uint8_t u8 = (uint8_t) chargeCtrl.mOutputMode;
-                        u8++;
-                        chargeCtrl.mOutputMode = (OutputMode) u8;
+                        chargeMode++;
                     }
                 }
 
-                if (chargeCtrl.mOutputMode == OutputMode::PSU)
+                if (chargeMode == 0)
                 {
                     mLcd.displayLine(1, 0, "PSU");
                 }
-                else if (chargeCtrl.mOutputMode == OutputMode::CHARGER)
+                else if (chargeMode == 1)
                 {
                     mLcd.displayLine(1, 0, "Charger");
                 }
-                else if (chargeCtrl.mOutputMode == OutputMode::INVERTER)
+                else if (chargeMode == 2)
                 {
                     mLcd.displayLine(1, 0, "Inverter");
                 }
 
                 if (button.getLatestPressedButton() == Button::ButtonName::SEL)
                 {
-                    if (chargeCtrl.mOutputMode == OutputMode::PSU)
+                    if (chargeMode == 0)
                     {
-                        mLcd.displayLine(2, 0, ">PSU");
+                        mLcd.displayLine(2, 0, "PSU");
                     }
-                    else if (chargeCtrl.mOutputMode == OutputMode::CHARGER)
+                    else if (chargeMode == 1)
                     {
-                        mLcd.displayLine(2, 0, ">Charger");
+                        mLcd.displayLine(2, 0, "Charger");
                     }
-                    else if (chargeCtrl.mOutputMode == OutputMode::INVERTER)
+                    else if (chargeMode == 2)
                     {
-                        mLcd.displayLine(2, 0, ">Inverter");
+                        mLcd.displayLine(2, 0, "Inverter");
                     }
                     else
                     {
-                        mLcd.displayLine(2, 0, ">Error mode");
+                        mLcd.displayLine(2, 0, "Error mode");
                     }
 
                     // TODO: phai set va luu lai vao flash
