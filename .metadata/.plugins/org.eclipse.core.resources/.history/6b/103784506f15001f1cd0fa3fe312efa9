@@ -131,9 +131,6 @@ namespace blib
                 {
                     // Trong che do inverter: Bat chan inverter control
                     HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_RESET);
-
-                    // TODO: tat cac cau hinh khac
-                    buckDisable();
                 }
                 else
                 {
@@ -150,6 +147,14 @@ namespace blib
     bool ChargeControl::getBuckEnable() const
     {
         return mBuckEnable;
+    }
+    void ChargeControl::setMpptMode(const bool val)
+    {
+        mMpptMode = val;
+    }
+    bool ChargeControl::getMpptMode() const
+    {
+        return mMpptMode;
     }
 
     // Enable Mppt Buck converter

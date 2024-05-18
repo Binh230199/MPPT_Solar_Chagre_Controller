@@ -14,9 +14,9 @@
 #include "Singleton.h"
 #include "StateMachineBase.h"
 
-// Add librarys
+// Add log library
 #include "Log.h"
-#include "Constant.h"
+
 // Add main header
 #include "main.h"
 

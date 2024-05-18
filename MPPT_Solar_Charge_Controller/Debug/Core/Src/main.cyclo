@@ -1,9 +1,0 @@
-../MyDriver/Log.h:48:25:static void blib::Logger::print(const char*)	1
-../Core/Src/main.cpp:213:6:void SystemClock_Config()	3
-../Core/Src/main.cpp:737:6:void Error_Handler()	1
-../MyDriver/Log.h:35:25:) [with Args = {const char*, int, const char*}]	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Button]	2
-../Core/Src/main.cpp:79:6:void HAL_GPIO_EXTI_Callback(uint16_t)	10
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Analog]	2
-../Core/Src/main.cpp:134:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	1
-../Core/Src/main.cpp:149:5:int main()	25

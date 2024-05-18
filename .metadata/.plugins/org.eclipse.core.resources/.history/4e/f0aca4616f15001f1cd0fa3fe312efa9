@@ -151,6 +151,14 @@ namespace blib
     {
         return mBuckEnable;
     }
+    void ChargeControl::setMpptMode(const bool val)
+    {
+        mMpptMode = val;
+    }
+    bool ChargeControl::getMpptMode() const
+    {
+        return mMpptMode;
+    }
 
     // Enable Mppt Buck converter
     void ChargeControl::buckEnable()

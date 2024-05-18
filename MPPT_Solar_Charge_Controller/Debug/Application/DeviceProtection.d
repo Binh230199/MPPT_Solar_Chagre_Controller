@@ -37,7 +37,8 @@ Application/DeviceProtection.o: ../Application/DeviceProtection.cpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h \
  ../Application/Constant.h ../Application/Analog.h \
- D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine/StateMachineBase.h
+ D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine/StateMachineBase.h \
+ ../Application/ChargeControl.h
 ../Application/DeviceProtection.h:
 ../MyDriver/Log.h:
 ../Core/Inc/main.h:
@@ -80,3 +81,4 @@ D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Design
 ../Application/Constant.h:
 ../Application/Analog.h:
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine/StateMachineBase.h:
+../Application/ChargeControl.h:

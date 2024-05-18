@@ -14,9 +14,9 @@
 #include "Singleton.h"
 #include "StateMachineBase.h"
 
-// Add librarys
+// Add log library
 #include "Log.h"
-#include "Constant.h"
+
 // Add main header
 #include "main.h"
 
@@ -25,6 +25,11 @@ namespace blib
     class ChargeControl : public dp::Singleton<ChargeControl>
     {
         public:
+            enum class OutputMode
+            {
+                PSU, CHARGER, INVERTER
+            };
+
             ChargeControl();
             virtual ~ChargeControl();
             void run();
@@ -48,6 +53,7 @@ namespace blib
             OutputMode mOutputMode = OutputMode::PSU;
 
             bool mBuckEnable = false;
+            bool mMpptMode = false;    // false: CC-CV Buck PSU, true: MPPT & CC-CV charging
             uint32_t mPwm;
             uint32_t mPredictPwm;
             uint32_t mPwmMax;

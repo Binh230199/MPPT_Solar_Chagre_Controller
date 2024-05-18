@@ -3,17 +3,15 @@ D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriv
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:34:5:blib::ChargeControl::ChargeControl()	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:41:5:blib::ChargeControl::~ChargeControl()	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:41:5:virtual blib::ChargeControl::~ChargeControl()	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:45:10:void blib::ChargeControl::run()	18
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:134:10:void blib::ChargeControl::setBuckEnable(bool)	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:138:10:bool blib::ChargeControl::getBuckEnable() const	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:142:10:void blib::ChargeControl::setMpptMode(bool)	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:146:10:bool blib::ChargeControl::getMpptMode() const	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:152:10:void blib::ChargeControl::buckEnable()	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:161:10:void blib::ChargeControl::buckDisable()	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:169:14:uint32_t blib::ChargeControl::predictPwm()	2
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:189:10:void blib::ChargeControl::generatePwm(uint32_t)	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:194:10:void blib::ChargeControl::pwmInit(uint32_t, uint32_t)	2
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:214:10:void blib::ChargeControl::pwmWrite()	6
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:45:10:void blib::ChargeControl::run()	20
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:146:10:void blib::ChargeControl::setBuckEnable(bool)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:150:10:bool blib::ChargeControl::getBuckEnable() const	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:156:10:void blib::ChargeControl::buckEnable()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:165:10:void blib::ChargeControl::buckDisable()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:173:14:uint32_t blib::ChargeControl::predictPwm()	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:193:10:void blib::ChargeControl::generatePwm(uint32_t)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:198:10:void blib::ChargeControl::pwmInit(uint32_t, uint32_t)	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/ChargeControl.cpp:218:10:void blib::ChargeControl::pwmWrite()	6
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:38:17:blib::dp::Singleton<T>::Singleton() [with T = blib::ChargeControl]	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::ChargeControl]	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::ChargeControl]	1

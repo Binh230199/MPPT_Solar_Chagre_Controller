@@ -14,9 +14,9 @@
 #include "Singleton.h"
 #include "StateMachineBase.h"
 
-// Add librarys
+// Add log library
 #include "Log.h"
-#include "Constant.h"
+
 // Add main header
 #include "main.h"
 
@@ -25,6 +25,11 @@ namespace blib
     class ChargeControl : public dp::Singleton<ChargeControl>
     {
         public:
+            enum class OutputMode
+            {
+                PSU, CHARGER, INVERTER
+            };
+
             ChargeControl();
             virtual ~ChargeControl();
             void run();
