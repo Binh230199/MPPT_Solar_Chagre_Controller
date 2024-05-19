@@ -66,15 +66,15 @@ namespace blib
             {
                 if (mMpptMode == false)    // CC-CV PSU mode : CC-CV only
                 {
-                    if (analog.mIout > Constant::getInstance().k_current_charging_max)
+                    if (analog.mIout > k_current_charging_max)
                     {
                         mPwm--;
                     }
-                    else if (analog.mVout > Constant::getInstance().k_voltage_battery_max)
+                    else if (analog.mVout > k_voltage_battery_max)
                     {
                         mPwm--;
                     }
-                    else if (analog.mVout < Constant::getInstance().k_voltage_battery_max)
+                    else if (analog.mVout < k_voltage_battery_max)
                     {
                         mPwm++;
                     }
@@ -90,11 +90,11 @@ namespace blib
                     static float powerInputPrev = 0;
                     static float voltageInputPrev = 0;
 
-                    if (analog.mIout > Constant::getInstance().k_current_charging_max)
+                    if (analog.mIout > k_current_charging_max)
                     {
                         mPwm--;
                     }
-                    else if (analog.mVout > Constant::getInstance().k_voltage_battery_max)
+                    else if (analog.mVout > k_voltage_battery_max)
                     {
                         mPwm--;
                     }
@@ -116,7 +116,7 @@ namespace blib
                         {
                             mPwm--;
                         }    //  ↓P ↓V ; ←MPP  //D--
-                        else if (analog.mVout < Constant::getInstance().k_voltage_battery_max)
+                        else if (analog.mVout < k_voltage_battery_max)
                         {
                             mPwm++;
                         }
@@ -182,12 +182,10 @@ namespace blib
         else
         {
             // 99.5% * k_pwm_max * (Vout/Vin)
-            predictPwm = (Constant::getInstance().k_predict_pwm_margin
-                    * Constant::getInstance().k_pwm_max * analog.mVout) / (100.0f * analog.mVin);
+            predictPwm = (k_predict_pwm_margin * k_pwm_max * analog.mVout) / (100.0f * analog.mVin);
         }
 
-        predictPwm = constrainValue(predictPwm, (uint32_t) 0,
-                Constant::getInstance().k_pwm_max_limited);
+        predictPwm = constrainValue(predictPwm, (uint32_t) 0, k_pwm_max_limited);
 
         return predictPwm;
     }
@@ -220,13 +218,13 @@ namespace blib
     {
         if (mOutputMode == OutputMode::PSU)
         {
-            mPwm = constrainValue(mPwm, (uint32_t) 0, Constant::getInstance().k_pwm_max_limited);
+            mPwm = constrainValue(mPwm, (uint32_t) 0, k_pwm_max_limited);
         }
         else if (mOutputMode == OutputMode::CHARGER)
         {
             // Xung pwm khong duoc nho hon gia tri floor pwm
             uint32_t pPwm = predictPwm();
-            mPwm = constrainValue(mPwm, pPwm, Constant::getInstance().k_pwm_max_limited);
+            mPwm = constrainValue(mPwm, pPwm, k_pwm_max_limited);
         }
         else if (mOutputMode == OutputMode::INVERTER)
         {

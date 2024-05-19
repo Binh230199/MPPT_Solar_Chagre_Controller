@@ -74,7 +74,10 @@ namespace blib
                     snprintf(line2, 21, "Src: BAT [%.1f%%]", analog.mBatteryPercent);
                 }
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
                 mLcd.displayLine(0, 0, line0);
                 mLcd.displayLine(1, 0, line1);
                 mLcd.displayLine(2, 0, line2);
@@ -161,7 +164,10 @@ namespace blib
 
                 }
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
                 mLcd.displayLine(0, 1, "1 DISPLAY MODE");
                 mLcd.displayLine(1, 1, "2 SETTING MODE");
                 mLcd.displayLine(2, 1, "3 ABOUT");
@@ -175,7 +181,10 @@ namespace blib
             {
                 auto &button = Button::getInstance();
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
                 mLcd.displayLine(0, 0, "MPPT SOLAR CHARGER");
                 mLcd.displayLine(1, 0, "FIRMWARE VER: 1.0.0");
                 mLcd.displayLine(2, 0, "CONTACT:09123123123");
@@ -296,7 +305,10 @@ namespace blib
 
                 }
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
 
                 if (mIndexLine == 1)
                 {
@@ -476,7 +488,10 @@ namespace blib
 
                 }
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
                 if (mIndexLine == 1)
                 {
                     mLcd.displayLine(0, 1, list[mIndexLine]);
@@ -594,7 +609,10 @@ namespace blib
 
                 static bool supplyAlgorithm = 0;    // MPPT+CC-CV va CC-CV Only
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
                 mLcd.displayLine(0, 0, "SUPPLY ALGORITHM");
 
                 if (button.getLatestPressedButton() == Button::ButtonName::UP
@@ -666,7 +684,10 @@ namespace blib
 
                 static OutputMode ouputMode = OutputMode::PSU;
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
                 mLcd.displayLine(0, 0, "MODE");
 
                 if (button.getLatestPressedButton() == Button::ButtonName::UP)
@@ -760,90 +781,22 @@ namespace blib
             void impl_3_2_MaxBatteryVolt()
             {
                 auto &button = Button::getInstance();
-
-                mLcd.clearDisplay();
-                mLcd.displayLine(0, 0, "MAX BATTERY VOLT");
-
-                char line1[21] = { 0 };
-                snprintf(line1, 21, "%.2f", Constant::getInstance().k_voltage_battery_max);
-                mLcd.displayLine(1, 0, line1);
-
-                const float delta = 0.2;
-                static float setValue = Constant::getInstance().k_voltage_battery_max;
-
-                if (button.getLatestPressedButton() == Button::ButtonName::UP)
-                {
-                    setValue += delta;
-                }
-                else if (button.getLatestPressedButton() == Button::ButtonName::DOWN)
-                {
-                    setValue -= delta;
-                }
-
-                char line2[21] = { 0 };
-                snprintf(line2, 21, "%.2f", setValue);
-                mLcd.displayLine(2, 0, line2);
-
-                if (button.getLatestPressedButton() == Button::ButtonName::SEL)
-                {
-                    Constant::getInstance().k_voltage_battery_max = setValue;
-                    snprintf(line1, 21, ">> %.2f", Constant::getInstance().k_voltage_battery_max);
-                    mLcd.displayLine(1, 0, line1);
-                }
-
                 if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
                     LOGI("Go back to Setting screen");
                     mCallback = &LcdSimulate::impl_3_SettingScroll;    //
                 }
-
-                mLcd.displayLine(3, 0, "1-2CHANGE 3SEL 4BACK");
-
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
             void impl_3_2_MinBatteryVolt()
             {
                 auto &button = Button::getInstance();
-
-                mLcd.clearDisplay();
-                mLcd.displayLine(0, 0, "MIN BATTERY VOLT");
-
-                char line1[21] = { 0 };
-                snprintf(line1, 21, "%.2f", Constant::getInstance().k_voltage_battery_min);
-                mLcd.displayLine(1, 0, line1);
-
-                const float delta = 0.2;
-                static float setValue = Constant::getInstance().k_voltage_battery_min;
-
-                if (button.getLatestPressedButton() == Button::ButtonName::UP)
-                {
-                    setValue += delta;
-                }
-                else if (button.getLatestPressedButton() == Button::ButtonName::DOWN)
-                {
-                    setValue -= delta;
-                }
-
-                char line2[21] = { 0 };
-                snprintf(line2, 21, "%.2f", setValue);
-                mLcd.displayLine(2, 0, line2);
-
-                if (button.getLatestPressedButton() == Button::ButtonName::SEL)
-                {
-                    Constant::getInstance().k_voltage_battery_min = setValue;
-                    snprintf(line1, 21, ">> %.2f", Constant::getInstance().k_voltage_battery_min);
-                    mLcd.displayLine(1, 0, line1);
-                }
-
                 if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
                     LOGI("Go back to Setting screen");
                     mCallback = &LcdSimulate::impl_3_SettingScroll;    //
                 }
-
-                mLcd.displayLine(3, 0, "1-2CHANGE 3SEL 4BACK");
-
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
@@ -920,7 +873,10 @@ namespace blib
                     mCallback = &LcdSimulate::impl_3_SettingScroll;    //
                 }
 
-                mLcd.clearDisplay();
+                if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)
+                {
+                    mLcd.clearDisplay();
+                }
 
                 mLcd.displayLine(0, 0, "LCD BACKLIGHT");
 

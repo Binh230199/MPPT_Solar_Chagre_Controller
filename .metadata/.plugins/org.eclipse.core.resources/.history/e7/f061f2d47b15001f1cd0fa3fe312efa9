@@ -116,7 +116,7 @@ namespace blib
                         {
                             mPwm--;
                         }    //  ↓P ↓V ; ←MPP  //D--
-                        else if (analog.mVout < Constant::getInstance().k_voltage_battery_max)
+                        else if (analog.mVout < k_voltage_battery_max)
                         {
                             mPwm++;
                         }

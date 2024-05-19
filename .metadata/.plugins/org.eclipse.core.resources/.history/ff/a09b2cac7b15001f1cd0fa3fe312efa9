@@ -76,32 +76,29 @@ namespace blib
         mPout = mVin * mIout;    // Cong suat ra tinh bang gia tri do duoc cua cam bien
         mOutputDeviation = (mVout / Constant::getInstance().k_voltage_battery_max) * 100.0f;
 
-        mBatteryPercent = ((mVout - Constant::getInstance().k_voltage_battery_min)
-                / (Constant::getInstance().k_voltage_battery_max
-                        - Constant::getInstance().k_voltage_battery_min)) * 100;
+        mBatteryPercent = ((mVout - k_voltage_battery_min)
+                / (k_voltage_battery_max - k_voltage_battery_min)) * 100;
     }
 
     float Analog::calSolarVoltage(uint32_t adcValue)    // Convert adcValue -> Vin
     {
-        return Constant::getInstance().k_voltage_divider_input * ((float) adcValue / 4095) * 3.3;
+        return k_voltage_divider_input * ((float) adcValue / 4095) * 3.3;
     }
 
     float Analog::calSolarCurrent(uint32_t adcValue)    // Convert adcValue -> Iin
     {
-        float voltage = Constant::getInstance().k_current_divider_input * ((float) adcValue / 4095)
-                * 3.3;
+        float voltage = k_current_divider_input * ((float) adcValue / 4095) * 3.3;
         float current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
 
         return current;
     }
     float Analog::calBatteryVoltage(uint32_t adcValue)    // Convert adcValue -> Vout
     {
-        return Constant::getInstance().k_voltage_divider_output * ((float) adcValue / 4095) * 3.3;
+        return k_voltage_divider_output * ((float) adcValue / 4095) * 3.3;
     }
     float Analog::calBatteryCurrent(uint32_t adcValue)    // Convert adcValue -> Iout
     {
-        float voltage = Constant::getInstance().k_current_divider_output * ((float) adcValue / 4095)
-                * 3.3;
+        float voltage = k_current_divider_output * ((float) adcValue / 4095) * 3.3;
         float current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
 
         return current;
