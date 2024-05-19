@@ -1060,7 +1060,7 @@ namespace blib
                 static bool loadCfgEnable = 0;    // MPPT+CC-CV va CC-CV Only
 
                 mLcd.clearDisplay();
-                mLcd.displayLine(0, 0, "AUTOLOAD CFG");
+                mLcd.displayLine(0, 0, "AUTOLOADCFG");
 
                 if (button.getLatestPressedButton() == Button::ButtonName::UP
                         || button.getLatestPressedButton() == Button::ButtonName::DOWN)

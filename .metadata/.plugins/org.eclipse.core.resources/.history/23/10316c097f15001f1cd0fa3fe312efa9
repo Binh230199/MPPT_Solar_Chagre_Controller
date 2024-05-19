@@ -1055,63 +1055,6 @@ namespace blib
             void impl_3_2_AutoloadCfg()
             {
                 auto &button = Button::getInstance();
-                auto &sysMgr = SystemManager::getInstance();
-
-                static bool loadCfgEnable = 0;    // MPPT+CC-CV va CC-CV Only
-
-                mLcd.clearDisplay();
-                mLcd.displayLine(0, 0, "AUTOLOAD CFG");
-
-                if (button.getLatestPressedButton() == Button::ButtonName::UP
-                        || button.getLatestPressedButton() == Button::ButtonName::DOWN)
-                {
-                    loadCfgEnable = !loadCfgEnable;
-                }
-
-                if (loadCfgEnable == 0)
-                {
-                    mLcd.displayLine(2, 0, "NO ");
-                }
-                else if (loadCfgEnable == 1)
-                {
-                    mLcd.displayLine(2, 0, "YES");
-                }
-                else
-                {
-                    mLcd.displayLine(2, 0, "Error");
-                }
-
-                if (button.getLatestPressedButton() == Button::ButtonName::SEL)
-                {
-                    if (loadCfgEnable == 0)
-                    {
-                        sysMgr.isLoadCfgFromFlash = loadCfgEnable;
-                        mLcd.displayLine(1, 0, ">> NO ");
-                    }
-                    else if (loadCfgEnable == 1)
-                    {
-                        sysMgr.isLoadCfgFromFlash = loadCfgEnable;
-                        mLcd.displayLine(1, 0, ">> YES");
-                    }
-                    else
-                    {
-                        mLcd.displayLine(1, 0, "Error state");
-                    }
-
-                    // TODO: phai set va luu lai vao flash
-                }
-
-                if (sysMgr.isLoadCfgFromFlash == 0)
-                {
-                    mLcd.displayLine(1, 0, "NO ");
-                }
-                else if (sysMgr.isLoadCfgFromFlash == 1)
-                {
-                    mLcd.displayLine(1, 0, "YES");
-                }
-
-                mLcd.displayLine(3, 0, "1-2CHANGE 3SEL 4BACK");
-
                 if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
                     LOGI("Go back to Setting screen");

@@ -75,7 +75,6 @@ namespace blib
             }
 
             bool enableFan = false;
-            bool isLoadCfgFromFlash = false;
     };
 }    // namespace blib
 

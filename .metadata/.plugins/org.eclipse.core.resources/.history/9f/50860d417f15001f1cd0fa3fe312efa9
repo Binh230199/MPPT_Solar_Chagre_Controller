@@ -1057,24 +1057,24 @@ namespace blib
                 auto &button = Button::getInstance();
                 auto &sysMgr = SystemManager::getInstance();
 
-                static bool loadCfgEnable = 0;    // MPPT+CC-CV va CC-CV Only
+                static bool fanEnable = 0;    // MPPT+CC-CV va CC-CV Only
 
                 mLcd.clearDisplay();
-                mLcd.displayLine(0, 0, "AUTOLOAD CFG");
+                mLcd.displayLine(0, 0, "COOLING FAN");
 
                 if (button.getLatestPressedButton() == Button::ButtonName::UP
                         || button.getLatestPressedButton() == Button::ButtonName::DOWN)
                 {
-                    loadCfgEnable = !loadCfgEnable;
+                    fanEnable = !fanEnable;
                 }
 
-                if (loadCfgEnable == 0)
+                if (fanEnable == 0)
                 {
-                    mLcd.displayLine(2, 0, "NO ");
+                    mLcd.displayLine(2, 0, "OFF");
                 }
-                else if (loadCfgEnable == 1)
+                else if (fanEnable == 1)
                 {
-                    mLcd.displayLine(2, 0, "YES");
+                    mLcd.displayLine(2, 0, "ON ");
                 }
                 else
                 {
@@ -1083,15 +1083,15 @@ namespace blib
 
                 if (button.getLatestPressedButton() == Button::ButtonName::SEL)
                 {
-                    if (loadCfgEnable == 0)
+                    if (fanEnable == 0)
                     {
-                        sysMgr.isLoadCfgFromFlash = loadCfgEnable;
-                        mLcd.displayLine(1, 0, ">> NO ");
+                        sysMgr.enableFan = fanEnable;
+                        mLcd.displayLine(1, 0, ">> OFF");
                     }
-                    else if (loadCfgEnable == 1)
+                    else if (fanEnable == 1)
                     {
-                        sysMgr.isLoadCfgFromFlash = loadCfgEnable;
-                        mLcd.displayLine(1, 0, ">> YES");
+                        sysMgr.enableFan = fanEnable;
+                        mLcd.displayLine(1, 0, ">> ON ");
                     }
                     else
                     {
@@ -1101,13 +1101,13 @@ namespace blib
                     // TODO: phai set va luu lai vao flash
                 }
 
-                if (sysMgr.isLoadCfgFromFlash == 0)
+                if (sysMgr.enableFan == 0)
                 {
-                    mLcd.displayLine(1, 0, "NO ");
+                    mLcd.displayLine(1, 0, "OFF");
                 }
-                else if (sysMgr.isLoadCfgFromFlash == 1)
+                else if (sysMgr.enableFan == 1)
                 {
-                    mLcd.displayLine(1, 0, "YES");
+                    mLcd.displayLine(1, 0, "ON ");
                 }
 
                 mLcd.displayLine(3, 0, "1-2CHANGE 3SEL 4BACK");
