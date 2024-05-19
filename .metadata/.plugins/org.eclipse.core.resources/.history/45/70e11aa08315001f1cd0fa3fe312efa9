@@ -78,10 +78,10 @@ namespace blib
                 " ERR:%d" " FLV:%d" " BNC:%d" " IUV:%d" " IOC:%d" " OOV:%d" " OOC:%d" " OTE:%d" " REC:%d"
 
                 " BYP:%d" " BuckEN:%d" " FAN:%d" " PI:%.2f" " PWM:%d" " PPWM:%d" " VI:%.2f" " VO:%.2f" " CI:%.2f" " CO:%.2f" " Temp:%.2f",
-                devPrt.mERR, devPrt.mFLV, devPrt.mBNC, devPrt.mIUV, devPrt.mIOC, devPrt.mOOV,
-                devPrt.mOOC, devPrt.mOTE, devPrt.mREC, devPrt.mBypassEnable, chargeCtrl.mBuckEnable,
-                sysMgr.enableFan, analog.mPin, chargeCtrl.mPwm, chargeCtrl.mPredictPwm, analog.mVin,
-                analog.mVout, analog.mIin, analog.mIout, analog.mTemp);
+                devPrt.mOC, devPrt.mFLV, devPrt.mBNC, devPrt.mIUV, devPrt.mIOC, devPrt.mOOV,
+                devPrt.mOOC, devPrt.mOTE, devPrt.mREC, chargeCtrl.mBuckEnable, sysMgr.enableFan,
+                analog.mPin, chargeCtrl.mPwm, chargeCtrl.mPredictPwm, analog.mVin, analog.mVout,
+                analog.mIin, analog.mIout, analog.mTemp);
     }
     void SerialMonitor::serialLevel2()
     {

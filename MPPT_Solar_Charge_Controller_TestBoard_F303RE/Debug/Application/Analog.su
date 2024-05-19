@@ -9,11 +9,11 @@ D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Applic
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:40:11:float blib::Analog::getIout() const	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:44:11:float blib::Analog::getTemp() const	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:49:10:void blib::Analog::readAnalog()	24	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:84:11:float blib::Analog::calSolarVoltage(uint32_t)	16	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:89:11:float blib::Analog::calSolarCurrent(uint32_t)	24	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:97:11:float blib::Analog::calBatteryVoltage(uint32_t)	16	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:101:11:float blib::Analog::calBatteryCurrent(uint32_t)	24	static
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:109:11:float blib::Analog::calTemperature(uint32_t)	80	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:88:11:float blib::Analog::calSolarVoltage(uint32_t)	16	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:93:11:float blib::Analog::calSolarCurrent(uint32_t)	24	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:101:11:float blib::Analog::calBatteryVoltage(uint32_t)	16	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:105:11:float blib::Analog::calBatteryCurrent(uint32_t)	24	static
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Analog.cpp:113:11:float blib::Analog::calTemperature(uint32_t)	80	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:38:17:blib::dp::Singleton<T>::Singleton() [with T = blib::Analog]	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::Analog]	16	static
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::Analog]	16	static

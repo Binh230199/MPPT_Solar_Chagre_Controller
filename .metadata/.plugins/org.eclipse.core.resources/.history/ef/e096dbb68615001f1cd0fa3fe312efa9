@@ -52,7 +52,7 @@ namespace blib
         mIin = calSolarCurrent(mAdcValues[2]);
         mVout = calBatteryVoltage(mAdcValues[4]);
         mIout = calBatteryCurrent(mAdcValues[0]);
-#ifndef TEST
+#if TEST
         mTemp = calTemperature(mAdcValues[1]);
 #else
         mTemp = 45.0f;

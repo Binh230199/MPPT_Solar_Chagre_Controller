@@ -605,11 +605,11 @@ namespace blib
 
                 if (supplyAlgorithm == 0)
                 {
-                    mLcd.displayLine(2, 0, "CC-CV Only");
+                    mLcd.displayLine(2, 0, "MPPT+CC-CV");
                 }
                 else if (supplyAlgorithm == 1)
                 {
-                    mLcd.displayLine(2, 0, "MPPT+CC-CV");
+                    mLcd.displayLine(2, 0, "CC-CV Only");
                 }
                 else
                 {
@@ -621,12 +621,12 @@ namespace blib
                     if (supplyAlgorithm == 0)
                     {
                         chargeCtrl.mMpptMode = supplyAlgorithm;
-                        mLcd.displayLine(1, 0, ">> CC-CV Only");
+                        mLcd.displayLine(1, 0, ">> MPPT+CC-CV");
                     }
                     else if (supplyAlgorithm == 1)
                     {
                         chargeCtrl.mMpptMode = supplyAlgorithm;
-                        mLcd.displayLine(1, 0, ">> MPPT+CC-CV");
+                        mLcd.displayLine(1, 0, ">> CC-CV Only");
                     }
                     else
                     {
@@ -638,11 +638,11 @@ namespace blib
 
                 if (chargeCtrl.mMpptMode == 0)
                 {
-                    mLcd.displayLine(1, 0, "CC-CV Only");
+                    mLcd.displayLine(1, 0, "MPPT+CC-CV");
                 }
                 else if (chargeCtrl.mMpptMode == 1)
                 {
-                    mLcd.displayLine(1, 0, "MPPT+CC-CV");
+                    mLcd.displayLine(1, 0, "CC-CV Only");
                 }
                 else
                 {
