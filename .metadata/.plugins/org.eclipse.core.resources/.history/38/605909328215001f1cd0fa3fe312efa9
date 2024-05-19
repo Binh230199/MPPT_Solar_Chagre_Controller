@@ -184,7 +184,7 @@ namespace blib
                     * Constant::getInstance().k_pwm_max * analog.mVout) / (100.0f * analog.mVin);
         }
 
-        mPredictPwm = constrainValue(mPredictPwm, (uint32_t) 0,
+        mPredictPwm = constrainValue(predictPwm, (uint32_t) 0,
                 Constant::getInstance().k_pwm_max_limited);
 
         return mPredictPwm;

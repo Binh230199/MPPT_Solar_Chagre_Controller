@@ -22,7 +22,7 @@ class Constant : public blib::dp::Singleton<Constant>
 {
     public:
         static constexpr float k_voltage_divider_input = 10.0f;    // Max solar voltage = 30 -> 30/10 = 3V
-        static constexpr float k_voltage_divider_output = 5.0f;    // Max battery voltage = 15 -> 15/5 = 3V
+        static constexpr float k_voltage_divider_output = 15.0f;    // Max battery voltage = 15 -> 15/5 = 3V
         static constexpr float k_current_divider_input = 2.0f;    // 5/2 = 2.5V
         static constexpr float k_current_divider_output = 2.0f;    // 5/2 = 2.5V
 

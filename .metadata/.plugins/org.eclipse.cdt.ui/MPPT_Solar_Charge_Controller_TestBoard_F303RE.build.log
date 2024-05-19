@@ -1,10 +1,10 @@
-08:48:29 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Controller_TestBoard_F303RE ****
+08:50:47 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Controller_TestBoard_F303RE ****
 make -j8 all 
 arm-none-eabi-size   MPPT_Solar_Charge_Controller_TestBoard_F303RE.elf 
    text	   data	    bss	    dec	    hex	filename
-  65176	    492	   3492	  69160	  10e28	MPPT_Solar_Charge_Controller_TestBoard_F303RE.elf
+  65184	    492	   3492	  69168	  10e30	MPPT_Solar_Charge_Controller_TestBoard_F303RE.elf
 Finished building: default.size.stdout
  
 
-08:48:30 Build Finished. 0 errors, 0 warnings. (took 356ms)
+08:50:47 Build Finished. 0 errors, 0 warnings. (took 488ms)
 

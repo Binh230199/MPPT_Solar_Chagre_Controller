@@ -173,21 +173,23 @@ namespace blib
     {
         auto &analog = Analog::getInstance();
 
+        uint32_t predictPwm = 0;
+
         if (analog.mVin <= 0.0001f)
         {
-            mPredictPwm = 0;
+            predictPwm = 0;
         }
         else
         {
             // 99.5% * k_pwm_max * (Vout/Vin)
-            mPredictPwm = (Constant::getInstance().k_predict_pwm_margin
+            predictPwm = (Constant::getInstance().k_predict_pwm_margin
                     * Constant::getInstance().k_pwm_max * analog.mVout) / (100.0f * analog.mVin);
         }
 
-        mPredictPwm = constrainValue(mPredictPwm, (uint32_t) 0,
+        predictPwm = constrainValue(predictPwm, (uint32_t) 0,
                 Constant::getInstance().k_pwm_max_limited);
 
-        return mPredictPwm;
+        return predictPwm;
     }
     void ChargeControl::generatePwm(uint32_t val)
     {
