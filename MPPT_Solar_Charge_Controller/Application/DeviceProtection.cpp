@@ -47,7 +47,7 @@ namespace blib
         HAL_GPIO_WritePin(BFC_GPIO_Port, BFC_Pin, ((GPIO_PinState) !mBypassEnable));
     }
 
-    void DeviceProtection::protectDevice()
+    void DeviceProtection::run()
     {
         auto &analog = Analog::getInstance();
         auto &chargeCtrl = ChargeControl::getInstance();

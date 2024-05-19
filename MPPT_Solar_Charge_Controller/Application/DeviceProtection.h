@@ -21,7 +21,7 @@ namespace blib
             DeviceProtection();
             virtual ~DeviceProtection();
             void backFlowControl();
-            void protectDevice();
+            void run();
 
             OutputMode mOutputMode;    // false: PSU
             bool mBypassEnable;

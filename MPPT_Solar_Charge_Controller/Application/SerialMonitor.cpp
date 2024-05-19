@@ -9,6 +9,12 @@
 #define SERIALMONITOR_CPP_
 
 #include "SerialMonitor.h"
+#include "Analog.h"
+#include "DeviceProtection.h"
+#include "ChargeControl.h"
+#include "Button.h"
+#include "Constant.h"
+#include "SystemManager.h"
 
 namespace blib
 {
@@ -63,10 +69,19 @@ namespace blib
 
     void SerialMonitor::serialLevel1()
     {
-        LOGI(
-                " ERR:" " FLV:" " BNC:" " IUV:" " IOC:" " OOV:" " OOC:" " OTE:" " REC:" " MPPTA:" " CM:"
+        auto &analog = blib::Analog::getInstance();
+        auto &devPrt = blib::DeviceProtection::getInstance();
+        auto &chargeCtrl = blib::ChargeControl::getInstance();
+        auto &sysMgr = blib::SystemManager::getInstance();
 
-                " " " BYP:" " EN:" " FAN:" " WiFi:" " " " PI:" " PWM:" " PPWM:" " VI:" " VO:" " CI:" " CO:" " Wh:" " Temp:" " " " CSMPV:" " CSV:" " VO%Dev:" " SOC:" " T:" " LoopT:");
+        LOGI(
+                " ERR:%d" " FLV:%d" " BNC:%d" " IUV:%d" " IOC:%d" " OOV:%d" " OOC:%d" " OTE:%d" " REC:%d"
+
+                " BYP:%d" " BuckEN:%d" " FAN:%d" " PI:%.2f" " PWM:%d" " PPWM:%d" " VI:%.2f" " VO:%.2f" " CI:%.2f" " CO:%.2f" " Temp:%.2f",
+                devPrt.mERR, devPrt.mFLV, devPrt.mBNC, devPrt.mIUV, devPrt.mIOC, devPrt.mOOV,
+                devPrt.mBypassEnable, devPrt.mOOC, devPrt.mOTE, devPrt.mREC, chargeCtrl.mBuckEnable,
+                sysMgr.enableFan, analog.mPin, chargeCtrl.mPwm, chargeCtrl.mPredictPwm, analog.mVin,
+                analog.mVout, analog.mIin, analog.mIout, analog.mTemp);
     }
     void SerialMonitor::serialLevel2()
     {

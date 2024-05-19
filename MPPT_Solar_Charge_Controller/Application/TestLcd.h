@@ -10,7 +10,6 @@
 
 // Add design patterns template library
 #include "Singleton.h"
-#include "StateMachineBase.h"
 #include "Analog.h"
 #include "DeviceProtection.h"
 #include "ChargeControl.h"
@@ -1057,7 +1056,7 @@ namespace blib
                 auto &button = Button::getInstance();
                 auto &sysMgr = SystemManager::getInstance();
 
-                static bool loadCfgEnable = 0;    // MPPT+CC-CV va CC-CV Only
+                static bool loadCfgEnable = 0;
 
                 mLcd.clearDisplay();
                 mLcd.displayLine(0, 0, "AUTOLOAD CFG");

@@ -174,9 +174,10 @@ int main(void)
     LOGI("STARTING DEVICE...");
 
     auto &analog = blib::Analog::getInstance();
+    auto &devProtection = blib::DeviceProtection::getInstance();
     auto &chargeCtrl = blib::ChargeControl::getInstance();
     auto &lcdSimulate = blib::LcdSimulate::getInstance();
-//    auto &serialMnt = blib::SerialMonitor::getInstance();
+    auto &serialMnt = blib::SerialMonitor::getInstance();
 
     /* USER CODE END 2 */
 
@@ -188,9 +189,9 @@ int main(void)
 
         /* USER CODE BEGIN 3 */
         analog.readAnalog();
+        devProtection.run();
         chargeCtrl.run();
-//        serialMnt.show();
-//        monitor.showMenu();
+        serialMnt.show();
         lcdSimulate.run();
         HAL_Delay(500);
     }
