@@ -29,7 +29,7 @@ class Constant : public blib::dp::Singleton<Constant>
         static constexpr float k_voltage_solar_max = 30.0f;    // 30V
         float k_voltage_battery_max = 15.0f;    // 15V
         float k_voltage_battery_min = 10.0f;
-        static constexpr float k_current_charging_max = 30.0f;    // Ampere
+        float k_current_charging_max = 30.0f;    // Ampere
         static constexpr float k_efficiency_rate = 0.9f;
         static constexpr float k_voltage_dropout = 1.0f;
 

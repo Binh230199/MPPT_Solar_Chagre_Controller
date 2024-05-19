@@ -850,11 +850,45 @@ namespace blib
             void impl_3_2_ChargingCurrent()
             {
                 auto &button = Button::getInstance();
+
+                mLcd.clearDisplay();
+                mLcd.displayLine(0, 0, "CHARGING CURRENT");
+
+                char line1[21] = { 0 };
+                snprintf(line1, 21, "%.2f", Constant::getInstance().k_current_charging_max);
+                mLcd.displayLine(1, 0, line1);
+
+                const float delta = 0.1;
+                static float setValue = Constant::getInstance().k_current_charging_max;
+
+                if (button.getLatestPressedButton() == Button::ButtonName::UP)
+                {
+                    setValue += delta;
+                }
+                else if (button.getLatestPressedButton() == Button::ButtonName::DOWN)
+                {
+                    setValue -= delta;
+                }
+
+                char line2[21] = { 0 };
+                snprintf(line2, 21, "%.2f", setValue);
+                mLcd.displayLine(2, 0, line2);
+
+                if (button.getLatestPressedButton() == Button::ButtonName::SEL)
+                {
+                    Constant::getInstance().k_current_charging_max = setValue;
+                    snprintf(line1, 21, ">> %.2f", Constant::getInstance().k_current_charging_max);
+                    mLcd.displayLine(1, 0, line1);
+                }
+
                 if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
                     LOGI("Go back to Setting screen");
                     mCallback = &LcdSimulate::impl_3_SettingScroll;    //
                 }
+
+                mLcd.displayLine(3, 0, "1-2CHANGE 3SEL 4BACK");
+
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
