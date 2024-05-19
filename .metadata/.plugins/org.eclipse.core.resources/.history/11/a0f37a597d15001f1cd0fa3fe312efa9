@@ -16,7 +16,6 @@
 #include "ChargeControl.h"
 #include "Button.h"
 #include "Constant.h"
-#include "SystemManager.h"
 // Add log library
 #include "Log.h"
 
@@ -896,63 +895,6 @@ namespace blib
             void impl_3_2_CoolingFan()
             {
                 auto &button = Button::getInstance();
-                auto &sysMgr = SystemManager::getInstance();
-
-                static bool fanEnable = 0;    // MPPT+CC-CV va CC-CV Only
-
-                mLcd.clearDisplay();
-                mLcd.displayLine(0, 0, "COOLING FAN");
-
-                if (button.getLatestPressedButton() == Button::ButtonName::UP
-                        || button.getLatestPressedButton() == Button::ButtonName::DOWN)
-                {
-                    fanEnable = !fanEnable;
-                }
-
-                if (fanEnable == 0)
-                {
-                    mLcd.displayLine(2, 0, "OFF");
-                }
-                else if (fanEnable == 1)
-                {
-                    mLcd.displayLine(2, 0, "ON ");
-                }
-                else
-                {
-                    mLcd.displayLine(2, 0, "Error");
-                }
-
-                if (button.getLatestPressedButton() == Button::ButtonName::SEL)
-                {
-                    if (fanEnable == 0)
-                    {
-                        sysMgr.enableFan = fanEnable;
-                        mLcd.displayLine(1, 0, ">> OFF");
-                    }
-                    else if (fanEnable == 1)
-                    {
-                        sysMgr.enableFan = fanEnable;
-                        mLcd.displayLine(1, 0, ">> ON ");
-                    }
-                    else
-                    {
-                        mLcd.displayLine(1, 0, "Error state");
-                    }
-
-                    // TODO: phai set va luu lai vao flash
-                }
-
-                if (sysMgr.enableFan == 0)
-                {
-                    mLcd.displayLine(1, 0, "OFF");
-                }
-                else if (sysMgr.enableFan == 1)
-                {
-                    mLcd.displayLine(1, 0, "ON ");
-                }
-
-                mLcd.displayLine(3, 0, "1-2CHANGE 3SEL 4BACK");
-
                 if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
                     LOGI("Go back to Setting screen");
