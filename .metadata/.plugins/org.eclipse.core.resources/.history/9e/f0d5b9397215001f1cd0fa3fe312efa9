@@ -36,8 +36,6 @@ namespace blib
 
             void buckEnable();
             void buckDisable();
-            void inverterDisable();
-            void inverterEnable();
             uint32_t predictPwm();
             void generatePwm(uint32_t val);
             void pwmInit(uint32_t frequency, uint32_t dutyCycle);
@@ -48,7 +46,7 @@ namespace blib
             bool mChargeState = false;
 
             OutputMode mOutputMode = OutputMode::PSU;
-            bool mMpptMode = false;
+
             bool mBuckEnable = false;
             uint32_t mPwm;
             uint32_t mPredictPwm;

@@ -36,8 +36,8 @@ namespace blib
 
             void buckEnable();
             void buckDisable();
-            void inverterDisable();
-            void inverterEnable();
+            void ChargeControl::inverterDisable()
+            void ChargeControl::inverterEnable()
             uint32_t predictPwm();
             void generatePwm(uint32_t val);
             void pwmInit(uint32_t frequency, uint32_t dutyCycle);

@@ -158,17 +158,6 @@ namespace blib
         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
         mPwm = 0;
     }
-
-    void ChargeControl::inverterEnable()
-    {
-        buckDisable();
-        HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_RESET);
-    }
-    void ChargeControl::inverterDisable()
-    {
-        HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_SET);
-    }
-
     uint32_t ChargeControl::predictPwm()
     {
         auto &analog = Analog::getInstance();
@@ -220,23 +209,11 @@ namespace blib
         {
             mPwm = constrainValue(mPwm, (uint32_t) 0, k_pwm_max_limited);
         }
-        else if (mOutputMode == OutputMode::CHARGER)
+        else
         {
             // Xung pwm khong duoc nho hon gia tri floor pwm
             uint32_t pPwm = predictPwm();
             mPwm = constrainValue(mPwm, pPwm, k_pwm_max_limited);
-        }
-        else if (mOutputMode == OutputMode::INVERTER)
-        {
-//            // Trong che do inverter: Bat chan inverter control
-//            HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_RESET);
-//
-//            // TODO: tat cac cau hinh khac
-//            buckDisable();
-        }
-        else
-        {
-
         }
 
         buckEnable();

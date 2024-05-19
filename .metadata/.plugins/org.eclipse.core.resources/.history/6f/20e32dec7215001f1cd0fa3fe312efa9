@@ -162,10 +162,6 @@ namespace blib
     void ChargeControl::inverterEnable()
     {
         buckDisable();
-        HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_RESET);
-    }
-    void ChargeControl::inverterDisable()
-    {
         HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_SET);
     }
 

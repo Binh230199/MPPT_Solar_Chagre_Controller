@@ -158,17 +158,6 @@ namespace blib
         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
         mPwm = 0;
     }
-
-    void ChargeControl::inverterEnable()
-    {
-        buckDisable();
-        HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_RESET);
-    }
-    void ChargeControl::inverterDisable()
-    {
-        HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_SET);
-    }
-
     uint32_t ChargeControl::predictPwm()
     {
         auto &analog = Analog::getInstance();
@@ -228,11 +217,11 @@ namespace blib
         }
         else if (mOutputMode == OutputMode::INVERTER)
         {
-//            // Trong che do inverter: Bat chan inverter control
-//            HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_RESET);
-//
-//            // TODO: tat cac cau hinh khac
-//            buckDisable();
+            // Trong che do inverter: Bat chan inverter control
+            HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_RESET);
+
+            // TODO: tat cac cau hinh khac
+            buckDisable();
         }
         else
         {
