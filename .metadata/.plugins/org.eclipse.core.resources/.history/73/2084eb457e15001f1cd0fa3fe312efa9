@@ -39,8 +39,8 @@ class Constant : public blib::dp::Singleton<Constant>
         static const uint32_t k_pwm_max = 1438;
         static const uint32_t k_pwm_max_limited = 1395;
 
-        float k_temperature_max = 80.0f;    // Celcius
-        float k_temperature_turn_on_fan = 50.0f;    // Celcius
+        float k_temperature_max = 60.0f;    // Celcius
+        float k_temperature_turn_on_fan = 60.0f;    // Celcius
         static constexpr float k_current_in_absolute = 31.0f;    // Ampere
         static constexpr float k_current_out_absolute = 50.0f;    // Ampere
         static constexpr float k_electrical_price = 9.5f;    //   USER PARAMETER - Input electrical price per kWh (Dollar/kWh,Euro/kWh,Peso/kWh)

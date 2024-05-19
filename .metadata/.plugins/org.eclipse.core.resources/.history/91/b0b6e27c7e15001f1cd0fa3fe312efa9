@@ -1012,14 +1012,14 @@ namespace blib
                 auto &button = Button::getInstance();
 
                 mLcd.clearDisplay();
-                mLcd.displayLine(0, 0, "SHUTDOWN TEMP");
+                mLcd.displayLine(0, 0, "FAN TRIGGER TEMP");
 
                 char line1[21] = { 0 };
-                snprintf(line1, 21, "%.2f", Constant::getInstance().k_temperature_max);
+                snprintf(line1, 21, "%.2f", Constant::getInstance().k_temperature_turn_on_fan);
                 mLcd.displayLine(1, 0, line1);
 
                 const float delta = 1;
-                static float setValue = Constant::getInstance().k_temperature_max;
+                static float setValue = Constant::getInstance().k_temperature_turn_on_fan;
 
                 if (button.getLatestPressedButton() == Button::ButtonName::UP)
                 {
@@ -1036,8 +1036,9 @@ namespace blib
 
                 if (button.getLatestPressedButton() == Button::ButtonName::SEL)
                 {
-                    Constant::getInstance().k_temperature_max = setValue;
-                    snprintf(line1, 21, ">> %.2f", Constant::getInstance().k_temperature_max);
+                    Constant::getInstance().k_temperature_turn_on_fan = setValue;
+                    snprintf(line1, 21, ">> %.2f",
+                            Constant::getInstance().k_temperature_turn_on_fan);
                     mLcd.displayLine(1, 0, line1);
                 }
 
