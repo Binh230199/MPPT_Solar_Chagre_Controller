@@ -623,15 +623,15 @@ namespace blib
 
                 if (supplyAlgorithm == 0)
                 {
-                    mLcd.displayLine(2, 0, "MPPT+CC-CV");
+                    mLcd.displayLine(1, 0, "MPPT+CC-CV");
                 }
                 else if (supplyAlgorithm == 1)
                 {
-                    mLcd.displayLine(2, 0, "CC-CV Only");
+                    mLcd.displayLine(1, 0, "CC-CV Only");
                 }
                 else
                 {
-                    mLcd.displayLine(2, 0, "Error");
+                    mLcd.displayLine(1, 0, "Error");
                 }
 
                 if (button.getLatestPressedButton() == Button::ButtonName::SEL)
@@ -639,16 +639,16 @@ namespace blib
                     if (supplyAlgorithm == 0)
                     {
                         chargeCtrl.mMpptMode = supplyAlgorithm;
-                        mLcd.displayLine(1, 0, ">> MPPT+CC-CV");
+                        mLcd.displayLine(2, 0, "> MPPT+CC-CV");
                     }
                     else if (supplyAlgorithm == 1)
                     {
                         chargeCtrl.mMpptMode = supplyAlgorithm;
-                        mLcd.displayLine(1, 0, ">> CC-CV Only");
+                        mLcd.displayLine(2, 0, "> CC-CV Only");
                     }
                     else
                     {
-                        mLcd.displayLine(1, 0, "Error alogrithm");
+                        mLcd.displayLine(2, 0, "Error alogrithm");
                     }
 
                     // TODO: phai set va luu lai vao flash
@@ -656,15 +656,15 @@ namespace blib
 
                 if (chargeCtrl.mMpptMode == 0)
                 {
-                    mLcd.displayLine(1, 0, "MPPT+CC-CV");
+                    mLcd.displayLine(2, 0, "MPPT+CC-CV");
                 }
                 else if (chargeCtrl.mMpptMode == 1)
                 {
-                    mLcd.displayLine(1, 0, "CC-CV Only");
+                    mLcd.displayLine(2, 0, "CC-CV Only");
                 }
                 else
                 {
-                    mLcd.displayLine(1, 0, "Error");
+                    mLcd.displayLine(2, 0, "Error");
                 }
 
                 mLcd.displayLine(3, 0, "1-2CHANGE 3SEL 4BACK");
@@ -719,15 +719,15 @@ namespace blib
 
                 if (ouputMode == OutputMode::PSU)
                 {
-                    mLcd.displayLine(2, 0, "PSU");
+                    mLcd.displayLine(1, 0, "PSU");
                 }
                 else if (ouputMode == OutputMode::CHARGER)
                 {
-                    mLcd.displayLine(2, 0, "Charger");
+                    mLcd.displayLine(1, 0, "Charger");
                 }
                 else if (ouputMode == OutputMode::INVERTER)
                 {
-                    mLcd.displayLine(2, 0, "Inverter");
+                    mLcd.displayLine(1, 0, "Inverter");
                 }
 
                 if (button.getLatestPressedButton() == Button::ButtonName::SEL)
@@ -735,37 +735,24 @@ namespace blib
                     if (ouputMode == OutputMode::PSU)
                     {
                         chargeCtrl.mOutputMode = ouputMode;
-                        mLcd.displayLine(1, 0, ">>PSU");
+                        mLcd.displayLine(2, 0, ">PSU");
                     }
                     else if (ouputMode == OutputMode::CHARGER)
                     {
                         chargeCtrl.mOutputMode = ouputMode;
-                        mLcd.displayLine(1, 0, ">>Charger");
+                        mLcd.displayLine(2, 0, ">Charger");
                     }
                     else if (ouputMode == OutputMode::INVERTER)
                     {
                         chargeCtrl.mOutputMode = ouputMode;
-                        mLcd.displayLine(1, 0, ">>Inverter");
+                        mLcd.displayLine(2, 0, ">Inverter");
                     }
                     else
                     {
-                        mLcd.displayLine(1, 0, "Error mode");
+                        mLcd.displayLine(2, 0, ">Error mode");
                     }
 
                     // TODO: phai set va luu lai vao flash
-                }
-
-                if (chargeCtrl.mOutputMode == OutputMode::PSU)
-                {
-                    mLcd.displayLine(1, 0, "PSU");
-                }
-                else if (chargeCtrl.mOutputMode == OutputMode::CHARGER)
-                {
-                    mLcd.displayLine(1, 0, "Charger");
-                }
-                else if (chargeCtrl.mOutputMode == OutputMode::INVERTER)
-                {
-                    mLcd.displayLine(1, 0, "Inverter");
                 }
 
                 mLcd.displayLine(3, 0, "1-2CHANGE 3SEL 4BACK");
