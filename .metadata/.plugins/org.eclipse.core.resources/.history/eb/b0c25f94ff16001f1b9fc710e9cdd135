@@ -1,0 +1,22 @@
+/*
+ * Rtc.h
+ *
+ *  Created on: May 21, 2024
+ *      Author: This PC
+ */
+
+#ifndef RTC_H_
+#define RTC_H_
+
+#include "main.h"
+
+extern RTC_HandleTypeDef hrtc;
+namespace blib
+{
+    class Rtc
+    {
+
+    };
+}
+
+#endif /* RTC_H_ */

@@ -1,6 +1,0 @@
-../Libraries/Button.cpp:17:5:blib::Button::~Button()	0	static
-../Libraries/Button.cpp:17:5:virtual blib::Button::~Button()	8	static
-../Libraries/Button.cpp:13:5:blib::Button::Button()	0	static
-../Libraries/Button.cpp:21:10:void blib::Button::setLatestPressedButton(blib::Button::ButtonName)	0	static
-../Libraries/Button.cpp:25:24:blib::Button::ButtonName blib::Button::getLatestPressedButton() const	0	static
-../Libraries/Button.cpp:29:10:void blib::Button::handleSignal()	0	static

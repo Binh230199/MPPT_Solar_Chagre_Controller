@@ -1,0 +1,31 @@
+/*
+ * Rtc.cpp
+ *
+ *  Created on: May 21, 2024
+ *      Author: This PC
+ */
+
+#include "Rtc.h"
+
+namespace blib
+{
+    Rtc::Rtc()
+    {
+        mHrtc = &hrtc;
+    }
+    Rtc::~Rtc()
+    {
+
+    }
+    void Rtc::readTime()
+    {
+        HAL_RTC_GetTime(me->hrtc, &me->sTime, RTC_FORMAT_BIN);
+        HAL_RTC_GetDate(me->hrtc, &me->sDate, RTC_FORMAT_BIN);
+    }
+    void Rtc::setTime(uint8_t hour, uint8_t minute, uint8_t date, uint8_t month, uint8_t year)
+    {
+
+    }
+
+}
+

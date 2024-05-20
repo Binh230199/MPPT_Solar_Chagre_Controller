@@ -11,6 +11,7 @@ CPP_SRCS += \
 ../Libraries/DeviceProtection.cpp \
 ../Libraries/Lcd.cpp \
 ../Libraries/Log.cpp \
+../Libraries/Rtc.cpp \
 ../Libraries/SerialMonitor.cpp \
 ../Libraries/SystemManager.cpp 
 
@@ -21,6 +22,7 @@ OBJS += \
 ./Libraries/DeviceProtection.o \
 ./Libraries/Lcd.o \
 ./Libraries/Log.o \
+./Libraries/Rtc.o \
 ./Libraries/SerialMonitor.o \
 ./Libraries/SystemManager.o 
 
@@ -31,6 +33,7 @@ CPP_DEPS += \
 ./Libraries/DeviceProtection.d \
 ./Libraries/Lcd.d \
 ./Libraries/Log.d \
+./Libraries/Rtc.d \
 ./Libraries/SerialMonitor.d \
 ./Libraries/SystemManager.d 
 
@@ -42,7 +45,7 @@ Libraries/%.o Libraries/%.su Libraries/%.cyclo: ../Libraries/%.cpp Libraries/sub
 clean: clean-Libraries
 
 clean-Libraries:
-	-$(RM) ./Libraries/Analog.cyclo ./Libraries/Analog.d ./Libraries/Analog.o ./Libraries/Analog.su ./Libraries/Button.cyclo ./Libraries/Button.d ./Libraries/Button.o ./Libraries/Button.su ./Libraries/ChargeControl.cyclo ./Libraries/ChargeControl.d ./Libraries/ChargeControl.o ./Libraries/ChargeControl.su ./Libraries/DeviceProtection.cyclo ./Libraries/DeviceProtection.d ./Libraries/DeviceProtection.o ./Libraries/DeviceProtection.su ./Libraries/Lcd.cyclo ./Libraries/Lcd.d ./Libraries/Lcd.o ./Libraries/Lcd.su ./Libraries/Log.cyclo ./Libraries/Log.d ./Libraries/Log.o ./Libraries/Log.su ./Libraries/SerialMonitor.cyclo ./Libraries/SerialMonitor.d ./Libraries/SerialMonitor.o ./Libraries/SerialMonitor.su ./Libraries/SystemManager.cyclo ./Libraries/SystemManager.d ./Libraries/SystemManager.o ./Libraries/SystemManager.su
+	-$(RM) ./Libraries/Analog.cyclo ./Libraries/Analog.d ./Libraries/Analog.o ./Libraries/Analog.su ./Libraries/Button.cyclo ./Libraries/Button.d ./Libraries/Button.o ./Libraries/Button.su ./Libraries/ChargeControl.cyclo ./Libraries/ChargeControl.d ./Libraries/ChargeControl.o ./Libraries/ChargeControl.su ./Libraries/DeviceProtection.cyclo ./Libraries/DeviceProtection.d ./Libraries/DeviceProtection.o ./Libraries/DeviceProtection.su ./Libraries/Lcd.cyclo ./Libraries/Lcd.d ./Libraries/Lcd.o ./Libraries/Lcd.su ./Libraries/Log.cyclo ./Libraries/Log.d ./Libraries/Log.o ./Libraries/Log.su ./Libraries/Rtc.cyclo ./Libraries/Rtc.d ./Libraries/Rtc.o ./Libraries/Rtc.su ./Libraries/SerialMonitor.cyclo ./Libraries/SerialMonitor.d ./Libraries/SerialMonitor.o ./Libraries/SerialMonitor.su ./Libraries/SystemManager.cyclo ./Libraries/SystemManager.d ./Libraries/SystemManager.o ./Libraries/SystemManager.su
 
 .PHONY: clean-Libraries
 

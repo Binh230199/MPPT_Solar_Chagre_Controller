@@ -1,0 +1,18 @@
+/*
+ * Rtc.cpp
+ *
+ *  Created on: May 21, 2024
+ *      Author: This PC
+ */
+
+#include "Rtc.h"
+
+namespace blib
+{
+    Rtc();
+    ~Rtc();
+    void readTime();
+    void setTime(uint8_t hour, uint8_t minute, uint8_t date, uint8_t month, uint8_t year);
+
+}
+

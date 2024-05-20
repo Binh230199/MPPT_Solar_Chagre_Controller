@@ -332,7 +332,7 @@ namespace blib
 
                 char list[ROW][COL] = { "", "1 SUPPLY ALGORITHM", "2 MODE", "3 MAX BATTERY VOLT",
                         "4 MIN BATTERY VOLT", "5 CHARGING CURRENT", "6 COOLING FAN",
-                        "7 FAN TRIGGER TEMP", "8 SHUTDOWN TEMP", "9 AUTOLOAD", "10SET TIME",
+                        "7 FAN TRIGGER TEMP", "8 SHUTDOWN TEMP", "9 AUTOLOAD", "10BACKLIGHT SLEEP",
                         "11FACTORY RESET" };
                 static int arrowLine = 0;
                 static int mIndexLine = 1;
@@ -458,7 +458,7 @@ namespace blib
                     else if (mIndexLine == 10)
                     {
                         LOGI("Go to Backlight");
-                        mCallback = &LcdSimulate::impl_3_2_SetTime;
+                        mCallback = &LcdSimulate::impl_3_2_Backlight;
                     }
                     else if (mIndexLine == 11)
                     {
@@ -1119,7 +1119,7 @@ namespace blib
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
-            void impl_3_2_SetTime()
+            void impl_3_2_Backlight()
             {
                 auto &button = Button::getInstance();
 
