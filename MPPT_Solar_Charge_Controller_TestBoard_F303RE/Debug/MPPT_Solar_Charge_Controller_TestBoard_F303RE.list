@@ -39,15 +39,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_rnglists 00001356  00000000  00000000  00059bf0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_macro  00029607  00000000  00000000  0005af46  2**0
+ 18 .debug_macro  00029618  00000000  00000000  0005af46  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line   00023dff  00000000  00000000  0008454d  2**0
+ 19 .debug_line   00023dff  00000000  00000000  0008455e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    000e3a22  00000000  00000000  000a834c  2**0
+ 20 .debug_str    000e3a28  00000000  00000000  000a835d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_frame  00007d0c  00000000  00000000  0018bd70  2**2
+ 21 .debug_frame  00007d0c  00000000  00000000  0018bd88  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000089  00000000  00000000  00193a7c  2**0
+ 22 .debug_line_str 00000089  00000000  00000000  00193a94  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1240,7 +1240,7 @@ namespace blib
  8000e0e:	eef0 7a40 	vmov.f32	s15, s0
  8000e12:	687b      	ldr	r3, [r7, #4]
  8000e14:	edc3 7a0b 	vstr	s15, [r3, #44]	; 0x2c
-#if TEST
+#ifndef TEST
         mTemp = calTemperature(mAdcValues[1]);
 #else
         mTemp = 45.0f;

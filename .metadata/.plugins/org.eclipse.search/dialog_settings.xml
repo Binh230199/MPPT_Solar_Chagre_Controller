@@ -9,13 +9,13 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
+			<item value="run"/>
+			<item value=""/>
 			<item value="calBatteryVoltage"/>
 			<item value="calBatteryCurrent"/>
 			<item value="calTemperature"/>
 			<item value="calSolarCurrent"/>
 			<item value="calSolarVoltage"/>
-			<item value="k_voltage_divider_output"/>
-			<item value="k_voltage_divider_input"/>
 		</list>
 	</section>
 	<section name="">

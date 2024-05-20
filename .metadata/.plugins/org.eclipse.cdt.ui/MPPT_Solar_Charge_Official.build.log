@@ -1,0 +1,19 @@
+23:05:44 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Official ****
+make -j8 all 
+arm-none-eabi-g++ -o "MPPT_Solar_Charge_Official.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\PROJECT_MPPT\MPPT_Solar_Chagre_Controller\MPPT_Solar_Charge_Official\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MPPT_Solar_Charge_Official.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MPPT_Solar_Charge_Official.elf
+ 
+arm-none-eabi-size   MPPT_Solar_Charge_Official.elf 
+arm-none-eabi-objdump -h -S  MPPT_Solar_Charge_Official.elf  > "MPPT_Solar_Charge_Official.list"
+arm-none-eabi-objcopy  -O binary  MPPT_Solar_Charge_Official.elf  "MPPT_Solar_Charge_Official.bin"
+   text	   data	    bss	    dec	    hex	filename
+  47708	    492	   3452	  51652	   c9c4	MPPT_Solar_Charge_Official.elf
+Finished building: default.size.stdout
+ 
+Finished building: MPPT_Solar_Charge_Official.bin
+Finished building: MPPT_Solar_Charge_Official.list
+ 
+ 
+
+23:05:45 Build Finished. 0 errors, 0 warnings. (took 902ms)
+

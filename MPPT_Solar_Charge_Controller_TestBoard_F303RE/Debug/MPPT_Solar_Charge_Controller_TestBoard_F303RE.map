@@ -407,6 +407,7 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./Application/ChargeControl.o
  .group         0x0000000000000000        0xc ./Application/ChargeControl.o
  .group         0x0000000000000000        0xc ./Application/ChargeControl.o
+ .group         0x0000000000000000        0xc ./Application/ChargeControl.o
  .text          0x0000000000000000        0x0 ./Application/ChargeControl.o
  .data          0x0000000000000000        0x0 ./Application/ChargeControl.o
  .bss           0x0000000000000000        0x0 ./Application/ChargeControl.o
@@ -671,6 +672,7 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./Application/DeviceProtection.o
  .group         0x0000000000000000        0xc ./Application/DeviceProtection.o
  .group         0x0000000000000000        0xc ./Application/DeviceProtection.o
+ .group         0x0000000000000000        0xc ./Application/DeviceProtection.o
  .text          0x0000000000000000        0x0 ./Application/DeviceProtection.o
  .data          0x0000000000000000        0x0 ./Application/DeviceProtection.o
  .bss           0x0000000000000000        0x0 ./Application/DeviceProtection.o
@@ -766,6 +768,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x347 ./Application/DeviceProtection.o
  .debug_macro   0x0000000000000000       0xa0 ./Application/DeviceProtection.o
  .debug_macro   0x0000000000000000       0x22 ./Application/DeviceProtection.o
+ .debug_macro   0x0000000000000000       0x10 ./Application/DeviceProtection.o
  .debug_macro   0x0000000000000000       0x1c ./Application/DeviceProtection.o
  .debug_macro   0x0000000000000000       0x18 ./Application/DeviceProtection.o
  .debug_macro   0x0000000000000000       0x4f ./Application/DeviceProtection.o
@@ -817,6 +820,7 @@ Discarded input sections
  .group         0x0000000000000000        0x8 ./Application/SerialMonitor.o
  .group         0x0000000000000000        0x8 ./Application/SerialMonitor.o
  .group         0x0000000000000000        0x8 ./Application/SerialMonitor.o
+ .group         0x0000000000000000        0xc ./Application/SerialMonitor.o
  .group         0x0000000000000000        0xc ./Application/SerialMonitor.o
  .group         0x0000000000000000        0xc ./Application/SerialMonitor.o
  .group         0x0000000000000000        0xc ./Application/SerialMonitor.o
@@ -1052,6 +1056,8 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x347 ./Application/SerialMonitor.o
  .debug_macro   0x0000000000000000       0xa0 ./Application/SerialMonitor.o
  .debug_macro   0x0000000000000000       0x22 ./Application/SerialMonitor.o
+ .debug_macro   0x0000000000000000       0x10 ./Application/SerialMonitor.o
+ .group         0x0000000000000000        0xc ./Application/SystemManager.o
  .group         0x0000000000000000        0xc ./Application/SystemManager.o
  .group         0x0000000000000000        0xc ./Application/SystemManager.o
  .group         0x0000000000000000        0xc ./Application/SystemManager.o
@@ -1171,7 +1177,7 @@ Discarded input sections
                 0x0000000000000000       0x20 ./Application/SystemManager.o
  .debug_rnglists
                 0x0000000000000000       0x13 ./Application/SystemManager.o
- .debug_macro   0x0000000000000000      0x695 ./Application/SystemManager.o
+ .debug_macro   0x0000000000000000      0x694 ./Application/SystemManager.o
  .debug_macro   0x0000000000000000      0xb80 ./Application/SystemManager.o
  .debug_macro   0x0000000000000000      0x1b2 ./Application/SystemManager.o
  .debug_macro   0x0000000000000000       0x10 ./Application/SystemManager.o
@@ -1278,8 +1284,9 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x347 ./Application/SystemManager.o
  .debug_macro   0x0000000000000000       0xa0 ./Application/SystemManager.o
  .debug_macro   0x0000000000000000       0x22 ./Application/SystemManager.o
+ .debug_macro   0x0000000000000000       0x10 ./Application/SystemManager.o
  .debug_line    0x0000000000000000     0x161d ./Application/SystemManager.o
- .debug_str     0x0000000000000000    0xd3ae4 ./Application/SystemManager.o
+ .debug_str     0x0000000000000000    0xd3aea ./Application/SystemManager.o
  .comment       0x0000000000000000       0x44 ./Application/SystemManager.o
  .debug_frame   0x0000000000000000       0x38 ./Application/SystemManager.o
  .ARM.attributes
@@ -1363,6 +1370,7 @@ Discarded input sections
  .group         0x0000000000000000        0x8 ./Core/Src/main.o
  .group         0x0000000000000000        0x8 ./Core/Src/main.o
  .group         0x0000000000000000        0x8 ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
@@ -1636,6 +1644,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./Core/Src/main.o
  .debug_macro   0x0000000000000000      0x242 ./Core/Src/main.o
  .debug_macro   0x0000000000000000       0x11 ./Core/Src/main.o
+ .debug_macro   0x0000000000000000       0x10 ./Core/Src/main.o
  .group         0x0000000000000000        0xc ./Core/Src/stm32f3xx_hal_msp.o
  .group         0x0000000000000000        0xc ./Core/Src/stm32f3xx_hal_msp.o
  .group         0x0000000000000000        0xc ./Core/Src/stm32f3xx_hal_msp.o
@@ -4846,6 +4855,7 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./MyDriver/Button.o
  .group         0x0000000000000000        0xc ./MyDriver/Button.o
  .group         0x0000000000000000        0xc ./MyDriver/Button.o
+ .group         0x0000000000000000        0xc ./MyDriver/Button.o
  .text          0x0000000000000000        0x0 ./MyDriver/Button.o
  .data          0x0000000000000000        0x0 ./MyDriver/Button.o
  .bss           0x0000000000000000        0x0 ./MyDriver/Button.o
@@ -4918,6 +4928,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./MyDriver/Button.o
  .debug_macro   0x0000000000000000      0x242 ./MyDriver/Button.o
  .debug_macro   0x0000000000000000       0x11 ./MyDriver/Button.o
+ .debug_macro   0x0000000000000000       0x10 ./MyDriver/Button.o
  .debug_macro   0x0000000000000000       0x16 ./MyDriver/Button.o
  .debug_macro   0x0000000000000000       0x20 ./MyDriver/Button.o
  .debug_macro   0x0000000000000000       0x8e ./MyDriver/Button.o
@@ -7589,183 +7600,184 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x00000000000012df       0x77 ./MyDriver/Lcd.o
 
-.debug_macro    0x0000000000000000    0x29607
- .debug_macro   0x0000000000000000      0x698 ./Application/Analog.o
- .debug_macro   0x0000000000000698      0xb80 ./Application/Analog.o
- .debug_macro   0x0000000000001218      0x1b2 ./Application/Analog.o
- .debug_macro   0x00000000000013ca       0x10 ./Application/Analog.o
- .debug_macro   0x00000000000013da      0x3ed ./Application/Analog.o
- .debug_macro   0x00000000000017c7       0x1c ./Application/Analog.o
- .debug_macro   0x00000000000017e3       0x18 ./Application/Analog.o
- .debug_macro   0x00000000000017fb       0x4f ./Application/Analog.o
- .debug_macro   0x000000000000184a       0x41 ./Application/Analog.o
- .debug_macro   0x000000000000188b       0x19 ./Application/Analog.o
- .debug_macro   0x00000000000018a4       0x28 ./Application/Analog.o
- .debug_macro   0x00000000000018cc       0x2e ./Application/Analog.o
- .debug_macro   0x00000000000018fa       0x19 ./Application/Analog.o
- .debug_macro   0x0000000000001913       0x88 ./Application/Analog.o
- .debug_macro   0x000000000000199b       0x19 ./Application/Analog.o
- .debug_macro   0x00000000000019b4       0x22 ./Application/Analog.o
- .debug_macro   0x00000000000019d6       0x5b ./Application/Analog.o
- .debug_macro   0x0000000000001a31       0x2a ./Application/Analog.o
- .debug_macro   0x0000000000001a5b       0x94 ./Application/Analog.o
- .debug_macro   0x0000000000001aef       0x43 ./Application/Analog.o
- .debug_macro   0x0000000000001b32       0x34 ./Application/Analog.o
- .debug_macro   0x0000000000001b66      0x17b ./Application/Analog.o
- .debug_macro   0x0000000000001ce1       0x16 ./Application/Analog.o
- .debug_macro   0x0000000000001cf7       0x43 ./Application/Analog.o
- .debug_macro   0x0000000000001d3a       0x57 ./Application/Analog.o
- .debug_macro   0x0000000000001d91       0x34 ./Application/Analog.o
- .debug_macro   0x0000000000001dc5       0x10 ./Application/Analog.o
- .debug_macro   0x0000000000001dd5       0x58 ./Application/Analog.o
- .debug_macro   0x0000000000001e2d       0x8e ./Application/Analog.o
- .debug_macro   0x0000000000001ebb       0x16 ./Application/Analog.o
- .debug_macro   0x0000000000001ed1      0x177 ./Application/Analog.o
- .debug_macro   0x0000000000002048       0x1c ./Application/Analog.o
- .debug_macro   0x0000000000002064       0x3c ./Application/Analog.o
- .debug_macro   0x00000000000020a0      0x38c ./Application/Analog.o
- .debug_macro   0x000000000000242c       0x10 ./Application/Analog.o
- .debug_macro   0x000000000000243c       0x1c ./Application/Analog.o
- .debug_macro   0x0000000000002458       0x33 ./Application/Analog.o
- .debug_macro   0x000000000000248b      0x173 ./Application/Analog.o
- .debug_macro   0x00000000000025fe       0x1c ./Application/Analog.o
- .debug_macro   0x000000000000261a      0x103 ./Application/Analog.o
- .debug_macro   0x000000000000271d       0x6a ./Application/Analog.o
- .debug_macro   0x0000000000002787      0x1d1 ./Application/Analog.o
- .debug_macro   0x0000000000002958       0x11 ./Application/Analog.o
- .debug_macro   0x0000000000002969       0x10 ./Application/Analog.o
- .debug_macro   0x0000000000002979       0x35 ./Application/Analog.o
- .debug_macro   0x00000000000029ae       0x5e ./Application/Analog.o
- .debug_macro   0x0000000000002a0c       0x16 ./Application/Analog.o
- .debug_macro   0x0000000000002a22       0x52 ./Application/Analog.o
- .debug_macro   0x0000000000002a74       0x5e ./Application/Analog.o
- .debug_macro   0x0000000000002ad2       0x11 ./Application/Analog.o
- .debug_macro   0x0000000000002ae3       0x11 ./Application/Analog.o
- .debug_macro   0x0000000000002af4       0x2f ./Application/Analog.o
- .debug_macro   0x0000000000002b23       0x16 ./Application/Analog.o
- .debug_macro   0x0000000000002b39       0x10 ./Application/Analog.o
- .debug_macro   0x0000000000002b49       0x16 ./Application/Analog.o
- .debug_macro   0x0000000000002b5f       0x16 ./Application/Analog.o
- .debug_macro   0x0000000000002b75       0x29 ./Application/Analog.o
- .debug_macro   0x0000000000002b9e       0x1c ./Application/Analog.o
- .debug_macro   0x0000000000002bba       0xde ./Application/Analog.o
- .debug_macro   0x0000000000002c98       0x1c ./Application/Analog.o
- .debug_macro   0x0000000000002cb4       0x10 ./Application/Analog.o
- .debug_macro   0x0000000000002cc4       0x16 ./Application/Analog.o
- .debug_macro   0x0000000000002cda      0x132 ./Application/Analog.o
- .debug_macro   0x0000000000002e0c      0x11d ./Application/Analog.o
- .debug_macro   0x0000000000002f29       0x10 ./Application/Analog.o
- .debug_macro   0x0000000000002f39      0x242 ./Application/Analog.o
- .debug_macro   0x000000000000317b       0x11 ./Application/Analog.o
- .debug_macro   0x000000000000318c       0x16 ./Application/Analog.o
- .debug_macro   0x00000000000031a2       0x20 ./Application/Analog.o
- .debug_macro   0x00000000000031c2       0x8e ./Application/Analog.o
- .debug_macro   0x0000000000003250      0x15d ./Application/Analog.o
- .debug_macro   0x00000000000033ad       0x2e ./Application/Analog.o
- .debug_macro   0x00000000000033db       0x28 ./Application/Analog.o
- .debug_macro   0x0000000000003403       0x1c ./Application/Analog.o
- .debug_macro   0x000000000000341f       0x22 ./Application/Analog.o
- .debug_macro   0x0000000000003441       0xd9 ./Application/Analog.o
- .debug_macro   0x000000000000351a     0x102d ./Application/Analog.o
- .debug_macro   0x0000000000004547      0x11f ./Application/Analog.o
- .debug_macro   0x0000000000004666    0x1535a ./Application/Analog.o
- .debug_macro   0x00000000000199c0       0x6d ./Application/Analog.o
- .debug_macro   0x0000000000019a2d     0x3558 ./Application/Analog.o
- .debug_macro   0x000000000001cf85       0x4f ./Application/Analog.o
- .debug_macro   0x000000000001cfd4      0x953 ./Application/Analog.o
- .debug_macro   0x000000000001d927      0x84a ./Application/Analog.o
- .debug_macro   0x000000000001e171      0x1b5 ./Application/Analog.o
- .debug_macro   0x000000000001e326      0x23a ./Application/Analog.o
- .debug_macro   0x000000000001e560      0x1ea ./Application/Analog.o
- .debug_macro   0x000000000001e74a      0x1bc ./Application/Analog.o
- .debug_macro   0x000000000001e906       0x30 ./Application/Analog.o
- .debug_macro   0x000000000001e936       0x3c ./Application/Analog.o
- .debug_macro   0x000000000001e972      0x235 ./Application/Analog.o
- .debug_macro   0x000000000001eba7      0x9fe ./Application/Analog.o
- .debug_macro   0x000000000001f5a5       0x77 ./Application/Analog.o
- .debug_macro   0x000000000001f61c       0xc5 ./Application/Analog.o
- .debug_macro   0x000000000001f6e1      0x21d ./Application/Analog.o
- .debug_macro   0x000000000001f8fe      0x22c ./Application/Analog.o
- .debug_macro   0x000000000001fb2a       0x5b ./Application/Analog.o
- .debug_macro   0x000000000001fb85       0xa5 ./Application/Analog.o
- .debug_macro   0x000000000001fc2a       0x81 ./Application/Analog.o
- .debug_macro   0x000000000001fcab       0xd3 ./Application/Analog.o
- .debug_macro   0x000000000001fd7e      0xa59 ./Application/Analog.o
- .debug_macro   0x00000000000207d7       0xba ./Application/Analog.o
- .debug_macro   0x0000000000020891      0x5ba ./Application/Analog.o
- .debug_macro   0x0000000000020e4b       0x44 ./Application/Analog.o
- .debug_macro   0x0000000000020e8f      0x347 ./Application/Analog.o
- .debug_macro   0x00000000000211d6       0xa0 ./Application/Analog.o
- .debug_macro   0x0000000000021276       0x22 ./Application/Analog.o
- .debug_macro   0x0000000000021298      0x194 ./Application/Analog.o
- .debug_macro   0x000000000002142c      0x3cd ./Application/Analog.o
- .debug_macro   0x00000000000217f9      0x68a ./Application/ChargeControl.o
- .debug_macro   0x0000000000021e83      0x690 ./Application/DeviceProtection.o
- .debug_macro   0x0000000000022513       0x8e ./Application/DeviceProtection.o
- .debug_macro   0x00000000000225a1       0x51 ./Application/DeviceProtection.o
- .debug_macro   0x00000000000225f2      0x1df ./Application/DeviceProtection.o
- .debug_macro   0x00000000000227d1       0x61 ./Application/DeviceProtection.o
- .debug_macro   0x0000000000022832       0x16 ./Application/DeviceProtection.o
- .debug_macro   0x0000000000022848       0x97 ./Application/DeviceProtection.o
- .debug_macro   0x00000000000228df      0x104 ./Application/DeviceProtection.o
- .debug_macro   0x00000000000229e3       0x16 ./Application/DeviceProtection.o
- .debug_macro   0x00000000000229f9      0x139 ./Application/DeviceProtection.o
- .debug_macro   0x0000000000022b32       0x22 ./Application/DeviceProtection.o
- .debug_macro   0x0000000000022b54       0x2c ./Application/DeviceProtection.o
- .debug_macro   0x0000000000022b80      0x6b1 ./Application/SerialMonitor.o
- .debug_macro   0x0000000000023231      0x6dc ./Core/Src/main.o
- .debug_macro   0x000000000002390d       0x55 ./Core/Src/main.o
- .debug_macro   0x0000000000023962       0xca ./Core/Src/main.o
- .debug_macro   0x0000000000023a2c      0x1ff ./Core/Src/stm32f3xx_hal_msp.o
- .debug_macro   0x0000000000023c2b      0xaa8 ./Core/Src/stm32f3xx_hal_msp.o
- .debug_macro   0x00000000000246d3     0x102d ./Core/Src/stm32f3xx_hal_msp.o
- .debug_macro   0x0000000000025700      0x174 ./Core/Src/stm32f3xx_hal_msp.o
- .debug_macro   0x0000000000025874      0x209 ./Core/Src/stm32f3xx_it.o
- .debug_macro   0x0000000000025a7d      0x274 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000025cf1       0x34 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000025d25      0x369 ./Core/Src/syscalls.o
- .debug_macro   0x000000000002608e       0x43 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000260d1       0x1c ./Core/Src/syscalls.o
- .debug_macro   0x00000000000260ed       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000260fd       0x35 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000026132       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000026142       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000026152       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000026162       0x1c ./Core/Src/syscalls.o
- .debug_macro   0x000000000002617e       0x52 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000261d0       0x22 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000261f2       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000026202       0x52 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000026254       0xcf ./Core/Src/syscalls.o
- .debug_macro   0x0000000000026323       0x1c ./Core/Src/syscalls.o
- .debug_macro   0x000000000002633f       0x3d ./Core/Src/syscalls.o
- .debug_macro   0x000000000002637c       0x35 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000263b1      0x12c ./Core/Src/syscalls.o
- .debug_macro   0x00000000000264dd       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000264ed      0x147 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000026634      0x18a ./Core/Src/syscalls.o
- .debug_macro   0x00000000000267be       0x16 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000267d4       0xce ./Core/Src/syscalls.o
- .debug_macro   0x00000000000268a2       0xff ./Core/Src/sysmem.o
- .debug_macro   0x00000000000269a1      0x23c ./Core/Src/sysmem.o
- .debug_macro   0x0000000000026bdd      0x1f0 ./Core/Src/system_stm32f3xx.o
- .debug_macro   0x0000000000026dcd      0x214 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
- .debug_macro   0x0000000000026fe1      0x1f1 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
- .debug_macro   0x00000000000271d2      0x21a ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
- .debug_macro   0x00000000000273ec      0x1f0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
- .debug_macro   0x00000000000275dc      0x1f0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
- .debug_macro   0x00000000000277cc      0x1f7 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o
- .debug_macro   0x00000000000279c3      0x2bc ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.o
- .debug_macro   0x0000000000027c7f      0x1f0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.o
- .debug_macro   0x0000000000027e6f      0x214 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
- .debug_macro   0x0000000000028083      0x1f0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
- .debug_macro   0x0000000000028273      0x1f1 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.o
- .debug_macro   0x0000000000028464      0x1f0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.o
- .debug_macro   0x0000000000028654      0x20d ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
- .debug_macro   0x0000000000028861      0x6d3 ./MyDriver/Button.o
- .debug_macro   0x0000000000028f34       0x10 ./MyDriver/Button.o
- .debug_macro   0x0000000000028f44      0x369 ./MyDriver/Lcd.o
- .debug_macro   0x00000000000292ad      0x35a ./MyDriver/Log.o
+.debug_macro    0x0000000000000000    0x29618
+ .debug_macro   0x0000000000000000      0x69e ./Application/Analog.o
+ .debug_macro   0x000000000000069e      0xb80 ./Application/Analog.o
+ .debug_macro   0x000000000000121e      0x1b2 ./Application/Analog.o
+ .debug_macro   0x00000000000013d0       0x10 ./Application/Analog.o
+ .debug_macro   0x00000000000013e0      0x3ed ./Application/Analog.o
+ .debug_macro   0x00000000000017cd       0x1c ./Application/Analog.o
+ .debug_macro   0x00000000000017e9       0x18 ./Application/Analog.o
+ .debug_macro   0x0000000000001801       0x4f ./Application/Analog.o
+ .debug_macro   0x0000000000001850       0x41 ./Application/Analog.o
+ .debug_macro   0x0000000000001891       0x19 ./Application/Analog.o
+ .debug_macro   0x00000000000018aa       0x28 ./Application/Analog.o
+ .debug_macro   0x00000000000018d2       0x2e ./Application/Analog.o
+ .debug_macro   0x0000000000001900       0x19 ./Application/Analog.o
+ .debug_macro   0x0000000000001919       0x88 ./Application/Analog.o
+ .debug_macro   0x00000000000019a1       0x19 ./Application/Analog.o
+ .debug_macro   0x00000000000019ba       0x22 ./Application/Analog.o
+ .debug_macro   0x00000000000019dc       0x5b ./Application/Analog.o
+ .debug_macro   0x0000000000001a37       0x2a ./Application/Analog.o
+ .debug_macro   0x0000000000001a61       0x94 ./Application/Analog.o
+ .debug_macro   0x0000000000001af5       0x43 ./Application/Analog.o
+ .debug_macro   0x0000000000001b38       0x34 ./Application/Analog.o
+ .debug_macro   0x0000000000001b6c      0x17b ./Application/Analog.o
+ .debug_macro   0x0000000000001ce7       0x16 ./Application/Analog.o
+ .debug_macro   0x0000000000001cfd       0x43 ./Application/Analog.o
+ .debug_macro   0x0000000000001d40       0x57 ./Application/Analog.o
+ .debug_macro   0x0000000000001d97       0x34 ./Application/Analog.o
+ .debug_macro   0x0000000000001dcb       0x10 ./Application/Analog.o
+ .debug_macro   0x0000000000001ddb       0x58 ./Application/Analog.o
+ .debug_macro   0x0000000000001e33       0x8e ./Application/Analog.o
+ .debug_macro   0x0000000000001ec1       0x16 ./Application/Analog.o
+ .debug_macro   0x0000000000001ed7      0x177 ./Application/Analog.o
+ .debug_macro   0x000000000000204e       0x1c ./Application/Analog.o
+ .debug_macro   0x000000000000206a       0x3c ./Application/Analog.o
+ .debug_macro   0x00000000000020a6      0x38c ./Application/Analog.o
+ .debug_macro   0x0000000000002432       0x10 ./Application/Analog.o
+ .debug_macro   0x0000000000002442       0x1c ./Application/Analog.o
+ .debug_macro   0x000000000000245e       0x33 ./Application/Analog.o
+ .debug_macro   0x0000000000002491      0x173 ./Application/Analog.o
+ .debug_macro   0x0000000000002604       0x1c ./Application/Analog.o
+ .debug_macro   0x0000000000002620      0x103 ./Application/Analog.o
+ .debug_macro   0x0000000000002723       0x6a ./Application/Analog.o
+ .debug_macro   0x000000000000278d      0x1d1 ./Application/Analog.o
+ .debug_macro   0x000000000000295e       0x11 ./Application/Analog.o
+ .debug_macro   0x000000000000296f       0x10 ./Application/Analog.o
+ .debug_macro   0x000000000000297f       0x35 ./Application/Analog.o
+ .debug_macro   0x00000000000029b4       0x5e ./Application/Analog.o
+ .debug_macro   0x0000000000002a12       0x16 ./Application/Analog.o
+ .debug_macro   0x0000000000002a28       0x52 ./Application/Analog.o
+ .debug_macro   0x0000000000002a7a       0x5e ./Application/Analog.o
+ .debug_macro   0x0000000000002ad8       0x11 ./Application/Analog.o
+ .debug_macro   0x0000000000002ae9       0x11 ./Application/Analog.o
+ .debug_macro   0x0000000000002afa       0x2f ./Application/Analog.o
+ .debug_macro   0x0000000000002b29       0x16 ./Application/Analog.o
+ .debug_macro   0x0000000000002b3f       0x10 ./Application/Analog.o
+ .debug_macro   0x0000000000002b4f       0x16 ./Application/Analog.o
+ .debug_macro   0x0000000000002b65       0x16 ./Application/Analog.o
+ .debug_macro   0x0000000000002b7b       0x29 ./Application/Analog.o
+ .debug_macro   0x0000000000002ba4       0x1c ./Application/Analog.o
+ .debug_macro   0x0000000000002bc0       0xde ./Application/Analog.o
+ .debug_macro   0x0000000000002c9e       0x1c ./Application/Analog.o
+ .debug_macro   0x0000000000002cba       0x10 ./Application/Analog.o
+ .debug_macro   0x0000000000002cca       0x16 ./Application/Analog.o
+ .debug_macro   0x0000000000002ce0      0x132 ./Application/Analog.o
+ .debug_macro   0x0000000000002e12      0x11d ./Application/Analog.o
+ .debug_macro   0x0000000000002f2f       0x10 ./Application/Analog.o
+ .debug_macro   0x0000000000002f3f      0x242 ./Application/Analog.o
+ .debug_macro   0x0000000000003181       0x11 ./Application/Analog.o
+ .debug_macro   0x0000000000003192       0x16 ./Application/Analog.o
+ .debug_macro   0x00000000000031a8       0x20 ./Application/Analog.o
+ .debug_macro   0x00000000000031c8       0x8e ./Application/Analog.o
+ .debug_macro   0x0000000000003256      0x15d ./Application/Analog.o
+ .debug_macro   0x00000000000033b3       0x2e ./Application/Analog.o
+ .debug_macro   0x00000000000033e1       0x28 ./Application/Analog.o
+ .debug_macro   0x0000000000003409       0x1c ./Application/Analog.o
+ .debug_macro   0x0000000000003425       0x22 ./Application/Analog.o
+ .debug_macro   0x0000000000003447       0xd9 ./Application/Analog.o
+ .debug_macro   0x0000000000003520     0x102d ./Application/Analog.o
+ .debug_macro   0x000000000000454d      0x11f ./Application/Analog.o
+ .debug_macro   0x000000000000466c    0x1535a ./Application/Analog.o
+ .debug_macro   0x00000000000199c6       0x6d ./Application/Analog.o
+ .debug_macro   0x0000000000019a33     0x3558 ./Application/Analog.o
+ .debug_macro   0x000000000001cf8b       0x4f ./Application/Analog.o
+ .debug_macro   0x000000000001cfda      0x953 ./Application/Analog.o
+ .debug_macro   0x000000000001d92d      0x84a ./Application/Analog.o
+ .debug_macro   0x000000000001e177      0x1b5 ./Application/Analog.o
+ .debug_macro   0x000000000001e32c      0x23a ./Application/Analog.o
+ .debug_macro   0x000000000001e566      0x1ea ./Application/Analog.o
+ .debug_macro   0x000000000001e750      0x1bc ./Application/Analog.o
+ .debug_macro   0x000000000001e90c       0x30 ./Application/Analog.o
+ .debug_macro   0x000000000001e93c       0x3c ./Application/Analog.o
+ .debug_macro   0x000000000001e978      0x235 ./Application/Analog.o
+ .debug_macro   0x000000000001ebad      0x9fe ./Application/Analog.o
+ .debug_macro   0x000000000001f5ab       0x77 ./Application/Analog.o
+ .debug_macro   0x000000000001f622       0xc5 ./Application/Analog.o
+ .debug_macro   0x000000000001f6e7      0x21d ./Application/Analog.o
+ .debug_macro   0x000000000001f904      0x22c ./Application/Analog.o
+ .debug_macro   0x000000000001fb30       0x5b ./Application/Analog.o
+ .debug_macro   0x000000000001fb8b       0xa5 ./Application/Analog.o
+ .debug_macro   0x000000000001fc30       0x81 ./Application/Analog.o
+ .debug_macro   0x000000000001fcb1       0xd3 ./Application/Analog.o
+ .debug_macro   0x000000000001fd84      0xa59 ./Application/Analog.o
+ .debug_macro   0x00000000000207dd       0xba ./Application/Analog.o
+ .debug_macro   0x0000000000020897      0x5ba ./Application/Analog.o
+ .debug_macro   0x0000000000020e51       0x44 ./Application/Analog.o
+ .debug_macro   0x0000000000020e95      0x347 ./Application/Analog.o
+ .debug_macro   0x00000000000211dc       0xa0 ./Application/Analog.o
+ .debug_macro   0x000000000002127c       0x22 ./Application/Analog.o
+ .debug_macro   0x000000000002129e      0x194 ./Application/Analog.o
+ .debug_macro   0x0000000000021432      0x3cd ./Application/Analog.o
+ .debug_macro   0x00000000000217ff      0x689 ./Application/ChargeControl.o
+ .debug_macro   0x0000000000021e88       0x10 ./Application/ChargeControl.o
+ .debug_macro   0x0000000000021e98      0x68f ./Application/DeviceProtection.o
+ .debug_macro   0x0000000000022527       0x8e ./Application/DeviceProtection.o
+ .debug_macro   0x00000000000225b5       0x51 ./Application/DeviceProtection.o
+ .debug_macro   0x0000000000022606      0x1df ./Application/DeviceProtection.o
+ .debug_macro   0x00000000000227e5       0x61 ./Application/DeviceProtection.o
+ .debug_macro   0x0000000000022846       0x16 ./Application/DeviceProtection.o
+ .debug_macro   0x000000000002285c       0x97 ./Application/DeviceProtection.o
+ .debug_macro   0x00000000000228f3      0x104 ./Application/DeviceProtection.o
+ .debug_macro   0x00000000000229f7       0x16 ./Application/DeviceProtection.o
+ .debug_macro   0x0000000000022a0d      0x139 ./Application/DeviceProtection.o
+ .debug_macro   0x0000000000022b46       0x22 ./Application/DeviceProtection.o
+ .debug_macro   0x0000000000022b68       0x2c ./Application/DeviceProtection.o
+ .debug_macro   0x0000000000022b94      0x6b0 ./Application/SerialMonitor.o
+ .debug_macro   0x0000000000023244      0x6db ./Core/Src/main.o
+ .debug_macro   0x000000000002391f       0x55 ./Core/Src/main.o
+ .debug_macro   0x0000000000023974       0xca ./Core/Src/main.o
+ .debug_macro   0x0000000000023a3e      0x1ff ./Core/Src/stm32f3xx_hal_msp.o
+ .debug_macro   0x0000000000023c3d      0xaa8 ./Core/Src/stm32f3xx_hal_msp.o
+ .debug_macro   0x00000000000246e5     0x102d ./Core/Src/stm32f3xx_hal_msp.o
+ .debug_macro   0x0000000000025712      0x174 ./Core/Src/stm32f3xx_hal_msp.o
+ .debug_macro   0x0000000000025886      0x209 ./Core/Src/stm32f3xx_it.o
+ .debug_macro   0x0000000000025a8f      0x274 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000025d03       0x34 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000025d37      0x369 ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000260a0       0x43 ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000260e3       0x1c ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000260ff       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x000000000002610f       0x35 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000026144       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000026154       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000026164       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000026174       0x1c ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000026190       0x52 ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000261e2       0x22 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000026204       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000026214       0x52 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000026266       0xcf ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000026335       0x1c ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000026351       0x3d ./Core/Src/syscalls.o
+ .debug_macro   0x000000000002638e       0x35 ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000263c3      0x12c ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000264ef       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000264ff      0x147 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000026646      0x18a ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000267d0       0x16 ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000267e6       0xce ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000268b4       0xff ./Core/Src/sysmem.o
+ .debug_macro   0x00000000000269b3      0x23c ./Core/Src/sysmem.o
+ .debug_macro   0x0000000000026bef      0x1f0 ./Core/Src/system_stm32f3xx.o
+ .debug_macro   0x0000000000026ddf      0x214 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
+ .debug_macro   0x0000000000026ff3      0x1f1 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
+ .debug_macro   0x00000000000271e4      0x21a ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+ .debug_macro   0x00000000000273fe      0x1f0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
+ .debug_macro   0x00000000000275ee      0x1f0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
+ .debug_macro   0x00000000000277de      0x1f7 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o
+ .debug_macro   0x00000000000279d5      0x2bc ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.o
+ .debug_macro   0x0000000000027c91      0x1f0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.o
+ .debug_macro   0x0000000000027e81      0x214 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
+ .debug_macro   0x0000000000028095      0x1f0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
+ .debug_macro   0x0000000000028285      0x1f1 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.o
+ .debug_macro   0x0000000000028476      0x1f0 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.o
+ .debug_macro   0x0000000000028666      0x20d ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
+ .debug_macro   0x0000000000028873      0x6d2 ./MyDriver/Button.o
+ .debug_macro   0x0000000000028f45       0x10 ./MyDriver/Button.o
+ .debug_macro   0x0000000000028f55      0x369 ./MyDriver/Lcd.o
+ .debug_macro   0x00000000000292be      0x35a ./MyDriver/Log.o
 
 .debug_line     0x0000000000000000    0x23dff
  .debug_line    0x0000000000000000     0x198c ./Application/Analog.o
@@ -7796,60 +7808,60 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x0000000000022422      0xe7d ./MyDriver/Lcd.o
  .debug_line    0x000000000002329f      0xb60 ./MyDriver/Log.o
 
-.debug_str      0x0000000000000000    0xe3a22
- .debug_str     0x0000000000000000    0xd96ff ./Application/Analog.o
-                                      0xda439 (size before relaxing)
- .debug_str     0x00000000000d96ff      0xf33 ./Application/ChargeControl.o
-                                      0xd5501 (size before relaxing)
- .debug_str     0x00000000000da632      0x3ef ./Application/DeviceProtection.o
-                                      0xd9473 (size before relaxing)
- .debug_str     0x00000000000daa21      0x90f ./Application/SerialMonitor.o
-                                      0xd4cf2 (size before relaxing)
- .debug_str     0x00000000000db330     0x1fa8 ./Core/Src/main.o
-                                      0xdc676 (size before relaxing)
- .debug_str     0x00000000000dd2d8      0x314 ./Core/Src/stm32f3xx_hal_msp.o
+.debug_str      0x0000000000000000    0xe3a28
+ .debug_str     0x0000000000000000    0xd9705 ./Application/Analog.o
+                                      0xda43f (size before relaxing)
+ .debug_str     0x00000000000d9705      0xf33 ./Application/ChargeControl.o
+                                      0xd5507 (size before relaxing)
+ .debug_str     0x00000000000da638      0x3ef ./Application/DeviceProtection.o
+                                      0xd9479 (size before relaxing)
+ .debug_str     0x00000000000daa27      0x90f ./Application/SerialMonitor.o
+                                      0xd4cf8 (size before relaxing)
+ .debug_str     0x00000000000db336     0x1fa8 ./Core/Src/main.o
+                                      0xdc67c (size before relaxing)
+ .debug_str     0x00000000000dd2de      0x314 ./Core/Src/stm32f3xx_hal_msp.o
                                       0xccae7 (size before relaxing)
- .debug_str     0x00000000000dd5ec      0x179 ./Core/Src/stm32f3xx_it.o
+ .debug_str     0x00000000000dd5f2      0x179 ./Core/Src/stm32f3xx_it.o
                                       0xcbe11 (size before relaxing)
- .debug_str     0x00000000000dd765     0x1ca4 ./Core/Src/syscalls.o
+ .debug_str     0x00000000000dd76b     0x1ca4 ./Core/Src/syscalls.o
                                        0x98cc (size before relaxing)
- .debug_str     0x00000000000df409       0x6b ./Core/Src/sysmem.o
+ .debug_str     0x00000000000df40f       0x6b ./Core/Src/sysmem.o
                                        0x6083 (size before relaxing)
- .debug_str     0x00000000000df474       0xdf ./Core/Src/system_stm32f3xx.o
+ .debug_str     0x00000000000df47a       0xdf ./Core/Src/system_stm32f3xx.o
                                       0xcb644 (size before relaxing)
- .debug_str     0x00000000000df553       0x34 ./Core/Startup/startup_stm32f303retx.o
+ .debug_str     0x00000000000df559       0x34 ./Core/Startup/startup_stm32f303retx.o
                                          0x95 (size before relaxing)
- .debug_str     0x00000000000df587      0x392 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
+ .debug_str     0x00000000000df58d      0x392 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
                                       0xcbeed (size before relaxing)
- .debug_str     0x00000000000df919      0x1c1 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
+ .debug_str     0x00000000000df91f      0x1c1 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc.o
                                       0xcbc31 (size before relaxing)
- .debug_str     0x00000000000dfada      0x6c8 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
+ .debug_str     0x00000000000dfae0      0x6c8 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
                                       0xcc34a (size before relaxing)
- .debug_str     0x00000000000e01a2      0x316 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
+ .debug_str     0x00000000000e01a8      0x316 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
                                       0xcbf3f (size before relaxing)
- .debug_str     0x00000000000e04b8      0x1fa ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
+ .debug_str     0x00000000000e04be      0x1fa ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o
                                       0xcb98c (size before relaxing)
- .debug_str     0x00000000000e06b2       0xe3 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o
+ .debug_str     0x00000000000e06b8       0xe3 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o
                                       0xcb829 (size before relaxing)
- .debug_str     0x00000000000e0795      0xe22 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.o
+ .debug_str     0x00000000000e079b      0xe22 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.o
                                       0xcc947 (size before relaxing)
- .debug_str     0x00000000000e15b7       0xb8 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.o
+ .debug_str     0x00000000000e15bd       0xb8 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.o
                                       0xcbbf1 (size before relaxing)
- .debug_str     0x00000000000e166f      0x2ab ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
+ .debug_str     0x00000000000e1675      0x2ab ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o
                                       0xcbae8 (size before relaxing)
- .debug_str     0x00000000000e191a       0xb4 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
+ .debug_str     0x00000000000e1920       0xb4 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
                                       0xcb932 (size before relaxing)
- .debug_str     0x00000000000e19ce      0xd6e ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.o
+ .debug_str     0x00000000000e19d4      0xd6e ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.o
                                       0xcca6b (size before relaxing)
- .debug_str     0x00000000000e273c      0x4dc ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.o
+ .debug_str     0x00000000000e2742      0x4dc ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.o
                                       0xcc2c1 (size before relaxing)
- .debug_str     0x00000000000e2c18      0x84e ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
+ .debug_str     0x00000000000e2c1e      0x84e ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
                                       0xcc367 (size before relaxing)
- .debug_str     0x00000000000e3466      0x229 ./MyDriver/Button.o
-                                      0xd4198 (size before relaxing)
- .debug_str     0x00000000000e368f      0x338 ./MyDriver/Lcd.o
+ .debug_str     0x00000000000e346c      0x229 ./MyDriver/Button.o
+                                      0xd419e (size before relaxing)
+ .debug_str     0x00000000000e3695      0x338 ./MyDriver/Lcd.o
                                       0xd253e (size before relaxing)
- .debug_str     0x00000000000e39c7       0x5b ./MyDriver/Log.o
+ .debug_str     0x00000000000e39cd       0x5b ./MyDriver/Log.o
                                       0xd1ab2 (size before relaxing)
 
 .debug_frame    0x0000000000000000     0x7d0c

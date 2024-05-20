@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="//mLcd.clearDisplay();"/>
+		<item key="selection" value="OOC"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="OOC"/>
+			<item value="fanEnable"/>
+			<item value="supplyAlgorithm"/>
+			<item value="if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)"/>
+			<item value="chargeCtrl.mOutputMode"/>
 			<item value="//mLcd.clearDisplay();"/>
 			<item value="mLcd.clearDisplay();"/>
 			<item value="pwmWrite"/>
@@ -16,15 +21,14 @@
 			<item value="&quot;1UP 2DOWN 3SEL 4BACK&quot;"/>
 			<item value="arrowLine"/>
 			<item value="mLcdDisplay"/>
-			<item value="supplyAlgorithm"/>
 			<item value="mIndex"/>
 			<item value="voltageDrop"/>
-			<item value="updateLastIndexLine"/>
-			<item value="LCD_SendCommand(lcd, "/>
-			<item value="LCD_SendCommand"/>
-			<item value="dataHigh"/>
 		</list>
 		<list key="replacehistory">
+			<item value="loadCfgEnable"/>
+			<item value="fanEnable"/>
+			<item value="ouputMode"/>
+			<item value="chargeCtrl.mMpptMode"/>
 			<item value="if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED){mLcd.clearDisplay();}"/>
 			<item value="if (button.getLatestPressedButton() != Button::ButtonName::UNDEFINED)"/>
 			<item value="//mLcd.clearDisplay();"/>
