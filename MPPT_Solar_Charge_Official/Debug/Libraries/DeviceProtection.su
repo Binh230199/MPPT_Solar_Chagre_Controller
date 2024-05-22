@@ -1,0 +1,10 @@
+../Libraries/DeviceProtection.cpp:18:5:blib::DeviceProtection::~DeviceProtection()	0	static
+../Libraries/Constant.h:23:7:Constant::~Constant()	0	static
+../Libraries/DeviceProtection.cpp:18:5:virtual blib::DeviceProtection::~DeviceProtection()	8	static
+../Libraries/Constant.h:23:7:virtual Constant::~Constant()	8	static
+../Libraries/DeviceProtection.cpp:14:5:blib::DeviceProtection::DeviceProtection()	0	static
+../Libraries/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Analog]	16	static
+../Libraries/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::ChargeControl]	16	static
+../Libraries/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = Constant]	8	static
+../Libraries/DeviceProtection.cpp:22:10:void blib::DeviceProtection::backFlowControl()	24	static
+../Libraries/DeviceProtection.cpp:50:10:void blib::DeviceProtection::run()	32	static

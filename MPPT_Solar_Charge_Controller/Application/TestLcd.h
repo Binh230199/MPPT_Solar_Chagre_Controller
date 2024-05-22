@@ -20,6 +20,7 @@
 #include "Log.h"
 
 #include "Lcd.h"
+#include "Rtc.h"
 
 extern I2C_HandleTypeDef hi2c1;
 namespace blib
@@ -193,8 +194,8 @@ namespace blib
                 const int COL = 21;
                 const int ROW = 5;
 
-                char list[ROW][COL] = { "", "1 DISPLAY VIEW 1", "2 DISPLAY VIEW 2",
-                        "3 DISPLAY VIEW 3", "4 DISPLAY VIEW 4" };
+                char list[ROW][COL] = { "", "1 DISPLAY TIME", "2 DISPLAY ERROR",
+                        "3 DISPLAY CONTROL", "4 DISPLAY VIEW 4" };
 
                 static int arrowLine = 0;
                 static int mIndexLine = 1;
@@ -266,19 +267,19 @@ namespace blib
                     if (mIndexLine == 1)
                     {
                         LOGI("Go to Display Config 1");
-                        mCallback = &LcdSimulate::impl_3_1_DisplayConfig1;
+                        mCallback = &LcdSimulate::impl_3_1_DisplayTime;
                     }
                     // Chon SETTING MODE
                     else if (mIndexLine == 2)
                     {
                         LOGI("Go to Display Config 2");
-                        mCallback = &LcdSimulate::impl_3_1_DisplayConfig2;
+                        mCallback = &LcdSimulate::impl_3_1_DisplayError;
                     }
                     // Chon ABOUT
                     else if (mIndexLine == 3)
                     {
                         LOGI("Go to Display Config 3");
-                        mCallback = &LcdSimulate::impl_3_1_DisplayConfig3;
+                        mCallback = &LcdSimulate::impl_3_1_DisplayControl;
                     }
                     else if (mIndexLine == 4)
                     {
@@ -332,8 +333,8 @@ namespace blib
 
                 char list[ROW][COL] = { "", "1 SUPPLY ALGORITHM", "2 MODE", "3 MAX BATTERY VOLT",
                         "4 MIN BATTERY VOLT", "5 CHARGING CURRENT", "6 COOLING FAN",
-                        "7 FAN TRIGGER TEMP", "8 SHUTDOWN TEMP", "9 AUTOLOAD", "10BACKLIGHT SLEEP",
-                        "11FACTORY RESET" };
+                        "7 FAN TRIGGER TEMP", "8 SHUTDOWN TEMP", "9 AUTOLOAD", "10 SET TIME",
+                        "11 FACTORY RESET" };
                 static int arrowLine = 0;
                 static int mIndexLine = 1;
 
@@ -458,7 +459,7 @@ namespace blib
                     else if (mIndexLine == 10)
                     {
                         LOGI("Go to Backlight");
-                        mCallback = &LcdSimulate::impl_3_2_Backlight;
+                        mCallback = &LcdSimulate::impl_3_1_Settime;
                     }
                     else if (mIndexLine == 11)
                     {
@@ -502,28 +503,21 @@ namespace blib
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
-            void impl_3_1_DisplayConfig1()
+            void impl_3_1_DisplayTime()
             {
-//                char line0[21] = { 0 }, line1[21] = { 0 }, line2[21] = { 0 }, line3[21] = { 0 };
-//
-//                snprintf(line0, 21, "%03.1W %04.2fWh ", 25.1);    //P:025.1W A:0003.4Wh
-//
-//                if (isBatteryPlugin)
-//                {
-//                    snprintf(line1, 21, "Bat: %03.1%%");    // Bat:100.0%
-//                }
-//                else
-//                {
-//                    snprintf(line1, 21, "Bat: NOBAT");    // Bat: NOBAT
-//                }
-//
-//                snprintf(line2, 21, "Iout: %03.1fA", 5.1f);    // Iout: 005.1A
-//
-//                //mLcd.clearDisplay();
-//                mLcd.displayLine(0, 0, line0);
-//                mLcd.displayLine(1, 0, line1);
-//                mLcd.displayLine(2, 0, line2);
-//                mLcd.displayLine(3, 0, "1UP 2DOWN 3SEL 4BACK");
+                Rtc rtc;
+                rtc.readTime();
+
+                char line0[21] = { 0 }, line1[21] = { 0 };
+
+                snprintf(line0, 21, "RTC TIME");    //P:025.1W A:0003.4Wh
+                snprintf(line1, 21, "%02d:%02d %02d/%02d/%d", rtc.mHour, rtc.mMinute, rtc.mDate,
+                        rtc.mMonth, 2000 + rtc.mYear);
+
+                mLcd.clearDisplay();
+                mLcd.displayLine(0, 0, line0);
+                mLcd.displayLine(1, 2, line1);
+                mLcd.displayLine(3, 15, "4BACK");
                 auto &button = Button::getInstance();
                 if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
@@ -533,18 +527,22 @@ namespace blib
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
-            void impl_3_1_DisplayConfig2()
+            void impl_3_1_DisplayError()
             {
-//                char line0[21] = { 0 }, line1[21] = { 0 }, line2[21] = { 0 }, line3[21] = { 0 };
-//
-//                snprintf(line0, 21, "%03.1W %04.2fWh ", 25.1);    //P:025.1W A:0003.4Wh
-//                snprintf(line2, 21, "Iout: %03.1fA", 5.1f);    // Iout: 005.1A
-//
-//                //mLcd.clearDisplay();
-//                mLcd.displayLine(0, 0, line0);
-//                mLcd.displayLine(1, 0, line1);
-//                mLcd.displayLine(2, 0, line2);
-//                mLcd.displayLine(3, 0, "1UP 2DOWN 3SEL 4BACK");
+                auto &devPrt = blib::DeviceProtection::getInstance();
+                char line1[21] = { 0 }, line2[21] = { 0 }, line3[21] = { 0 };
+
+                snprintf(line1, 21, " ERR:%d" " FLV:%d" " BNC:%d", devPrt.mERR, devPrt.mFLV,
+                        devPrt.mBNC);    //P:025.1W A:0003.4Wh
+                snprintf(line2, 21, " IUV:%d" " IOC:%d" " OOV:%d", devPrt.mIUV, devPrt.mIOC,
+                        devPrt.mOOV);    // Iout: 005.1A
+                snprintf(line3, 21, " OOC:%d OTE:%d   4BACK", devPrt.mOOC, devPrt.mOTE);
+
+//                mLcd.clearDisplay();
+                mLcd.displayLine(0, 0, "ERROR CHECKING      ");
+                mLcd.displayLine(1, 0, line1);
+                mLcd.displayLine(2, 0, line2);
+                mLcd.displayLine(3, 0, line3);
                 auto &button = Button::getInstance();
                 if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
@@ -554,8 +552,24 @@ namespace blib
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
-            void impl_3_1_DisplayConfig3()
+            void impl_3_1_DisplayControl()
             {
+                auto &analog = blib::Analog::getInstance();
+                auto &chargeCtrl = blib::ChargeControl::getInstance();
+                auto &sysMgr = blib::SystemManager::getInstance();
+                char line1[21] = { 0 }, line2[21] = { 0 }, line3[21] = { 0 };
+
+                snprintf(line1, 21, "Buck:%d Fan:%d T:%.1f", chargeCtrl.mBuckEnable,
+                        sysMgr.enableFan, analog.mTemp);    //P:025.1W A:0003.4Wh
+                snprintf(line2, 21, "PWM:%ld PPWM:%ld", chargeCtrl.mPwm, chargeCtrl.mPredictPwm);    // Iout: 005.1A
+                snprintf(line3, 21, "4BACK");
+
+                mLcd.clearDisplay();
+                mLcd.displayLine(0, 0, "CONTROL");
+
+                mLcd.displayLine(1, 0, line1);
+                mLcd.displayLine(2, 0, line2);
+                mLcd.displayLine(3, 15, line3);
                 auto &button = Button::getInstance();
                 if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
@@ -567,17 +581,17 @@ namespace blib
 
             void impl_3_1_DisplayConfig4()
             {
-//                char line0[21] = { 0 }, line1[21] = { 0 }, line2[21] = { 0 }, line3[21] = { 0 };
-//
-//                snprintf(line0, 21, "%s", "Temp: %.2f\u00B0C", Analog::getInstance().getTemp());    //Temperature
-//                snprintf(line1, 21, "%s", "Fan: %s", (isFanStatus == RUN) ? "RUN" : "OFF");    //Fan: RUN
-//                snprintf(line2, 21, "Thres:[%.2f-%.2f]", 60, 90);
-//
-//                //mLcd.clearDisplay();
-//                mLcd.displayLine(0, 0, line0);
-//                mLcd.displayLine(1, 0, line1);
-//                mLcd.displayLine(2, 0, line2);
-//                mLcd.displayLine(3, 15, "4BACK");
+                //                char line0[21] = { 0 }, line1[21] = { 0 }, line2[21] = { 0 }, line3[21] = { 0 };
+                //
+                //                snprintf(line0, 21, "%s", "Temp: %.2f\u00B0C", Analog::getInstance().getTemp());    //Temperature
+                //                snprintf(line1, 21, "%s", "Fan: %s", (isFanStatus == RUN) ? "RUN" : "OFF");    //Fan: RUN
+                //                snprintf(line2, 21, "Thres:[%.2f-%.2f]", 60, 90);
+                //
+                //                //mLcd.clearDisplay();
+                //                mLcd.displayLine(0, 0, line0);
+                //                mLcd.displayLine(1, 0, line1);
+                //                mLcd.displayLine(2, 0, line2);
+                //                mLcd.displayLine(3, 15, "4BACK");
                 auto &button = Button::getInstance();
                 if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
@@ -1119,52 +1133,96 @@ namespace blib
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
 
-            void impl_3_2_Backlight()
+            void impl_3_1_Settime()
             {
                 auto &button = Button::getInstance();
 
-                static bool isBacklight = true;
+                Rtc rtc;
+                rtc.readTime();
 
-                if (button.getLatestPressedButton() == Button::ButtonName::UP
-                        || button.getLatestPressedButton() == Button::ButtonName::DOWN)
+                uint8_t hour = rtc.mHour, minute = rtc.mMinute, date = rtc.mDate,
+                        month = rtc.mMonth, year = 25;
+
+                char line1[21] = { 0 };
+
+                snprintf(line1, 21, "%02d:%02d %02d/%02d/%d", rtc.mHour, rtc.mMinute, rtc.mDate,
+                        rtc.mMonth, 2000 + rtc.mYear);
+                mLcd.clearDisplay();
+
+                mLcd.displayLine(0, 0, "SET TIME");
+                mLcd.displayLine(1, 2, line1);
+                mLcd.displayLine(3, 0, "1-2CHANGE 3SEL 4BACK");
+                int powSignCol = 2;
+
+                while (button.getLatestPressedButton() != Button::ButtonName::BACK)
                 {
-                    isBacklight = !isBacklight;
+                    if (button.getLatestPressedButton() == Button::ButtonName::UP)
+                    {
+                        switch (powSignCol)
+                        {
+                            case 2:
+                                Rtc::incrementParameter(0, hour, minute, date, month, year);
+                                break;
+                            case 5:
+                                Rtc::incrementParameter(1, hour, minute, date, month, year);
+                                break;
+                            case 8:
+                                Rtc::incrementParameter(2, hour, minute, date, month, year);
+                                break;
+                            case 11:
+                                Rtc::incrementParameter(3, hour, minute, date, month, year);
+                                break;
+                            case 14:
+                                Rtc::incrementParameter(4, hour, minute, date, month, year);
+                                break;
+                        }
+                    }
+                    else if (button.getLatestPressedButton() == Button::ButtonName::DOWN)
+                    {
+                        switch (powSignCol)
+                        {
+                            case 2:
+                                Rtc::decrementParameter(0, hour, minute, date, month, year);
+                                break;
+                            case 5:
+                                Rtc::decrementParameter(1, hour, minute, date, month, year);
+                                break;
+                            case 8:
+                                Rtc::decrementParameter(2, hour, minute, date, month, year);
+                                break;
+                            case 11:
+                                Rtc::decrementParameter(3, hour, minute, date, month, year);
+                                break;
+                            case 14:
+                                Rtc::decrementParameter(4, hour, minute, date, month, year);
+                                break;
+                        }
+                    }
+                    else if (button.getLatestPressedButton() == Button::ButtonName::SEL)
+                    {
+                        if (powSignCol == 14)
+                        {
+                            rtc.setTime(hour, minute, date, month, year);
+                            break;
+                        }
+                        else
+                        {
+                            powSignCol += 3;
+                        }
+                    }
+                    snprintf(line1, 21, "%02d:%02d %02d/%02d/%d", hour, minute, date, month,
+                            2000 + year);
+                    mLcd.displayLine(1, 2, line1);
+                    mLcd.displayLine(2, powSignCol, "^");
+                    button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
+                    HAL_Delay(100);
                 }
 
-                else if (button.getLatestPressedButton() == Button::ButtonName::BACK)
+                if (button.getLatestPressedButton() == Button::ButtonName::BACK)
                 {
                     LOGI("Go back to Setting screen");
                     mCallback = &LcdSimulate::impl_3_SettingScroll;    //
                 }
-
-                mLcd.clearDisplay();
-
-                mLcd.displayLine(0, 0, "LCD BACKLIGHT");
-
-                if (isBacklight)
-                {
-                    mLcd.displayLine(1, 0, "YES");
-                }
-                else
-                {
-                    mLcd.displayLine(1, 0, "NO ");
-                }
-
-                if (button.getLatestPressedButton() == Button::ButtonName::SEL)
-                {
-                    if (isBacklight == true)
-                    {
-                        impl_backLight();
-                        mLcd.displayLine(2, 0, "> Backlight on");
-                    }
-                    else
-                    {
-                        impl_Nobacklight();
-                        mLcd.displayLine(2, 0, "> Backlight off");
-                    }
-                }
-
-                mLcd.displayLine(3, 15, "4BACK");
 
                 button.setLatestPressedButton(Button::ButtonName::UNDEFINED);
             }
@@ -1203,7 +1261,8 @@ namespace blib
             Callback mCallback;
 
             Lcd mLcd;    // lcd display monitor
-    };
+    }
+    ;
 
 }    // namespace blib
 

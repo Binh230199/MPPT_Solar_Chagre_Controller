@@ -1,128 +1,241 @@
-06:37:33 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Controller ****
+06:40:00 **** Build of configuration Debug for project MPPT_Solar_Charge_Controller ****
 make -j8 all 
 arm-none-eabi-g++ "../MyDriver/Button.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"MyDriver/Button.d" -MT"MyDriver/Button.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "MyDriver/Button.o"
-arm-none-eabi-g++ "../MyDriver/Lcd.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"MyDriver/Lcd.d" -MT"MyDriver/Lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "MyDriver/Lcd.o"
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-g++ "../Application/Analog.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/Analog.d" -MT"Application/Analog.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Analog.o"
 arm-none-eabi-g++ "../Application/ChargeControl.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/ChargeControl.d" -MT"Application/ChargeControl.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/ChargeControl.o"
 arm-none-eabi-g++ "../Application/DeviceProtection.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/DeviceProtection.d" -MT"Application/DeviceProtection.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/DeviceProtection.o"
 arm-none-eabi-g++ "../Application/SerialMonitor.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/SerialMonitor.d" -MT"Application/SerialMonitor.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/SerialMonitor.o"
 arm-none-eabi-g++ "../Application/SystemManager.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../MyDriver/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton" -I"D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/StateMachine" -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/SystemManager.d" -MT"Application/SystemManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/SystemManager.o"
-In file included from ../MyDriver/Button.cpp:10:
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h: In member function 'void blib::LcdSimulate::impl_1_HomeScreen()':
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:57:79: warning: unused variable 'line3' [-Wunused-variable]
-   57 |                 char line0[21] = { 0 }, line1[21] = { 0 }, line2[21] = { 0 }, line3[21] = { 0 };
-      |                                                                               ^~~~~
+In file included from D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:18,
+                 from ../MyDriver/Button.cpp:10:
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h: In member function 'void blib::SystemManager::process()':
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:53:39: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
+   53 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+      |                                       ^~~~~~~~~~~~~~~~~
+      |                                       LOAD_GPIO_Port
+../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::buckEnable()':
+../Application/ChargeControl.cpp:148:27: error: 'BUCK_EN_GPIO_Port' was not declared in this scope; did you mean 'BUCK_ENABLE_GPIO_Port'?
+  148 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
+      |                           ^~~~~~~~~~~~~~~~~
+      |                           BUCK_ENABLE_GPIO_Port
+In file included from ../Application/SystemManager.cpp:8:
+../Application/SystemManager.h: In member function 'void blib::SystemManager::process()':
+../Application/SystemManager.h:53:39: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
+   53 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+      |                                       ^~~~~~~~~~~~~~~~~
+      |                                       LOAD_GPIO_Port
+In file included from ../Application/SerialMonitor.cpp:17:
+../Application/SystemManager.h: In member function 'void blib::SystemManager::process()':
+../Application/SystemManager.h:53:39: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
+   53 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+      |                                       ^~~~~~~~~~~~~~~~~
+      |                                       LOAD_GPIO_Port
+../Application/ChargeControl.cpp:148:46: error: 'BUCK_EN_Pin' was not declared in this scope; did you mean 'BUCK_ENABLE_Pin'?
+  148 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
+      |                                              ^~~~~~~~~~~
+      |                                              BUCK_ENABLE_Pin
+../Application/SystemManager.h:53:58: error: 'LED_RED_Pin' was not declared in this scope
+   53 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+      |                                                          ^~~~~~~~~~~
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:53:58: error: 'LED_RED_Pin' was not declared in this scope
+   53 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+      |                                                          ^~~~~~~~~~~
+../Application/SystemManager.h:53:58: error: 'LED_RED_Pin' was not declared in this scope
+   53 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+      |                                                          ^~~~~~~~~~~
+../Application/SystemManager.h:57:39: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
+   57 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+      |                                       LOAD_GPIO_Port
+../Application/ChargeControl.cpp:149:27: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
+  149 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+      |                           ^~~~~~~~~~~~~~~~~
+      |                           LOAD_GPIO_Port
 ../Application/DeviceProtection.cpp: In member function 'void blib::DeviceProtection::backFlowControl()':
 ../Application/DeviceProtection.cpp:47:27: error: 'BFC_GPIO_Port' was not declared in this scope; did you mean 'BCCU_GPIO_Port'?
    47 |         HAL_GPIO_WritePin(BFC_GPIO_Port, BFC_Pin, ((GPIO_PinState) !mBypassEnable));
       |                           ^~~~~~~~~~~~~
       |                           BCCU_GPIO_Port
-../Core/Src/main.cpp: In function 'int main()':
-../Core/Src/main.cpp:188:27: error: 'blib::Monitor' has not been declared
-  188 |     auto &monitor = blib::Monitor::getInstance();
-      |                           ^~~~~~~
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:57:39: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
+   57 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+      |                                       LOAD_GPIO_Port
 ../Application/DeviceProtection.cpp:47:42: error: 'BFC_Pin' was not declared in this scope; did you mean 'BCCU_Pin'?
    47 |         HAL_GPIO_WritePin(BFC_GPIO_Port, BFC_Pin, ((GPIO_PinState) !mBypassEnable));
       |                                          ^~~~~~~
       |                                          BCCU_Pin
-../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::run()':
-../Application/ChargeControl.cpp:133:39: error: 'INVERTER_CTRL_GPIO_Port' was not declared in this scope
-  133 |                     HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_RESET);
-      |                                       ^~~~~~~~~~~~~~~~~~~~~~~
-In file included from ../Application/SystemManager.cpp:8:
-../Application/SystemManager.h: In member function 'void blib::SystemManager::process()':
-../Application/SystemManager.h:48:39: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
-   48 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+../Application/SystemManager.h:57:39: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
+   57 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
       |                                       ^~~~~~~~~~~~~~~~~
       |                                       LOAD_GPIO_Port
-../Application/ChargeControl.cpp:133:64: error: 'INVERTER_CTRL_Pin' was not declared in this scope
-  133 |                     HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_RESET);
-      |                                                                ^~~~~~~~~~~~~~~~~
-../Application/SystemManager.h:48:58: error: 'LED_RED_Pin' was not declared in this scope
-   48 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+../Application/SystemManager.h:57:58: error: 'LED_RED_Pin' was not declared in this scope
+   57 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
       |                                                          ^~~~~~~~~~~
-../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::buckEnable()':
-../Application/ChargeControl.cpp:160:27: error: 'BUCK_EN_GPIO_Port' was not declared in this scope; did you mean 'BUCK_ENABLE_GPIO_Port'?
-  160 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
+../Application/ChargeControl.cpp:149:46: error: 'LED_RED_Pin' was not declared in this scope
+  149 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+      |                                              ^~~~~~~~~~~
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:57:58: error: 'LED_RED_Pin' was not declared in this scope
+   57 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+      |                                                          ^~~~~~~~~~~
+../Application/SystemManager.h:57:58: error: 'LED_RED_Pin' was not declared in this scope
+   57 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+      |                                                          ^~~~~~~~~~~
+../Core/Src/main.cpp: In function 'int main()':
+../Core/Src/main.cpp:188:27: error: 'blib::Monitor' has not been declared
+  188 |     auto &monitor = blib::Monitor::getInstance();
+      |                           ^~~~~~~
+../Application/SystemManager.h:62:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
+   62 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::buckDisable()':
+../Application/ChargeControl.cpp:157:27: error: 'BUCK_EN_GPIO_Port' was not declared in this scope; did you mean 'BUCK_ENABLE_GPIO_Port'?
+  157 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_SET);
       |                           ^~~~~~~~~~~~~~~~~
       |                           BUCK_ENABLE_GPIO_Port
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:62:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
+   62 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+../Application/SystemManager.h:62:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
+   62 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+../Application/ChargeControl.cpp:157:46: error: 'BUCK_EN_Pin' was not declared in this scope; did you mean 'BUCK_ENABLE_Pin'?
+  157 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_SET);
+      |                                              ^~~~~~~~~~~
+      |                                              BUCK_ENABLE_Pin
+../Application/SystemManager.h:62:58: error: 'LED_YEL_Pin' was not declared in this scope
+   62 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+      |                                                          ^~~~~~~~~~~
 make: *** [Application/subdir.mk:31: Application/DeviceProtection.o] Error 1
 make: *** Waiting for unfinished jobs....
-../Application/SystemManager.h:52:39: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
-   52 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
-      |                                       ^~~~~~~~~~~~~~~~~
-      |                                       LOAD_GPIO_Port
-../Application/ChargeControl.cpp:160:46: error: 'BUCK_EN_Pin' was not declared in this scope; did you mean 'BUCK_ENABLE_Pin'?
-  160 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
-      |                                              ^~~~~~~~~~~
-      |                                              BUCK_ENABLE_Pin
-make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
-../Application/SystemManager.h:52:58: error: 'LED_RED_Pin' was not declared in this scope
-   52 |                     HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:62:58: error: 'LED_YEL_Pin' was not declared in this scope
+   62 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
       |                                                          ^~~~~~~~~~~
-../Application/ChargeControl.cpp:161:27: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
-  161 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
-      |                           ^~~~~~~~~~~~~~~~~
-      |                           LOAD_GPIO_Port
-../Application/ChargeControl.cpp:161:46: error: 'LED_RED_Pin' was not declared in this scope
-  161 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
-      |                                              ^~~~~~~~~~~
-../Application/SystemManager.h:57:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
-   57 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
-      |                                       ^~~~~~~~~~~~~~~~~
-../Application/SystemManager.h:57:58: error: 'LED_YEL_Pin' was not declared in this scope
-   57 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
-      |                                                          ^~~~~~~~~~~
-../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::buckDisable()':
-../Application/ChargeControl.cpp:169:27: error: 'BUCK_EN_GPIO_Port' was not declared in this scope; did you mean 'BUCK_ENABLE_GPIO_Port'?
-  169 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_SET);
-      |                           ^~~~~~~~~~~~~~~~~
-      |                           BUCK_ENABLE_GPIO_Port
-../Application/ChargeControl.cpp:169:46: error: 'BUCK_EN_Pin' was not declared in this scope; did you mean 'BUCK_ENABLE_Pin'?
-  169 |         HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_SET);
-      |                                              ^~~~~~~~~~~
-      |                                              BUCK_ENABLE_Pin
-../Application/SystemManager.h:58:39: error: 'LED_GRE_GPIO_Port' was not declared in this scope
-   58 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_RESET);
-      |                                       ^~~~~~~~~~~~~~~~~
-../Application/SystemManager.h:58:58: error: 'LED_GRE_Pin' was not declared in this scope
-   58 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_RESET);
-      |                                                          ^~~~~~~~~~~
-../Application/ChargeControl.cpp:170:27: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
-  170 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
-      |                           ^~~~~~~~~~~~~~~~~
-      |                           LOAD_GPIO_Port
-../Application/ChargeControl.cpp:170:46: error: 'LED_RED_Pin' was not declared in this scope
-  170 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
-      |                                              ^~~~~~~~~~~
-../Application/SystemManager.h:62:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
-   62 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_RESET);
-      |                                       ^~~~~~~~~~~~~~~~~
 ../Application/SystemManager.h:62:58: error: 'LED_YEL_Pin' was not declared in this scope
-   62 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_RESET);
+   62 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
       |                                                          ^~~~~~~~~~~
+../Application/ChargeControl.cpp:158:27: error: 'LED_RED_GPIO_Port' was not declared in this scope; did you mean 'LOAD_GPIO_Port'?
+  158 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+      |                           ^~~~~~~~~~~~~~~~~
+      |                           LOAD_GPIO_Port
 ../Application/SystemManager.h:63:39: error: 'LED_GRE_GPIO_Port' was not declared in this scope
-   63 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+   63 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_RESET);
       |                                       ^~~~~~~~~~~~~~~~~
-make: *** [Application/subdir.mk:31: Application/ChargeControl.o] Error 1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:63:39: error: 'LED_GRE_GPIO_Port' was not declared in this scope
+   63 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_RESET);
+      |                                       ^~~~~~~~~~~~~~~~~
+../Application/SystemManager.h:63:39: error: 'LED_GRE_GPIO_Port' was not declared in this scope
+   63 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_RESET);
+      |                                       ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+../Application/ChargeControl.cpp:158:46: error: 'LED_RED_Pin' was not declared in this scope
+  158 |         HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+      |                                              ^~~~~~~~~~~
 ../Application/SystemManager.h:63:58: error: 'LED_GRE_Pin' was not declared in this scope
-   63 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+   63 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_RESET);
       |                                                          ^~~~~~~~~~~
-../Application/SystemManager.h:67:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
-   67 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:63:58: error: 'LED_GRE_Pin' was not declared in this scope
+   63 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_RESET);
+      |                                                          ^~~~~~~~~~~
+../Application/SystemManager.h:63:58: error: 'LED_GRE_Pin' was not declared in this scope
+   63 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_RESET);
+      |                                                          ^~~~~~~~~~~
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:67:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
+   67 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_RESET);
       |                                       ^~~~~~~~~~~~~~~~~
+../Application/SystemManager.h:67:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
+   67 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_RESET);
+      |                                       ^~~~~~~~~~~~~~~~~
+../Application/SystemManager.h:67:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
+   67 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_RESET);
+      |                                       ^~~~~~~~~~~~~~~~~
+../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::inverterEnable()':
+../Application/ChargeControl.cpp:165:27: error: 'INVERTER_CTRL_GPIO_Port' was not declared in this scope
+  165 |         HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_RESET);
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~
 ../Application/SystemManager.h:67:58: error: 'LED_YEL_Pin' was not declared in this scope
-   67 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+   67 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_RESET);
       |                                                          ^~~~~~~~~~~
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:67:58: error: 'LED_YEL_Pin' was not declared in this scope
+   67 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_RESET);
+      |                                                          ^~~~~~~~~~~
+../Application/SystemManager.h:67:58: error: 'LED_YEL_Pin' was not declared in this scope
+   67 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_RESET);
+      |                                                          ^~~~~~~~~~~
+../Application/ChargeControl.cpp:165:52: error: 'INVERTER_CTRL_Pin' was not declared in this scope
+  165 |         HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_RESET);
+      |                                                    ^~~~~~~~~~~~~~~~~
 ../Application/SystemManager.h:68:39: error: 'LED_GRE_GPIO_Port' was not declared in this scope
+   68 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+../Application/SystemManager.h:68:39: error: 'LED_GRE_GPIO_Port' was not declared in this scope
+   68 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:68:39: error: 'LED_GRE_GPIO_Port' was not declared in this scope
    68 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
       |                                       ^~~~~~~~~~~~~~~~~
 ../Application/SystemManager.h:68:58: error: 'LED_GRE_Pin' was not declared in this scope
    68 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
       |                                                          ^~~~~~~~~~~
+../Application/SystemManager.h:68:58: error: 'LED_GRE_Pin' was not declared in this scope
+   68 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+      |                                                          ^~~~~~~~~~~
+../Application/ChargeControl.cpp: In member function 'void blib::ChargeControl::inverterDisable()':
+../Application/ChargeControl.cpp:169:27: error: 'INVERTER_CTRL_GPIO_Port' was not declared in this scope
+  169 |         HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_SET);
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:68:58: error: 'LED_GRE_Pin' was not declared in this scope
+   68 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+      |                                                          ^~~~~~~~~~~
+../Application/SystemManager.h:72:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
+   72 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+../Application/SystemManager.h:72:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
+   72 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+../Application/ChargeControl.cpp:169:52: error: 'INVERTER_CTRL_Pin' was not declared in this scope
+  169 |         HAL_GPIO_WritePin(INVERTER_CTRL_GPIO_Port, INVERTER_CTRL_Pin, GPIO_PIN_SET);
+      |                                                    ^~~~~~~~~~~~~~~~~
+../Application/SystemManager.h:72:58: error: 'LED_YEL_Pin' was not declared in this scope
+   72 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+      |                                                          ^~~~~~~~~~~
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:72:39: error: 'LED_YEL_GPIO_Port' was not declared in this scope
+   72 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+../Application/SystemManager.h:72:58: error: 'LED_YEL_Pin' was not declared in this scope
+   72 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+      |                                                          ^~~~~~~~~~~
+../Application/SystemManager.h:73:39: error: 'LED_GRE_GPIO_Port' was not declared in this scope
+   73 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+../Application/SystemManager.h:73:39: error: 'LED_GRE_GPIO_Port' was not declared in this scope
+   73 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:72:58: error: 'LED_YEL_Pin' was not declared in this scope
+   72 |                     HAL_GPIO_WritePin(LED_YEL_GPIO_Port, LED_YEL_Pin, GPIO_PIN_SET);
+      |                                                          ^~~~~~~~~~~
+../Application/SystemManager.h:73:58: error: 'LED_GRE_Pin' was not declared in this scope
+   73 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+      |                                                          ^~~~~~~~~~~
+../Application/SystemManager.h:73:58: error: 'LED_GRE_Pin' was not declared in this scope
+   73 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+      |                                                          ^~~~~~~~~~~
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:73:39: error: 'LED_GRE_GPIO_Port' was not declared in this scope
+   73 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+      |                                       ^~~~~~~~~~~~~~~~~
+make: *** [Application/subdir.mk:31: Application/ChargeControl.o] Error 1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:73:58: error: 'LED_GRE_Pin' was not declared in this scope
+   73 |                     HAL_GPIO_WritePin(LED_GRE_GPIO_Port, LED_GRE_Pin, GPIO_PIN_SET);
+      |                                                          ^~~~~~~~~~~
+In file included from ../MyDriver/Button.cpp:10:
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h: In member function 'void blib::LcdSimulate::impl_1_HomeScreen()':
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:58:79: warning: unused variable 'line3' [-Wunused-variable]
+   58 |                 char line0[21] = { 0 }, line1[21] = { 0 }, line2[21] = { 0 }, line3[21] = { 0 };
+      |                                                                               ^~~~~
 make: *** [Application/subdir.mk:31: Application/SystemManager.o] Error 1
+make: *** [Application/subdir.mk:31: Application/SerialMonitor.o] Error 1
+make: *** [MyDriver/subdir.mk:25: MyDriver/Button.o] Error 1
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
 
-06:37:35 Build Failed. 34 errors, 1 warnings. (took 1s.756ms)
+06:40:02 Build Failed. 70 errors, 1 warnings. (took 2s.251ms)
 

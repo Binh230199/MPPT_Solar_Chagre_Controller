@@ -1,3 +1,5 @@
+../Application/Constant.h:23:7:Constant::~Constant()	1
+../Application/Constant.h:23:7:virtual Constant::~Constant()	1
 ../Application/Analog.cpp:17:5:blib::Analog::~Analog()	1
 ../Application/Analog.cpp:17:5:virtual blib::Analog::~Analog()	1
 ../Application/Analog.cpp:23:10:void blib::Analog::sampling()	1
@@ -7,9 +9,10 @@
 ../Application/Analog.cpp:36:11:float blib::Analog::getVout() const	1
 ../Application/Analog.cpp:40:11:float blib::Analog::getIout() const	1
 ../Application/Analog.cpp:44:11:float blib::Analog::getTemp() const	1
-../Application/Analog.cpp:83:11:float blib::Analog::calSolarVoltage(uint32_t)	1
-../Application/Analog.cpp:88:11:float blib::Analog::calSolarCurrent(uint32_t)	1
-../Application/Analog.cpp:95:11:float blib::Analog::calBatteryVoltage(uint32_t)	1
-../Application/Analog.cpp:99:11:float blib::Analog::calBatteryCurrent(uint32_t)	1
-../Application/Analog.cpp:106:11:float blib::Analog::calTemperature(uint32_t)	1
+../Application/Analog.cpp:113:11:float blib::Analog::calTemperature(uint32_t)	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = Constant]	2
+../Application/Analog.cpp:88:11:float blib::Analog::calSolarVoltage(uint32_t)	1
+../Application/Analog.cpp:93:11:float blib::Analog::calSolarCurrent(uint32_t)	1
+../Application/Analog.cpp:105:11:float blib::Analog::calBatteryCurrent(uint32_t)	1
+../Application/Analog.cpp:101:11:float blib::Analog::calBatteryVoltage(uint32_t)	1
 ../Application/Analog.cpp:49:10:void blib::Analog::readAnalog()	5

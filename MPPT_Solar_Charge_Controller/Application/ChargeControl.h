@@ -50,8 +50,8 @@ namespace blib
             OutputMode mOutputMode = OutputMode::PSU;    // Dung de bam xung
             bool mMpptMode = false;    // Dung de xac dinh thuat toan
             bool mBuckEnable = false;
-            uint32_t mPwm;
-            uint32_t mPredictPwm;
+            uint32_t mPwm = 0;
+            uint32_t mPredictPwm = 0;
             uint32_t mPwmMax;
             uint32_t mPwmMaxLimit;
 

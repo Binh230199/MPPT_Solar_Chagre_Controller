@@ -3,43 +3,42 @@ C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:30:13:blib::SystemManager::SystemManager()	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:34:21:blib::SystemManager::~SystemManager()	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/SystemManager.h:34:21:virtual blib::SystemManager::~SystemManager()	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:34:13:blib::LcdSimulate::LcdSimulate()	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:45:21:blib::LcdSimulate::~LcdSimulate()	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:45:21:virtual blib::LcdSimulate::~LcdSimulate()	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:49:18:void blib::LcdSimulate::run()	2
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:53:18:void blib::LcdSimulate::impl_1_HomeScreen()	9
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:95:18:void blib::LcdSimulate::impl_2_MenuScreen()	10
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:174:18:void blib::LcdSimulate::impl_3_AboutScreen()	2
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:191:18:void blib::LcdSimulate::impl_3_DisplayScroll()	19
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:325:18:void blib::LcdSimulate::impl_3_SettingScroll()	26
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:505:18:void blib::LcdSimulate::impl_3_1_DisplayConfig1()	2
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:536:18:void blib::LcdSimulate::impl_3_1_DisplayConfig2()	2
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:557:18:void blib::LcdSimulate::impl_3_1_DisplayConfig3()	2
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:568:18:void blib::LcdSimulate::impl_3_1_DisplayConfig4()	2
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:590:18:void blib::LcdSimulate::impl_3_2_SupplyAlgorithm()	12
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:662:18:void blib::LcdSimulate::impl_3_2_ChargeMode()	16
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:760:18:void blib::LcdSimulate::impl_3_2_MaxBatteryVolt()	7
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:805:18:void blib::LcdSimulate::impl_3_2_MinBatteryVolt()	7
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:850:18:void blib::LcdSimulate::impl_3_2_ChargingCurrent()	7
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:895:18:void blib::LcdSimulate::impl_3_2_CoolingFan()	12
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:963:18:void blib::LcdSimulate::impl_3_2_FanTriggerTemp()	7
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:1009:18:void blib::LcdSimulate::impl_3_2_ShutdownTemp()	7
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:1054:18:void blib::LcdSimulate::impl_3_2_AutoloadCfg()	12
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:1122:18:void blib::LcdSimulate::impl_3_2_Backlight()	8
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:1172:18:void blib::LcdSimulate::impl_3_2_FactoryReset()	2
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:1183:18:void blib::LcdSimulate::impl_Nobacklight()	1
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:1188:18:void blib::LcdSimulate::impl_backLight()	1
-../Core/Src/main.cpp:71:6:void HAL_GPIO_EXTI_Callback(uint16_t)	11
-../Core/Src/main.cpp:126:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	1
-../Core/Src/main.cpp:142:5:int main()	1
-../Core/Src/main.cpp:205:6:void SystemClock_Config()	4
-../Core/Src/main.cpp:255:13:void MX_ADC1_Init()	5
-../Core/Src/main.cpp:329:13:void MX_I2C1_Init()	4
-../Core/Src/main.cpp:377:13:void MX_TIM2_Init()	6
-../Core/Src/main.cpp:436:13:void MX_USART2_UART_Init()	2
-../Core/Src/main.cpp:469:13:void MX_DMA_Init()	1
-../Core/Src/main.cpp:487:13:void MX_GPIO_Init()	1
-../Core/Src/main.cpp:559:6:void Error_Handler()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:35:13:blib::LcdSimulate::LcdSimulate()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:46:21:blib::LcdSimulate::~LcdSimulate()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:46:21:virtual blib::LcdSimulate::~LcdSimulate()	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:50:18:void blib::LcdSimulate::run()	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:54:18:void blib::LcdSimulate::impl_1_HomeScreen()	9
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:96:18:void blib::LcdSimulate::impl_2_MenuScreen()	10
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:175:18:void blib::LcdSimulate::impl_3_AboutScreen()	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:192:18:void blib::LcdSimulate::impl_3_DisplayScroll()	19
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:326:18:void blib::LcdSimulate::impl_3_SettingScroll()	26
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:506:18:void blib::LcdSimulate::impl_3_1_DisplayTime()	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:530:18:void blib::LcdSimulate::impl_3_1_DisplayError()	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:555:18:void blib::LcdSimulate::impl_3_1_DisplayControl()	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:582:18:void blib::LcdSimulate::impl_3_1_DisplayConfig4()	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:604:18:void blib::LcdSimulate::impl_3_2_SupplyAlgorithm()	12
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:676:18:void blib::LcdSimulate::impl_3_2_ChargeMode()	16
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:774:18:void blib::LcdSimulate::impl_3_2_MaxBatteryVolt()	7
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:819:18:void blib::LcdSimulate::impl_3_2_MinBatteryVolt()	7
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:864:18:void blib::LcdSimulate::impl_3_2_ChargingCurrent()	7
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:909:18:void blib::LcdSimulate::impl_3_2_CoolingFan()	12
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:977:18:void blib::LcdSimulate::impl_3_2_FanTriggerTemp()	7
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:1023:18:void blib::LcdSimulate::impl_3_2_ShutdownTemp()	7
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:1068:18:void blib::LcdSimulate::impl_3_2_AutoloadCfg()	12
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:1136:18:void blib::LcdSimulate::impl_3_1_Settime()	17
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/TestLcd.h:1230:18:void blib::LcdSimulate::impl_3_2_FactoryReset()	2
+../Core/Src/main.cpp:74:6:void HAL_GPIO_EXTI_Callback(uint16_t)	11
+../Core/Src/main.cpp:129:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	1
+../Core/Src/main.cpp:145:5:int main()	1
+../Core/Src/main.cpp:209:6:void SystemClock_Config()	4
+../Core/Src/main.cpp:261:13:void MX_ADC1_Init()	5
+../Core/Src/main.cpp:335:13:void MX_I2C1_Init()	4
+../Core/Src/main.cpp:383:13:void MX_RTC_Init()	4
+../Core/Src/main.cpp:446:13:void MX_TIM2_Init()	6
+../Core/Src/main.cpp:505:13:void MX_USART2_UART_Init()	2
+../Core/Src/main.cpp:538:13:void MX_DMA_Init()	1
+../Core/Src/main.cpp:556:13:void MX_GPIO_Init()	1
+../Core/Src/main.cpp:628:6:void Error_Handler()	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:38:17:blib::dp::Singleton<T>::Singleton() [with T = blib::SystemManager]	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::SystemManager]	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = blib::SystemManager]	1
@@ -51,10 +50,10 @@ D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Design
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::LcdSimulate]	2
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::Button]	2
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/MyDriver/Log.h:35:25:) [with Args = {const char*, int, const char*}]	1
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::DeviceProtection]	2
+D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::SystemManager]	2
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/Application/Constant.h:23:7:Constant::Constant()	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = Constant]	2
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::SystemManager]	2
-D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::DeviceProtection]	2
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = blib::SerialMonitor]	2
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:38:17:blib::dp::Singleton<T>::Singleton() [with T = Constant]	1
 D:/PROJECT_MPPT/MPPT_Solar_Chagre_Controller/MPPT_Solar_Charge_Controller/DesignPattern/Singleton/Singleton.h:41:25:blib::dp::Singleton<T>::~Singleton() [with T = Constant]	1
