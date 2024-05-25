@@ -9,10 +9,10 @@
 ../Libraries/Analog.cpp:36:11:float blib::Analog::getVout() const	0	static
 ../Libraries/Analog.cpp:40:11:float blib::Analog::getIout() const	0	static
 ../Libraries/Analog.cpp:44:11:float blib::Analog::getTemp() const	0	static
-../Libraries/Analog.cpp:113:11:float blib::Analog::calTemperature(uint32_t)	24	static
+../Libraries/Analog.cpp:109:11:float blib::Analog::calTemperature(uint32_t)	24	static
 ../Libraries/Singleton.h:19:27:static T& blib::dp::Singleton<T>::getInstance() [with T = Constant]	8	static
 ../Libraries/Analog.cpp:88:11:float blib::Analog::calSolarVoltage(uint32_t)	16	static
 ../Libraries/Analog.cpp:93:11:float blib::Analog::calSolarCurrent(uint32_t)	16	static
-../Libraries/Analog.cpp:105:11:float blib::Analog::calBatteryCurrent(uint32_t)	0	static
-../Libraries/Analog.cpp:101:11:float blib::Analog::calBatteryVoltage(uint32_t)	16	static
+../Libraries/Analog.cpp:103:11:float blib::Analog::calBatteryCurrent(uint32_t)	0	static
+../Libraries/Analog.cpp:99:11:float blib::Analog::calBatteryVoltage(uint32_t)	16	static
 ../Libraries/Analog.cpp:49:10:void blib::Analog::readAnalog()	24	static

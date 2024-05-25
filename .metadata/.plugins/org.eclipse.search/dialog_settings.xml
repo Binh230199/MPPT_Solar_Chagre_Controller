@@ -9,13 +9,13 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
+			<item value="impl_3_1_Settime"/>
+			<item value="impl_3_1_DisplayControl"/>
+			<item value="impl_3_1_DisplayError"/>
+			<item value="impl_3_1_DisplayTime"/>
 			<item value="impl_3_2_SetTime"/>
 			<item value="run"/>
 			<item value=""/>
-			<item value="calBatteryVoltage"/>
-			<item value="calBatteryCurrent"/>
-			<item value="calTemperature"/>
-			<item value="calSolarCurrent"/>
 		</list>
 	</section>
 	<section name="">

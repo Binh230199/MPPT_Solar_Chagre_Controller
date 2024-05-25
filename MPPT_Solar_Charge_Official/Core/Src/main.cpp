@@ -78,7 +78,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin)
 {
     GPIO_TypeDef *pGPIOx = nullptr;
     static blib::Button::ButtonName lastedPressButton = blib::Button::ButtonName::UNDEFINED;
-    uint32_t timedelay = 2600000U;
+    uint32_t timedelay = 1440000;
 
     for (volatile uint32_t i = 0; i < timedelay; i++);
 

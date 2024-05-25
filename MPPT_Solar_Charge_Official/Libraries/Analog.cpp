@@ -49,7 +49,7 @@ namespace blib
     void Analog::readAnalog()
     {
         mVin = calSolarVoltage(mAdcValues[2]);
-        mIin = calSolarCurrent(mAdcValues[2]);
+        mIin = calSolarCurrent(mAdcValues[3]);
         mVout = calBatteryVoltage(mAdcValues[4]);
         mIout = calBatteryCurrent(mAdcValues[0]);
 #ifndef TEST
@@ -94,9 +94,7 @@ namespace blib
     {
         float voltage = Constant::getInstance().k_current_divider_input * ((float) adcValue / 4095)
                 * 3.3;
-        float current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
-
-        return current;
+        return abs(((5 * 0.5) - voltage) / ACS_SENSITIVITY);    // Vic = 5V
     }
     float Analog::calBatteryVoltage(uint32_t adcValue)    // Convert adcValue -> Vout
     {
@@ -106,9 +104,7 @@ namespace blib
     {
         float voltage = Constant::getInstance().k_current_divider_output * ((float) adcValue / 4095)
                 * 3.3;
-        float current = (voltage - (5 * 0.5)) / ACS_SENSITIVITY;    // Vic = 5V
-
-        return current;
+        return abs(((5 * 0.5) - voltage) / ACS_SENSITIVITY);    // Vic = 5V
     }
     float Analog::calTemperature(uint32_t adcValue)    // Convert adcValue -> Temperature NTC 10k
     {

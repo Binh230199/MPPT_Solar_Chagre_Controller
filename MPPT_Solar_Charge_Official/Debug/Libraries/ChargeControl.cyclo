@@ -17,4 +17,4 @@
 ../Libraries/ChargeControl.cpp:153:10:void blib::ChargeControl::buckDisable()	1
 ../Libraries/ChargeControl.cpp:34:5:blib::ChargeControl::ChargeControl()	1
 ../Libraries/ChargeControl.cpp:162:10:void blib::ChargeControl::inverterEnable()	1
-../Libraries/ChargeControl.cpp:45:10:void blib::ChargeControl::run()	18
+../Libraries/ChargeControl.cpp:45:10:void blib::ChargeControl::run()	17

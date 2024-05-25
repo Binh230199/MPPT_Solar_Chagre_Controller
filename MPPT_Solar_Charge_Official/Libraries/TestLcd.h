@@ -39,8 +39,8 @@ namespace blib
                 mLcd.displayLine(1, 1, "NAM HOC: 2023-2024");
                 mLcd.displayLine(2, 1, "LOP: DTD61DH");
                 mLcd.displayLine(3, 1, "DAI HOC HANG HAI VN");
-                mLcd.clearDisplay();
                 HAL_Delay(2000);
+                mLcd.clearDisplay();
                 mCallback = &LcdSimulate::impl_1_HomeScreen;
             }
             virtual ~LcdSimulate()
@@ -194,8 +194,8 @@ namespace blib
                 const int COL = 21;
                 const int ROW = 5;
 
-                char list[ROW][COL] = { "", "1 DISPLAY VIEW 1", "2 DISPLAY VIEW 2",
-                        "3 DISPLAY VIEW 3", "4 DISPLAY VIEW 4" };
+                char list[ROW][COL] = { "", "1 DISPLAY TIME", "2 DISPLAY ERROR",
+                        "3 DISPLAY CONTROL", "4 DISPLAY VIEW 4" };
 
                 static int arrowLine = 0;
                 static int mIndexLine = 1;

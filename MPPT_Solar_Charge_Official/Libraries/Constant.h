@@ -23,21 +23,21 @@ enum class OutputMode
 class Constant : public blib::dp::Singleton<Constant>
 {
     public:
-        static constexpr float k_voltage_divider_input = 10.0f;    // Max solar voltage = 30 -> 30/10 = 3V
+        static constexpr float k_voltage_divider_input = 7.67f;    // Max solar voltage = 24 -> 24/8 = 3V
 #ifndef TEST
-        static constexpr float k_voltage_divider_output = 5.0f;    // Max battery voltage = 15 -> 15/5 = 3V
+        static constexpr float k_voltage_divider_output = 4.95f;    // Max battery voltage = 15 -> 15/5 = 3V
 #else
         static constexpr float k_voltage_divider_output = 8.0f;    // Max battery voltage = 15 -> 15/5 = 3V
 #endif
 
-        static constexpr float k_current_divider_input = 2.0f;    // 5/2 = 2.5V
-        static constexpr float k_current_divider_output = 2.0f;    // 5/2 = 2.5V
+        static constexpr float k_current_divider_input = 1.67f;    // 5/.6 = 2.5V
+        static constexpr float k_current_divider_output = 1.67f;    // 5/2 = 2.5V
 
-        static constexpr float k_voltage_solar_max = 30.0f;    // 30V
+        static constexpr float k_voltage_solar_max = 24.0f;    // 30V
         float k_voltage_battery_max = 15.0f;    // 15V
         float k_voltage_battery_min = 10.0f;
-        float k_current_charging_max = 30.0f;    // Ampere
-        static constexpr float k_efficiency_rate = 0.9f;
+        float k_current_charging_max = 10.0f;    // Ampere
+        static constexpr float k_efficiency_rate = 0.95f;
         static constexpr float k_voltage_dropout = 1.0f;
 
         static constexpr float k_predict_pwm_margin = 99.5f;

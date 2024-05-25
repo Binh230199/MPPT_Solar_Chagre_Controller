@@ -68,15 +68,15 @@ namespace blib
                 {
                     if (analog.mIout > Constant::getInstance().k_current_charging_max)
                     {
-                        mPwm--;
+                        mPwm -= 3;
                     }
                     else if (analog.mVout > Constant::getInstance().k_voltage_battery_max)
                     {
-                        mPwm--;
+                        mPwm -= 3;
                     }
                     else if (analog.mVout < Constant::getInstance().k_voltage_battery_max)
                     {
-                        mPwm++;
+                        mPwm += 3;
                     }
                     else
                     {
@@ -92,33 +92,33 @@ namespace blib
 
                     if (analog.mIout > Constant::getInstance().k_current_charging_max)
                     {
-                        mPwm--;
+                        mPwm -= 3;
                     }
                     else if (analog.mVout > Constant::getInstance().k_voltage_battery_max)
                     {
-                        mPwm--;
+                        mPwm -= 3;
                     }
                     else
                     {
-                        if (analog.mPout > powerInputPrev && analog.mVin > voltageInputPrev)
+                        if (analog.mPin > powerInputPrev && analog.mVin > voltageInputPrev)
                         {
-                            mPwm--;
+                            mPwm -= 3;
                         }
                         else if (analog.mPin > powerInputPrev && analog.mVin < voltageInputPrev)
                         {
-                            mPwm++;
+                            mPwm += 3;
                         }    //  ↑P ↓V ; MPP←  //D++
                         else if (analog.mPin < powerInputPrev && analog.mVin > voltageInputPrev)
                         {
-                            mPwm++;
+                            mPwm += 3;
                         }    //  ↓P ↑V ; MPP→  //D++
                         else if (analog.mPin < powerInputPrev && analog.mVin < voltageInputPrev)
                         {
-                            mPwm--;
+                            mPwm -= 3;
                         }    //  ↓P ↓V ; ←MPP  //D--
                         else if (analog.mVout < Constant::getInstance().k_voltage_battery_max)
                         {
-                            mPwm++;
+                            mPwm += 3;
                         }
 
                         powerInputPrev = analog.mPin;

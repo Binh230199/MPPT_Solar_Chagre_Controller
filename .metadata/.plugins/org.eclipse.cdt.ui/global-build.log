@@ -1,18 +1,7 @@
-23:54:22 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Official ****
+20:52:08 **** Incremental Build of configuration Debug for project MPPT_Solar_Charge_Official ****
 make -j8 all 
-arm-none-eabi-g++ "../Libraries/Button.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Libraries/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Libraries/Button.d" -MT"Libraries/Button.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Libraries/Button.o"
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Libraries/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-g++ -o "MPPT_Solar_Charge_Official.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\PROJECT_MPPT\MPPT_Solar_Chagre_Controller\MPPT_Solar_Charge_Official\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MPPT_Solar_Charge_Official.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: MPPT_Solar_Charge_Official.elf
- 
 arm-none-eabi-size   MPPT_Solar_Charge_Official.elf 
-arm-none-eabi-objdump -h -S  MPPT_Solar_Charge_Official.elf  > "MPPT_Solar_Charge_Official.list"
-arm-none-eabi-objcopy  -O binary  MPPT_Solar_Charge_Official.elf  "MPPT_Solar_Charge_Official.bin"
    text	   data	    bss	    dec	    hex	filename
   50892	    488	   3480	  54860	   d64c	MPPT_Solar_Charge_Official.elf
 Finished building: default.size.stdout
- 
-Finished building: MPPT_Solar_Charge_Official.bin
- 
-Finished building: MPPT_Solar_Charge_Official.list
  
